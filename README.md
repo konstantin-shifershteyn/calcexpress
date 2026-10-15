@@ -1,4 +1,4 @@
-# CalcExpress 4.0 for LabVIEW 2021
+# CalcExpress Toolkit for LabVIEW
 
 Copyright (c) 2000-2026 Konstantin Shifershteyn. All rights reserved.
 
