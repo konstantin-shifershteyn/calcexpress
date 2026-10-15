@@ -1,0 +1,2009 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>String functions</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+<script src="js/_lvhelpref.js" type="text/javascript"></script>
+</head>
+
+<body>
+
+<!-- ########################################## -->
+<a name="cef_dtstr"></a>
+<div class="FuncDscrTitle">
+<h1>dtstr</h1>
+<p>The function converts numeric timestamps to strings according to the specified format.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>. The FuncVI uses <A HREF="JavaScript:lvhFmtDt.Click()">Format Date/Time String</a> LabVIEW function. Refer to the help for it for more information.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">dtstr(<i>fmt</i> ,<i>time</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function converts either the current date/time or the specified date/time represented as a DBL number (LabVIEW universal date/time format) to a string in the format specified by the <b>fmt</b> parameter.</p>
+<p>The function allows the <b>time</b> parameter to be a scalar or an array. If <b>time</b> is an array, the function performs the operation on each element of the array. In such a case, the result is an array of strings with the same dimensionality and size as the input array.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>fmt</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the date/time format string for the <A HREF="JavaScript:lvhFmtDt.Click()">Format Date/Time String</a> LabVIEW function. Refer to the help for this function for information on the format specification.<br>
+By default, <b>fmt</b> is equal to <b>&quot;%c&quot;</b>.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>time</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number<br> 1D array of DBL<br> 2D array of DBL</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies either a timestamp or an array of timestamps.
+If <b>time</b> is omitted in the function call, the current time is used.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>Depending on the data type of the <b>time</b> parameter, the return value can have the following data types: <a href="dtypes.html#data_types_table">String</a>, <a href="dtypes.html#data_types_table">1D Array of Strings</a> or <a href="dtypes.html#data_types_table">2D Array of Strings</a>.</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_string.html">String functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_fflist"></a>
+<div class="FuncDscrTitle">
+<h1>_fflist</h1>
+<p>The function returns the list of FastFunc functions.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">_fflist()</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns a spreadsheet string containing the list of all embedded (FastFunc) functions supported by the current version of CalcExpress. The list includes function names and number of arguments on which functions can operate.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>No parameters.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a <a href="dtypes.html#data_types_table">String</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_nclist"></a>
+<div class="FuncDscrTitle">
+<h1>_nclist</h1>
+<p>The function returns the list of <a href="ce_syntax_misc.html#ce_syntax_namedconst">Named Constants</a> and their values.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">_nclist( <i>mod</i> )</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns a spreadsheet string containing the list of all <a href="ce_syntax_misc.html#ce_syntax_namedconst">Named Constants</a> supported by the current version of CalcExpress. The list includes the constant names and values.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>mod</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies one of the predefined formats for the output string, in the range of 0 to 3.<br>
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a <a href="dtypes.html#data_types_table">String</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_ntose"></a>
+<a name="cef_ntosf"></a>
+<div class="FuncDscrTitle">
+<h1>ntose , ntosf</h1>
+<p>The functions convert numberic values to strings in a floating-point format.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">
+ntose(x ,<i>prec </i>,<i>width</i>)<br>
+ntosf(x ,<i>prec </i>,<i>width</i>)
+</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The functions convert <b>x</b> to floating-point string(s) according to the specified precision and width.</p>
+<p><b>ntose</b> function produces strings in an exponential notation.</p>
+<p><b>ntosf</b> function produces strings in a fractional notation.</p>
+<p>Both functions allow <b>x</b> to be a scalar or an array. If <b>x</b> is scalar, the functions return a string containing the result of the conversion. If <b>x</b> is an array, the functions convert each element of the array. They return an array of strings with the same dimensionality and size as <b>x</b>, where each element is the result of converting the corresponding element in <b>x</b>.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number<br>1D array of DBL<br>2D array of DBL</a></td>
+<td class="FuncDscrTblCol3">Required parameter specifies a number or an array of numbers to be converted.</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>prec</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the number of digits after the decimal point. The functions coerce it to an integer.<br>
+By default, <b>prec</b> is equal to 6.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>width</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the minimum number of characters in the resulting string. The functions coerce it to an integer.<br>
+By default, <b>width</b> is equal to 0.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>Depending on the data type of <b>x</b>, the functions return the value with one of the following data types: <a href="dtypes.html#data_types_table">String</a>, <a href="dtypes.html#data_types_table">1D Array of Strings</a> or <a href="dtypes.html#data_types_table">2D Array of Strings</a>.</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_string.html">String functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_ntosi"></a>
+<div class="FuncDscrTitle">
+<h1>ntosi</h1>
+<p>The function converts numberic values to strings in an integer format.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">ntosi(x ,<i>radix</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function converts <b>x</b> to integer string(s) according to the specified <b>radix</b>. The function treats <b>x</b> as 32-bit signed integer(s).</p>
+<p>The function allows <b>x</b> to be a scalar or an array. If <b>x</b> is scalar, the function returns a string containing the result of the conversion. If <b>x</b> is an array, the function converts each element of the array. It returns an array of strings with the same dimensionality and size as <b>x</b>, where each element is the result of converting the corresponding element in <b>x</b>.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number<br>1D array of DBL<br>2D array of DBL</a></td>
+<td class="FuncDscrTblCol3">Required parameter specifies a number or an array of numbers to be converted.</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>radix</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies a radix (base of number). The function coerces it to an integer.
+If <b>radix</b> is less than 2 or is greater than 36, the default value is used.
+If <b>x</b> is negative, the minus sign is placed at the beginning of the string if <b>radix</b> equals 10 only.<br>
+By default, <b>radix</b> is equal to 10.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>Depending on the data type of <b>x</b>, the function returns the value with one of the following data types: <a href="dtypes.html#data_types_table">String</a>, <a href="dtypes.html#data_types_table">1D Array of Strings</a> or <a href="dtypes.html#data_types_table">2D Array of Strings</a>.</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_string.html">String functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_scancdb"></a>
+<div class="FuncDscrTitle">
+<h1>scancdb</h1>
+<p>The function scans the input string to convert it to a CDB number. It returns either the resulting value or the remaining string.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>. The FuncVI uses <A HREF="JavaScript:lvhScanStr.Click()">Scan From String</a> LabVIEW function. Refer to the help for it for more information.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">scancdb(str ,<i>fmt</i> ,<i>sel</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function scans the input string <b>str</b> according to the format specified by the <b>fmt</b> parameter. If the optional parameter <b>sel</b> is omitted in a function call or is less than or equal to zero, the function returns the resulting CDB value. If <b>sel</b> is greater than zero, the function returns the portion of <b>str</b> remaining after the scan.</p>
+<p>The function assigns an error code returned by the used LabVIEW functions to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>str</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">Required parameter contains the string to scan.</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>fmt</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the format string for the <A HREF="JavaScript:lvhScanStr.Click()">Scan From String</a> LabVIEW function. Refer to the help for this function for information on the format specification.<br>
+By default, <b>fmt</b> is equal to <b>&quot;%f&quot;</b>.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>sel</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter. If it is greater than 0, the function returns the remaining string. Otherwise, it returns the resulting value.<br>
+By default, it equals -1.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns <a href="dtypes.html#data_types_table">CDB Number</a> value if <b>sel</b> is less than or equal to zero.</p>
+<p>The function returns <a href="dtypes.html#data_types_table">String</a> value if <b>sel</b> is greater than zero.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+str = &quot;12.5e0 +7.12e-1 i is complex&quot;;<br>
+num = <b>scancdb</b>(str,&quot;%f&quot;);   /* returns CDB Number (12.5, 0.712i) */<br>
+rem = <b>scancdb</b>(str,&quot;%f&quot;,1); /* returns String: &quot; is complex&quot; */<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(num, &quot;number&quot;);<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(rem, &quot;remaining string&quot;);
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_string.html">String functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_scandbl"></a>
+<div class="FuncDscrTitle">
+<h1>scandbl</h1>
+<p>The function scans the input string to convert it to a DBL number. It returns either the resulting value or the remaining string.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>. The FuncVI uses <A HREF="JavaScript:lvhScanStr.Click()">Scan From String</a> LabVIEW function. Refer to the help for it for more information.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">scandbl(str ,<i>fmt</i> ,<i>sel</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function scans the input string <b>str</b> according to the format specified by the <b>fmt</b> parameter. If the optional parameter <b>sel</b> is omitted in a function call or is less than or equal to zero, the function returns the resulting DBL value. If <b>sel</b> is greater than zero, the function returns the portion of <b>str</b> remaining after the scan.</p>
+<p>The function assigns an error code returned by the used LabVIEW functions to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>str</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">Required parameter contains the string to scan.</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>fmt</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the format string for the <A HREF="JavaScript:lvhScanStr.Click()">Scan From String</a> LabVIEW function. Refer to the help for this function for information on the format specification.<br>
+By default, <b>fmt</b> is equal to <b>&quot;%f&quot;</b>.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>sel</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter. If it is greater than 0, the function returns the remaining string. Otherwise, it returns the resulting value.<br>
+By default, it equals -1.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns <a href="dtypes.html#data_types_table">DBL Number</a> value if <b>sel</b> is less than or equal to zero.</p>
+<p>The function returns <a href="dtypes.html#data_types_table">String</a> value if <b>sel</b> is greater than zero.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+str = &quot;U=+5.023 volts&quot;;<br>
+fmt = &quot;U=%f&quot;;<br>
+num = <b>scandbl</b>(str,fmt);    /* returns DBL Number: 5.023 */<br>
+rem = <b>scandbl</b>(str,fmt ,1); /* returns String: &quot; volts&quot; */<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(num, &quot;number&quot;);<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(rem, &quot;remaining string&quot;);
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_string.html">String functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_scanstr"></a>
+<div class="FuncDscrTitle">
+<h1>scanstr</h1>
+<p>The function scans the input string to extract a substring according to the specified format. The function returns either the resulting substring or the remaining input string.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>. The FuncVI uses <A HREF="JavaScript:lvhScanStr.Click()">Scan From String</a> LabVIEW function. Refer to the help for it for more information.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">scanstr(str ,<i>fmt</i> ,<i>sel</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function scans the input string <b>str</b> according to the format specified by the <b>fmt</b> parameter. If the optional parameter <b>sel</b> is omitted in a function call or is less than or equal to zero, the function returns the resulting substring. If <b>sel</b> is greater than zero, the function returns the portion of <b>str</b> remaining after the scan.</p>
+<p>The function assigns an error code returned by the used LabVIEW functions to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>str</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">Required parameter contains the string to scan.</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>fmt</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the format string for the <A HREF="JavaScript:lvhScanStr.Click()">Scan From String</a> LabVIEW function. Refer to the help for this function for information on the format specification.<br>
+By default, <b>fmt</b> is equal to <b>&quot;%s&quot;</b>.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>sel</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter. If it is greater than 0, the function returns the remaining input string. Otherwise, it returns the resulting substring.<br>
+By default, it equals -1.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns <a href="dtypes.html#data_types_table">String</a> value that is either the resulting substring or the remaining input string.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+str = &quot;U=+5.023 volts&quot;;<br>
+s1 = <b>scanstr</b>(str,&quot;%s&quot;);   /* returns String: &quot;U=+5.023&quot; */<br>
+s2 = <b>scanstr</b>(str,&quot;%s&quot;,1); /* returns String: &quot; volts&quot; */<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(s1, &quot;extracted substring&quot;);<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(s2, &quot;remaining input string&quot;);
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_string.html">String functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_scat"></a>
+<div class="FuncDscrTitle">
+<h1>scat</h1>
+<p>The function concatenates strings.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">scat(s1 ... ,<i>sn</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function concatenates its string parameters and returns the resulting string. It can operate on an arbitrary number of parameters.</p>
+<p>The function allows parameters to be a string or an array of strings. If a parameter is an array, the function concatenates all the elements of the array together into an aggregate string.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>s1...sn</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String<br> 1D array of Strings<br> 2D array of Strings</a></td>
+<td class="FuncDscrTblCol3">Only one parameter is required, others are optional.</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns the resulting <a href="dtypes.html#data_types_table">String</a>.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+arr = <a href="cefunc_array.html#cef_vector">vector</a>(&quot;123&quot;,&quot;456&quot;,&quot;789&quot;);<br>
+/* arr is 1D array of strings: {&quot;123&quot;,&quot;456&quot;,&quot;789&quot;} */<br>
+<br>
+str = <b>scat</b>(&quot;Digits:&quot;, arr, &quot;0&quot;);<br>
+/* str is equal to &quot;Digits:1234567890&quot; */<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(str, &quot;str&quot;);
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_string.html">String functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_scmp"></a>
+<a name="cef_sccmp"></a>
+<div class="FuncDscrTitle">
+<h1>scmp , sccmp</h1>
+<p>The functions compare strings.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">
+scmp(s1,s2)<br>
+sccmp(s1,s2)
+</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>Both functions lexically compare strings specified by the <b>s1</b> and <b>s2</b> parameters. The functions operate identically, except that the <b>scmp</b> function performs a case-sensitive comparison, while the <b>sccmp</b> function performs case-insensitive comparison.</p>
+<p>The functions return a numeric value that expresses a relationship of <b>s1</b> and <b>s2</b> as the following:</p>
+<p>-1  if  <b>s1</b> is less than <b>s2</b><br>
+ 0  if  <b>s1</b> is identical to <b>s2</b><br>
+ 1  if  <b>s1</b> is greater than <b>s2</b></p>
+<p>The functions can operate on strings, arrays of strings, and combinations thereof. However, not all combinations are supported. A list of valid combinations is provided below.</p>
+<p><b>String - String.</b>  The functions compare strings and return a scalar value.</p>
+<p><b>String - Array of any dimensionality.</b>  The functions compare the input string with each element of the input array. They return a numeric array with the same dimensionality and size as the input array, where each element in the returned array contains a relationship between the corresponding element in the input array and the input string.</p>
+<p><b>1D Array - 1D Array.</b>  The functions compare the respective elements in the input arrays. They return a numeric array of the same size as the smallest input array, where each element contains a relationship between the corresponding elements in the input arrays.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>s1, s2</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String<br> 1D array of Strings<br> 2D array of Strings</a></td>
+<td class="FuncDscrTblCol3">
+Required parameters. Valid combinations of their types are the following:<br>string - string,<br>string - nD array,<br>1D array - 1D array
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The functions return <a href="dtypes.html#data_types_table">DBL Number</a> if both <b>s1</b> and <b>s2</b> are <i>Strings</i>.</p>
+<p>The functions return <a href="dtypes.html#data_types_table">1D Array of DBL</a> if <b>s1</b> or <b>s2</b>, or both of them, are <i>1D Array of Strings</i>.</p>
+<p>The functions return <a href="dtypes.html#data_types_table">2D Array of DBL</a> if either <b>s1</b> or <b>s2</b> is <i>2D Array of Strings</i>.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+/* 1D array of strings */<br>
+sarr = <a href="cefunc_array.html#cef_vector">vector</a>(&quot;ab&quot;,&quot;abc&quot;,&quot;abcd&quot;,&quot;ABC&quot;); <br>
+r1 = <b>scmp</b>(&quot;abc&quot;, sarr);   /* returns array {1,0,-1,1} */<br>
+r2 = <b>sccmp</b>(sarr, &quot;ABC&quot;);  /* returns array {-1,0,1,0} */<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(r1, &quot;r1&quot;);<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(r2, &quot;r2&quot;);
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_string.html">String functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_sfmake"></a>
+<div class="FuncDscrTitle">
+<h1>sfmake</h1>
+<p>The function converts the input values to strings according to the specified format.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>. The FuncVI uses <A HREF="JavaScript:lvhFmtStr.Click()">Format Into String</a> LabVIEW function. Refer to the help for it for more information.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">sfmake(fmt,x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function converts the <b>x</b> parameter to a string or an array of strings according to the format specified by <b>fmt</b>. The function supports any predefined data type for <b>x</b>.</p>
+<p>If <b>x</b> is an array, the function performs the operation on each element of the array and returns an array of strings with the same dimensionality and size as the input array.</p>
+<p>The function assigns an error code returned by the used LabVIEW functions to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>fmt</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter specifies the format string for the <A HREF="JavaScript:lvhFmtStr.Click()">Format Into String</a> LabVIEW function. Refer to the help for this function for information on the format specification.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">any predefined</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter specifies data that needs to be converted to string(s).
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>Depending on the data type of <b>x</b>, the function returns the value with one of the following data types: <a href="dtypes.html#data_types_table">String</a>, <a href="dtypes.html#data_types_table">1D Array of Strings</a> or <a href="dtypes.html#data_types_table">2D Array of Strings</a>.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+arr = <a href="cefunc_array.html#cef_vector">vector</a>(3,5,7);<br>
+<br>
+s1 = <b>sfmake</b>(&quot;U=%.2f V&quot;, arr[0]);<br>
+/* returns String: &quot;U=3.00 V&quot; */<br>
+<br>
+s2 = <b>sfmake</b>(&quot;U=%.2f V&quot;, arr);<br>
+/*<br>
+  returns 1D array of Strings:<br>
+  {&quot;U=3.00 V&quot;, &quot;U=5.00 V&quot;, &quot;U=7.00 V&quot;}<br>
+*/<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(s1, &quot;s1&quot;);<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(s2, &quot;s2&quot;);
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_string.html">String functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_sform"></a>
+<div class="FuncDscrTitle">
+<h1>sform</h1>
+<p>The function converts the input values into a single string according to the specified format.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>. The FuncVI uses <A HREF="JavaScript:lvhFmtStr.Click()">Format Into String</a> LabVIEW function. Refer to the help for it for more information.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">sform(fmt ,<i>x1</i> ... ,<i>xn</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function converts the <b>x</b> parameters to a resulting string according to the format specified by the <b>fmt</b> parameter. All predefined data types are supported for the <b>x</b> parameters.</p>
+
+<!--- >>>>> NESTED DIV: START >>>>> -->
+<div class="FuncDscrSection" style="margin-left:20pt; border-top:solid 1pt; border-bottom:solid 1pt;">
+<p><b>Details</b><br>
+The function splits <b>fmt</b> into a set of format substrings and verbatim substrings. It then operates on each element of this set, producing a string that is added to the final string. The function merely copies the verbatim substrings, and uses the format substrings to convert the corresponding <b>x</b> parameters into strings using the <A HREF="JavaScript:lvhFmtStr.Click()">Format Into String</a> LabVIEW function.
+<br>
+A format substring starts with a format specifier (%-sequence) and lasts until the next format specifier or the end of the format string. Thus, a format substring consists of a format specifier followed by an optional literal substring; for example, "%f volts".
+<br>
+A substring before the first format specifier makes an initial verbatim substring. Additional verbatim substrings can be explicitly defined using a sub-delimiter <span style="white-space:nowrap;">( <b>%|</b> )</span>, see below for more information.
+</p>
+</div>
+<!--- <<<<< NESTED DIV: END <<<<< -->
+
+<p>If all <b>x</b> parameters are numbers and/or strings, the function works similarly to the <A HREF="JavaScript:lvhFmtStr.Click()">Format Into String</a> LabVIEW function or the <b>printf</b> function in C.</p>
+<p>If any <b>x</b> is an array, the function applies the corresponding format substring to each element in the array and concatenates the results into a single string.</p>
+<p>The function supports a non-standard sub-delimiter <span style="white-space:nowrap;">( <b>%|</b> )</span>, which is used to explicitly separate substrings in a format string. Every time the function encounters this sub-delimiter, it terminates the current substring (format or verbatim) and starts a new one. This is useful to precise a format substring when the corresponding <b>x</b> is an array, as the format substring will be applied to each element of the array.</p>
+<p>The function assigns an error code returned by the used LabVIEW functions to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>fmt</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter specifies the format string for <A HREF="JavaScript:lvhFmtStr.Click()">Format Into String</a> LabVIEW function. Refer to the help for this function for information on the format specification.<br>
+In addition, the function supports a non-standard sub-delimiter <span style="white-space:nowrap;">( <b>%|</b> )</span> that is used to explicitly separate format and/or verbatim substrings.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x1...xn</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">any predefined</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameters that need be converted to a string.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns the resulting <a href="dtypes.html#data_types_table">String</a>.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+x = 0.5;  u = &quot;radians&quot;;<br>
+s0 = <b>sform</b>(&quot;atan(%.2f) equals %e %s&quot;, x, <a href="cefunc_trig.html#cef_atan">atan</a>(x), u);<br>
+/* returns the string &quot;atan(0.50) equals 4.636476E-1 radians&quot; */<br>
+<p>
+<p class="FuncDscrExample">
+/* --------<br>
+The following example demonstrates a use of<br>
+array parameters and the sub-delimiter<br>
+----------- */<br>
+arr = <a href="cefunc_array.html#cef_vector">vector</a>(3,5,7);     //1D array<br>
+<br>// *** no sub-delimiter<br>
+s1 = <b>sform</b>(&quot;Values:\nU=%.1f Volt\n&quot;, arr);<br>
+<br>// *** one sub-delimiter<br>
+s2 = <b>sform</b>(&quot;Values:\n%|U=%.1f Volt\n&quot;, arr);<br>
+<br>// *** two sub-delimiters<br>
+s3 = <b>sform</b>(&quot;Values:\n%|U=%.1f\n%|All in volts\n&quot;, arr);<br>
+/*<br>
+after the code above is completed we have the following result<br>
+<table style="margin-left:15pt; border-collapse:collapse;">
+<tr>
+<td style="padding:0 10 0 2; valign:top; border:1px solid gray; white-space:nowrap;">s1 contains</td>
+<td style="padding:0 10 0 2; valign:top; border:1px solid gray; white-space:nowrap;">s2 contains</td>
+<td style="padding:0 10 0 2; valign:top; border:1px solid gray; white-space:nowrap;">s3 contains</td>
+</tr>
+<tr>
+<td style="padding:0 10 0 2; valign:top; border:1px solid gray; white-space:nowrap;">
+Values:<br>
+U=3.0 Volt<br>
+5.0 Volt<br>
+7.0 Volt<br>
+</td>
+<td style="padding:0 10 0 2; valign:top; border:1px solid gray; white-space:nowrap;">
+Values:<br>
+U=3.0 Volt<br>
+U=5.0 Volt<br>
+U=7.0 Volt<br>
+</td>
+<td style="padding:0 10 0 2; valign:top; border:1px solid gray; white-space:nowrap;">
+Values:<br>
+U=3.0<br>
+U=5.0<br>
+U=7.0<br>
+All in volts
+</td>
+</tr>
+</table>
+*/<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(s0, &quot;s0&quot;);<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(s1, &quot;s1&quot;);<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(s2, &quot;s2&quot;);<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(s3, &quot;s3&quot;);
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_string.html">String functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_sfton"></a>
+<div class="FuncDscrTitle">
+<h1>sfton</h1>
+<p>The function converts a string containing a number in floating-point notation into a numeric value.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">sfton(str)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function scans <b>str</b> and converts all characters that can be recognized as part of a floating-point number into a numeric value.</p>
+<p>The function allows <b>str</b> to be a string or an array of strings. If <b>str</b> is a string, the function returns a numeric scalar. If <b>str</b> is an array, the function converts each element of the array. It returns an array of numbers with the same dimensionality and size as <b>str</b>, where each element is the result of converting the corresponding element in <b>str</b>.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>str</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String<br> 1D array of Strings<br> 2D array of Strings</a></td>
+<td class="FuncDscrTblCol3">Required parameter specifies string(s) to be converted.</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>Depending on the data type of <b>str</b>, the function returns the value with one of the following data types: <a href="dtypes.html#data_types_table">DBL Number</a>, <a href="dtypes.html#data_types_table">1D Array of DBL</a> or <a href="dtypes.html#data_types_table">2D Array of DBL</a>.</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_string.html">String functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_siton"></a>
+<div class="FuncDscrTitle">
+<h1>siton</h1>
+<p>The function converts a string containing a number in integer notation into a numeric value.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">siton(str ,<i>radix</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function scans <b>str</b> and converts all characters that can be recognized as part of an integer number, based on the specified <b>radix</b>, into a numeric value. The function initially treats a value as a 32-bit signed integer and then converts it to a <a href="dtypes.html#data_types_table">DBL Number</a>.</p>
+
+<p>The function allows <b>str</b> to be a string or an array of strings. If <b>str</b> is a string, the function returns a numeric scalar. If <b>str</b> is an array, the function converts each element of the array. It returns an array of numbers with the same dimensionality and size as <b>str</b>, where each element is the result of converting the corresponding element in <b>str</b>.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>str</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String<br> 1D array of Strings<br> 2D array of Strings</a></td>
+<td class="FuncDscrTblCol3">Required parameter specifies string(s) to be converted.</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>radix</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies a radix (base of number). The function coerces it to an integer.
+If <b>radix</b> is in the range 2 to 36, the function uses it as the base of number. Otherwise, the function uses the first character(s) in <b>str</b> to determine the base. If <b>str</b> starts with either &quot;0x&quot; or &quot;0X&quot;, the function recognizes it as a hexadecimal number. If <b>str</b> starts with zero without following 'x' or 'X', the function recognizes it as an octal number. Otherwise, it performs decimal conversion.<br>
+By default, <b>radix</b> is equal to 10.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>Depending on the data type of <b>str</b>, the function returns the value with one of the following data types: <a href="dtypes.html#data_types_table">DBL Number</a>, <a href="dtypes.html#data_types_table">1D Array of DBL</a> or <a href="dtypes.html#data_types_table">2D Array of DBL</a>.</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_string.html">String functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_slen"></a>
+<div class="FuncDscrTitle">
+<h1>slen</h1>
+<p>The function returns the length of string.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">slen(str)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the number of characters in the string <b>str</b>.</p>
+<p>The function allows <b>str</b> to be a string or an array of strings. If <b>str</b> is a string, the function returns its length. If <b>str</b> is an array, the function returns an array of numbers with the same dimensionality and size as <b>str</b>, where each element is the length of the corresponding element in <b>str</b>.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>str</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String<br> 1D array of Strings<br> 2D array of Strings</a></td>
+<td class="FuncDscrTblCol3">Required parameter specifies an input string or an array of strings.</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>Depending on the data type of <b>str</b>, the function returns the value with one of the following data types: <a href="dtypes.html#data_types_table">DBL Number</a>, <a href="dtypes.html#data_types_table">1D Array of DBL</a> or <a href="dtypes.html#data_types_table">2D Array of DBL</a>.</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_string.html">String functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_sline"></a>
+<div class="FuncDscrTitle">
+<h1>sline</h1>
+<p>The function selects a line from a multi-line string based on its index.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">sline(str ,<i>index</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function looks for a line with the specified <b>index</b> in <b>str</b>. It recognizes the newline character (<b>'\n'</b>, LF) as a line delimiter. If the function finds the specified line, it returns a string containing that line including the final newline character. Otherwise, it returns an empty string.</p>
+<p>The function allows <b>str</b> to be a string or an array of strings. If <b>str</b> is a string, the function returns a string containing the found line. If <b>str</b> is an array, the function returns an array of strings with the same dimensionality and size as <b>str</b>, where each element is the line with the specified <b>index</b> found in the corresponding element of <b>str</b>.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>str</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String<br>1D array of Strings<br>2D array of Strings</a></td>
+<td class="FuncDscrTblCol3">Required parameter specifies an input string or an array of strings.</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>index</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the index of line to search. The function coerces it to an integer. An <b>index</b> of 0 specifies the first line. If <b>index</b> is less than 0 or greater than number of lines in <b>str</b>, the function returns an empty string.<br>
+By default, <b>index</b> is equal to 0.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns the value with the same data type as <b>str</b>; i.e., it can be <a href="dtypes.html#data_types_table">String</a>, <a href="dtypes.html#data_types_table">1D Array of Strings</a> or <a href="dtypes.html#data_types_table">2D Array of Strings</a>.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+str = &quot; line-1 \n line-2 \r\n line-3&quot;;<br>
+<b>sline</b>(str, 0);   // returns &quot; line-1 \n&quot;<br>
+<b>sline</b>(str, 1);   // returns &quot; line-2 \r\n&quot;<br>
+<b>sline</b>(str, 2);   // returns &quot; line-3&quot;<br>
+<b>sline</b>(str, 3);   // returns &quot;&quot;
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_string.html">String functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_slwr"></a>
+<div class="FuncDscrTitle">
+<h1>slwr</h1>
+<p>The function converts alphabetic characters in a string to lowercase characters.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">slwr(str)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function converts all uppercase alphabetical characters (A-Z) in a string into lowercase characters (a-z) and returns the resulting string.</p>
+<p>The function allows <b>str</b> to be a string or an array of strings. If <b>str</b> is a string, the function returns the resulting string. If <b>str</b> is an array, the function returns an array of strings with the same dimensionality and size as <b>str</b>, where each element is the converted version of the corresponding element in <b>str</b>.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>str</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String<br> 1D array of Strings<br> 2D array of Strings</a></td>
+<td class="FuncDscrTblCol3">Required parameter specifies an input string or an array of strings.</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns the value with the same data type as <b>str</b>; i.e. it can be <a href="dtypes.html#data_types_table">String</a>, <a href="dtypes.html#data_types_table">1D Array of Strings</a> or <a href="dtypes.html#data_types_table">2D Array of Strings</a>.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+s1 = <b>slwr</b>(&quot;aBcDeF&quot;);  // returns &quot;abcdef&quot;<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(s1, &quot;s1&quot;);
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_string.html">String functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_smatch"></a>
+<div class="FuncDscrTitle">
+<h1>smatch</h1>
+<p>The function looks for a substring matching the specified pattern in a string or array of strings.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>. The FuncVI uses <A HREF="JavaScript:lvhMatchPtrn.Click()">Match Pattern</a> LabVIEW function. Refer to the help for it for more information.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">smatch(str,regexp ,<i>sel</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function looks for a substring in <b>str</b> that matches the pattern specified by the <b>regexp</b> parameter. Depending on the <b>sel</b> parameter, the function returns:</p>
+<ul>
+<li>the matched substring if <b>sel</b> is equal to zero</li>
+<li>a substring located before the matched substring, if <b>sel</b> is less than zero</li>
+<li>a substring located after the matched substring, if <b>sel</b> is greater than zero</li>
+</ul>
+<p>The function allows <b>str</b> to be a string or an array of strings. If <b>str</b> is an array, the function searches for <b>regexp</b> in each element of the array. It returns an array of strings with the same dimensionality and size as <b>str</b>, where each element contains the result of search in the corresponding element of <b>str</b>.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>str</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String<br>1D array of Strings<br>2D array of Strings</a></td>
+<td class="FuncDscrTblCol3">Required parameter specifies an input string or an array of strings.</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>regexp</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter specifies the regular expression for the <A HREF="JavaScript:lvhMatchPtrn.Click()">Match Pattern</a> LabVIEW function. Refer to the help for this function for information on the format specification.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>sel</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies a location of substring to be returned:
+<br> &lt; 0 : a substring before the match
+<br> = 0 : the matching substring
+<br> &gt; 0 : a substring after the match.
+<br>By default, <b>sel</b> is equal to 0.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns the value with the same data type as <b>str</b>; i.e. it can be <a href="dtypes.html#data_types_table">String</a>, <a href="dtypes.html#data_types_table">1D Array of Strings</a> or <a href="dtypes.html#data_types_table">2D Array of Strings</a>.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+str = &quot;Par1 = 23.560&quot;;     //input string<br>
+ptn = &quot;[\s\t]*=[\s\t]*&quot;;   //pattern<br>
+s1 = <b>smatch</b>(str, ptn, -1);    //returns &quot;Par1&quot;<br>
+s2 = <b>smatch</b>(str, ptn, 0);     //returns &quot; = &quot;<br>
+s3 = <b>smatch</b>(str, ptn, 1);     //returns &quot;23.560&quot;<br>
+<br>
+/* operation on an array */<br>
+arr  = <a href="cefunc_array.html#cef_vector">vector</a>(&quot;U=+5 I=9.7&quot;, &quot;U=+12 I=0.6&quot;);<br>
+ptn1 = &quot;U=[+]5[\s\t]*I=&quot;;<br>
+ptn2 = &quot;U=[+]12[\s\t]*I=&quot;;<br>
+s4 = <b>smatch</b>(arr, ptn1, 1); /* returns array {&quot;9.7&quot;,&quot;&quot;} */<br>
+s5 = <b>smatch</b>(arr, ptn2, 1); /* returns array {&quot;&quot;,&quot;0.6&quot;} */<br>
+<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(s1, &quot;s1&quot;);<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(s2, &quot;s2&quot;);<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(s3, &quot;s3&quot;);<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(s4, &quot;s4&quot;);<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(s5, &quot;s5&quot;);
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="#cef_smatchx">smatchx</a> </p>
+<p><a href="cef_cat_string.html">String functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_smatchx"></a>
+<div class="FuncDscrTitle">
+<h1>smatchx</h1>
+<p>The function looks for substring(s) matching the specified pattern or a set of patterns in a string.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>. The FuncVI uses <A HREF="JavaScript:lvhMatchPtrn.Click()">Match Pattern</a> LabVIEW function. Refer to the help for it for more information.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">smatchx(str,regexp ,<i>sel</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function looks for a substring in <b>str</b> that matches the pattern specified by the <b>regexp</b> parameter. Depending on the <b>sel</b> parameter, the function returns:</p>
+<ul>
+<li>the matched substring if <b>sel</b> is equal to zero</li>
+<li>a substring located before the matched substring, if <b>sel</b> is less than zero</li>
+<li>a substring located after the matched substring, if <b>sel</b> is greater than zero</li>
+</ul>
+<p>The function allows <b>regexp</b> to be a string or an array of strings. If <b>regexp</b> is an array, the function searches for each element of <b>regexp</b> in <b>str</b>. It returns an array of strings with the same dimensionality and size as <b>regexp</b>, where each element contains the result of search of the corresponding element in <b>regexp</b>.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>str</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">Required parameter specifies an input string.</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>regexp</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String<br>1D array of Strings<br>2D array of Strings</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter specifies the regular expression for the <A HREF="JavaScript:lvhMatchPtrn.Click()">Match Pattern</a> LabVIEW function. Refer to the help for this function for information on the format specification.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>sel</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies a location of substring to be returned:
+<br> &lt; 0 : a substring before the match
+<br> = 0 : the matching substring
+<br> &gt; 0 : a substring after the match.
+<br>By default, <b>sel</b> is equal to 0.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns the value with the same data type as <b>regexp</b>; i.e. it can be <a href="dtypes.html#data_types_table">String</a>, <a href="dtypes.html#data_types_table">1D Array of Strings</a> or <a href="dtypes.html#data_types_table">2D Array of Strings</a>.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+/* input string */<br>
+str = &quot;BUS=12J : U=-12.3V , I=+0.76A&quot;;<br>
+<br>
+/* patterns */<br>
+ptn1 = &quot;BUS=[~,:\s]+&quot;;<br>
+ptn2 = &quot;U=[~,;\sVv]+&quot;;<br>
+ptn3 = &quot;I=[~,;\sAa]+&quot;;<br>
+<br>
+/* array of patterns */<br>
+ptn = <a href="cefunc_array.html#cef_vector">vector</a>(ptn1,ptn2,ptn3);<br>
+s1 = <b>smatchx</b>(str, ptn2);      /*returns &quot;U=-12.3&quot;      */<br>
+s2 = <b>smatchx</b>(str, ptn2, -1);  /*returns &quot;BUS=12J : &quot;   */<br>
+s3 = <b>smatchx</b>(str, ptn2, 1);   /*returns &quot;V , I=+0.76A&quot; */<br>
+s4 = <b>smatchx</b>(str, ptn); /* returns array {&quot;BUS=12J&quot;, &quot;U=-12.3&quot;, &quot;I=+0.76&quot;} */<br>
+<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(s1, &quot;s1&quot;);<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(s2, &quot;s2&quot;);<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(s3, &quot;s3&quot;);<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(s4, &quot;s4&quot;);
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="#cef_smatch">smatch</a> </p>
+<p><a href="cef_cat_string.html">String functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_smix"></a>
+<div class="FuncDscrTitle">
+<h1>smix</h1>
+<p>The function mixes strings performing by element concatenation.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">smix(s1,s2 ,<i>col</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function combines its arguments by appending elements of <b>s2</b> to the respective elements of <b>s1</b>.</p>
+<p>The function can operate on strings, arrays of strings, and combinations thereof. To perform the operation, the function uses the polymorphism rules that are similar to numeric functions (<a href="cef_poly.html">click here</a>), except it works on strings instead of numbers.</p>
+<p>In addition, the function provides control over how to operate when the parameters are arrays with different dimensionalities. In such a case, the function treats a 1D array as a row if <b>col</b> parameter is FALSE (zero) or as a column if <b>col</b> is TRUE (non-zero).</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>s1, s2</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String<br> 1D array of Strings<br> 2D array of Strings</a></td>
+<td class="FuncDscrTblCol3">
+Required parameters. Any combination of their data types is allowed.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>col</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter. It is only applicable when <b>s1</b> and <b>s2</b> are arrays with different dimensionalities.<br>
+By default, <b>col</b> is equal to 0.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns <a href="dtypes.html#data_types_table">String</a> if both <b>s1</b> and <b>s2</b> are strings.</p>
+<p>The function returns <a href="dtypes.html#data_types_table">1D Array of Strings</a> if at least one of <b>s1</b> and <b>s2</b> is 1D array and the other is not 2D array.</p>
+<p>The function returns <a href="dtypes.html#data_types_table">2D Array of Strings</a> if at least one of <b>s1</b> and <b>s2</b> is 2D array.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+s1d = <a href="cefunc_array.html#cef_vector">vector</a>(&quot;+5&quot;,&quot;+12&quot;,&quot;-12&quot;); /* 1D array of strings */<br>
+s2d = <a href="cefunc_array.html#cef_matrix">matrix</a>(                   /* 2D array of strings */<br>
+        <a href="cefunc_array.html#cef_vector">vector</a>(&quot;A1&quot;,&quot;A2&quot;,&quot;A3&quot;),<br>
+        <a href="cefunc_array.html#cef_vector">vector</a>(&quot;B1&quot;,&quot;B2&quot;,&quot;B3&quot;),<br>
+        <a href="cefunc_array.html#cef_vector">vector</a>(&quot;C1&quot;,&quot;C2&quot;,&quot;C3&quot;)<br>
+      );<br>
+s1o = <b>smix</b>(s1d, &quot;V&quot;); /* s1o is {&quot;+5V&quot;, &quot;+12V&quot;, &quot;-12V&quot;} */<br>
+s1o = <b>smix</b>(&quot;U=&quot;,s1o); /* s1o is {&quot;U=+5V&quot;, &quot;U=+12V&quot;, &quot;U=-12V&quot;} */<br>
+<br>
+s2o = <b>smix</b>(s2d, <b>smix</b>(&quot; : &quot;, s1o), <b>0</b>);<br>
+/* -- s2o is 2D array --<br>
+  {{&quot;A1 : U=+5V&quot;, &quot;A2 : U=+12V&quot;, &quot;A3 : U=-12V&quot;},<br>
+   {&quot;B1 : U=+5V&quot;, &quot;B2 : U=+12V&quot;, &quot;B3 : U=-12V&quot;},<br>
+   {&quot;C1 : U=+5V&quot;, &quot;C2 : U=+12V&quot;, &quot;C3 : U=-12V&quot;}}<br>
+*/<br>
+<br>
+s3o = <b>smix</b>(<b>smix</b>(s1o, &quot; : &quot;), s2d, <b>1</b>);<br>
+/* -- s3o is 2D array --<br>
+  {{&quot;U=+5V : A1&quot; , &quot;U=+5V : A2&quot; , &quot;U=+5V : A3&quot;},<br>
+   {&quot;U=+12V : B1&quot;, &quot;U=+12V : B2&quot;, &quot;U=+12V : B3&quot;},<br>
+   {&quot;U=-12V : C1&quot;, &quot;U=-12V : C2&quot;, &quot;U=-12V : C3&quot;}}<br>
+*/<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(s1o, &quot;s1o&quot;);<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(s2o, &quot;s2o&quot;);<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(s3o, &quot;s3o&quot;);
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_string.html">String functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_srefine"></a>
+<div class="FuncDscrTitle">
+<h1>srefine</h1>
+<p>The function removes initial and final blank characters from a string.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">srefine(str)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function removes all non-printable and white space characters from the beginning and the end of a string and returns the resulting string.</p>
+<p>The function allows <b>str</b> to be a string or an array of strings. If <b>str</b> is a string, the function returns the resulting string. If <b>str</b> is an array, the function converts each element of the <b>str</b>. It returns an array of strings with the same dimensionality and size as <b>str</b>, where each element is a converted version of the corresponding element in <b>str</b>.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>str</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String<br> 1D array of Strings<br> 2D array of Strings</a></td>
+<td class="FuncDscrTblCol3">Required parameter specifies an input string or an array of strings.</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns the value with the same data type as <b>str</b>; i.e. it can be <a href="dtypes.html#data_types_table">String</a>, <a href="dtypes.html#data_types_table">1D Array of Strings</a> or <a href="dtypes.html#data_types_table">2D Array of Strings</a>.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+/* returns &quot;it's string&quot; */<br>
+s1 = <b>srefine</b>(&quot;  it's string  &quot;);<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(s1, &quot;s1&quot;);
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_string.html">String functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_sreverse"></a>
+<div class="FuncDscrTitle">
+<h1>sreverse</h1>
+<p>The function reverses the order of characters in a string.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">sreverse(str)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function reverses the order of characters in a string and returns the resulting string.</p>
+<p>The function allows <b>str</b> to be a string or an array of strings. If <b>str</b> is a string, the function returns the resulting string. If <b>str</b> is an array, the function converts each element of the <b>str</b>. It returns an array of strings with the same dimensionality and size as <b>str</b>, where each element is a converted version of the corresponding element in <b>str</b>.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>str</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String<br> 1D array of Strings<br> 2D array of Strings</a></td>
+<td class="FuncDscrTblCol3">Required parameter specifies an input string or an array of strings.</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns the value with the same data type as <b>str</b>; i.e. it can be <a href="dtypes.html#data_types_table">String</a>, <a href="dtypes.html#data_types_table">1D Array of Strings</a> or <a href="dtypes.html#data_types_table">2D Array of Strings</a>.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+s1 = <b>sreverse</b>(&quot;1-2-3-4-5&quot;);  // returns &quot;5-4-3-2-1&quot;<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(s1, &quot;s1&quot;);
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_string.html">String functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_srotate"></a>
+<div class="FuncDscrTitle">
+<h1>srotate</h1>
+<p>The function rotates a string in the specified direction and number of places.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">srotate(str,n)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function rotates characters in a string the number of places and in the direction specified by the <b>n</b> parameter and returns the resulting string.</p>
+<p>The function allows <b>str</b> to be a string or an array of strings. If <b>str</b> is a string, the function returns the resulting string. If <b>str</b> is an array, the function converts each element of the <b>str</b>. It returns an array of strings with the same dimensionality and size as <b>str</b>, where each element is a converted version of the corresponding element in <b>str</b>.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>str</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String<br> 1D array of Strings<br> 2D array of Strings</a></td>
+<td class="FuncDscrTblCol3">Required parameter specifies an input string or an array of strings.</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>n</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter specifies the number of places and the direction to rotate <b>str</b>. The function coerces it to an integer.<br>
+if <b>n</b> &gt; 0 , <b>str</b> is rotated <b>n</b> places to the right.<br>
+if <b>n</b> &lt; 0 , <b>str</b> is rotated <b>n</b> places to the left.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns the value with the same data type as <b>str</b>; i.e. it can be <a href="dtypes.html#data_types_table">String</a>, <a href="dtypes.html#data_types_table">1D Array of Strings</a> or <a href="dtypes.html#data_types_table">2D Array of Strings</a>.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+s1 = <b>srotate</b>(&quot;a-b-c-d-&quot;, 2);  // returns &quot;d-a-b-c-&quot;<br>
+s2 = <b>srotate</b>(&quot;a-b-c-d-&quot;, -3); // returns &quot;-c-d-a-b&quot;<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(s1, &quot;s1&quot;);<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(s2, &quot;s2&quot;);
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_string.html">String functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_ss"></a>
+<div class="FuncDscrTitle">
+<h1>ss</h1>
+<p>The function converts arbitrary data to a spreadsheet string.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>. The FuncVI uses <A HREF="JavaScript:lvhArToSs.Click()">Array To Spreadsheet String</a> LabVIEW function. Refer to the help for it for more information.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">ss(x ,<i>trans</i> ,<i>fmt</i> ,<i>dlm</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function converts <b>x</b> to a spreadsheet string according to the format specified by the <b>fmt</b> parameter and returns the resulting string. If <b>fmt</b> is omitted in a function call, a default format is used; it is either <b>&quot;%f&quot;</b> for numeric data or <b>&quot;%s&quot;</b> for string data.</p>
+<p>If <b>x</b> is not a 2D array, the function converts it into a 2D array before operating.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">any predefined</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter specifies data to be converted to a spreadsheet string.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>trans</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter. If its value coerced to an integer is non-zero, the function transposes 2D data before converting into a string.<br>
+By default, it equals 0.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>fmt</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the format string for the <A HREF="JavaScript:lvhArToSs.Click()">Array To Spreadsheet String</a> LabVIEW function. Refer to the help for this function for information on the format specification.<br>
+By default, it is <b>&quot;%f&quot;</b> for numbers and <b>&quot;%s&quot;</b> for strings.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>dlm</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies a delimiter to use in a spreadsheet string.<br>
+By default, it is <b>&quot;\t&quot;</b> (TAB).
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a <a href="dtypes.html#data_types_table">String</a>.</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_string.html">String functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_ss2cdb"></a>
+<div class="FuncDscrTitle">
+<h1>ss2cdb</h1>
+<p>The function converts an input spreadsheet string into 2D array of CDB numbers.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>. The FuncVI uses <A HREF="JavaScript:lvhSsToAr.Click()">Spreadsheet String To Array</a> LabVIEW function. Refer to the help for it for more information.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">ss2cdb(str ,<i>trans</i> ,<i>fmt</i> ,<i>dlm</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function converts the spreadsheet string <b>str</b> to 2D array of CDB numbers according to the format specified by the <b>fmt</b> parameter and returns the resulting array. If <b>fmt</b> is omitted in the function call, a default format is used. If the optional parameter <b>trans</b> is non-zero (TRUE), the resulting 2D array is transposed.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>str</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">Required parameter specifies an input spreadsheet string.</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>trans</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter. If its value coerced to an integer is non-zero, the function transposes the resulting 2D array.<br>
+By default, it equals 0.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>fmt</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the format string for the <A HREF="JavaScript:lvhSsToAr.Click()">Spreadsheet String To Array</a> LabVIEW function. Refer to the help for this function for information on the format specification.<br>
+By default, it is equal to <b>&quot;%f&quot;</b>.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>dlm</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies a delimiter used in the spreadsheet string.<br>
+By default, it is <b>&quot;\t&quot;</b> (TAB).
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns the value of the <a href="dtypes.html#data_types_table">2D Array of CDB</a> data type.</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_string.html">String functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_ss2dbl"></a>
+<div class="FuncDscrTitle">
+<h1>ss2dbl</h1>
+<p>The function converts an input spreadsheet string into 2D array of DBL numbers.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>. The FuncVI uses <A HREF="JavaScript:lvhSsToAr.Click()">Spreadsheet String To Array</a> LabVIEW function. Refer to the help for it for more information.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">ss2dbl(str ,<i>trans</i> ,<i>fmt</i> ,<i>dlm</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function converts the spreadsheet string <b>str</b> to 2D array of DBL numbers according to the format specified by the <b>fmt</b> parameter and returns the resulting array. If <b>fmt</b> is omitted in the function call, a default format is used. If the optional parameter <b>trans</b> is non-zero (TRUE), the resulting 2D array is transposed.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>str</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">Required parameter specifies an input spreadsheet string.</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>trans</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter. If its value coerced to an integer is non-zero, the function transposes the resulting 2D array.<br>
+By default, it equals 0.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>fmt</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the format string for the <A HREF="JavaScript:lvhSsToAr.Click()">Spreadsheet String To Array</a> LabVIEW function. Refer to the help for this function for information on the format specification.<br>
+By default, it is equal to <b>&quot;%f&quot;</b>.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>dlm</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies a delimiter used in the spreadsheet string.<br>
+By default, it is <b>&quot;\t&quot;</b> (TAB).
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns the value of the <a href="dtypes.html#data_types_table">2D Array of DBL</a> data type.</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_string.html">String functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_ss2str"></a>
+<div class="FuncDscrTitle">
+<h1>ss2str</h1>
+<p>The function converts an input spreadsheet string into 2D array of strings.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>. The FuncVI uses <A HREF="JavaScript:lvhSsToAr.Click()">Spreadsheet String To Array</a> LabVIEW function. Refer to the help for it for more information.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">ss2str(str ,<i>trans</i> ,<i>fmt</i> ,<i>dlm</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function converts the spreadsheet string <b>str</b> to 2D array of strings according to the format specified by the <b>fmt</b> parameter and returns the resulting array. If <b>fmt</b> is omitted in the function call, a default format is used. If the optional parameter <b>trans</b> is non-zero (TRUE), the resulting 2D array is transposed.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>str</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">Required parameter specifies an input spreadsheet string.</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>trans</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter. If its value coerced to an integer is non-zero, the function transposes the resulting 2D array.<br>
+By default, it equals 0.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>fmt</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the format string for the <A HREF="JavaScript:lvhSsToAr.Click()">Spreadsheet String To Array</a> LabVIEW function. Refer to the help for this function for information on the format specification.<br>
+By default, it is equal to <b>&quot;%s&quot;</b>.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>dlm</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies a delimiter used in the spreadsheet string.<br>
+By default, it is <b>&quot;\t&quot;</b> (TAB).
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns the value of the <a href="dtypes.html#data_types_table">2D Array of Strings</a> data type.</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_string.html">String functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_sshift"></a>
+<div class="FuncDscrTitle">
+<h1>sshift</h1>
+<p>The function shifts a string in the specified direction and the number of places.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">sshift(str,n)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function shifts characters in a string the number of places and in the direction specified by the <b>n</b> parameter, fills the remainder of the string with a space character ('\s'), and returns the resulting string.</p>
+<p>The function allows <b>str</b> to be a string or an array of strings. If <b>str</b> is a string, the function returns the resulting string. If <b>str</b> is an array, the function converts each element of the <b>str</b>. It returns an array of strings with the same dimensionality and size as <b>str</b>, where each element is a converted version of the corresponding element in <b>str</b>.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>str</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String<br> 1D array of Strings<br> 2D array of Strings</a></td>
+<td class="FuncDscrTblCol3">Required parameter specifies an input string or an array of strings.</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>n</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies the number of places and the direction to shift <b>str</b>. The function coerces it to an integer.<br>
+if <b>n</b> &gt; 0 , <b>str</b> is shifted <b>n</b> places to the right.<br>
+if <b>n</b> &lt; 0 , <b>str</b> is shifted <b>n</b> places to the left.<br>
+If <b>abs(n)</b> is greater than or equal to the length of <b>str</b>, the resulting string consists of space characters only.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns the value with the same data type as <b>str</b>; i.e. it can be <a href="dtypes.html#data_types_table">String</a>, <a href="dtypes.html#data_types_table">1D Array of Strings</a> or <a href="dtypes.html#data_types_table">2D Array of Strings</a>.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+s1 = <b>sshift</b>(&quot;a-b-c-d-&quot;, 2);  // returns &quot;  a-b-c-&quot;<br>
+s2 = <b>sshift</b>(&quot;a-b-c-d-&quot;, -3); // returns &quot;-c-d-   &quot;<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(s1, &quot;s1&quot;);<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(s2, &quot;s2&quot;);
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_string.html">String functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_substr"></a>
+<div class="FuncDscrTitle">
+<h1>substr</h1>
+<p>The function returns a substring of an input string.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">substr(str,off,len)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns a substring of the string <b>str</b> beginning at the offset <b>off</b> and containing the <b>len</b> characters.</p>
+<p>The function allows <b>str</b> to be a string or an array of strings. If <b>str</b> is a string, the function returns the resulting substring. If <b>str</b> is an array, the function performs operation on each element of <b>str</b>. It returns an array of strings with the same dimensionality and size as <b>str</b>, where each element is a substring of the corresponding element in <b>str</b>.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>str</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String<br> 1D array of Strings<br> 2D array of Strings</a></td>
+<td class="FuncDscrTblCol3">Required parameter specifies an input string or an array of strings.</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>off</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter specifies the offset of the first character in the input string.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>len</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter specifies the length of a substring.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns the value with the same data type as <b>str</b>; i.e. it can be <a href="dtypes.html#data_types_table">String</a>, <a href="dtypes.html#data_types_table">1D Array of Strings</a> or <a href="dtypes.html#data_types_table">2D Array of Strings</a>.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+s1 = <b>substr</b>(&quot;0123456789&quot;, 2, 5);  // returns &quot;23456&quot;<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(s1, &quot;s1&quot;);
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_string.html">String functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_supr"></a>
+<div class="FuncDscrTitle">
+<h1>supr</h1>
+<p>The function converts alphabetic characters in a string to uppercase characters.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">supr(str)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function converts all lowercase alphabetical characters (a-z) in a string to uppercase characters (A-Z) and returns the resulting string.</p>
+<p>The function allows <b>str</b> to be a string or an array of strings. If <b>str</b> is a string, the function returns the resulting string. If <b>str</b> is an array, the function returns an array of strings with the same dimensionality and size as <b>str</b>, where each element is the converted version of the corresponding element in <b>str</b>.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>str</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String<br> 1D array of Strings<br> 2D array of Strings</a></td>
+<td class="FuncDscrTblCol3">Required parameter specifies an input string or an array of strings.</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns the value with the same data type as <b>str</b>; i.e. it can be <a href="dtypes.html#data_types_table">String</a>, <a href="dtypes.html#data_types_table">1D Array of Strings</a> or <a href="dtypes.html#data_types_table">2D Array of Strings</a>.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+s1 = <b>supr</b>(&quot;aBcDeF&quot;);  // returns &quot;ABCDEF&quot;<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(s1, &quot;s1&quot;);
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_string.html">String functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</body>
+</html>

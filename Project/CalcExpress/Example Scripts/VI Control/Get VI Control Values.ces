@@ -1,0 +1,25 @@
+/* Build VI path */
+viName = "ISP Exmpl - Controls Container.vi";
+viPath = FileBuildPath(FileGetAppPath(9),"CSE_ISP.llb",viName);
+//probe(viPath);
+
+/* Open VI Front Panel */
+viOpenFP(viPath);
+//viRun(viPath);
+
+/* create variables to receive VI Control values */
+dbl=bool=ring=enum=0;
+str=path="";
+cdb("cdb");
+a1dbl("a1dbl");
+
+/* read VI Control values and display them*/
+viCtrlGet(viName, "STR", str );     probe(str,  "STR");
+viCtrlGet(viName, "DBL", dbl );     probe(dbl,  "DBL");
+viCtrlGet(viName, "CDB", cdb );     probe(cdb,  "CDB");
+viCtrlGet(viName, "BOOL", bool );   probe(bool, "BOOL");
+viCtrlGet(viName, "RING", ring );   probe(ring, "RING");
+viCtrlGet(viName, "ENUM", enum );   probe(enum, "ENUM");
+viCtrlGet(viName, "PATH", path );   probe(path, "PATH");
+viCtrlGet(viName, "A1DBL", a1dbl);  probe(a1dbl,"A1DBL");
+

@@ -1,0 +1,176 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>Variable Manager</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+<style>
+td.VpTblCol1  { padding:0 5pt 0 10pt; valign:top; white-space:nowrap; }
+td.VpTblCol2  { padding:0 5pt 0 10pt; valign:top; white-space:nowrap; }
+</style>
+</head>
+
+<body>
+
+
+<!-- ########################################## -->
+<a name="varman_overview"></a>
+<div class="GenSectTitle">
+<h1><span class="PageTitleL">VarMan Overview</span></h1>
+</div>
+
+<p>VarMan is a variable manager that provides LabVIEW applications with the ability to dynamically create, read, write, and manage data. VarMan variables can be used to store and share data within application code, as well as share data with <a href="ce.html">CalcExpress</a> and <a href="cse.html">CSE</a> scripts.</p>
+
+<p>Variables are stored and operations on variables are performed by the VarMan Engine. CalcExpress and CSE have direct access to the VarMan Engine and can manipulate variables and their properties within processed scripts.
+</p>
+
+<p>To work with variables in applications, there is a set of VarMan VIs which interact with the VarMan Engine and give applications full control over variables and their properties. See the <a href="mnu_vm-top.html">VarMan VIs</a> topic for details.</p>
+
+<p>To simplify the debugging process for complex applications, the <a href="varman_spy.html">VarMan Spy</a> utility is available. This tool investigates and manages VarMan variables.</p>
+
+
+
+<!-- ########################################## -->
+<p>&nbsp;</p><hr class="TopicSeparator">
+<h2>Variable Properties</h2>
+
+<p>Every VarMan variable inherently holds five core properties and can support up to three on-demand properties, as listed:</p>
+
+<table border=0 cellspacing=0 cellpadding=0 style='margin-left:0pt;border-collapse:collapse'>
+<tr>
+<td class="VpTblCol1"><li><a href="#varman_overview_context">Variable Context</a></li></td>
+<td class="VpTblCol2"></td>
+</tr>
+<tr>
+<td class="VpTblCol1"><li><a href="#varman_overview_name">Variable Name</a></li></td>
+<td class="VpTblCol2"></td>
+</tr>
+<td class="VpTblCol1"><li><a href="#varman_overview_type">Variable Data Type</a></li></td>
+<td class="VpTblCol2"></td>
+</tr>
+<tr>
+<td class="VpTblCol1"><li><a href="#varman_overview_value">Variable Value</a></li></td>
+<td class="VpTblCol2"></td>
+</tr>
+<tr>
+<td class="VpTblCol1"><li><a href="#varman_overview_wrid">Writer ID</a></li></td>
+<td class="VpTblCol2"></td>
+</tr>
+<tr>
+<td class="VpTblCol1"><li><a href="#varman_overview_alias">Alias</a></li></td>
+<td class="VpTblCol2">(on-demand)</td>
+</tr>
+<tr>
+<tr>
+<td class="VpTblCol1"><li><a href="#varman_overview_history">Variable History</a></li></td>
+<td class="VpTblCol2">(on-demand)</td>
+</tr>
+<tr>
+<td class="VpTblCol1"><li><a href="#varman_overview_attribute">Variable Attribute</a></li></td>
+<td class="VpTblCol2">(on-demand)</td>
+</tr>
+</table>
+
+<p>A VarMan variable acquires its core properties upon its creation. Some core properties, like Variable Context, Name, and Data Type, remain constant throughout a variable's lifetime. Variable Value and Writer ID properties alter every time a variable is written.The Variable Context and Name properties distinguish a variable from other variables. Data Type and Value properties determine the data stored in the variable. By default, variables do not have any on-demand properties; they are assigned explicitly when requested.</p>
+
+<p>Topics below describe the variable properties in detail.</p>
+<p>&nbsp;</p>
+
+<!--------------------->
+<a name="varman_overview_context"></a>
+<h2>Variable Context</h2>
+
+<p>VarMan stores variables in variable contexts. VarMan supports up to 65,535 independent local contexts, as well as a global context. Each context has its own namespace for variables, preventing conflicts between variables with the same names across different contexts.</p>
+
+<p>To access a variable context, a context handle (<i>VC handle</i>) is used. When VarMan opens a local context, it returns a context handle that must be used for all operations involving the context and its variables. Optionally, a unique context name can be assigned to a local context for convenient reference. VarMan uses a global namespace for context names which does not interfere with other namespaces; therefore, context names do not conflict with variable names or aliases.</p>
+
+<p>A newly opened local context does not contain any variables. When a local context is closed, all variables within it are automatically destroyed. The global context exists by default and does not need to be opened or closed. To close all local contexts and clear the global context, the VarMan initialization VI can be used.</p>
+
+<p>&nbsp;</p>
+
+<!--------------------->
+<a name="varman_overview_name"></a>
+<h2>Variable Name</h2>
+
+<p>VarMan distinguishes variables by their names. Each variable name is unique within the variable context it exists. However, variables with the same name may exist independently in different contexts. Thus, the combination of a variable name and context handle uniquely identifies the variable.</p>
+
+<p>There are the following rules for naming variables:</p>
+<ul class="GenCE">
+<li>a variable name may consist of alphabetic characters (upper- and lower-case letters), decimal digits, and underscores <span style="white-space:nowrap;">( _ ).</span></li>
+<li>the first character of a variable name must not be a digit.</li>
+<li>a variable name is case-sensitive; lower-case and upper-case letters are treated as distinct characters.</li>
+<li>there is no limit on the length of a variable name, and all characters are significant.</li>
+</ul>
+<p>To access a variable, VarMan searches for the variable name in the local context using the provided context handle. If the variable is not found, VarMan searches the global context, unless this behavior is explicitly suppressed. Consequently, local variables hold higher priority than global variables.</p>
+<p>&nbsp;</p>
+
+
+<!--------------------->
+<p><a name="varman_overview_type"></a></p>
+<h2>Variable Data Type</h2>
+
+<p>Data type describes the format of data stored in a variable. VarMan supports all predefined data types that CalcExpress supports. Additionally, it supports any user-defined data type whose values are represented in the Flattened-To-String format. See the <a href="dtypes.html#data_types">Data types</a> topic for more information.</p>
+<p>&nbsp;</p>
+
+
+<!--------------------->
+<p><a name="varman_overview_value"></a></p>
+<h2>Variable Value</h2>
+
+<p>Variable values can be manipulated using VarMan VIs, as well as within CalcExpress and CSE scripts. The variable value must match its declared data type. VarMan and CalcExpress automatically verify this condition for all <a href="dtypes.html#data_types_table">predefined data types</a>.</p>
+<p>&nbsp;</p>
+
+
+<!--------------------->
+<p><a name="varman_overview_wrid"></a></p>
+<h2>Writer ID</h2>
+
+<p>The Writer ID is a numeric identifier updated every time a value is written to a variable. The primary purpose of the Writer ID is to track the source of variable values. It allows applications to:
+</p>
+<ul class="GenCE">
+<li>Track and distinguish sources across parallel loops or separate scripts (e.g., which thread or VI updated this setpoint?).</li>
+<li>Track specific execution points within complex scripts where a variable is written (e.g., did step 4 or step 12 write this value?).</li>
+</ul>
+<p>The Writer ID is an unsigned 32-bit integer that can hold an arbitrary value. An application can utilize custom predefined codes for this identifier, or cast VI references to it. If an identifier is not explicitly specified via VarMan VIs, CalcExpress, or CSE scripts, a default value of 0 is automatically applied.
+</p>
+<p>VarMan VIs feature paired inputs for both the Variable Value and the Writer ID to write them together.</p>
+<p>In script processing, CalcExpress and CSE engines update the Writer ID automatically when a variable is written. The identifier used by a script instance can be defined before script execution starts using relevant <a href="vi__ce__CalcExpress_-_Variables_Writer_ID.html">CalcExpress</a> or <a href="vi_CSE_-_Variables_Writer_ID.html">CSE</a> VIs, or altered during script processing using the <span class="FixedFont"><a href="cefunc_vm2.html#cef_vwrid">vwrid()</a></span> function. The Writer ID for the most recent value of any variable can be read using the <span class="FixedFont"><a href="cefunc_vst.html#cef_vstwid">vstwid</a></span> function, and the Writer ID of a variable's creator can be read with the <span class="FixedFont"><a href="cefunc_vst.html#cef_vstcid">vstcid</a></span> function.</p>
+<p>&nbsp;</p>
+
+
+<!--------------------->
+<p><a name="varman_overview_alias"></a></p>
+<h2>Alias</h2>
+
+<p>An alias is an optional identifier that can be associated with a variable. Aliases serve as an alternative way to refer to their associated variables. VarMan uses a global namespace for aliases that does not interfere with other namespaces; therefore, aliases do not conflict with variable names or context names. Each alias is unique within the entire VarMan framework, whereas a variable name is only unique within the context in which it exists. This feature allows an alias to access the associated variable without needing to know its name or context handle. For more information on using aliases, see the <a href="varman_vref.html">Referring to Variables</a> topic.</p>
+<p>&nbsp;</p>
+
+
+<!--------------------->
+<p><a name="varman_overview_history"></a></p>
+<h2>Variable History</h2>
+
+<p>Optionally, VarMan can maintain a history of specified variables. The variable history accumulates the values assigned to a variable during its lifetime, along with timestamps and Writer IDs indicating when and where those assignments occurred, providing a complete execution audit trail. See the <a href="varman_vhist.html">Variable History</a> topic for more information.</p>
+<p>&nbsp;</p>
+
+
+<!--------------------->
+<p><a name="varman_overview_attribute"></a></p>
+<h2>Variable Attribute</h2>
+
+<p>The variable attribute is an optional parameter that can be used to store arbitrary data associated with a variable. A variable attribute can be read and written using the <a href="vi_VM_-_Variable_Attribute.html">VM - Variable Attribute.vi</a>.</p>
+<p>&nbsp;</p>
+
+
+<!--------------------->
+<p>&nbsp;</p><hr class="TopicSeparator">
+<p><a href="mnu_vm-top.html">VarMan VIs</a></p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+</body>
+</html>

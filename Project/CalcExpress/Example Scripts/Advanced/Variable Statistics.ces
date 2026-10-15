@@ -1,0 +1,26 @@
+varname = "xxx3";
+vch = vch();   //vch("Global Context");
+
+vwrid(12345);  // set Writer ID for the variable creation
+dbl(varname, 0, vch);
+
+for (i=0; i< 100000; i++) {
+  vwrid(i);           // set Writer ID for the variable writing
+  idn(varname) += 1;  // increment the variable value
+}
+
+probe (idn(varname), "variable value");
+probe (vtype(varname, vch), "data type");
+
+probe (vstcid(varname, vch), "Creator ID");
+probe (vstwid(varname, vch), "Writer ID");
+
+probe (vstcms(varname, vch), "Create MS");
+probe (vstwms(varname, vch), "Write MS");
+
+probe (vstcts(varname, vch), "Create TS");
+probe (vstwts(varname, vch), "Write TS");
+probe (vstwcnt(varname, vch), "Write Counter");
+
+probe (vstwts(varname, vch) - vstcts(varname, vch), "Life time, sec");
+probe (u32sub(vstwms(varname,vch), vstcms(varname,vch)), "Life time, ms");

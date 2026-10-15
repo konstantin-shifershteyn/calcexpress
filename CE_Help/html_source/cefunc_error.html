@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>Error Handling functions</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+</head>
+
+<body>
+
+<!-- ########################################## -->
+<a name="cef_errno"></a>
+<div class="FuncDscrTitle">
+<h1>errno</h1>
+<p>The function provides access to the <a href="ce_rt_error.html">rtErrorCode</a> variable.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">errno(<i>errCode</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>If the function is called without a parameter, it returns the current value of <i>rtErrorCode</i>.</p>
+<p>If the function is called with the <b><i>errCode</i></b> parameter, it assigns the value of <b><i>errCode</i></b>, coerced to an integer, to the <i>rtErrorCode</i> variable and returns the previous value of <i>rtErrorCode</i>.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p><b><i>errCode</i></b> is an optional parameter. If it is not omitted in a function call, <b><i>errCode</i></b> must have <a href="dtypes.html#data_types_table">DBL Number</a> data type. The function coerces it to an integer before assigning to <a href="ce_rt_error.html">rtErrorCode</a>.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns an integer value of the <a href="dtypes.html#data_types_table">DBL Number</a> data type. The value is zero if the last call of a function that assigns an error status to the <i>rtErrorCode</i> is successfully completed. On an error, the value is non-zero error code indicating a LabVIEW error status. Note that not all functions store an error status in <i>rtErrorCode</i>; refer to the function description to check if it has this capability.</p>
+<p><b>See also</b></p>
+<p><a href="#cef_lverrmsg">lvErrorMessage</a> , <a href="#cef_lverrstr">lvErrorString</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_lverrmsg"></a>
+<div class="FuncDscrTitle">
+<h1>lvErrorMessage</h1>
+<p>The function opens a dialog box containing a LabVIEW error message if the specified error code indicates a LabVIEW error.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">lvErrorMessage(<i>errSource</i> ,<i>errCode</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function is implemented as FuncVI. It calls LabVIEW<b> Simple Error Handler.vi</b> and passes to it either <b><i>errCode</i></b> value, if it is not omitted in a function call, or the <a href="ce_rt_error.html">rtErrorCode</a> value otherwise. The VI opens a dialog box with a message describing the error unless the error code is equal to zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p><b><i>errSource</i></b> is optional parameter of the <i>String</i> data type. You can use this parameter to identify location of the function which has opened an error message box. It has the same meaning as <b>error source</b> control of <b>Simple Error Handler.vi</b>. If <b><i>errSource</i></b> is omitted in a function call, it defaults to the &quot;rtErrorCode variable&quot; string.</p>
+<p><b><i>errCode</i></b> is an optional parameter that spcifies a LabVIEW error code. If it is specified in a function call, <b><i>errCode</i></b> must have the <i>DBL Number</i> data type (note that the function coerces it to an integer). If it is omitted, the function uses the current value of the <a href="ce_rt_error.html">rtErrorCode</a> instead of it.</p>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns an integer value of the <i>DBL Number</i> data type. The function returns the value of <b><i>errCode</i></b> coerced to an integer if it is not omitted, or the <a href="ce_rt_error.html">rtErrorCode</a> value otherwise.</p>
+<p><b>See also</b></p>
+<p><a href="#cef_errno">errno</a> , <a href="#cef_lverrstr">lvErrorString</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_lverrstr"></a>
+<div class="FuncDscrTitle">
+<h1>lvErrorString</h1>
+<p>The function returns a string containing an error message describing the specified LabVIEW error code.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">lvErrorString(<i>errCode</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function is implemented as FuncVI. It calls LabVIEW<b> Simple Error Handler.vi</b> to produce an error message from either <b><i>errCode</i></b> parameter or the <a href="ce_rt_error.html">rtErrorCode</a> variable.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p><b><i>errCode</i></b> is an optional parameter that spcifies a LabVIEW error code. If it is specified in a function call, <b><i>errCode</i></b> must have the <i>DBL Number</i> data type (note that the function coerces it to an integer). If it is omitted, the function uses the current value of <a href="ce_rt_error.html">rtErrorCode</a> instead of it.</p>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns the <i>String</i> describing an error.</p>
+<p><b>See also</b></p>
+<p><a href="#cef_errno">errno</a> , <a href="#cef_lverrmsg">lvErrorMessage</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+</body>
+</html>

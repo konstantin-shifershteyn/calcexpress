@@ -1,0 +1,16 @@
+/* Creates array containing values from 0 to 10 */
+x = nvecifs(0, 10, 1);
+
+/* Computes exponents */
+y = exp(x);
+
+/* Builds 2D array to display x and exp(x) .
+the first row contains x values
+the second row contains exponents
+*/
+res = matrix(x,y);
+
+/* Converts rows to columns and displays result */
+probe( transp(res),
+         "Exponents: col0 - x ; col1 - exp(x)"
+);

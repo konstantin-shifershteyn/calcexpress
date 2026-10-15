@@ -1,0 +1,1013 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>General Numeric functions</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+</head>
+
+<body>
+
+<!-- ########################################## -->
+<a name="cef_abs"></a>
+<div class="FuncDscrTitle">
+<h1>abs</h1>
+<p>The function computes the absolute value of a number.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">abs(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the absolute value of <b>x</b>. If <b>x</b> is complex, the function works like the <a href="cefunc_complex.html#cef_norm">norm</a> function; i.e. it returns the complex magnitude of <b>x</b>.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The The result is produced according to the <a href="cef_poly.html">polymorphism rules</a> except that the result always has real representation. Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+<tr>
+<td class="FuncDTTblCol"><i>CDB Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of CDB</i></td>
+<td class="FuncDTTblCol"><i>2D Array of CDB</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>In dependence on type of <b>x</b>, the function returns a value that has one of the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_deg"></a>
+<div class="FuncDscrTitle">
+<h1>deg</h1>
+<p>The function converts radians to degrees.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">deg(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the result of computing <b>x</b>*180/pi.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+<tr>
+<td class="FuncDTTblCol"><i>CDB Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of CDB</i></td>
+<td class="FuncDTTblCol"><i>2D Array of CDB</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value with the same data type as <b>x</b>.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+x = deg(pi(0.5));  // x is equal to 90
+</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_e"></a>
+<div class="FuncDscrTitle">
+<h1>e</h1>
+<p>The function returns the value of <b><i>e</i></b> multiplied by the specified value.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">e(<i>x</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p><b>x</b> is an optional argument that may be omitted in a function call. If <b>x</b> is omitted, the function returns the value of <i>e</i> (base of natural logarithm); otherwise it returns <i>e</i> multiplied by <b>x</b>.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+<tr>
+<td class="FuncDTTblCol"><i>CDB Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of CDB</i></td>
+<td class="FuncDTTblCol"><i>2D Array of CDB</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value with the same data type as <b>x</b>. If <b>x</b> is omitted in a function call, the return value has DBL Number type.</p>
+</div>
+
+<h3>Examples</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+x = e(2);  // assigns 2*<i>e</i> to x<br>
+y *= e();  // multiplies y by <i>e</i>
+</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_i32b"></a>
+<a name="cef_i32s"></a>
+<a name="cef_u32b"></a>
+<a name="cef_u32s"></a>
+<div class="FuncDscrTitle">
+<h1>i32b, i32s, u32b, u32s</h1>
+<p>The functions convert values to 32-bit integers.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">
+i32b(x)<br>
+i32s(x)<br>
+u32b(x)<br>
+u32s(x)
+</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p><b>i32b</b> function coerces <b>x</b> to a signed 32-bit integer representation by applying <a href="ce_conversions.html">Bit-keeping Conversion</a>, and returns the result of the conversion. The result is an integer number in the range of <b>-2<sup>31</sup></b> to <b>2<sup>31</sup>-1</b> (or -2147483648 to 2147483647).</p>
+<p><b>i32s</b> function coerces <b>x</b> to a signed 32-bit integer representation by applying <a href="ce_conversions.html">Saturating Conversion</a>, and returns the result of the conversion. The result is an integer number in the range of <b>-2<sup>31</sup></b> to <b>2<sup>31</sup>-1</b> (or -2147483648 to 2147483647).</p>
+<p><b>u32b</b> function coerces <b>x</b> to an unsigned 32-bit integer representation by applying <a href="ce_conversions.html">Bit-keeping Conversion</a> for unsigned integers, and returns the result of the conversion. The result is an integer number in the range of <b>0</b> to <b>2<sup>32</sup>-1</b> (or 0 to 4294967295).</p>
+<p><b>u32s</b> function coerces <b>x</b> to an unsigned 32-bit integer representation by applying <a href="ce_conversions.html">Saturating Conversion</a> for unsigned integers, and returns the result of the conversion. The result is an integer number in the range of <b>0</b> to <b>2<sup>32</sup>-1</b> (or 0 to 4294967295).</p>
+<p>NOTE: All functions return an undefined value for <b>NaN</b> inputs. In addition, the result of Bit-keeping Conversion is also undefined for <b>Inf</b> and <b>-Inf</b> values.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The data type of the return value is determined by the <a href="cef_poly.html">polymorphism rules</a> for functions with one argument.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+//--- a positive in-range value<br>
+i32s(3.14);          /* returns 3 */<br>
+i32b(3.14);          /* returns 3 */<br>
+u32s(3.14);          /* returns 3 */<br>
+u32b(3.14);          /* returns 3 */<br>
+//--- a negative value<br>
+i32s(-1);            /* returns -1 */<br>
+i32b(-1);            /* returns -1 */<br>
+u32s(-1);            /* returns 0 (Clamped to floor) */<br>
+u32b(-1);            /* returns 4294967295 (Wrapped via two's complement) */<br>
+//--- a positive out-of-range value<br>
+i32s(5000000005.5);  /* returns 2147483647 (Clamped to ceiling) */<br>
+i32b(5000000005.5);  /* returns 705032709 (Upper bits discarded) */<br>
+u32s(5000000005.5);  /* returns 4294967295 (Clamped to ceiling) */<br>
+u32b(5000000005.5);  /* returns 705032709 (Upper bits discarded) */<br>
+//--- a negative out-of-range value<br>
+i32s(-5000000005.5); /* returns -2147483648 (Clamped to floor) */<br>
+i32b(-5000000005.5); /* returns -705032709 (Upper bits discarded, evaluated as signed) */<br>
+u32s(-5000000005.5); /* returns 0 (Clamped to floor) */<br>
+u32b(-5000000005.5); /* returns 3589934587 (Upper bits discarded, evaluated as unsigned) */<br>
+</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_inf"></a>
+<a name="cef_infn"></a>
+<a name="cef_nan"></a>
+<div class="FuncDscrTitle">
+<h1>inf, infn, nan</h1>
+<p>The functions return special values of <b>+Inf</b>, <b>-Inf</b>, and <b>NaN</b>.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">
+inf()<br>
+infn()<br>
+nan()
+</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p><b>inf</b> function returns <b>+Inf</b> (positive infinity).</p>
+<p><b>infn</b> function returns <b>-Inf</b> (negative infinity).</p>
+<p><b>nan</b> function returns <b>NaN</b> (Not A Number).</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The functions have no parameters.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value of the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+
+<!-- ########################################## -->
+<a name="cef_land"></a>
+<div class="FuncDscrTitle">
+<h1>land</h1>
+<p>The function computes the logical AND for all input values (aggregate logical AND).</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">land(x1 ,<i>x2</i> ... ,<i>xn</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on an arbitrary non-zero number of arguments, considering all actual parameters as a single aggregate data set.</p>
+<p>The function returns 1 (TRUE) if all elements of the aggregate data set are TRUE; i.e. if each element coerced to an integer is not equal to zero. Otherwise it returns 0 (FALSE).</p>
+<p>The function coerces its inputs to a 32-bit integer representation by applying <a href="ce_conversions.html">Bit-keeping Conversion</a>.
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars, arrays, and any combinations thereof. Formally, it operates on the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value of the <i>DBL Number</i> data type.</p>
+</div>
+
+<h3>Comment</h3>
+<div class="FuncDscrSection">
+<p>The function is useful for performing aggregate comparisons. For more information, see the description of CalcExpress Relational Operators.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+v = vector(1,3,5,7); //v is array {1,3,5,7}<br>
+land( v &gt; 0 );<br>
+/* returns 1 because all elements of v are greater than 0 */<br>
+land( v &gt;= 5 );<br>
+/* returns 0 because there are elements that are less than 5 */<br>
+land( (v &gt; 0), (v &lt; 10) );<br>
+/* returns 1 because all elements of v are greater than 0, and are less then l0 */<br>
+land( (v &gt; 0), (v &lt; 10), v[0] == v[1] );<br>
+/* returns 0 because v[0] is not equal to v[1] */
+</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_lor"></a>
+<div class="FuncDscrTitle">
+<h1>lor</h1>
+<p>The function computes the logical OR for all input values (aggregate logical OR).</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">lor(x1 ,<i>x2</i> ... ,<i>xn</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on an arbitrary non-zero number of arguments, considering all actual parameters as a single aggregate data set.</p>
+<p>The function returns 0 (FALSE) if all elements of the aggregate data set are FALSE; i.e. if each element coerced to integer is equal to zero. Otherwise it returns 1 (TRUE).</p>
+<p>The function coerces its inputs to a 32-bit integer representation by applying <a href="ce_conversions.html">Bit-keeping Conversion</a>.
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars, arrays, and any combinations thereof. Formally, it works on the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value of the <i>DBL Number</i> data type.</p>
+</div>
+
+<h3>Comment</h3>
+<div class="FuncDscrSection">
+<p>The function is useful for performing aggregate comparisons. For more information, see the description of CalcExpress Relational Operators.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+v = vector(1,3,5,7); //v is array {1,3,5,7}<br>
+lor( v &lt;= 0 );<br>
+/* returns 0 because all elements of v are greater than 0 */<br>
+lor( v &gt; 4 );<br>
+/* returns 1 because there are elements that are greater than 4 */<br>
+lor( (v &lt; 0), (v &gt; 10) );<br>
+/* returns 0 because there is no element that is less than 0, or greater than 10  */<br>
+lor( (v &lt; 0), (v &gt; 10), v[0] != v[1] );<br>
+/* returns 1 because v[0] is not equal to v[1] */
+</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_lxor"></a>
+<div class="FuncDscrTitle">
+<h1>lxor</h1>
+<p>The function computes the logical XOR for all input values (aggregate logical XOR).</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">lxor(x1 ,<i>x2</i> ... ,<i>xn</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on an arbitrary non-zero number of arguments, considering all actual parameters as a single aggregate data set.</p>
+<p>The function returns 1 (TRUE) if the aggregate data set contains odd number of TRUE elements (an element is TRUE if its value coerced to an integer is not equal to zero). The function returns 0 (FALSE) if number of TRUE elements either is even or is equal to zero.</p>
+<p>The function coerces its inputs to a 32-bit integer representation by applying <a href="ce_conversions.html">Bit-keeping Conversion</a>.
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars, arrays, and any combinations thereof. Formally, it works on the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value of the <i>DBL Number</i> data type.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_max"></a>
+<div class="FuncDscrTitle">
+<h1>max</h1>
+<p>The function searches for the largest scalar value in arguments.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">max(x1 ,<i>x2</i> ... ,<i>xn</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on an arbitrary non-zero number of arguments; herewith, it considers all the actual parameters as a single aggregate data set.</p>
+<p>The function returns the maximum value in the aggregate data set.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars, arrays, and any combinations thereof. Formally, it works on the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value of the <i>DBL Number</i> data type.</p>
+</div>
+
+<h3>Comment</h3>
+<div class="FuncDscrSection">
+<p>If you need to find an index of the maximum element in an array, use the <b>search</b> function. See example below.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+x = 5;<br>
+y = 0.1;<br>
+v = vector(-1,7,3,5); //v is array {-1,7,3,5}<br>
+max(x,y);             //returns 5<br>
+max(v);               //returns 7<br>
+max(4, x, v*y);       //returns 5 (x value)<br>
+search(v, max(v));<br>
+/* returns 1 that is index of maximum value (7) in v */
+</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_min"></a>
+<div class="FuncDscrTitle">
+<h1>min</h1>
+<p>The function searches for the smallest scalar value in arguments.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">min(x1 ,<i>x2</i> ... ,<i>xn</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on an arbitrary non-zero number of arguments; herewith, it considers all the actual parameters as a single aggregate data set.</p>
+<p>The function returns the minimum value in the aggregate data set.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars, arrays, and any combinations thereof. Formally, it works on the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value of the <i>DBL Number</i> data type.</p>
+</div>
+
+<h3>Comment</h3>
+<div class="FuncDscrSection">
+<p>If you need to find an index of the minimum element in an array, use the <b>search</b> function. See example below.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+x = 5;<br>
+y = 0.1;<br>
+v = vector(-1,7,3,-5); //v is array {-1,7,3,-5}<br>
+min(x,y);      //returns 0.1<br>
+min(v);        //returns -5<br>
+min(x,y,v);    //returns -5<br>
+search(v, min(v));<br>
+/* returns 3 that is index of minimum value (-5) in v */
+</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_mean"></a>
+<div class="FuncDscrTitle">
+<h1>mean</h1>
+<p>The function computes the mean (average) of argument values.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">mean(x1 ,<i>x2</i> ... ,<i>xn</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on an arbitrary non-zero number of arguments; herewith, it considers all the actual parameters as a single aggregate data set.</p>
+<p>The function returns the mean of all the elements in the aggregate data set. The mean is computed using the formula <b>sum(X)/N</b>, where <b>X</b> is the aggregate data set, and <b>N</b> is the number of elements in the aggregate data set.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars, arrays, and any combinations thereof. Formally, it works on the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+<tr>
+<td class="FuncDTTblCol"><i>CDB Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of CDB</i></td>
+<td class="FuncDTTblCol"><i>2D Array of CDB</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a scalar value. The value has the <i>DBL Number</i> data type if all of the actual parameters have a real representation (DBL). If there is a parameter with a complex representation (CDB), the return value has the <i>CDB Number</i> data type.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+x = 5;<br>
+v = vector(10,20,30); //v is array {10,20,30}<br>
+mean(v);       //returns 20<br>
+mean(x,6,7);   //returns 6<br>
+mean(v,x,15);  //returns 16
+</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_pi"></a>
+<div class="FuncDscrTitle">
+<h1>pi</h1>
+<p>The function returns the value of <b><i>pi</i></b> multiplied by the specified value.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">pi(<i>x</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p><b>x</b> is an optional argument that may be omitted in a function call. If <b>x</b> is omitted, the function returns the value of <i>pi</i>; otherwise it returns <i>pi</i> multiplied by <b>x</b>.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+<tr>
+<td class="FuncDTTblCol"><i>CDB Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of CDB</i></td>
+<td class="FuncDTTblCol"><i>2D Array of CDB</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value with the same data type as <b>x</b>. If <b>x</b> is omitted in a function call, the return value has DBL Number type.</p>
+</div>
+
+<h3>Examples</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+x = pi();    // assigns pi to x<br>
+y = pi(0.5); // assigns pi/2 to y
+</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_prod"></a>
+<div class="FuncDscrTitle">
+<h1>prod</h1>
+<p>The function computes the product of argument values.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">prod(x1 ,<i>x2</i> ... ,<i>xn</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on an arbitrary non-zero number of arguments; herewith, it considers all the actual parameters as a single aggregate data set.</p>
+<p>The function returns the product of all the elements in the aggregate data set.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars, arrays, and any combinations thereof. Formally, it works on the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+<tr>
+<td class="FuncDTTblCol"><i>CDB Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of CDB</i></td>
+<td class="FuncDTTblCol"><i>2D Array of CDB</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a scalar value. The value has the <i>DBL Number</i> data type if all of the actual parameters have a real representation (DBL). If there is a parameter with a complex representation (CDB), the return value has the <i>CDB Number</i> data type.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+x = 5;<br>
+v = vector(2,3,4); //v is array {2,3,4}<br>
+prod(v);       //returns 24<br>
+prod(x,2,3);   //returns 30<br>
+prod(v,x,3);   //returns 360
+</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_rad"></a>
+<div class="FuncDscrTitle">
+<h1>rad</h1>
+<p>The function converts degrees to radians.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">rad(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the result of computing <b>x</b>*<i>pi</i>/180</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+<tr>
+<td class="FuncDTTblCol"><i>CDB Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of CDB</i></td>
+<td class="FuncDTTblCol"><i>2D Array of CDB</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value with the same data type as <b>x</b>.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+x = rad(180);         // x is equal to pi
+</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_random"></a>
+<div class="FuncDscrTitle">
+<h1>random</h1>
+<p>The function generates random numbers.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">random(<i>x</i> ,<i>y</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns a random number computed using the formula:</p>
+<p><b><i>   x</i></b> * <i>RND</i> + <b><i>y </i></b>,</p>
+<p>where <i>RND</i> is a uniformly distributed random number in the range 0 to 1.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>Both <b><i>x</i></b> and <b><i>y</i></b> are optional arguments that can be omitted in a function call. By default, <b><i>x</i></b> is equal to 1, and <b><i>y</i></b> is equal to 0.</p>
+<p>The function can operate on scalars, arrays, and combination thereof. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b><i>x</i></b> and <b><i>y</i></b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The data type of the return value is determined by the <a href="cef_poly.html">polymorphism rules</a> for function with two arguments.</p>
+</div>
+
+<h3>Comment</h3>
+<div class="FuncDscrSection">
+<p>If the function returns an array, it generates random number for every element of the array.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_sign"></a>
+<div class="FuncDscrTitle">
+<h1>sign</h1>
+<p>The function returns a sign of real number.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">sign(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the sign of <b>x</b> as it is shown below.</p>
+<p>if <b>x</b> is greater than 0, the function returns 1.</p>
+<p>if <b>x</b> is equal to 0, the function returns 0.</p>
+<p>if <b>x</b> is less than 0, the function returns -1.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value with the same data type as <b>x</b>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_sqrt"></a>
+<div class="FuncDscrTitle">
+<h1>sqrt</h1>
+<p>The function computes the square root.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">sqrt(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the square root of <b>x</b>. If <b>x</b> is less than 0, the function returns NaN unless <b>x</b> has a complex representation (CDB).</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+<tr>
+<td class="FuncDTTblCol"><i>CDB Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of CDB</i></td>
+<td class="FuncDTTblCol"><i>2D Array of CDB</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value with the same data type as <b>x</b>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_sum"></a>
+<div class="FuncDscrTitle">
+<h1>sum</h1>
+<p>The function computes the sum of argument values.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">sum(x1 ,<i>x2</i> ... ,<i>xn</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on an arbitrary non-zero number of arguments; herewith, it considers all the actual parameters as a single aggregate data set.</p>
+<p>The function returns the sum of all the elements in the aggregate data set.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars, arrays, and any combinations thereof. Formally, it works on the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+<tr>
+<td class="FuncDTTblCol"><i>CDB Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of CDB</i></td>
+<td class="FuncDTTblCol"><i>2D Array of CDB</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a scalar value. The value has the <i>DBL Number</i> data type if all of the actual parameters have a real representation (DBL). If there is a parameter with a complex representation (CDB), the return value has the <i>CDB Number</i> data type.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+x = 5;<br>
+v = vector(10,20,30); //v is array {10,20,30}<br>
+sum(v);       //returns 60<br>
+sum(x,2,3);   //returns 10<br>
+sum(v,x,3);   //returns 68
+</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_u32mod"></a>
+<div class="FuncDscrTitle">
+<h1>u32mod</h1>
+<p>The function computes the integer remainder of two unsigned 32-bit integer numbers, following 32-bit unsigned integer arithmetic.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">u32mod(x,y)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function coerces <b>x</b> and <b>y</b> to an unsigned 32-bit integer representation by applying <a href="ce_conversions.html">Bit-keeping Conversion</a> for unsigned integers. Then, it computes the remainder when <b>x</b> is divided by <b>y</b>. The result is an integer number in the range of <b>0</b> to <b>2<sup>32</sup>-1</b> (or 0 to 4294967295).</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars, arrays, and combination thereof. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> and <b>y</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The data type of the return value is determined by the <a href="cef_poly.html">polymorphism rules</a> for function with two arguments.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_u32sub"></a>
+<div class="FuncDscrTitle">
+<h1>u32sub</h1>
+<p>The function computes the difference between two values represented as unsigned 32-bit integer numbers, following 32-bit unsigned integer arithmetic.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">u32sub(x,y)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function coerces <b>x</b> and <b>y</b> to an unsigned 32-bit integer representation by applying <a href="ce_conversions.html">Bit-keeping Conversion</a> for unsigned integers. Then, it subtracts <b>y</b> from <b>x</b>. The result is an integer number in the range of <b>0</b> to <b>2<sup>32</sup>-1</b> (or 0 to 4294967295).</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars, arrays, and combination thereof. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> and <b>y</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The data type of the return value is determined by the <a href="cef_poly.html">polymorphism rules</a> for function with two arguments.</p>
+</div>
+
+<h3>Comment</h3>
+<div class="FuncDscrSection">
+<p>You can use this function to compute difference between the Milliseconds Timer values returned by the <a href="cefunc_time.html#cef_GetTicks">GetTicks</a> function.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+</body>
+</html>

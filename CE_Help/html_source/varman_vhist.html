@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>Variable History</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+<style>
+ul { margin-left:0pt; padding-left:20pt; }
+li { padding-bottom:3pt; }
+</style>
+</head>
+
+<body>
+
+<!-- ########################################## -->
+<a name="vhistory_overview"></a>
+<div class="GenSectTitle">
+<h1><span class="PageTitleL">Variable History</span></h1>
+</div>
+
+<!-- ########################################## -->
+
+<p>A variable history records the values assigned to a variable, along with the timestamps of when each assignment occurred.</p>
+<p>VarMan transparently handles variable histories. You should only declare a history for a desired variable, and then VarMan will automatically manage the variable history according to the parameters you specify. VarMan can handle history for variables of any data type, both predefined and user-defined.</p>
+<p>VarMan uses a circular buffer technique to maintain a variable history. At any time, the history contains as much recent data as can be accommodated within it, depending on the size of the history you specify.</p>
+<ul>
+<li><a href="#vhistory_overview_create">Creating history</a></li>
+<li><a href="#vhistory_overview_destroy">Destroying history</a></li>
+<li><a href="#vhistory_overview_update">Updating history</a></li>
+<li><a href="#vhistory_overview_obtain">Reading history</a></li>
+</ul>
+
+<h3>Also see</h3>
+<p><a href="mnu_vm-hist.html">Variable History VIs</a></p>
+</ul>
+
+
+
+<!-- ########################################## -->
+<p>&nbsp;</p><hr class="TopicSeparator">
+<a name="vhistory_overview_create"></a>
+<h2>Creating history</h2>
+
+<p>By default, VarMan does not save historical values of variables. To activate this feature, you need to explicitly instruct VarMan to create a history, and configure its parameters. Use <a href="vi_VHistory_-_History_Controller.html">VHistory - History Controller.vi</a> to create and configure variable histories.</p>
+<p>When you create a variable history, you must specify the history length, which is the maximum number of values that can be saved. The circular buffer technique is used to save the most recent data. Additionally, you can set optional time and value conditions to influence how the history is handled. Note that while it is possible to reconfigure the time and value conditions for an existing history, the history length cannot be changed.</p>
+<p>IMPORTANT: Note that a large history length can lead to a significant increase in memory usage, especially if a variable is an array.</p>
+
+<!-- ########################################## -->
+<p>&nbsp;</p><hr class="TopicSeparator">
+<a name="vhistory_overview_destroy"></a>
+<h2>Destroying history</h2>
+
+<p>VarMan automatically destroys a variable history when the respective variable is destroyed. You can also explicitly destroy a history if you no longer need it or if you want to recreate it with a different size. Use <a href="vi_VHistory_-_History_Controller.html">VHistory - History Controller.vi</a> to destroy a variable history.</p>
+
+
+<!-- ########################################## -->
+<p>&nbsp;</p><hr class="TopicSeparator">
+<a name="vhistory_overview_update"></a>
+<h2>Updating history</h2>
+
+<p>Every time a value is assigned to a variable, either during script processing or with a call to VarMan VI, VarMan saves the value in the variable history unless any configured condition suppresses this. If the history buffer is full, VarMan overwrites the oldest value with the newest one.</p>
+<!--
+<p>Every time a value is successfully assigned to a variable, either during a script processing or by call of a VarMan VI, VarMan stores the value to the variable history unless any specified condition suppresses it (this rule has single exception described below, <a href="#vhistory_overview_update_exception">click here</a>). If a history buffer is full, VarMan overwrites the oldest value with the newest one.</p>
+-->
+<p>VarMan uses two kinds of conditions to decide whether the history needs to be updated, and a way for doing so.</p>
+
+<a name="vhistory_overview_update_tc"></a>
+<h3>Time conditions</h3>
+<p><u>Time Step condition</u>. If  CurTime-LastTime &gt;= Step,  VarMan adds a new record to the variable history; herewith it does not check other conditions.</p>
+<p><u>Time Gate condition</u>. If  CurTime-LastTime &lt; Gate,  VarMan overwrites the last stored value with the new value (hereby it keeps the respective time stamp unchanged) unless other conditions are met. VarMan does not check this condition if the Time Step condition is already true.</p>
+<p>, where</p>
+<p>CurTime is the current time (timestamp when the value assignment occurs).</p>
+<p>LastTime is a timestamp of the last value stored in the history.</p>
+<p>The Step and Gate are number of milliseconds specified as time conditions in <a href="vi_VHistory_-_History_Controller.html">VHistory - History Controller.vi</a>. By default, both are equal to zero.</p>
+
+<a name="vhistory_overview_update_vc"></a>
+<h3>Value condition</h3>
+<p>A value condition, if met, causes VarMan to add a new record to the history. Note that a value condition only makes sense if the Time Step condition is specified; i.e. if the Step parameter is greater than zero (see the <a href="#vhistory_overview_update_tc">Time conditions</a> topic above). VarMan will not check a value condition if the Time Step condition is already true.</p>
+
+<p>Supported value conditions are listed below. Note that the <u>changed</u> condition can be applied to variables of any data type, while all other conditions apply only to DBL scalars.</p>
+
+<p><u>changed</u> condition is met if<br>
+      NewVal != LastVal (not equal)</p>
+<p><u>abs deviation</u> condition is met if<br>
+      |NewVal - LastVal| &gt;= |Delta|</p>
+<p><u>rel deviation</u> condition is met if<br>
+      |NewVal - LastVal| &gt;= |LastVal * Delta|</p>
+<p><u>out of range</u> condition is met if<br>
+      NewVal &lt;= RangeMin  OR   NewVal &gt;= RangeMax</p>
+<p><u>within range</u> condition is met if<br>
+      NewVal &gt;= RangeMin  AND  NewVal &lt;= RangeMax</p>
+<p>, where</p>
+<p>NewVal is the new value assigned to the variable.<br>
+LastVal is the last value stored in the variable history.<br>
+The Delta, RangeMin and RangeMax are parameters specified as part of a value condition in <a href="vi_VHistory_-_History_Controller.html">VHistory - History Controller.vi</a>.
+By default, they are all equal to zero.</p>
+
+<a name="vhistory_overview_update_exception"></a>
+<h3><u>IMPORTANT NOTICE</u></h3>
+<p>In CalcExpress and CSE scripts, VarMan does not update the variable history if a value is assigned to an indexed variable; i.e., a variable name followed by a index expression is situated as the left-hand operand of the Assignment operator.</p>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+for(i=0; i&lt;10; i+=1) {<br>
+  /* this assignment does not cause a history update */<br>
+  array[i] = i*5;<br>
+}<br>
+/* the statement below causes an updating of the history of array */<br>
+array = array;<br>
+<br>
+/* the statement below has same effect as the statement above */<br>
+array += 0;
+</p>
+</div>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<p>&nbsp;</p><hr class="TopicSeparator">
+<a name="vhistory_overview_obtain"></a>
+<h2>Reading history</h2>
+
+<p>If a variable has a history, it can be read using <a href="mnu_vm-hist.html">Variable History VIs</a>. There is a dedicated history VI for each predefined data type. In addition, there is a VI that returns history values of an arbitrary data type in the Flattened-To-String format. Every VI returns a variable history in two arrays: an array of variable values and an array of timestamps. A timestamp is a DBL number representing date and time in the LabVIEW date/time format.</p>
+
+<p>VarMan VIs provide a few ways to read historical values:</p>
+<ul>
+<li>By default, you can read entire history.</li>
+<li>Using <u>TimeRange</u> mode, you can read historical values with timestamps within a specified time range.</li>
+<li>Using <u>N-Vals</u> mode, you can read the specified number of the newest values saved in a history.</li>
+<li>Using <u>NewVals</u> mode, you can force VarMan VIs to return only the newest values saved to history since the last reading of the history was done in this mode. <u>NewVals</u> mode can be especially useful if you need to write historical values to log files asynchronously with other parts of an application (see <a href="mnu_vm-hfile.html">History Log File VIs</a>).</li>
+</ul>
+<p>&nbsp;</p>
+
+<!-- ########################################## -->
+<p>&nbsp;</p><hr class="TopicSeparator">
+<h3>For more information, see</h3>
+<ul>
+<li><a href="varman.html">VarMan Overview</a></li>
+<li><a href="mnu_vm-top.html">VarMan VIs</a></li>
+<li><a href="mnu_vm-hist.html">Variable History VIs</a></li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</body>
+</html>

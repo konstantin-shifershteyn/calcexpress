@@ -1,0 +1,572 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>Variable History functions</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+</head>
+
+<body>
+
+<!-- ########################################## -->
+<a name="cef_vhattach"></a>
+<div class="FuncDscrTitle">
+<h1>vhAttach</h1>
+<p>The function creates a history for the specified variable.</p>
+<p>See the <a href="varman_vhist.html">Variable History</a> topic for information on history maintenance.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">vhAttach(name,size <i>,vch ,enaWrID</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function creates a history for the variable specified by <b>name</b> that is located in the variable context specified by <b>vch</b>.</p>
+<p>The optional parameter <b>vch</b> specifies a handle of the variable context in which the variable <b>name</b> exists. If <b>vch</b> is omitted in the function call, the function uses the handle of the local variable context passed to a CalcExpress or CSE VI executing the script (the current local context). <b>vch</b> is ignored if <b>name</b> refers to a variable by an alias.</p>
+<p>On success, the function returns zero. Otherwise, it returns the negated value of the <a href="errors.html#err_vm_engine">VarMan Engine error code</a> indicating an error reason. For example, it returns -2 if the specified variable is not found, -8 if the variable already has a history attached, -9 if an invalid history size is specified.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td><td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>name</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies a variable name. In general, <b>name</b> has to comply with the VarMan name specifier syntax and can include a variable name or an alias, or both of them. See the <a href="varman_vref.html">Referring to variables</a> topic for more information.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>size</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Nunber</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies the maximum number of values that the history can hold. A history is maintained as a circular buffer. It always contains the most recent values. The function coerces <b>size</b> to be an integer.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>vch</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies the handle of the variable context where the specified variable exists. It is ignored if <b>name</b> refers to a variable by an alias.
+There are two special values for <b>vch</b>:<br>
+<b>vch</b> equal to 0 denotes the current local context.<br>
+<b>vch</b> equal to -1 denotes the global context.<br>
+By default, <b>vch</b> is equal to 0.
+</td>
+</tr>
+
+<tr>
+<td class="FuncDscrTblCol1"><b>enaWrID</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that enables, if TRUE (non-zero), or disables, if FALSE (zero), the retention of <a href="hprj:varman.html#varman_overview_wrid">Writer IDs</a> within the variable history.<br>
+By default, <b>enaWrID</b> is equal to 1 (TRUE).
+</td>
+</tr>
+
+
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>On success, the function returns zero. In case of an error, it returns a negative error code as described above.</p>
+<p>The return value has the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+/* It is example of CSE script */<br>
+x = 0;<br>
+/* attach history to x0 (size=100) */<br>
+err = <b>vhAttach</b>(&quot;x&quot;, 100);<br>
+if (err) {<br>
+  <a href="cefunc_error.html#cef_lverrmsg">lvErrorMessage</a>(&quot;vhAttach() function&quot;, 7000-err);<br>
+  return err;<br>
+}<br>
+/* changing x value in the loop */<br>
+while(x &lt; 10)<br>
+  x += <a href="cefunc_num_gen.html#cef_random">random</a>();<br>
+/* display history of x */<br>
+<a href="#cef_vhshow">vhShow</a>(&quot;x&quot;);
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_var.html">Variable management functions</a></p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_vhconf"></a>
+<a name="cef_vhconfcx"></a>
+<div class="FuncDscrTitle">
+<h1>vhConf, vhConfCx</h1>
+<p>The functions change configuration parameters of a history of the specified variable.</p>
+<p>See the <a href="varman_vhist.html">Variable History</a> topic for information on history maintenance, and <a href="vi_VHistory_-_History_Controller.html">VHistory - History Controller.vi</a> for information about the configuration parameters.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">
+vhConf(name <i>,tStep ,tGate ,vcond ,delta ,rmin ,rmax</i>)<br>
+vhConfCx(name <i>,vch ,tStep ,tGate ,vcond ,delta ,rmin ,rmax</i>)
+</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The functions save the specified parameters to a history configuration of the variable specified by <b>name</b>. The functions work identically, except that the vhConfCx function has the <b>vch</b> parameter while vhConf does not.</p>
+<p>The optional parameter <b>vch</b> specifies a handle of the variable context in which the variable <b>name</b> exists. If <b>vch</b> is omitted in the function call, the function uses the handle of the local variable context passed to a CalcExpress or CSE VI executing the script (the current local context). <b>vch</b> is ignored if <b>name</b> refers to a variable by an alias.</p>
+<p>On success, the function returns zero. Otherwise, it returns the negated value of the <a href="errors.html#err_vm_engine">VarMan Engine error code</a> indicating an error reason. For example, they return -2 if the specified variable is not found, -7 if the variable does not have a history attached.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td><td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>name</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies a variable name. In general, <b>name</b> has to comply with the VarMan name specifier syntax and can include a variable name or an alias, or both of them. See the <a href="varman_vref.html">Referring to variables</a> topic for more information.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>vch</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies the handle of the variable context where the specified variable exists. It is ignored if <b>name</b> refers to a variable by an alias.
+There are two special values for <b>vch</b>:<br>
+<b>vch</b> equal to 0 denotes the current local context.<br>
+<b>vch</b> equal to -1 denotes the global context.<br>
+By default, <b>vch</b> is equal to 0.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>tStep</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies a value, in milliseconds, of the <u>time step condition</u>. By default, it is equal to 0.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>tGate</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies a value, in milliseconds, of the <u>time gate condition</u>. By default, it is equal to 0.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>vcond</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies a kind of <u>value condition</u>. By default, it is equal to 0.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>delta</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies the <u>Delta</u> parameter of the <u>value condition</u>. By default, it is equal to 0.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>rmin</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies the <u>RangeMin</u> parameter of the <u>value condition</u>. By default, it is equal to 0.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>rmax</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies the <u>RangeMax</u> parameter of the <u>value condition</u>. By default, it is equal to 0.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>On success, the function returns zero. In case of an error, it returns a negative error code as described above.</p>
+<p>The return value has the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_var.html">Variable management functions</a></p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_vhdetach"></a>
+<div class="FuncDscrTitle">
+<h1>vhDetach</h1>
+<p>The function destroys a history of the specified variable.</p>
+<p>See the <a href="varman_vhist.html">Variable History</a> topic for information on history maintenance.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">vhDetach(name <i>,vch</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function destroys a history of the variable specified by <b>name</b> that is located in the variable context specified by <b>vch</b>.</p>
+<p>The optional parameter <b>vch</b> specifies a handle of the variable context in which the variable <b>name</b> exists. If <b>vch</b> is omitted in the function call, the function uses the handle of the local variable context passed to a CalcExpress or CSE VI executing the script (the current local context). <b>vch</b> is ignored if <b>name</b> refers to a variable by an alias.</p>
+<p>On success, the function returns zero. Otherwise, it returns the negated value of the <a href="errors.html#err_vm_engine">VarMan Engine error code</a> indicating an error reason. For example, it returns -2 if the specified variable is not found, -7 if the variable does not have a history attached.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td><td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>name</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies a variable name. In general, <b>name</b> has to comply with the VarMan name specifier syntax and can include a variable name or an alias, or both of them. See the <a href="varman_vref.html">Referring to variables</a> topic for more information.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>vch</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies the handle of the variable context where the specified variable exists. It is ignored if <b>name</b> refers to a variable by an alias.
+There are two special values for <b>vch</b>:<br>
+<b>vch</b> equal to 0 denotes the current local context.<br>
+<b>vch</b> equal to -1 denotes the global context.<br>
+By default, <b>vch</b> is equal to 0.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>On success, the function returns zero. In case of an error, it returns a negative error code as described above.</p>
+<p>The return value has the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_var.html">Variable management functions</a></p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_vhquery"></a>
+<div class="FuncDscrTitle">
+<h1>vhQuery</h1>
+<p>The function returns history of the specified variable.</p>
+<p>See the <a href="varman_vhist.html">Variable History</a> topic for information on history maintenance.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">vhQuery(name,dVar <i>,tVar ,rev ,nval ,vch</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function reads a history of the variable specified by <b>name</b> and writes the history values and time stamps to the variables specified by the <b>dVar</b> and <b>tVar</b> parameters respectively.</p>
+<p>The optional parameter <b>vch</b> specifies a handle of the variable context in which the variable <b>name</b> exists. If <b>vch</b> is omitted in the function call, the function uses the handle of the local variable context passed to a CalcExpress or CSE VI executing the script (the current local context). <b>vch</b> is ignored if <b>name</b> refers to a variable by an alias.</p>
+
+<p>The variable defined by the <b>name</b> parameter must have one of the following <a href="dtypes.html#data_types_table">data types</a>: <i>DBL Number</i>, <i>CDB Number</i> or <i>String</i>. 
+Respectively, the variable defined by the <b>dVar</b> parameter must have data type: <i>1D Array of DBL</i>, <i>1D Array of CDB</i> or <i>1D Array of Strings</i>. 
+If <b>tVar</b> parameter is not omitted, it must be a name of variable that has <i>1D Array of DBL</i> data type.
+</p>
+<p>All the parameters that specify variable names (<b>name</b>, <b>dVar</b> and <b>tVar</b>) have the <i>String</i> data type. An empty string can be passed to either <b>dVar</b> or <b>tVar</b> parameter if the corresponding data is not of interest.
+ In general, a variable name should comply with the VarMan name specifier syntax and can include a variable name or an alias, or both of them. See the <a href="varman_vref.html">Referring to variables</a> topic for more information.</p>
+
+<p>All the referenced variables must exist in order to the function succeed. However, the function does not cause a CalcExpress runtime error if it cannot find any of them. Instead, it returns a non-zero code to indicate an error reason.</p>
+<p>On success, the function returns zero. Otherwise, it returns the negated value of the <a href="errors.html#err_vm_engine">VarMan Engine error code</a> indicating an error reason. For example, it returns -2 if any of the specified variable is not found, -7 if <b>name</b> variable does not have a history attached.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td><td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>name</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies a variable name. In general, <b>name</b> has to comply with the VarMan name specifier syntax and can include a variable name or an alias, or both of them. See the <a href="varman_vref.html">Referring to variables</a> topic for more information.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>dVar</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies the name of a variable to write historic values. It is allowed to pass an empty string as the value for the <b>dVar</b> parameter if historic values are not needed.
+The variable specified by <b>dVar</b> must be an one-dimensional array with a data type that agrees with the data type of the variable specified in <b>name</b>.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>tVar</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies the name of a variable to write history time stamps.
+It is allowed to pass an empty string as the value for the <b>tVar</b> parameter if time stamps are not needed. Elements in the <b>tVar</b> variable contain time stamps for the respective elements in the <b>dVar</b> variable.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>rev</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies an order in which returned history values and time stamps are arranged. If it is non-zero, the history is arranged in reversed chronological order; i.e. the first element in <b>dVar</b> variable contains the last value assigned to <b>name</b> variable.
+By default, <b>rev</b> is equal to 1.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>nvals</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies number of the newest history values should be returned.
+By default, <b>nvals</b> is equal to -1 to return entire history.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>vch</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies the handle of the variable context where the specified variable exists. It is ignored if <b>name</b> refers to a variable by an alias.
+There are two special values for <b>vch</b>:<br>
+<b>vch</b> equal to 0 denotes the current local context.<br>
+<b>vch</b> equal to -1 denotes the global context.<br>
+By default, <b>vch</b> is equal to 0.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>On success, the function returns zero. In case of an error, it returns a negative error code as described above.</p>
+<p>The return value has the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+/* It is example of CSE script */<br>
+x = 0;<br>
+/* attach history to x0 (size=100) */<br>
+err = <a href="#cef_vhattach">vhAttach</a>(&quot;x&quot;, 100);<br>
+if (err) {<br>
+  <a href="cefunc_error.html#cef_lverrmsg">lvErrorMessage</a>(&quot;vhAttach() function&quot;, 7000-err);<br>
+  return err;<br>
+}<br>
+/* changing x value in the loop */<br>
+while(x &lt; 10)<br>
+  x += <a href="cefunc_num_gen.html#cef_random">random</a>();<br>
+/* create variable for history data */<br>
+<a href="cefunc_vm1.html#cef_a1dbl">a1dbl</a>(&quot;x_history&quot;);<br>
+/* retrieve history values */<br>
+err = <b>vhQuery</b>(&quot;x&quot;, &quot;x_history&quot;, &quot;&quot;, 0);<br>
+if (err) {<br>
+  <a href="cefunc_error.html#cef_lverrmsg">lvErrorMessage</a>(&quot;vhQuery() function&quot;, 7000-err);<br>
+  return;<br>
+}<br>
+// display history on waveform graph<br>
+<a href="cefunc_user.html#cef_wfgraph">wfGraph</a>(0, x_history);
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_var.html">Variable management functions</a></p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_vhreset"></a>
+<div class="FuncDscrTitle">
+<h1>vhReset</h1>
+<p>The function resets a history of the specified variable. After the function is completed, the variable history is empty.</p>
+<p>See the <a href="varman_vhist.html">Variable History</a> topic for information on history maintenance.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">vhReset(name <i>,vch</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function clears a history of the variable specified by <b>name</b> that is located in the variable context specified by <b>vch</b>.</p>
+<p>The optional parameter <b>vch</b> specifies a handle of the variable context in which the variable <b>name</b> exists. If <b>vch</b> is omitted in the function call, the function uses the handle of the local variable context passed to a CalcExpress or CSE VI executing the script (the current local context). <b>vch</b> is ignored if <b>name</b> refers to a variable by an alias.</p>
+<p>On success, the function returns zero. Otherwise, it returns the negated value of the <a href="errors.html#err_vm_engine">VarMan Engine error code</a> indicating an error reason. For example, it returns -2 if the specified variable is not found, -7 if the variable does not have a history attached.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td><td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>name</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies a variable name. In general, <b>name</b> has to comply with the VarMan name specifier syntax and can include a variable name or an alias, or both of them. See the <a href="varman_vref.html">Referring to variables</a> topic for more information.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>vch</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies the handle of the variable context where the specified variable exists. It is ignored if <b>name</b> refers to a variable by an alias.
+There are two special values for <b>vch</b>:<br>
+<b>vch</b> equal to 0 denotes the current local context.<br>
+<b>vch</b> equal to -1 denotes the global context.<br>
+By default, <b>vch</b> is equal to 0.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>On success, the function returns zero. In case of an error, it returns a negative error code as described above.</p>
+<p>The return value has the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_var.html">Variable management functions</a></p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_vhshow"></a>
+<a name="cef_vhshowcx"></a>
+<div class="FuncDscrTitle">
+<h1>vhShow, vhShowCx</h1>
+<p>The functions opens a probe window displaying a history of the specified variable.</p>
+<p>See the <a href="varman_vhist.html">Variable History</a> topic for information on history maintenance.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">
+vhShow(name <i>,winName ,winX ,winY</i>)<br>
+vhShowCx(name <i>,vch ,winName ,winX ,winY</i>)
+</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The functions open a probe window that displays a history of the variable specified by <b>name</b>. The functions work identically, except that the vhShowCx function has the <b>vch</b> parameter while vhShow does not.</p>
+<p>The optional parameter <b>vch</b> specifies a handle of the variable context in which the variable <b>name</b> exists. If <b>vch</b> is omitted in the function call, the function uses the handle of the local variable context passed to a CalcExpress or CSE VI executing the script (the current local context). <b>vch</b> is ignored if <b>name</b> refers to a variable by an alias.</p>
+<p>The functions can open arbitrary number of probe windows. If a function is called with the specified <b>winName</b> parameter, it displays a history in the probe window that has <b>winName</b> title; new probe window is created if it is necessary. If <b>winName</b> is omitted in a function call, the function displays a history in the default probe window.</p>
+<p>Each probe window is opened until end user explicitly close it. A probe window displays a history that existed at a moment when the respective function call has been performed. In a probe window, it is possible to choose a format and precision of numeric data, or display style of string data.</p>
+<p>The functions return 1 (TRUE) if a probe window was successfully opened; otherwise they return 0 (FALSE).</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td><td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>name</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies a variable name. In general, <b>name</b> has to comply with the VarMan name specifier syntax and can include a variable name or an alias, or both of them. See the <a href="varman_vref.html">Referring to variables</a> topic for more information.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>vch</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies the handle of the variable context where the specified variable exists. It is ignored if <b>name</b> refers to a variable by an alias.
+There are two special values for <b>vch</b>:<br>
+<b>vch</b> equal to 0 denotes the current local context.<br>
+<b>vch</b> equal to -1 denotes the global context.<br>
+By default, <b>vch</b> is equal to 0.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>winName</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies a title of the probe window. If <b>winName</b> is omitted in a function call, the function displays a history in the default probe window.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>winX,<br> winY</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameters that specify the coordinates of the top-left corner of a probe window when it is opened for the first time; they do not affect a probe window if it is already open. The function coerces these values to integers.
+<br>
+<b>winX</b> and <b>winY</b> define the global desktop coordinates (if a system has more than one monitor). By default, these parameters are equal to <b>NaN</b>, which forces the function to open probe windows in cascade on the monitor where the Front Panel of the top-level VI executing the script is shown.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The functions return an execution status code (see above).</p>
+<p>The return value has the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+/* It is example of CSE script */<br>
+x = 0;<br>
+/* attach history to x0 (size=100) */<br>
+err = <a href="#cef_vhattach">vhAttach</a>(&quot;x&quot;, 100);<br>
+if (err) {<br>
+  <a href="cefunc_error.html#cef_lverrmsg">lvErrorMessage</a>(&quot;vhAttach() function&quot;, 7000-err);<br>
+  return err;<br>
+}<br>
+/* changing x value in the loop */<br>
+while(x &lt; 10)<br>
+  x += <a href="cefunc_num_gen.html#cef_random">random</a>();<br>
+/* display history of x */<br>
+<b>vhShow</b>(&quot;x&quot;);
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_var.html">Variable management functions</a></p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+</body>
+</html>

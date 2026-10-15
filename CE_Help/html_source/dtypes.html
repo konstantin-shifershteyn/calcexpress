@@ -1,0 +1,210 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>Data types</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+<script src="js/_lvhelpref.js" type="text/javascript"></script>
+<style>
+td.Col1  { width:150pt; padding:0pt 2pt 0pt 2pt; valign:top; }
+td.Col2  { width:50pt;  padding:0pt 2pt 0pt 2pt; valign:top; }
+td.Col34 { width:200pt; padding:0pt 2pt 0pt 2pt; valign:top; }
+td.Col3  { width:30pt;  padding:0pt 2pt 0pt 2pt; valign:top; }
+td.Col4  { width:170pt; padding:0pt 2pt 0pt 2pt; valign:top; }
+td.Col5  { width:80pt;  padding:0pt 2pt 0pt 2pt; valign:top; }
+td.ExCol1 { padding-left: 0pt; valign:top; }
+td.ExCol2 { padding-left:20pt; valign:top; }
+</style>
+</head>
+
+<body>
+
+<!-- ########################################## -->
+<a name="data_types"></a>
+<div class="PageTitle">
+<h1><span class="PageTitleL">Data types in CalcExpress, CSE and VarMan</span></h1>
+</div>
+
+
+<p>There is a set of native data types in <a href="ce.html">CalcExpress</a>, <a href="cse.html">CSE</a> and <a href="varman.html">VarMan</a> (which are referred to as <i>predefined data types</i>).
+In addition, they can handle custom data types if you need to work with your own types of data (<i>user-defined data types</i>). This topic provides information on the predefined data types and guidelines for using custom data types.
+</p>
+
+<ul>
+<li><a href="#data_types_predefined">predefined data types</a></li>
+<li><a href="#data_types_user_defined">user-defined data types</a></li>
+</ul>
+
+
+<hr class="TopicSeparator">
+
+<a name="data_types_predefined"></a>
+<a name="data_types_table"></a>
+<h2>Predefined data types</h2>
+
+<p>Predefined data types are listed in the <a href="#data_types_table_ref">table</a> below. Data types can be divided into two categories: <b><i>Basic</i></b> and <b><i>Complex</i></b> (you can meet these terms in CalcExpress descriptions and messages). This division exists because there are some differences in how CalcExpress and VarMan handle data. The most significant difference is how CalcExpress passes parameters to and from FuncVI functions. Values of the <i>Basic</i> data types are passed in the LabVIEW's native representation, while values of the <i>Complex</i> data types are passed in the Flattened-To-String format (see help for the <a HREF="JavaScript:lvhFlatStr.Click()">Flatten To String</a> and <a HREF="JavaScript:lvhUnflatStr.Click()">Unflatten From String</a> LabVIEW functions for details).
+</p>
+
+<!-- <p><a name="data_types_table"></a></p> -->
+<a name="data_types_table_ref"></a>
+
+<div style='border:none;border-top:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;padding:0pt 0pt 1.0pt 0pt'>
+
+<table border=0 cellspacing=0 cellpadding=0 style='margin-left:-2.8pt;border-collapse:collapse'>
+<tr style='page-break-inside:avoid'>
+<td class="Col1"  style="padding-bottom:4pt;"><b><u>Data type name</u></b></td>
+<td class="Col2"  style="padding-bottom:4pt;"><b><u>code</u></b></td>
+<td class="Col34" style="padding-bottom:4pt;" colspan=2><b><u>Representation</u></b></td>
+<td class="Col5"  style="padding-bottom:4pt;"><b><u>Category</u></b></td>
+</tr>
+<tr>
+<td class="Col1">String</td>
+<td class="Col2">0</td>
+<td class="Col3"><img src="image/str.png"></td>
+<td class="Col4">LabVIEW String</td>
+<td class="Col5">Basic</td>
+</tr>
+<tr>
+<td class="Col1">DBL Number (scalar)</td>
+<td class="Col2">1</td>
+<td class="Col3"><img src="image/dbl.png"></td>
+<td class="Col4">DBL number</td>
+<td class="Col5">Basic</td>
+</tr>
+<tr>
+<td class="Col1"><a href="#data_types_identifier">Identifier</a> *</td>
+<td class="Col2">2</td>
+<td class="Col3"><img src="image/str.png"></td>
+<td class="Col4">LabVIEW String</td>
+<td class="Col5">Basic</td>
+</tr>
+<tr>
+<td class="Col1">1D Array of DBL</td>
+<td class="Col2">3</td>
+<td class="Col3"><img src="image/dbl_a1d.png"></td>
+<td class="Col4">1D array of DBL</td>
+<td class="Col5">Complex</td>
+</tr>
+<tr>
+<td class="Col1">2D Array of DBL</td>
+<td class="Col2">4</td>
+<td class="Col3"><img src="image/dbl_a2d.png"></td>
+<td class="Col4">2D array of DBL</td>
+<td class="Col5">Complex</td>
+</tr>
+<tr>
+<td class="Col1">CDB Number (scalar)</td>
+<td class="Col2">5</td>
+<td class="Col3"><img src="image/cdb.png"></td>
+<td class="Col4">CDB number</td>
+<td class="Col5">Complex</td>
+</tr>
+<tr>
+<td class="Col1">1D Array of CDB</td>
+<td class="Col2">6</td>
+<td class="Col3"><img src="image/cdb_a1d.png"></td>
+<td class="Col4">1D array of CDB</td>
+<td class="Col5">Complex</td>
+</tr>
+<tr>
+<td class="Col1">2D Array of CDB</td>
+<td class="Col2">7</td>
+<td class="Col3"><img src="image/cdb_a2d.png"></td>
+<td class="Col4">2D array of CDB</td>
+<td class="Col5">Complex</td>
+</tr>
+<tr>
+<td class="Col1">1D Array of Strings</td>
+<td class="Col2">8</td>
+<td class="Col3"><img src="image/str_a1d.png"></td>
+<td class="Col4">1D array of Strings</td>
+<td class="Col5">Complex</td>
+</tr>
+<tr>
+<td class="Col1">2D Array of Strings</td>
+<td class="Col2">9</td>
+<td class="Col3"><img src="image/str_a2d.png"></td>
+<td class="Col4">2D array of Strings</td>
+<td class="Col5">Complex</td>
+</tr>
+<tr>
+<td class="Col1"><a href="#data_types_idxrange">Index Range</a> **</td>
+<td class="Col2">252</td>
+<td class="Col3"><img src="image/idx.png"></td>
+<td class="Col4">internal format</td>
+<td class="Col5">&nbsp;</td>
+</tr>
+</table>
+</div>
+
+
+<p>&nbsp;</p><hr class="TopicSeparator">
+
+<a name="data_type_quick_identifier"></a>
+<a name="data_types_identifier"></a>
+<h2>Identifier data type</h2>
+
+<p>Typically, the Identifier data type is only used inside CalcExpress. It specifies that an operand is either a variable name or a function name. However, it is possible to use this data type in some advanced scenarios; e.g., indirect function calls.</p>
+
+
+<p>&nbsp;</p><hr class="TopicSeparator">
+
+<a name="data_type_quick_idxrange"></a>
+<a name="data_types_idxrange"></a>
+<h2>IndexRange data type</h2>
+
+<p>The <b>IndexRange</b> data type is only used inside CalcExpress to define a range of array element indexes in the <a href="ce_syntax_op_array.html#ce_op_subscript">Subscript operator</a>. This data type is produced by the <a href="ce_syntax_op_array.html#ce_op_idxrange">IndexRange operator</a>, <a href="ce_syntax_op_array.html#ce_idxrange_symbols">IndexRange Symbols</a>, and Index Range functions.</p>
+
+<p>The IndexRange data type specifies a sequential range of indexes from an initial boundary up to a final boundary.
+If the initial boundary of a range is less than the final boundary, the index range is incremental with the step of 1; otherwise, the index range is decremental with the step of -1. The boundaries are integers and can have values between 0 and 2<sup>31</sup>-1. If a boundary is out of this range, it is coerced to zero (0).</p>
+ 
+<p>If you use an IndexRange operand as an index in the <a href="ce_syntax_op_array.html#ce_op_subscript">Subscript operator</a>, CalcExpress adjusts the boundaries of the index range to match the array size (dimension size for 2D arrays). Note that the maximum array index is one less than the array size (dimension size).</p>
+
+<p>Operands of IndexRange dat type are produced by <a href="ce_syntax_op_array.html#ce_op_idxrange">IndexRange Operator</a>, <a href="ce_syntax_op_array.html#ce_idxrange_symbols">IndexRange Symbols</a>, and IndexRange Functions.</p>
+
+<p><b>Examples</b></p>
+
+<table>
+<tr><td class="ExCol1">0:5</td>    <td class="ExCol2">/* index range from 0 up to 5 */</td></tr>
+<tr><td class="ExCol1">10:1</td>   <td class="ExCol2">/* decremental index range from 10 to 1 */</td></tr>
+<tr><td class="ExCol1">2:2</td>    <td class="ExCol2">/* index range consist of only single index 2 */</td></tr>
+<tr><td class="ExCol1">-10:5</td>  <td class="ExCol2">/* index range from 0 up to 5 */</td></tr>
+<tr><td class="ExCol1">-5:-5</td>  <td class="ExCol2">/* index range consist of only single index 0 */</td></tr>
+<tr><td class="ExCol1">$&gt;</td>  <td class="ExCol2">/* index range from 0 up to a maximum possible value */</td></tr>
+<tr><td class="ExCol1">$&lt;</td>  <td class="ExCol2">/* decremental index range from a maximum possible value to 0 */</td></tr>
+<tr><td class="ExCol1">5:$&gt;</td><td class="ExCol2">/* index range from 5 up to a maximum possible value */</td></tr>
+<tr><td class="ExCol1">$&lt;:3</td><td class="ExCol2">/* decremental index range from a maximum possible value to 3 */</td></tr>
+</table>
+
+
+<p>&nbsp;</p><hr class="TopicSeparator">
+
+<p><a name="data_types_user_defined"></a></p>
+<h2>User-defined data types</h2>
+
+<p>In general, <a href="ce.html#calc_overview">CalcExpress</a>, <a href="cse.html#cse_overview">CSE</a> and <a href="varman.html#varman_overview">VarMan</a> allow you to operate on data of arbitrary data types. To do this, you need to represent your data in the Flattened-To-String format and associate a unique datatype code with your data. Choose a datatype code for your data from the following ranges: from 128 up to 249, or from 1000 up to 9999.</p>
+<p>(*) Use the <a HREF="JavaScript:lvhFlatStr.Click()">Flatten To String</a> and <a HREF="JavaScript:lvhUnflatStr.Click()">Unflatten From String</a> LabVIEW functions to convert data to/from the Flattened-To-String format.</p>
+
+<h3>VarMan specifics</h3>
+<p>To manage variables of arbitrary data types in your applications, use the <a href="vi_VM_-_Arbitrary_Data.html">VM - Arbitrary Data.vi</a>. You can use it directly, or create a wrapper VI around it for each data type you use, which can be more convenient.</p>
+
+<h3>CalcExpress and CSE specifics</h3>
+<p>CalcExpress has access to variables within the VarMan Engine regardless of their data types. If you create a variable with an arbitrary data type (using the VI mentioned above), you can access it in CalcExpress expressions and CSE scripts. Although most operators and all embedded functions can operate on the predefined data types only, you can manipulate an arbitrary data in expressions/scripts. Consider the following features:</p>
+<ul>
+<li>CalcExpress validates the data type of an operand only if it needs the operand value to perform either an operator or an embedded function. However, there are a few operators that do not care about operand data types; these are the comma, semicolon, and bracket operators.</li>
+<li>Both Equality and Inequality operators only require that operands have the same data type. They can be used to compare operands of any data types.</li>
+<li>The Assignment operator only requires that both operands have the same data type. It can be used to assign a value to variable of any data type, providing that the data types of the variable and the new value match.</li>
+<li>CalcExpress does not check the data type of function arguments when calling a FuncVI function. A FuncVI is able to accept arguments of any data type, and if necessary, it can validate the data types of these arguments.</li>
+<li>CalcExpress does not check the data type of the value returned by a FuncVI function until that value is used to perform an operator or call an embedded function. A FuncVI can return a value of any data type.</li>
+</ul>
+
+<p>Thus, in order to process data of an arbitrary data type in CalcExpress expressions or CSE scripts, you need to create a set of FuncVI functions that can recognize and handle such data.</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</body>
+</html> 

@@ -1,0 +1,99 @@
+<?XML Version="1.0">
+<nidocument>
+<nicomment>
+CalcExpress Toolkit v2.6 error codes.
+</nicomment>
+<nierror code="7000">
+Unknown VarMan error.
+</nierror>
+<nierror code="7001">
+VarMan error: Invalid variable type. An actual type of the specified variable differs from either expected or explicitly specified.
+</nierror>
+<nierror code="7002">
+VarMan error: Variable not found. A variable with the specified name was not found in the given variable context.
+</nierror>
+<nierror code="7003">
+VarMan error: Variable already exists. An attempt to create a variable with a non-unique name. The given context already contains a variable with the specified name.
+</nierror>
+<nierror code="7004">
+VarMan error: Invalid context handle. The specified handle of a variable context is invalid.
+</nierror>
+<nierror code="7005">
+VarMan error: Input error (optional error code). Input error condition passed to a VarMan VI.
+</nierror>
+<nierror code="7006">
+VarMan error: Invalid data format. VarMan encountered a mismatch of a variable type and format of data stored in the variable. Typically, this error may occur because of a misuse of some low-level VarMan VIs or incorrect format of value returned by a FuncVI.
+</nierror>
+<nierror code="7007">
+VarMan error: No history attached. The specified variable does not have a history attached.
+</nierror>
+<nierror code="7008">
+VarMan error: History already attached. An attempt to create a history for a variable that already has a history attached.
+</nierror>
+<nierror code="7009">
+VarMan error: Invalid history parameter(s). Incorrect parameter was specified in order to create a variable history; e.g. history length is less than or equal to zero.
+</nierror>
+<nierror code="7010">
+VarMan error: Wrong variable name. An invalid variable name was specified in order to create the variable.
+</nierror>
+<nierror code="7011">
+VarMan error: Wrong alias name. An invalid alias name was specified in order to either create or rename the alias.
+</nierror>
+<nierror code="7012">
+VarMan error: Non-unique alias. An attempt to create an alias with a non-unique name. There is an alias that already has the specified name.
+</nierror>
+<nierror code="7013">
+VarMan error: Alias not found. The specified alias was not found.
+</nierror>
+<nierror code="7014">
+VarMan error: No alias associated. The specified variable does not have an alias associated.
+</nierror>
+<nierror code="7015">
+VarMan error: Alias already associated. An attempt to create an alias for a variable that already has an alias associated.
+</nierror>
+<nierror code="7016">
+VarMan error: Wrong context name. An invalid name was specified to be assigned to a variable context.
+</nierror>
+<nierror code="7017">
+VarMan error: Non-unique context name. An attempt to assign a non-unique name to a variable context. There is a context other than specified that already has the same name as specified to be assigned.
+</nierror>
+<nierror code="7018">
+VarMan error: Context name not found. A variable context with the specified name was not found.
+</nierror>
+<nierror code="7019">
+VarMan error: Invalid parameter. Generic error caused by invalid parameter(s) passed to VarMan. Typically, this error is never returned by VarMan VIs.
+</nierror>
+<nierror code="7020">
+Generic VarMan error. Possible reasons: VarMan lacks some required resources, or too many variable contexts are opened, or time of demo session expired.
+</nierror>
+<nierror code="7021">
+VarMan error: Memory full. There is not enough memory to complete the specified operation.
+</nierror>
+<nierror code="7022">
+VarMan error: Unrecognized LabVIEW manager error was encountered.
+</nierror>
+<nierror code="7100">
+CalcExpress: Invalid CSE RefNum.
+</nierror>
+<nierror code="7101">
+CalcExpress: Invalid CalcExpress Instance reference.
+</nierror>
+<nierror code="7102">
+CalcExpress: Syntax error. An error was detected during script parsing.
+</nierror>
+<nierror code="7103">
+CalcExpress: Runtime Error. An error occurred during script execution.
+</nierror>
+<nierror code="7104">
+CalcExpress: Execution Aborted. An abort signal was received during script execution.
+</nierror>
+<nierror code="7105">
+CalcExpress: Generic Error.
+</nierror>
+<nierror code="7106">
+CalcExpress: FuncVI not found. A called function is not embedded and respective FuncVI is not found.
+</nierror>
+<nierror code="7107">
+CalcExpress: Invalid FuncVI. A called FuncVI is invalid or is in invalid state.
+</nierror>
+</nidocument>

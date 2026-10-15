@@ -1,0 +1,307 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>Bitwise Operators</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+</head>
+
+<body>
+
+<!-- ########################################## -->
+<a name="ce_op_b-not"></a>
+<div class="GenSectTitle">
+<h2><span class="PageTitleR">Bitwise-NOT operator:  ~</span></h2>
+</div>
+
+<p>The Bitwise-NOT operator produces the bitwise complement of its operand. The operand is considered to have a 32-bit integer representation, for which <a href="ce_conversions.html">Bit-keeping Conversion</a> is applied.</p>
+
+<h3>Syntax:</h3>
+<p class="StatementSyntax">
+<b>~</b> <i>expression</i>
+</p>
+
+<p>The operator can work on scalars and arrays. It produces a value according to the <a href="ce_poly.html">polymorphism rules</a> for unary operators.</p>
+<p>By definition, the operator manipulates integer values. To perform the operation, CalcExpress converts its operand (or every element of the operand if it is an array) into a 32-bit integer value by applying <a href="ce_conversions.html">Bit-keeping Conversion</a>. After completing the operation, it performs the reverse conversion and stores the result in the floating-point representation (DBL).</p>
+
+<h3>Operand data types</h3>
+<div class="FuncDscrSection">
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol">DBL Number</td>
+<td class="FuncDTTblCol">1D Array of DBL</td>
+<td class="FuncDTTblCol">2D Array of DBL</td>
+</tr>
+</table>
+<p><a href="dtypes.html">click here</a> to get general information on data types.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+x = ~0x7F;        /* x equals -128  (0xFFFFFF80) */<br>
+y = ~0xFFFFCA20;  /* y equals 13791 (0x000035DF) */<br>
+</p>
+</div>
+
+<h3>Also see</h3>
+<p>
+<a href="ce_syntax_op.html">CalcExpress Operators</a><br>
+<a href="ce_syntax.html">CalcExpress Syntax</a><br>
+<a href="ce.html">CalcExpress Overview</a>
+</p>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="ce_op_b-and"></a>
+<div class="GenSectTitle">
+<h2><span class="PageTitleR">Bitwise-AND operator:  &amp;</span></h2>
+</div>
+
+<p>The Bitwise-AND operator performs a bitwise AND operation on the bits of its operands. Both operands are considered to have a 32-bit integer representation, for which <a href="ce_conversions.html">Bit-keeping Conversion</a> is applied.</p>
+
+<h3>Syntax:</h3>
+<p class="StatementSyntax">
+<i>expression1</i> <b>&amp;</b> <i>expression2</i>
+</p>
+
+<p>The operator can work on scalars, arrays, and combinations thereof. It produces a value according to the <a href="ce_poly.html">polymorphism rules</a> for binary operators.</p>
+<p>By definition, the operator manipulates integer values. To perform the operation, CalcExpress converts its operands (or every element of the operands if either is an array) into a 32-bit integer value by applying <a href="ce_conversions.html">Bit-keeping Conversion</a>. After completing the operation, it performs the reverse conversion and stores the result in the floating-point representation (DBL).</p>
+
+
+<h3>Operand data types</h3>
+<div class="FuncDscrSection">
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol">DBL Number</td>
+<td class="FuncDTTblCol">1D Array of DBL</td>
+<td class="FuncDTTblCol">2D Array of DBL</td>
+</tr>
+</table>
+<p><a href="dtypes.html">click here</a> to get general information on data types.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+x  = 0xFA091722;<br>
+y1 = x &amp; 0xFFFF0000;    /* y1 equals 0xFA090000 */<br>
+y2 = 0x3FF &amp; x;         /* y2 equals 0x322 */<br>
+</p>
+</div>
+
+<h3>Also see</h3>
+<p>
+<a href="ce_syntax_op.html">CalcExpress Operators</a><br>
+<a href="ce_syntax.html">CalcExpress Syntax</a><br>
+<a href="ce.html">CalcExpress Overview</a>
+</p>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="ce_op_b-or"></a>
+<div class="GenSectTitle">
+<h2><span class="PageTitleR">Bitwise-OR operator:  |</span></h2>
+</div>
+
+<p>The Bitwise-OR operator performs a bitwise Inclusive-OR operation on the bits of its operands. Both operands are considered to have a 32-bit integer representation, for which <a href="ce_conversions.html">Bit-keeping Conversion</a> is applied.</p>
+
+<h3>Syntax:</h3>
+<p class="StatementSyntax">
+<i>expression1</i> <b>|</b> <i>expression2</i>
+</p>
+
+<p>The operator can work on scalars, arrays, and combinations thereof. It produces a value according to the <a href="ce_poly.html">polymorphism rules</a> for binary operators.</p>
+<p>By definition, the operator manipulates integer values. To perform the operation, CalcExpress converts its operands (or every element of the operands if either is an array) into a 32-bit integer value by applying <a href="ce_conversions.html">Bit-keeping Conversion</a>. After completing the operation, it performs the reverse conversion and stores the result in the floating-point representation (DBL).</p>
+
+<h3>Operand data types</h3>
+<div class="FuncDscrSection">
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol">DBL Number</td>
+<td class="FuncDTTblCol">1D Array of DBL</td>
+<td class="FuncDTTblCol">2D Array of DBL</td>
+</tr>
+</table>
+<p><a href="dtypes.html">click here</a> to get general information on data types.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+x  = 'E';              /* x  equals 'E' (0x45) */<br>
+y1 = x | '\s';         /* y1 equals 'e' (0x65) */<br>
+y2 = 0xFFFFFF00 | x;   /* y2 equals 0xFFFFFF45 */<br>
+</p>
+</div>
+
+<h3>Also see</h3>
+<p>
+<a href="ce_syntax_op.html">CalcExpress Operators</a><br>
+<a href="ce_syntax.html">CalcExpress Syntax</a><br>
+<a href="ce.html">CalcExpress Overview</a>
+</p>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="ce_op_b-xor"></a>
+<div class="GenSectTitle">
+<h2><span class="PageTitleR">Bitwise-XOR operator:  ^</span></h2>
+</div>
+
+<p>The Bitwise-XOR operator performs a bitwise Exclusive-OR operation on the bits of its operands. Both operands are considered to have a 32-bit integer representation, for which <a href="ce_conversions.html">Bit-keeping Conversion</a> is applied.</p>
+
+<h3>Syntax:</h3>
+<p class="StatementSyntax">
+<i>expression1</i> <b>^</b> <i>expression2</i>
+</p>
+
+<p>The operator can work on scalars, arrays, and combinations thereof. It produces a value according to the <a href="ce_poly.html">polymorphism rules</a> for binary operators.</p>
+<p>By definition, the operator manipulates integer values. To perform the operation, CalcExpress converts its operands (or every element of the operands if either is an array) into a 32-bit integer value by applying <a href="ce_conversions.html">Bit-keeping Conversion</a>. After completing the operation, it performs the reverse conversion and stores the result in the floating-point representation (DBL).</p>
+
+<h3>Operand data types</h3>
+<div class="FuncDscrSection">
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol">DBL Number</td>
+<td class="FuncDTTblCol">1D Array of DBL</td>
+<td class="FuncDTTblCol">2D Array of DBL</td>
+</tr>
+</table>
+<p><a href="dtypes.html">click here</a> to get general information on data types.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+x = 0x8037;<br>
+y = x ^ 0xFFFF;         /* y equals 0x7FC8 */<br>
+</p>
+</div>
+
+<h3>Also see</h3>
+<p>
+<a href="ce_syntax_op.html">CalcExpress Operators</a><br>
+<a href="ce_syntax.html">CalcExpress Syntax</a><br>
+<a href="ce.html">CalcExpress Overview</a>
+</p>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="ce_op_b-lshift"></a>
+<div class="GenSectTitle">
+<h2><span class="PageTitleR">Bitwise-Left-Shift operator:  &lt;&lt;</span></h2>
+</div>
+
+<p>The Bitwise-Left-Shift operator shifts its first (left-hand) operand to the left by the number of positions specified by the second (right-hand) operand. Both operands are considered to have a 32-bit integer representation, for which <a href="ce_conversions.html">Bit-keeping Conversion</a> is applied.</p>
+
+<h3>Syntax:</h3>
+<p class="StatementSyntax">
+<i>expression1</i> <b>&lt;&lt;</b> <i>expression2</i>
+</p>
+
+<p>The result of the shift operation is undefined if the second operand is outside the range 0 to 31.</p>
+<p>The operator can work on scalars, arrays, and combinations thereof. It produces a value according to the <a href="ce_poly.html">polymorphism rules</a> for binary operators.</p>
+<p>By definition, the operator manipulates integer values. To perform the operation, CalcExpress converts its operands (or every element of the operands if either is an array) into a 32-bit integer value by applying <a href="ce_conversions.html">Bit-keeping Conversion</a>. After completing the operation, it performs the reverse conversion and stores the result in the floating-point representation (DBL).</p>
+
+<h3>Operand data types</h3>
+<div class="FuncDscrSection">
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol">DBL Number</td>
+<td class="FuncDTTblCol">1D Array of DBL</td>
+<td class="FuncDTTblCol">2D Array of DBL</td>
+</tr>
+</table>
+<p><a href="dtypes.html">click here</a> to get general information on data types.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+x = 8;<br>
+y = x &lt;&lt; 2;         /* y equals 32 (0x20) */<br>
+</p>
+</div>
+
+<h3>Also see</h3>
+<p>
+<a href="ce_syntax_op.html">CalcExpress Operators</a><br>
+<a href="ce_syntax.html">CalcExpress Syntax</a><br>
+<a href="ce.html">CalcExpress Overview</a>
+</p>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="ce_op_b-rshift"></a>
+<div class="GenSectTitle">
+<h2><span class="PageTitleR">Bitwise-Right-Shift operator:  &gt;&gt;</span></h2>
+</div>
+
+<p>The Bitwise-Right-Shift operator shifts its first (left-hand) operand to the right by the number of positions specified by the second (right-hand) operand. Both operands are considered to have a 32-bit integer representation, for which <a href="ce_conversions.html">Bit-keeping Conversion</a> is applied.</p>
+
+<h3>Syntax:</h3>
+<p class="StatementSyntax">
+<i>expression1</i> <b>&gt;&gt;</b> <i>expression2</i>
+</p>
+
+<p>The result of the shift operation is undefined if the second operand is outside the range 0 to 31.</p>
+<p>The operator can work on scalars, arrays, and combinations thereof. It produces a value according to the <a href="ce_poly.html">polymorphism rules</a> for binary operators.</p>
+<p>By definition, the operator manipulates integer values. To perform the operation, CalcExpress converts its operands (or every element of the operands if either is an array) into a 32-bit integer value by applying <a href="ce_conversions.html">Bit-keeping Conversion</a>. After completing the operation, it performs the reverse conversion and stores the result in the floating-point representation (DBL).</p>
+
+<h3>Operand data types</h3>
+<div class="FuncDscrSection">
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol">DBL Number</td>
+<td class="FuncDTTblCol">1D Array of DBL</td>
+<td class="FuncDTTblCol">2D Array of DBL</td>
+</tr>
+</table>
+<p><a href="dtypes.html">click here</a> to get general information on data types.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+x = 0x80;<br>
+y = x &gt;&gt; 2;         /* y equals 32 (0x20) */<br>
+</p>
+</div>
+
+<h3>Also see</h3>
+<p>
+<a href="ce_syntax_op.html">CalcExpress Operators</a><br>
+<a href="ce_syntax.html">CalcExpress Syntax</a><br>
+<a href="ce.html">CalcExpress Overview</a>
+</p>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+</body>
+</html>

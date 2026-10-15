@@ -1,0 +1,41 @@
+==============================================
+if (cond-exp) statements-1  else  statements-2
+==============================================
+label	expression	jAct	jLabel
+--------------------------------------
+	cond-exp	jIFF	L1
+	statements-1		next
+	"goto"		jump	L2	// optional
+L1:	statements-2			// optional
+L2:					// optional
+--------------------------------------
+
+
+======================================
+while (cond-exp) statement
+======================================
+label	expression	jAct	jLabel
+--------------------------------------
+L1:	cond-exp	jIFF	L2
+	statements		next
+	. . . . .
+	"goto"		jump	L1
+L2:
+--------------------------------------
+
+
+==============================================
+for (init-exp ; cond-exp ; loop-exp) statement
+==============================================
+label	expression	jAct	jLabel
+--------------------------------------
+	init-exp	jump	$lc	// optional
+L1:	loop-exp		next	// optional
+$lc:	cond-exp	jIFF	L2	// optional
+	statements		next
+	. . . . .
+	"goto"		jump	L1
+L2:
+--------------------------------------
+Comments.
+any expression can be absent if it's omitted in a script

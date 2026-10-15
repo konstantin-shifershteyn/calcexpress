@@ -1,0 +1,27 @@
+/*
+This script is intended to be called in order to add noise with specified parameters to an input waveform signal.
+The script returns zero on success; otherwise, it returns non-zero value to indicate an error.
+*/
+
+/* Definition of input parameters and their default values */
+str("kind", "uniform");  // kind of noise
+dbl("NoiseVal");         // amplitude/standard deviation
+a1dbl("Signal");         // input waveform
+
+/* number of samples in the input waveform */
+Ns = size(Signal);
+
+if   (kind == "uniform")
+    Signal += UWNoise(Ns, NoiseVal);
+else
+  if (kind == "gaussian")
+    Signal += GWNoise(Ns, NoiseVal);
+else
+  if (kind == "random")
+    Signal += PRNoise(Ns, NoiseVal);
+else {
+  msg = sform("Wrong kind of noise specifier:\n", kind);
+  MsgBox("NOISE GENERATOR ERROR\n", msg);
+  return 1;
+}
+return 0;

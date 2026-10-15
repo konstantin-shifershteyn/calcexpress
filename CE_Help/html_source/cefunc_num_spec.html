@@ -1,0 +1,597 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>Special Numeric functions</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+</head>
+
+<body>
+
+<!-- ########################################## -->
+<a name="cef_beta"></a>
+<div class="FuncDscrTitle">
+<h1>beta</h1>
+<p>The function computes the Beta Function.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">beta(z,w)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the result of computation of the Beta Function <i>B</i>(<b>z</b>,<b>w</b>).</p>
+<p>If both <b>z</b> and <b>w</b> are equal to 0, the function returns NaN. If either <b>z</b> or <b>w</b> is equal to 0, the function returns +Inf. The result is not defined if <b>z</b> or <b>w</b> is a negative integer.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars, arrays, and combinations thereof. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>z</b> and <b>w</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The data type of the return value is determined by the <a href="cef_poly.html">polymorphism rules</a> for function with two arguments.</p>
+</div>
+
+<h3>Comment</h3>
+<div class="FuncDscrSection">
+<p>The Beta Function <b><i>B</i>(z,w)</b> is defined by</p>
+<p><img src="image/beta.png"></p>
+<p>, where G is the Gamma Function.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_betai"></a>
+<div class="FuncDscrTitle">
+<h1>betai</h1>
+<p>The function computes the Incomplete Beta Function.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">betai(a,b,x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the result of computation of the Incomplete Beta Function <i>I</i><b>x</b>(<b>a</b>,<b>b</b>).</p>
+<p>If <b>a</b> or <b>b</b> is less than or equal to 0, the function returns NaN. If <b>x</b> is greater than 1, the function returns 1. If <b>x</b> is less than 0, the function returns 0.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars, arrays, and combinations thereof. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, all the parameters can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The data type of the return value is determined by the <a href="cef_poly.html">polymorphism rules</a> for function with two arguments.</p>
+</div>
+
+<h3>Comment</h3>
+<div class="FuncDscrSection">
+<p>The Incomplete Beta Function <b><i>Ix</i></b>(<b>a</b>,<b>b</b>) is defined by</p>
+<p><img src="image/betai.png"></p>
+<p>, where <i>B</i> is the Beta Function</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_clip"></a>
+<div class="FuncDscrTitle">
+<h1>clip</h1>
+<p>The function coerces numbers to be within the specified range.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">clip(x <i>,bound-1 ,bound-2</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns: </p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><b>high</b></td>
+<td class="FuncDTTblCol">if <b>x</b> &gt; <b>high</b></td>
+</tr>
+<tr>
+<td class="FuncDTTblCol"><b>low</b></td>
+<td class="FuncDTTblCol">if <b>x</b> &lt; <b>low</b></td>
+</tr>
+<tr>
+<td class="FuncDTTblCol"><b>x</b></td>
+<td class="FuncDTTblCol">otherwise</td>
+</tr>
+</table>
+<p>  , where</p>
+<p><b>high </b>= max(<i>bound-1, bound-2</i>), and <b>low </b>= min(<i>bound-1, bound-2</i>)</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p><b>x</b> is a value to be coerced, it can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+<p><b><i>bound-1</i></b> and <b><i>bound-2</i></b> are optional arguments that specify the upper and lower bounds. Both of them, if they are present in a function call, must have <i>DBL Number</i> data type.</p>
+<p>By default <i>bound-1</i> is equal to 1, and <i>bound-2</i> is equal to 0.</p>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value with the same data type as <b>x</b>. The result is produced according to a rule similar to the polymorphism rules for functions with one argument. <a href="cef_poly.html">Click here</a> for more information.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+v = vector(7,3,-1,-5); //v is array {7,3,-1,-5}<br>
+v = clip(v, -4, 4);    //v is now   {4,3,-1,-4}<br>
+x = clip(v[0], 2.5);   //x is equal to 2.5<br>
+&nbsp;<br>
+&nbsp;
+</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_erf"></a>
+<div class="FuncDscrTitle">
+<h1>erf</h1>
+<p>The function computes the Error Function.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">erf(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the result of computation of the Error Function erf(<b>x</b>).</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value with the same data type as <b>x</b>.</p>
+</div>
+
+<h3>Comment</h3>
+<div class="FuncDscrSection">
+<p>The Error Function <b>erf(x)</b> is defined by</p>
+<p><img src="image/erf.png"></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_erfc"></a>
+<div class="FuncDscrTitle">
+<h1>erfc</h1>
+<p>The function computes the Complementary Error Function.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">erfc(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the result of computation of the Complementary Error Function erfc(<b>x</b>).</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value with the same data type as <b>x</b>.</p>
+</div>
+
+<h3>Comment</h3>
+<div class="FuncDscrSection">
+<p>The Complementary Error Function <b>erfc(x)</b> is defined by</p>
+<p><img src="image/erfc.png"></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_factr"></a>
+<div class="FuncDscrTitle">
+<h1>factr</h1>
+<p>The function computes the Factorial of the integer value.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">factr(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the factorial of <b>x</b>. If <b>x</b> is not integer, the function coerces it to the integer to perform computation.</p>
+<p>If <b>x</b> is less than 0, the function returns NaN. If <b>x</b> is equal to 0, the function returns 1.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value with the same data type as <b>x</b>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_gamma"></a>
+<div class="FuncDscrTitle">
+<h1>gamma</h1>
+<p>The function computes the Gamma Function.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">gamma(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the result of computation of the Gamma Function G(<b>x</b>).</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value with the same data type as <b>x</b>.</p>
+</div>
+
+<h3>Comment</h3>
+<div class="FuncDscrSection">
+<p>The Gamma Function <b>G(x)</b> is defined by</p>
+<p><img src="image/gamma.png"></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_gammai"></a>
+<div class="FuncDscrTitle">
+<h1>gammai</h1>
+<p>The function computes the Incomplete Gamma Function.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">gammai(a,x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the result of computation of the Incomplete Gamma Function <i>P</i>(<b>a</b>,<b>x</b>).</p>
+<p>If <b>a</b> is less than or equal to 0, the function returns NaN. If <b>x</b> is less than or equal to 0, the function returns 0.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars, arrays, and combinations thereof. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>a</b> and <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The data type of the return value is determined by the <a href="cef_poly.html">polymorphism rules</a> for function with two arguments.</p>
+</div>
+
+<h3>Comment</h3>
+<div class="FuncDscrSection">
+<p>The Incomplete Gamma Function <b><i>P </i>(a,x)</b> is defined by</p>
+<p><img src="image/gammai.png"></p>
+<p>, where G is the Gamma Function.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_j0"></a>
+<a name="cef_j1"></a>
+<a name="cef_jn"></a>
+<div class="FuncDscrTitle">
+<h1>_j0 , _j1 , _jn</h1>
+<p>The functions compute the Bessel Function of the first kind of integer order.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">
+_j0(x)<br>
+_j1(x)<br>
+_jn(n,x)
+</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The <b>_j0(x)</b>, <b>_j1(x)</b>, <b>_jn(n,x)</b> functions return the result of computation of the Bessel Function of the first kind <b><i>J</i></b><b>n</b>(<b>x</b>) of order <b>0</b>, <b>1</b>, and <b>n</b>, respectively.</p>
+<p>If <b>n</b> is not integer, the <b>_jn</b> function coerces it to the integer to perform computation.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The functions can operate on scalars and arrays. They produce results according to general polymorphism rules for functions with either <a href="cef_poly.html">one argument</a> (<b>_j0</b> and <b>_j1</b>) or <a href="cef_poly.html">two arguments</a> (<b>_jn</b>). Formally, <b>x</b> and <b>n</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The <b>_j0</b> and <b>_j1</b> functions return a value with the same data type as <b>x</b>.</p>
+<p>The <b>_jn</b> function returns a value with the data type determined by the <a href="cef_poly.html">polymorphism rules</a> for function with two arguments.</p>
+</div>
+
+<h3>Comment</h3>
+<div class="FuncDscrSection">
+<p>The Bessel Function of the first kind <b><i>J</i></b><b>n</b>(<b>x</b>) is defined by</p>
+<p><img src="image/_jn.png"></p>
+<p>, where G is the Gamma Function.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_spike"></a>
+<div class="FuncDscrTitle">
+<h1>spike</h1>
+<p>The spike function.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">spike(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns 1 if <b>x</b> meets the equation  0 <img src="image/eq_LEQ.png"> <b>x</b>
+<img src="image/eq_LS.png"> 1. Otherwise the function returns 0.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value with the same data type as <b>x</b>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_square"></a>
+<div class="FuncDscrTitle">
+<h1>square</h1>
+<p>The square function.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">square(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns 1 if <b>x</b> meets the equation  2<b>n</b> <img src="image/eq_LEQ.png"> <b>x</b>
+<img src="image/eq_LS.png"> 2<b>n</b>+1, where <b>n</b> is any integer value. Otherwise the function returns 0.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value with the same data type as <b>x</b>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_step"></a>
+<div class="FuncDscrTitle">
+<h1>step</h1>
+<p>The step function.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">step(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns 1 if <b>x</b> is greater than or equal to 0. Otherwise it returns 0.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value with the same data type as <b>x</b>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_y0"></a>
+<a name="cef_y1"></a>
+<a name="cef_yn"></a>
+<div class="FuncDscrTitle">
+<h1>_y0, _y1, _yn</h1>
+<p>The functions compute the Bessel Function of the second kind of integer order.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">
+_y0(x)<br>
+_y1(x)<br>
+_yn(n,x)
+</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The <b>_y0(x)</b>, <b>_y1(x)</b>, <b>_yn(n,x)</b> functions return the result of computation of the Bessel Function of the second kind <b><i>Y</i></b><b>n</b>(<b>x</b>) of order <b>0</b>, <b>1</b>, and <b>n</b>, respectively. If <b>x</b> is less than 0, the functions return NaN.</p>
+<p>If <b>n</b> is not integer, the <b>_yn</b> function coerces it to the integer to perform computation.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The functions can operate on scalars and arrays. They produce results according to general polymorphism rules for functions with either <a href="cef_poly.html">one argument</a> (<b>_y0</b> and <b>_y1</b>) or <a href="cef_poly.html">two arguments</a> (<b>_yn</b>). Formally, <b>x</b> and <b>n</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The <b>_y0</b> and <b>_y1</b> functions return a value with the same data type as <b>x</b>.</p>
+<p>The <b>_yn</b> function returns a value with the data type determined by the <a href="cef_poly.html">polymorphism rules</a> for function with two arguments.</p>
+</div>
+
+<h3>Comment</h3>
+<div class="FuncDscrSection">
+<p>The Bessel Function of the second kind <b><i>Y</i></b><b>n</b>(<b>x</b>) is defined by</p>
+<p><img src="image/_yn.png"></p>
+<p>, where <b><i>J</i></b> is the Bessel Function of the first kind.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+
+<head>
+<!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<TITLE>%%VIFullName%%</TITLE>
+<!-- #INSERT:STYLESHEETREFS : -->
+<!-- #INSERT:JAVASCRIPTREFS : -->
+</head>
+
+<body class="helpVI">
+
+<noscript>
+<p>JavaScript is disabled...</p>
+<HR size=1; noshade;>
+</noscript>
+
+<div id="styleDivTitle">
+<!-- VI Name -->
+<H1>%%VIFullName%%</H1>
+<p><b>Owning Palette: </b>%%OwningPalette%%</p>
+<!-- VI Description -->
+<p class="VIDescription">
+%%VIDescription%%
+</p>
+<p>%%VIDetailsRef%%</p>
+<!-- VI Connectors Image -->
+<map name="VIConpane">
+<!-- #INSERT:TERMREFMAP : -->
+</map>
+<table class="VIConPane">
+<tr>
+<td class="VIConPane"><img src="%%VIConpaneImageFile%%" border="0" usemap="#VIConpane"></td>
+<td class="VIConPane2">Click the parameters for more information</td>
+</tr>
+</table>
+
+<p style="font-size:1pt; margin-top:0pt; margin-bottom:0pt;">&nbsp;</p>
+<noscript>
+<HR size=1; noshade;>
+</noscript>
+</div>
+
+
+<div id="styleDivScrolling">
+<!-- #INSERT:VICTRLTBL : VI Control Description Table is inserted here -->
+<p>&nbsp;</p>
+<HR size=1; noshade;>
+<!-- #INSERT:VIDETAILS : VI Details section is inserted here -->
+<!-- #INSERT:PRODUCTINFO : Product Info section is inserted here -->
+</div>
+
+<!-- ### TEMPLATES ###______________________________________ -->
+
+<!-- #TSTART:VICTRLTT : VI Control Description Table Template -->
+<table class="VICtrlDscr">
+<tr>
+<td class="TermImage"><a class="CtrlDscrTarget" name="%%CtrlAnchor%%"></a><img src="%%CtrlTermImageFile%%"></td>
+<td><b>%%CtrlName%%</b> %%CtrlDescription%%</td>
+</tr>
+</table>
+<!-- #TEND -->
+
+<!-- #TSTART:RINGVALTT : Ring Value Table Template -->
+<br><br>
+<table class="RingValTable">
+<tr><td nowrap class="RingVal">%%ValueNum%%</td><td nowrap class="RingVal">%%ValueName%%</td><td class="RingVal">%%ValueDscr%%</td></tr>
+</table>
+<!-- #TEND -->
+
+<!-- #TSTART:ENUMVALTT : Enum Value Table Template -->
+<br><br>
+<table class="EnumValTable">
+<tr><td nowrap class="EnumVal">%%ValueNum%%</td><td nowrap class="EnumVal">%%ValueName%%</td><td class="EnumVal">%%ValueDscr%%</td></tr>
+</table>
+<!-- #TEND -->
+
+<!-- #TSTART:VIDETAILS : "Details" Section  Template -->
+<a name="VIDetails"></a>
+<H2>%%VIFullName%% - details</H2>
+<p class="VIDescription">
+%%VIDetails%%
+</p>
+<p>&nbsp;</p>
+<HR size=1; noshade;>
+<!-- #TEND -->
+
+<!-- #TSTART:PRODUCTINFO : "Product Info" Section  Template -->
+<p class="ProductInfo">
+%%ProductInfo%%
+</p>
+<!-- #TEND -->
+
+</body>
+</HTML>

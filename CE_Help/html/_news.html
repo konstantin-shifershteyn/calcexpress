@@ -1,0 +1,167 @@
+<html>
+
+<head>
+<title>What's New</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+<style>
+h1.news	{ padding-top: 10pt; }
+h2.news	{ padding-top: 6pt; }
+h3.news	{ padding-top: 3pt; }
+div.level1 { padding-left: 10pt; }
+</style>
+</head>
+
+<body>
+
+<!-- ########################################## -->
+<div class="GenSectTitle">
+<h1><span class="PageTitleL">What's New</span></h1>
+</div>
+
+<p>CalcExpress Toolkit.  version 4.0</p>
+<p>Copyright (c) 2000-2026 Konstantin Shifershteyn. All rights reserved.</p>
+
+
+<!-- ########################################## -->
+<hr class="LittleHeight">
+
+
+<h1 class="news">VERSION 4.0.0</h1>
+
+<!-- ========================================== -->
+<h2 class="news">Licensing</h2>
+<div class="level1">
+
+<h3 class="news">Transition to MIT</h3>
+<p>
+Since this version, CalcExpress Toolkit has transitioned to the <b>Open Source</b> model under the terms of the <b>MIT License</b> (see the full text in the accompanying LICENSE file). All source code of the toolkit is available at GitHub:<br>
+ <a href="https://github.com/konstantin-shifershteyn/calcexpress" target="_blank">https://github.com/konstantin-shifershteyn/calcexpress</a>
+</p>
+<p>
+You are entirely free to download, install, modify, and build CalcExpress into your proprietary, closed-source commercial applications or distributed automated test systems without any legal restrictions. The only requirement is that the original copyright notice remains intact within the source code.
+</p>
+
+<h3 class="news">Legacy License Holders</h3>
+<p>
+For owners of commercial licenses for the previous versions (3.x and earlier), please review the <a href="#legacy_users">important notice</a> below in this document.
+</p>
+</div>
+
+<!-- ========================================== -->
+<h2 class="news">CalcExpress and CSE</h2>
+<div class="level1">
+
+<h3 class="news">Scripts and expressions:</h3>
+<li>Predefined <a href="ce_syntax_misc.html#ce_syntax_namedconst">Named Constants</a> in scripts and expressions.</li>
+<li><a href="directives.html#directives">Parsing Directives</a> in scripts and expressions.</li>
+<li>New documented ways of implicit <a href="ce_conversions.html#ce_int_convert">conversion of DBL values to 32-bit integers</a>.</li>
+
+
+<h3 class="news">Parsing and Execution VIs</h3>
+<li>Parsing VIs have got the `directive` control for initial <a href="directives.html#directives">Parsing Directives</a> state.</li>
+<li>New VIs to preset or read <a href="varman.html#varman_overview_wrid">Writer ID</a> for the running script or expression.</li>
+
+<h3 class="news">Script Functions</h3>
+<li>New functions to explicitly convert DBL values to 32-bit integers: <a = href="cefunc_num_gen.html#cef_i32b">i32b</a>, <a = href="cefunc_num_gen.html#cef_i32s">i32s</a>, <a = href="cefunc_num_gen.html#cef_u32b">u32b</a>, and <a = href="cefunc_num_gen.html#cef_u32s">u32s</a>.</li>
+<li>New function to read/write default Writer ID for the script or expression: <a href="cefunc_vst.html#cef_vwrid">vwrid</a>.</li>
+<li>New functions to read variable statistics: <a href="cefunc_vst.html#cef_vtype">vtype</a>, <a href="cefunc_vst.html#cef_vstcid">vstcid</a>, <a href="cefunc_vst.html#cef_vstcms">vstcms</a>, <a href="cefunc_vst.html#cef_vstcts">vstcts</a>, <a href="cefunc_vst.html#cef_vstwid">vstwid</a>, <a href="cefunc_vst.html#cef_vstwms">vstwms</a>, <a href="cefunc_vst.html#cef_vstwts">vstwts</a>, and <a href="cefunc_vst.html#cef_vstwcnt">vstwcnt</a>.</li>
+<li>New functions to handle special values: <a href="cefunc_num_gen.html#cef_nan">nan</a>, <a href="cefunc_num_conv.html#cef_isnan">isnan</a>, <a href="cefunc_num_conv.html#cef_isfinite">isfinite</a>, <a href="cefunc_num_gen.html#cef_inf">inf</a>, <a href="cefunc_num_gen.html#cef_infn">infn</a>, and <a href="cefunc_num_conv.html#cef_isinf">isinf</a>.</li>
+<li>New function to return the list of Named Constants: <a href="cefunc_string.html#cef_nclist">_nclist</a>.</li>
+<li>User-interaction functions updated. The windows they open are resizable: <a href="cefunc_user.html#cef_probe">Probe</a>, <a href="cefunc_vhist.html#cef_vhshow">vhShow</a>, <a href="cefunc_user.html#cef_wfgraph">WFGraph</a>, and <a href="cefunc_user.html#cef_xygraph">XYGraph</a>.</li>
+<li>Attach history function has got new parameter that enables/disables collecting Writer IDs in the variable history: <a href="cefunc_vhist.html#cef_vhattach">vhAttach</a>.</li>
+
+<h3 class="news">CSE ISP utility (Interactive Script Processor)</h3>
+<li>Within the opened script, it offers help on a right-clicked statement, function name, Parsing Directive, or Named Constant.</li>
+<li>Indicates its default Writer ID.</li>
+<li>Has got new example scripts for new features.</li>
+</div>
+
+<!-- ========================================== -->
+<h2 class="news">Variable Manager</h2>
+<div class="level1">
+
+<h3 class="news">Variable Properties</h3>
+<li>Variables have got the <a href="varman.html#varman_overview_wrid">Writer ID</a> property.</li>
+<li>Variables collect statistics about their creation and update.</li>
+<li>A Variable History can be configured to collect Writer IDs along with variable values and time stamps.</li>
+
+<h3 class="news">VarMan VIs</h3>
+<li>New VIs to manage variables. They allow writing and reading Writer ID and Writing Statistics together with variable value: <a href="mnu_vm-top.html">VM3 - <i>&lt;DATATYPE&gt;</i>.vi</a>. Old VIs (VM - <i>&lt;DATATYPE&gt;</i>.vi) are moved to the <a href="mnu_vm-leg.html">Legacy VarMan VIs palette</a>.</li>
+
+<li>New VI to retrieve information on the variable. It returns both Creating and Writing Statistics, along with other data: <a href="vi_VM3_-_Variable_Data_Info.html">VM3 - Variable Data Info.vi</a>.</li>
+
+<li>New VIs to read and write multiple variables in a batch. They locate on the <a href="mnu_vm-mult.html">R/W Multiple Variables palette</a>.</li>
+
+<li><a href="vi_VHistory_-_History_Controller.html">VHistory - History Controller.vi</a> has got a new command to create a variable history that collects Writer IDs.</li>
+
+<li>Read variable history VIs have got new `Writer IDs` indicator. Note that these VIs do not have the `dup VC Handle` indicator anymore, its terminal is now connected to the `Writer IDs` indicator: <a href="mnu_vm-hist.html">VHistory - Get <i>&lt;DATATYPE&gt;</i> History.vi</a>.</li>
+
+<h3 class="news">VarMan Spy utility</h3>
+<li>Has got variable name filter.</li>
+<li>Supports Writer ID, and indicates variable statistics and memory use.</li>
+<li>Opens resizable Variable Inspector windows with more data now.</li>
+<li>Saves and restores its window position and size, and values and essential properties of its controls.</li>
+</div>
+
+<!-- ========================================== -->
+<h2 class="news">CalcExpress Engine DLLs</h2>
+<div class="level1">
+<li>Code has got drastic revamp to improve performance and extend functionality.</li>
+</div>
+
+<!-- ========================================== -->
+<h2 class="news">Documentation (this .chm file)</h2>
+<div class="level1">
+<li>Content and style updated.</li>
+<li>Third-party dependencies (JavaScripts) are eliminated.</li>
+</div>
+
+<!-- ========================================== -->
+<h2 class="news">Miscellaneous Changes</h2>
+<div class="level1">
+<li>Various minor enhancements, code cleanups, and performance tweaks were implemented throughout the VIs and C code, which are not explicitly listed in this file.</li>
+</div>
+
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<hr class="LittleHeight">
+
+<a name="legacy_users">
+<h2 class="news">Important Notice for Existing License Holders (Versions 3.x and earlier)</h2>
+<div class="level1">
+
+<p>
+If you or your company has previously purchased commercial development and/or runtime licenses for older versions of CalcExpress, please review the following terms regarding the Version 4.0 transition:
+</p>
+
+<p>
+1. <b>Validity of Prior Licenses:</b><br>
+All commercial licenses purchased over the past years remain completely valid, active, and legally binding for the specific versions they were issued for. Your deployment history remains fully compliant.
+</p>
+
+<p>
+2. <b>Transition to Version 4.0:</b><br>
+With the launch of Version 4.0, the entire toolkit has transitioned to the permissive <b>MIT License</b>. As a legacy customer, you are highly encouraged to upgrade your applications to Version 4.0 completely free of charge. By upgrading, your project automatically inherits the unrestricted commercial rights granted under the MIT framework.
+</p>
+
+<p>
+3. <b>Runtime Tracking Discontinuation:</b><br>
+Starting with Version 4.0, the manual tracking and reporting of the historical runtime fee is <b>completely discontinued</b>. All internal deployment and external distribution of compiled applications embedding CalcExpress 4.0 (and subsequent versions) is now 100% royalty-free.
+</p>
+
+<p>
+4. <b>Support and Maintenance Transition:</b><br>
+All historical support arrangements, email troubleshooting channels, and direct engineering consultations associated with legacy purchases have officially concluded. Version 4.0 is a mature release provided strictly <b>AS IS</b>. Legacy users requiring ongoing updates or specific modifications are welcome to leverage the unlocked VIs and C engine source code at the CalcExpress GitHub repository:<br>
+<a href="https://github.com/konstantin-shifershteyn/calcexpress" target="_blank">https://github.com/konstantin-shifershteyn/calcexpress</a>
+</p>
+
+</div>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

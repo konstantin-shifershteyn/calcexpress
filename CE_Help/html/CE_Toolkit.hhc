@@ -1,0 +1,1422 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<!-- Sitemap 1.0 -->
+</HEAD><BODY>
+<UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="CalcExpress Toolkit">
+		<param name="Local" value="_cetoolkit.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="What's New">
+		<param name="Local" value="_news.html">
+		</OBJECT>
+
+	<!-- ################################## -->
+	<!-- ###########  Level: 1  ########### -->
+	<!-- ###########   CSE      ########### -->
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Script Processor (CSE)">
+		<param name="Local" value="cse.html">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="CSE Overview">
+			<param name="Local" value="cse.html">
+			</OBJECT>
+		<!-- ***********  Level: 2  *********** -->
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="CSE VIs">
+			<param name="Local" value="mnu_cse.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Generic CSE VIs">
+				<param name="Local" value="mnu_cse.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Advanced CSE VIs">
+				<param name="Local" value="mnu_cse-adv.html">
+				</OBJECT>
+		</UL>
+		<!-- ***********  Level: 2  *********** -->
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="CSE Script Syntax">
+			<param name="Local" value="cse_syntax.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Syntax Overview">
+				<param name="Local" value="cse_syntax.html">
+				</OBJECT>
+			<!-- ===========  Level: 3  =========== -->
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Statements">
+				</OBJECT>
+			<UL>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="if">
+					<param name="Local" value="cse_syntax.html#cse_if">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="for">
+					<param name="Local" value="cse_syntax.html#cse_for">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="while">
+					<param name="Local" value="cse_syntax.html#cse_while">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="break">
+					<param name="Local" value="cse_syntax.html#cse_break">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="continue">
+					<param name="Local" value="cse_syntax.html#cse_continue">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="return">
+					<param name="Local" value="cse_syntax.html#cse_return">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="goto and labels">
+					<param name="Local" value="cse_syntax.html#cse_goto">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="null statement">
+					<param name="Local" value="cse_syntax.html#cse_null_st">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="expression statement">
+					<param name="Local" value="cse_syntax.html#cse_exp_st">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="compound statement">
+					<param name="Local" value="cse_syntax.html#cse_comp_st">
+					</OBJECT>
+			</UL>
+			<!-- ===========  Level: 3  =========== -->
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Expressions">
+				</OBJECT>
+			<UL>
+<!--
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Overview">
+					<param name="Local" value="ce_syntax.html">
+					</OBJECT>
+-->
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Operators">
+					<param name="Local" value="ce_syntax_op.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Function Calls">
+					<param name="Local" value="ce_functions.html#ce_func_syntax">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Variables">
+					<param name="Local" value="ce_syntax_misc.html#ce_syntax_var">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Constants: Numeric">
+					<param name="Local" value="ce_syntax_misc.html#ce_syntax_const_num">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Constants: String">
+					<param name="Local" value="ce_syntax_misc.html#ce_syntax_const_str">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Constants: Named">
+					<param name="Local" value="ce_syntax_misc.html#ce_syntax_namedconst">
+					</OBJECT>
+			</UL>
+			<!-- ===========  Level: 3  =========== -->
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Comments">
+				<param name="Local" value="ce_syntax_misc.html#ce_syntax_comment">
+				</OBJECT>
+			<UL>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Comments">
+					<param name="Local" value="ce_syntax_misc.html#ce_syntax_comment">
+					</OBJECT>
+			</UL>
+			<!-- ===========  Level: 3  =========== -->
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Parsing Directives">
+				<param name="Local" value="directives.html">
+				</OBJECT>
+			<UL>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Parsing Directives">
+					<param name="Local" value="directives.html">
+					</OBJECT>
+			</UL>
+		</UL>
+		<!-- ***********  Level: 2  *********** -->
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Functions">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Functions Overview">
+				<param name="Local" value="ce_functions.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Predefined Functions">
+				<param name="Local" value="cef_main.html">
+				</OBJECT>
+			<!-- ===========  Level: 3  =========== -->
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Advanced topics">
+				</OBJECT>
+			<UL>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Implementation">
+					<param name="Local" value="ce_functions.html#ce_func_implementation">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Function Development">
+					<param name="Local" value="ce_funcvi.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="FuncVI Examples">
+					<param name="Local" value="ce_funcvi_examples.html">
+					</OBJECT>
+			</UL>
+		</UL>
+		<!-- ***********  Level: 2  *********** -->
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="CSE Utility">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="CSE ISP: Interactive Script Processor">
+				<param name="Local" value="cse_isp.html">
+				</OBJECT>
+		</UL>
+	</UL>
+
+
+	<!-- ################################## -->
+	<!-- ###########  Level: 1  ########### -->
+	<!-- #########  CalcExpress  ########## -->
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Expression Evaluator (CalcExpress)">
+		<param name="Local" value="ce.html">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="CalcExpress Overview">
+			<param name="Local" value="ce.html">
+			</OBJECT>
+		<!-- ***********  Level: 2  *********** -->
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="CalcExpress VIs">
+			<param name="Local" value="mnu_ce-top.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Parsing and Evaluation VIs">
+				<param name="Local" value="mnu_ce-top.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="FuncVI Development VIs">
+				<param name="Local" value="mnu_ce-fvi.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="FuncVI Service VIs">
+				<param name="Local" value="mnu_ce-func.html">
+				</OBJECT>
+		</UL>
+		<!-- ***********  Level: 2  *********** -->
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Expression Syntax">
+			<param name="Local" value="ce_syntax.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Syntax Overview">
+				<param name="Local" value="ce_syntax.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Polymorphism for Operators">
+				<param name="Local" value="ce_poly.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Order of Evaluation">
+				<param name="Local" value="ce_syntax_op.html#ce_syntax_eval_order">
+				</OBJECT>
+			<!-- ===========  Level: 3  =========== -->
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Operands">
+				</OBJECT>
+			<UL>
+				<!--------------  Level: 4  -------------->
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Constants">
+					</OBJECT>
+				<UL>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="Numeric Constants">
+						<param name="Local" value="ce_syntax_misc.html#ce_syntax_const_num">
+						</OBJECT>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="String Constants">
+						<param name="Local" value="ce_syntax_misc.html#ce_syntax_const_str">
+						</OBJECT>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="Escape Sequences">
+						<param name="Local" value="ce_syntax_misc.html#ce_syntax_escape">
+						</OBJECT>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="Named Constants">
+						<param name="Local" value="ce_syntax_misc.html#ce_syntax_namedconst">
+						</OBJECT>
+				</UL>
+				<!--------------  Level: 4  -------------->
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Variables">
+					</OBJECT>
+				<UL>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="Variables">
+						<param name="Local" value="ce_syntax_misc.html#ce_syntax_var">
+						</OBJECT>
+				</UL>
+				<!--------------  Level: 4  -------------->
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Symbols">
+					</OBJECT>
+				<UL>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="IndexRange Symbols">
+						<param name="Local" value="ce_syntax_op_array.html#ce_idxrange_symbols">
+						</OBJECT>
+				</UL>
+			</UL>
+			<!-- ===========  Level: 3  =========== -->
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Operators">
+				<param name="Local" value="ce_syntax_op.html">
+				</OBJECT>
+			<UL>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Operators Overview">
+					<param name="Local" value="ce_syntax_op.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Precedence and associativity">
+					<param name="Local" value="ce_syntax_op.html#ce_syntax_op_table">
+					</OBJECT>
+				<!--------------  Level: 4  -------------->
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Algebraic">
+					<!-- <param name="Local" value="ce_syntax_op_algebraic.html"> -->
+					</OBJECT>
+				<UL>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="Unary Negation: -">
+						<param name="Local" value="ce_syntax_op_algebraic.html#ce_op_neg">
+						</OBJECT>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="Unary Plus: +">
+						<param name="Local" value="ce_syntax_op_algebraic.html#ce_op_pos">
+						</OBJECT>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="Postfix Increment and Decrement: ++ , --">
+						<param name="Local" value="ce_syntax_op_algebraic.html#ce_op_postinc">
+						</OBJECT>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="Prefix Increment and Decrement: ++ , --">
+						<param name="Local" value="ce_syntax_op_algebraic.html#ce_op_prefinc">
+						</OBJECT>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="Exponentiation: **">
+						<param name="Local" value="ce_syntax_op_algebraic.html#ce_op_exp">
+						</OBJECT>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="Multiplication: *">
+						<param name="Local" value="ce_syntax_op_algebraic.html#ce_op_mul">
+						</OBJECT>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="Division: /">
+						<param name="Local" value="ce_syntax_op_algebraic.html#ce_op_div">
+						</OBJECT>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="Remainder: %">
+						<param name="Local" value="ce_syntax_op_algebraic.html#ce_op_remd">
+						</OBJECT>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="Addition: +">
+						<param name="Local" value="ce_syntax_op_algebraic.html#ce_op_add">
+						</OBJECT>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="Subtraction: -">
+						<param name="Local" value="ce_syntax_op_algebraic.html#ce_op_sub">
+						</OBJECT>
+				</UL>
+				<!--------------  Level: 4  -------------->
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Bitwise">
+					<!-- <param name="Local" value="ce_syntax_op_bitwise.html"> -->
+					</OBJECT>
+				<UL>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="Bitwise-NOT: ~">
+						<param name="Local" value="ce_syntax_op_bitwise.html#ce_op_b-not">
+						</OBJECT>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="Bitwise-AND: &amp;">
+						<param name="Local" value="ce_syntax_op_bitwise.html#ce_op_b-and">
+						</OBJECT>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="Bitwise-OR: |">
+						<param name="Local" value="ce_syntax_op_bitwise.html#ce_op_b-or">
+						</OBJECT>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="Bitwise-XOR: ^">
+						<param name="Local" value="ce_syntax_op_bitwise.html#ce_op_b-xor">
+						</OBJECT>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="Bitwise-Left-Shift: &lt;&lt;">
+						<param name="Local" value="ce_syntax_op_bitwise.html#ce_op_b-lshift">
+						</OBJECT>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="Bitwise-Right-Shift: &gt;&gt;">
+						<param name="Local" value="ce_syntax_op_bitwise.html#ce_op_b-rshift">
+						</OBJECT>
+				</UL>
+				<!--------------  Level: 4  -------------->
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Logical">
+					<!-- <param name="Local" value="ce_syntax_op_logical.html"> -->
+					</OBJECT>
+				<UL>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="Logical-NOT: !">
+						<param name="Local" value="ce_syntax_op_logical.html#ce_op_l-not">
+						</OBJECT>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="Logical-AND: &amp;&amp;">
+						<param name="Local" value="ce_syntax_op_logical.html#ce_op_l-and">
+						</OBJECT>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="Logical-OR: ||">
+						<param name="Local" value="ce_syntax_op_logical.html#ce_op_l-or">
+						</OBJECT>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="Logical-XOR: ^^">
+						<param name="Local" value="ce_syntax_op_logical.html#ce_op_l-xor">
+						</OBJECT>
+				</UL>
+				<!--------------  Level: 4  -------------->
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Comparison">
+					<!-- <param name="Local" value="ce_syntax_op_comparison.html"> -->
+					</OBJECT>
+				<UL>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="Equality and Inequality">
+						<param name="Local" value="ce_syntax_op_comparison.html#ce_op_equal">
+						</OBJECT>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="Relational operators">
+						<param name="Local" value="ce_syntax_op_comparison.html#ce_op_relation">
+						</OBJECT>
+				</UL>
+				<!--------------  Level: 4  -------------->
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Assignment">
+					<!-- <param name="Local" value="ce_syntax_op_assignment.html"> -->
+					</OBJECT>
+				<UL>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="Assignment operator:  =">
+						<param name="Local" value="ce_syntax_op_assignment.html#ce_op_assign">
+						</OBJECT>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="Compound Assignment operators">
+						<param name="Local" value="ce_syntax_op_assignment.html#ce_op_cassign">
+						</OBJECT>
+				</UL>
+				<!--------------  Level: 4  -------------->
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Array Indexation">
+					<!-- <param name="Local" value="ce_syntax_op_array.html"> -->
+					</OBJECT>
+				<UL>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="Subscript operator:  [ ]">
+						<param name="Local" value="ce_syntax_op_array.html#ce_op_subscript">
+						</OBJECT>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="IndexRange operator:  :">
+						<param name="Local" value="ce_syntax_op_array.html#ce_op_idxrange">
+						</OBJECT>
+				</UL>
+				<!--------------  Level: 4  -------------->
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Punctuators">
+					<!-- <param name="Local" value="ce_syntax_op_punctuator.html"> -->
+					</OBJECT>
+				<UL>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="Sequential-Evaluation operator (comma)">
+						<param name="Local" value="ce_syntax_op_punctuator.html#ce_op_comma">
+						</OBJECT>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="Expression Terminator (semicolon)">
+						<param name="Local" value="ce_syntax_op_punctuator.html#ce_op_semicolon"></">
+						</OBJECT>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="Parentheses">
+						<param name="Local" value="ce_syntax_op_punctuator.html#ce_op_parentheses">
+						</OBJECT>
+				</UL>
+			</UL>
+			<!-- ===========  Level: 3  =========== -->
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Functions">
+				<param name="Local" value="ce_functions.html">
+				</OBJECT>
+			<UL>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Function Call Syntax">
+					<param name="Local" value="ce_functions.html#ce_func_syntax">
+					</OBJECT>
+			</UL>
+			<!-- ===========  Level: 3  =========== -->
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Comments">
+				<param name="Local" value="ce_syntax_misc.html#ce_syntax_comment">
+				</OBJECT>
+			<UL>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="Comments">
+						<param name="Local" value="ce_syntax_misc.html#ce_syntax_comment">
+						</OBJECT>
+			</UL>
+			<!-- ===========  Level: 3  =========== -->
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Parsing Directives">
+				<param name="Local" value="directives.html">
+				</OBJECT>
+			<UL>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Parsing Directives">
+					<param name="Local" value="directives.html">
+					</OBJECT>
+			</UL>
+		</UL>
+		<!-- ***********  Level: 2  *********** -->
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Functions">
+				<param name="Local" value="ce_functions.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Functions Overview">
+				<param name="Local" value="ce_functions.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Predefined Functions">
+				<param name="Local" value="cef_main.html">
+				</OBJECT>
+			<!-- ===========  Level: 3  =========== -->
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Advanced topics">
+				</OBJECT>
+			<UL>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Implementation">
+					<param name="Local" value="ce_functions.html#ce_func_implementation">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Function Development">
+					<param name="Local" value="ce_funcvi.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="FuncVI Examples">
+					<param name="Local" value="ce_funcvi_examples.html">
+					</OBJECT>
+			</UL>
+		</UL>
+	</UL>
+
+
+	<!-- ################################## -->
+	<!-- ###########  Level: 1  ########### -->
+	<!-- ######## Variable Manager ######## -->
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Variable Manager (VarMan)">
+		<param name="Local" value="varman.html">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="VarMan Overview">
+			<param name="Local" value="varman.html">
+			</OBJECT>
+			
+		<!-- ***********  Level: 2  *********** -->
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="VarMan VIs">
+			<param name="Local" value="mnu_vm-top.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Generic VIs">
+				<param name="Local" value="mnu_vm-top.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Advanced VIs">
+				<param name="Local" value="mnu_vm-topa.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Variabe History VIs">
+				<param name="Local" value="mnu_vm-hist.html">
+				</OBJECT>
+<!----------->
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Multiple Variables VIs">
+				<param name="Local" value="mnu_vm-mult.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Legacy VIs">
+				<param name="Local" value="mnu_vm-leg.html">
+				</OBJECT>
+<!----------->
+		</UL>
+		<!-- ***********  Level: 2  *********** -->
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="VarMan Utility">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="VarMan Spy">
+				<param name="Local" value="varman_spy.html">
+				</OBJECT>
+		</UL>
+	</UL>
+
+	<!-- ################################## -->
+	<!-- ###########  Level: 1  ########### -->
+	<!-- ###### Predefined Functions ###### -->
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Predefined Functions">
+		<param name="Local" value="cef_main.html">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Alphabetical List">
+			<param name="Local" value="cef_alist.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="General Numeric functions">
+			<param name="Local" value="cef_cat_num_gen.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Logarithmic and Exponential">
+			<param name="Local" value="cef_cat_num_log.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Trigonometric and Hyperbolic">
+			<param name="Local" value="cef_cat_trig.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Complex numbers">
+			<param name="Local" value="cef_cat_complex.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Number conversion and verification">
+			<param name="Local" value="cef_cat_num_conv.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Special Numeric functions">
+			<param name="Local" value="cef_cat_num_spec.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Probability and Statistics">
+			<param name="Local" value="cef_cat_stats.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Array functions">
+			<param name="Local" value="cef_cat_array.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="String functions">
+			<param name="Local" value="cef_cat_string.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="File functions">
+			<param name="Local" value="cef_cat_file.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Signal Processing and Measurement">
+			<param name="Local" value="cef_cat_dsp.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Signal Generation">
+			<param name="Local" value="cef_cat_sgen.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="VI Control functions">
+			<param name="Local" value="cef_cat_vi.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="CSE Script Control functions">
+			<param name="Local" value="cef_cat_script.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Variable management">
+			<param name="Local" value="cef_cat_var.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Synchronization">
+			<param name="Local" value="cef_cat_sync.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Displaying and Interaction">
+			<param name="Local" value="cef_cat_user.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Time functions">
+			<param name="Local" value="cef_cat_time.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Error Handling">
+			<param name="Local" value="cef_cat_error.html">
+			</OBJECT>
+	</UL>
+
+	<!-- ################################## -->
+	<!-- ###########  Level: 1  ########### -->
+	<!-- ##########  Data Types  ########## -->
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Data Types">
+		<param name="Local" value="dtypes.html">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Data types">
+			<param name="Local" value="dtypes.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Conversion to Integers">
+			<param name="Local" value="ce_conversions.html">
+			</OBJECT>
+	</UL>
+
+	<!-- ################################## -->
+	<!-- ###########  Level: 1  ########### -->
+	<!-- ##########  Error Codes  ######### -->
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Error Codes">
+		<param name="Local" value="errors.html">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="CalcExpress and CSE VIs error codes">
+			<param name="Local" value="errors.html#err_ce_vi">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="VarMan VIs error codes">
+			<param name="Local" value="errors.html#err_vm_vi">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="VarMan Engine error codes">
+			<param name="Local" value="errors.html#err_vm_engine">
+			</OBJECT>
+	</UL>
+
+	<!-- ################################## -->
+	<!-- ###########  Level: 1  ########### -->
+	<!-- ##########  UTILITIES   ########## -->
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Utilities">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="CSE ISP: Interactive Script Processor">
+			<param name="Local" value="cse_isp.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="VarMan Spy">
+			<param name="Local" value="varman_spy.html">
+			</OBJECT>
+	</UL>
+
+
+	<!-- ################################## -->
+	<!-- ###########  Level: 1  ########### -->
+	<!-- ########## VI Reference ########## -->
+	
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="VI Reference">
+		<param name="Local" value="_vi_refs.html">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="CalcExpress">
+			<param name="Local" value="mnu_ce-top.html">
+			</OBJECT>
+		<UL>
+		<!-- ***********  Level: 2  *********** -->
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="[ce] CalcExpress - Abort Evaluation.vi">
+				<param name="Local" value="vi__ce__CalcExpress_-_Abort_Evaluation.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="[ce] CalcExpress - Close Instance.vi">
+				<param name="Local" value="vi__ce__CalcExpress_-_Close_Instance.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="[ce] CalcExpress - Diagnose Script.vi">
+				<param name="Local" value="vi__ce__CalcExpress_-_Diagnose_Script.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="[ce] CalcExpress - Eval Script.vi">
+				<param name="Local" value="vi__ce__CalcExpress_-_Eval_Script.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="[ce] CalcExpress - Not a CE InstanceRef.vi">
+				<param name="Local" value="vi__ce__CalcExpress_-_Not_a_CE_InstanceRef.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="[ce] CalcExpress - Parse Script.vi">
+				<param name="Local" value="vi__ce__CalcExpress_-_Parse_Script.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="[ce] CalcExpress - Variables Writer ID.vi">
+				<param name="Local" value="vi__ce__CalcExpress_-_Variables_Writer_ID.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="[ce] CalcExpress Light.vi">
+				<param name="Local" value="vi__ce__CalcExpress_Light.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="[ce] CalcExpress.vi">
+				<param name="Local" value="vi__ce__CalcExpress.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="FuncVI Development">
+				<param name="Local" value="mnu_ce-fvi.html">
+				</OBJECT>
+			<UL>
+			<!-- ***********  Level: 3  *********** -->
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Exp - Error handler.vi">
+					<param name="Local" value="vi_Exp_-_Error_handler.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Exp - Get CalcExpress Error as Error Cluster.vi">
+					<param name="Local" value="vi_Exp_-_Get_CalcExpress_Error_as_Error_Cluster.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Exp - Get VC Handle.vi">
+					<param name="Local" value="vi_Exp_-_Get_VC_Handle.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Func - Error Status to Error Cluster.vi">
+					<param name="Local" value="vi_Func_-_Error_Status_to_Error_Cluster.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Func - Get argument.vi">
+					<param name="Local" value="vi_Func_-_Get_argument.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Func - Get DBL argument as 1D Array.vi">
+					<param name="Local" value="vi_Func_-_Get_DBL_argument_as_1D_Array.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Func - Get declared arguments.vi">
+					<param name="Local" value="vi_Func_-_Get_declared_arguments.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Func - get function name_.vi">
+					<param name="Local" value="vi_Func_-_get_function_name_.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Func - Get list of arguments.vi">
+					<param name="Local" value="vi_Func_-_Get_list_of_arguments.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Func - Get list of numeric arguments.vi">
+					<param name="Local" value="vi_Func_-_Get_list_of_numeric_arguments.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Func - Get list of string arguments.vi">
+					<param name="Local" value="vi_Func_-_Get_list_of_string_arguments.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Func - LV runtime error handler (Error Cluster).vi">
+					<param name="Local" value="vi_Func_-_LV_runtime_error_handler_(Error_Cluster).html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Func - LV runtime error handler_.vi">
+					<param name="Local" value="vi_Func_-_LV_runtime_error_handler_.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Func - Unflatten Error Handler (Error Cluster).vi">
+					<param name="Local" value="vi_Func_-_Unflatten_Error_Handler_(Error_Cluster).html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Func - Unflatten-From-String Error handler.vi">
+					<param name="Local" value="vi_Func_-_Unflatten-From-String_Error_handler.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Func - VarMan Error Handler (Error Cluster).vi">
+					<param name="Local" value="vi_Func_-_VarMan_Error_Handler_(Error_Cluster).html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Func - VarMan Error handler.vi">
+					<param name="Local" value="vi_Func_-_VarMan_Error_handler.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Func - VarMan VI Error Cluster to Func Result Value.vi">
+					<param name="Local" value="vi_Func_-_VarMan_VI_Error_Cluster_to_Func_Result_Value.html">
+					</OBJECT>
+			</UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="FuncVI Service">
+				<param name="Local" value="mnu_ce-func.html">
+				</OBJECT>
+			<UL>
+			<!-- ***********  Level: 3  *********** -->
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Func - FuncVI search paths.vi">
+					<param name="Local" value="vi_Func_-_FuncVI_search_paths.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Func - Load Functions.vi">
+					<param name="Local" value="vi_Func_-_Load_Functions.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Func - Unload Functions.vi">
+					<param name="Local" value="vi_Func_-_Unload_Functions.html">
+					</OBJECT>
+			</UL>
+		</UL>
+
+
+		<!---------------------------------------->
+		<!-----  VI_REF:  CSE               ------>
+		<!---------------------------------------->
+
+		<!-- ***********  Level: 2  *********** -->
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="CSE Script Processor">
+			<param name="Local" value="mnu_cse.html">
+			</OBJECT>
+		<UL>
+			<!-- ***********  Level: 3  *********** -->
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="CSE - Abort Script Execution.vi">
+				<param name="Local" value="vi_CSE_-_Abort_Script_Execution.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="CSE - Close Instance.vi">
+				<param name="Local" value="vi_CSE_-_Close_Instance.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="CSE - Execute Parsed Script.vi">
+				<param name="Local" value="vi_CSE_-_Execute_Parsed_Script.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="CSE - Not A CSE RefNum.vi">
+				<param name="Local" value="vi_CSE_-_Not_A_CSE_RefNum.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="CSE - Open Callback VI Reference.vi">
+				<param name="Local" value="vi_CSE_-_Open_Callback_VI_Reference.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="CSE - Parse Script.vi">
+				<param name="Local" value="vi_CSE_-_Parse_Script.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="CSE - Script Path &amp; Search Paths.vi">
+				<param name="Local" value="vi_CSE_-_Script_Path___Search_Paths.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="CSE - Variables Writer ID.vi">
+				<param name="Local" value="vi_CSE_-_Variables_Writer_ID.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="CSE Advanced VIs">
+				<param name="Local" value="mnu_cse-adv.html">
+				</OBJECT>
+			<UL>
+				<!-- ***********  Level: 4  *********** -->
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="CSE - Diagnose Script.vi">
+					<param name="Local" value="vi_CSE_-_Diagnose_Script.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="CSE - Diagnose Statement.vi">
+					<param name="Local" value="vi_CSE_-_Diagnose_Statement.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="CSE - Execute Script (Basic).vi">
+					<param name="Local" value="vi_CSE_-_Execute_Script_(Basic).html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="CSE - Get number of statements.vi">
+					<param name="Local" value="vi_CSE_-_Get_number_of_statements.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="CSE - Link Error to Source Script.vi">
+					<param name="Local" value="vi_CSE_-_Link_Error_to_Source_Script.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="CSE - Link Source Script Line to Statements.vi">
+					<param name="Local" value="vi_CSE_-_Link_Source_Script_Line_to_Statements.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="CSE - Link Source Script Offset to Statement.vi">
+					<param name="Local" value="vi_CSE_-_Link_Source_Script_Offset_to_Statement.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="CSE - Link Statement to Source Script.vi">
+					<param name="Local" value="vi_CSE_-_Link_Statement_to_Source_Script.html">
+					</OBJECT>
+			</UL>
+		</UL>
+
+
+		<!---------------------------------------->
+		<!-----  VI_REF:  VARIABLE MANAGER  ------>
+		<!---------------------------------------->
+		
+		<!-- ***********  Level: 2  *********** -->
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Variable Manager">
+			<param name="Local" value="mnu_vm-top.html">
+			</OBJECT>
+		<UL>
+			<!-- ***********  Level: 3  *********** -->
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Advanced VarMan VIs">
+				<param name="Local" value="mnu_vm-topa.html">
+				</OBJECT>
+			<UL>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="VM - Alias Controller.vi">
+					<param name="Local" value="vi_VM_-_Alias_Controller.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="VM - Close loose contexts.vi">
+					<param name="Local" value="vi_VM_-_Close_loose_contexts.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="VM - Context Info.vi">
+					<param name="Local" value="vi_VM_-_Context_Info.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="VM - Context Names.vi">
+					<param name="Local" value="vi_VM_-_Context_Names.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="VM - Destroy Variable.vi">
+					<param name="Local" value="vi_VM_-_Destroy_Variable.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="VM - Get list of contexts.vi">
+					<param name="Local" value="vi_VM_-_Get_list_of_contexts.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="VM - Initializing.vi">
+					<param name="Local" value="vi_VM_-_Initializing.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="VM - List of Aliases.vi">
+					<param name="Local" value="vi_VM_-_List_of_Aliases.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="VM - List of Variables.vi">
+					<param name="Local" value="vi_VM_-_List_of_Variables.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="VM - Not a VC Handle.vi">
+					<param name="Local" value="vi_VM_-_Not_a_VC_Handle.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="VM - Type Code to CalcExpress Data Type.vi">
+					<param name="Local" value="vi_VM_-_Type_Code_to_CalcExpress_Data_Type.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="VM - Variable Attribute.vi">
+					<param name="Local" value="vi_VM_-_Variable_Attribute.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="VM - Variable Info.vi">
+					<param name="Local" value="vi_VM_-_Variable_Info.html">
+					</OBJECT>
+			</UL>
+			<!-- ***********  Level: 3  *********** -->
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Variabe History VIs">
+				<param name="Local" value="mnu_vm-hist.html">
+				</OBJECT>
+			<UL>
+				<!-- ***********  Level: 4  *********** -->
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="History Report &amp; Utility VIs">
+					<param name="Local" value="mnu_vm-hrep.html">
+					</OBJECT>
+				<UL>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="VHist - Fit DBL history to new timestamps.vi">
+						<param name="Local" value="vi_VHist_-_Fit_DBL_history_to_new_timestamps.html">
+						</OBJECT>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="VHist - Fit multi DBL history to new timestamps.vi">
+						<param name="Local" value="vi_VHist_-_Fit_multi_DBL_history_to_new_timestamps.html">
+						</OBJECT>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="VHist - Fit multi STR history to new timestamps.vi">
+						<param name="Local" value="vi_VHist_-_Fit_multi_STR_history_to_new_timestamps.html">
+						</OBJECT>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="VHist - Fit STR history to new timestamps.vi">
+						<param name="Local" value="vi_VHist_-_Fit_STR_history_to_new_timestamps.html">
+						</OBJECT>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="VHist - Interpolate DBL History.vi">
+						<param name="Local" value="vi_VHist_-_Interpolate_DBL_History.html">
+						</OBJECT>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="VHist - Interpolate multi DBL History.vi">
+						<param name="Local" value="vi_VHist_-_Interpolate_multi_DBL_History.html">
+						</OBJECT>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="VHist - Multiple DBL history to spreadsheet string.vi">
+						<param name="Local" value="vi_VHist_-_Multiple_DBL_history_to_spreadsheet_string.html">
+						</OBJECT>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="VHist - Multiple DBL history to Table.vi">
+						<param name="Local" value="vi_VHist_-_Multiple_DBL_history_to_Table.html">
+						</OBJECT>
+					<LI> <OBJECT type="text/sitemap">
+						<param name="Name" value="VHist - Time Range from history array.vi">
+						<param name="Local" value="vi_VHist_-_Time_Range_from_history_array.html">
+						</OBJECT>
+				</UL>
+
+				<!-- ***********  Level: 4  *********** -->
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="VHistory - Get 1D Array of CDB History.vi">
+					<param name="Local" value="vi_VHistory_-_Get_1D_Array_of_CDB_History.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="VHistory - Get 1D Array of DBL History.vi">
+					<param name="Local" value="vi_VHistory_-_Get_1D_Array_of_DBL_History.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="VHistory - Get 1D Array of STR History.vi">
+					<param name="Local" value="vi_VHistory_-_Get_1D_Array_of_STR_History.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="VHistory - Get 2D Array of CDB History.vi">
+					<param name="Local" value="vi_VHistory_-_Get_2D_Array_of_CDB_History.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="VHistory - Get 2D Array of DBL History.vi">
+					<param name="Local" value="vi_VHistory_-_Get_2D_Array_of_DBL_History.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="VHistory - Get 2D Array of STR History.vi">
+					<param name="Local" value="vi_VHistory_-_Get_2D_Array_of_STR_History.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="VHistory - Get Arbitrary Variable History.vi">
+					<param name="Local" value="vi_VHistory_-_Get_Arbitrary_Variable_History.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="VHistory - Get CDB Scalar History.vi">
+					<param name="Local" value="vi_VHistory_-_Get_CDB_Scalar_History.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="VHistory - Get DBL Scalar History.vi">
+					<param name="Local" value="vi_VHistory_-_Get_DBL_Scalar_History.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="VHistory - Get STR History.vi">
+					<param name="Local" value="vi_VHistory_-_Get_STR_History.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="VHistory - History Controller.vi">
+					<param name="Local" value="vi_VHistory_-_History_Controller.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="VHistory - History Info.vi">
+					<param name="Local" value="vi_VHistory_-_History_Info.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="VHistory - Preset CDB Scalar History.vi">
+					<param name="Local" value="vi_VHistory_-_Preset_CDB_Scalar_History.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="VHistory - Preset DBL Scalar History.vi">
+					<param name="Local" value="vi_VHistory_-_Preset_DBL_Scalar_History.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="VHistory - Preset STR History.vi">
+					<param name="Local" value="vi_VHistory_-_Preset_STR_History.html">
+					</OBJECT>
+			</UL>
+			
+			<!-- ***********  Level: 3  *********** -->
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Multiple Variables VIs">
+				<param name="Local" value="mnu_vm-mult.html">
+				</OBJECT>
+			<UL>
+				<!-- ***********  Level: 4  *********** -->
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="VM3 - Read Variables (ANY).vi">
+					<param name="Local" value="vi_VM3_-_Read_Variables_(ANY).html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="VM3 - Read Variables (DBL).vi">
+					<param name="Local" value="vi_VM3_-_Read_Variables_(DBL).html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="VM3 - Read Variables (STR).vi">
+					<param name="Local" value="vi_VM3_-_Read_Variables_(STR).html">
+					</OBJECT>
+
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="VM3 - Write Variables (ANY).vi">
+					<param name="Local" value="vi_VM3_-_Write_Variables_(ANY).html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="VM3 - Write Variables (DBL).vi">
+					<param name="Local" value="vi_VM3_-_Write_Variables_(DBL).html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="VM3 - Write Variables (STR).vi">
+					<param name="Local" value="vi_VM3_-_Write_Variables_(STR).html">
+					</OBJECT>
+			</UL>
+
+			<!-- ***********  Level: 3  *********** -->
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Legacy VarMan VIs">
+				<param name="Local" value="mnu_vm-leg.html">
+				</OBJECT>
+			<UL>
+				<!-- ***********  Level: 4  *********** -->
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="VM - 1D Array of CDB.vi">
+					<param name="Local" value="vi_VM_-_1D_Array_of_CDB.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="VM - 1D Array of DBL.vi">
+					<param name="Local" value="vi_VM_-_1D_Array_of_DBL.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="VM - 1D Array of Strings.vi">
+					<param name="Local" value="vi_VM_-_1D_Array_of_Strings.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="VM - 2D Array of CDB.vi">
+					<param name="Local" value="vi_VM_-_2D_Array_of_CDB.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="VM - 2D Array of DBL.vi">
+					<param name="Local" value="vi_VM_-_2D_Array_of_DBL.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="VM - 2D Array of Strings.vi">
+					<param name="Local" value="vi_VM_-_2D_Array_of_Strings.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="VM - Arbitrary Data.vi">
+					<param name="Local" value="vi_VM_-_Arbitrary_Data.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="VM - CDB Scalar.vi">
+					<param name="Local" value="vi_VM_-_CDB_Scalar.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="VM - DBL Scalar.vi">
+					<param name="Local" value="vi_VM_-_DBL_Scalar.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="VM - Strings.vi">
+					<param name="Local" value="vi_VM_-_Strings.html">
+					</OBJECT>
+			</UL>
+
+			<!-- ***********  Level: 3  *********** -->
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="VM - Close Context.vi">
+				<param name="Local" value="vi_VM_-_Close_Context.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="VM - Open Context.vi">
+				<param name="Local" value="vi_VM_-_Open_Context.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="VM3 - 1D Array of CDB.vi">
+				<param name="Local" value="vi_VM3_-_1D_Array_of_CDB.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="VM3 - 1D Array of DBL.vi">
+				<param name="Local" value="vi_VM3_-_1D_Array_of_DBL.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="VM3 - 1D Array of Strings.vi">
+				<param name="Local" value="vi_VM3_-_1D_Array_of_Strings.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="VM3 - 2D Array of CDB.vi">
+				<param name="Local" value="vi_VM3_-_2D_Array_of_CDB.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="VM3 - 2D Array of DBL.vi">
+				<param name="Local" value="vi_VM3_-_2D_Array_of_DBL.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="VM3 - 2D Array of Strings.vi">
+				<param name="Local" value="vi_VM3_-_2D_Array_of_Strings.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="VM3 - Arbitrary Data.vi">
+				<param name="Local" value="vi_VM3_-_Arbitrary_Data.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="VM3 - CDB Scalar.vi">
+				<param name="Local" value="vi_VM3_-_CDB_Scalar.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="VM3 - DBL Scalar.vi">
+				<param name="Local" value="vi_VM3_-_DBL_Scalar.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="VM3 - String.vi">
+				<param name="Local" value="vi_VM3_-_String.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="VM3 - Variable Data Info.vi">
+				<param name="Local" value="vi_VM3_-_Variable_Data_Info.html">
+				</OBJECT>
+		</UL>
+		
+		
+		<!---------------------------------------->
+		<!-----  VI_REF:  CE MATH           ------>
+		<!---------------------------------------->
+		
+		<!-- ***********  Level: 2  *********** -->
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="CE Math">
+			<param name="Local" value="mnu_cemath.html">
+			</OBJECT>
+		<UL>
+			<!-- ***********  Level: 3  *********** -->
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Calculus">
+				<param name="Local" value="mnu__cemcalc.html">
+				</OBJECT>
+			<UL>
+				<!-- ***********  Level: 4  *********** -->
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="[ce] Curve Length.vi">
+					<param name="Local" value="vi__ce__Curve_Length.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="[ce] Differentiation.vi">
+					<param name="Local" value="vi__ce__Differentiation.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="[ce] Integration.vi">
+					<param name="Local" value="vi__ce__Integration.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="[ce] Limit.vi">
+					<param name="Local" value="vi__ce__Limit.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="[ce] Partial Derivatives of f(x1,x2).vi">
+					<param name="Local" value="vi__ce__Partial_Derivatives_of_f(x1,x2).html">
+					</OBJECT>
+			</UL>
+			<!-- ***********  Level: 3  *********** -->
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Curve Fitting">
+				<param name="Local" value="mnu__cemfit.html">
+				</OBJECT>
+			<UL>
+				<!-- ***********  Level: 4  *********** -->
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="[ce] Levenberg Marquardt.vi">
+					<param name="Local" value="vi__ce__Levenberg_Marquardt.html">
+					</OBJECT>
+			</UL>
+			<!-- ***********  Level: 3  *********** -->
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Differential Equations">
+				<param name="Local" value="mnu__cemode.html">
+				</OBJECT>
+			<UL>
+				<!-- ***********  Level: 4  *********** -->
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="[ce] ODE R-K Solver of dX(t)_dt=F(t) particular case.vi">
+					<param name="Local" value="vi__ce__ODE_R-K_Solver_of_dX(t)_dt=F(t)_particular_case.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="[ce] ODE Solver.vi">
+					<param name="Local" value="vi__ce__ODE_Solver.html">
+					</OBJECT>
+			</UL>
+			<!-- ***********  Level: 3  *********** -->
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Formula Evaluation">
+				<param name="Local" value="mnu__cemeval.html">
+				</OBJECT>
+			<UL>
+				<!-- ***********  Level: 4  *********** -->
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="[ce] Eval X-Y(a,t).vi">
+					<param name="Local" value="vi__ce__Eval_X-Y(a,t).html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="[ce] Eval X-Y-Z(a,t1,t2).vi">
+					<param name="Local" value="vi__ce__Eval_X-Y-Z(a,t1,t2).html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="[ce] Eval y=f(a,x).vi">
+					<param name="Local" value="vi__ce__Eval_y=f(a,x).html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="[ce] Eval y=f(a,x1,x2).vi">
+					<param name="Local" value="vi__ce__Eval_y=f(a,x1,x2).html">
+					</OBJECT>
+			</UL>
+			<!-- ***********  Level: 3  *********** -->
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Zeroes and Extrema">
+				<param name="Local" value="mnu__cemipnt.html">
+				</OBJECT>
+			<UL>
+				<!-- ***********  Level: 4  *********** -->
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="[ce] Find All Minima and Maxima of f(x).vi">
+					<param name="Local" value="vi__ce__Find_All_Minima_and_Maxima_of_f(x).html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="[ce] Find All Zeroes and Extrema of f(x).vi">
+					<param name="Local" value="vi__ce__Find_All_Zeroes_and_Extrema_of_f(x).html">
+					</OBJECT>
+			</UL>
+		</UL>
+	</UL>
+</UL>
+</BODY></HTML>

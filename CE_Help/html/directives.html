@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>Parsing Directives</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+<script src="js/_lvhelpref.js" type="text/javascript"></script>
+<style>
+td.Col1  { padding:0pt 10pt 5pt 2pt; valign:top; }
+td.Col2  { padding:0pt 2pt 5pt 2pt; valign:top; }
+</style>
+</head>
+
+<body>
+
+<!-- ########################################## -->
+<a name="directives"></a>
+<div class="PageTitle">
+<h1><span class="PageTitleL">Parsing Directives</span></h1>
+</div>
+
+
+<p>
+Parsing Directives are used in <a href="cse_syntax.html">CSE scripts</a> and <a href="ce_syntax.html">CalcExpress expressions</a> to configure parsing parameters. They are intended to override the default parameters of the CSE or CalcExpress parser VIs.
+</p>
+<p>
+Parsing Directives can appear in any situation where they can be interpreted as dedicated tokens. They are not processed if they appear within comments, string constants, or character constants.
+</p>
+<p>
+Parsing Directives are only used during the parsing phase. They do not result in any additional code execution during script run or expression evaluation.
+</p>
+
+
+
+<hr class="TopicSeparator">
+
+
+<a name="data_types_table_ref"></a>
+<!--
+<div style='border:none;border-top:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;padding:0pt 20pt 5pt 10pt'>
+-->
+<div style='border:none;padding:10pt 10pt 5pt 5pt'>
+<table border=0 cellspacing=0 cellpadding=0 style='border-collapse:collapse'>
+<tr>
+<td class="Col1"><b>$NCOFF</b></td>
+<td class="Col2">
+Disables <a href="ce_syntax_misc.html#ce_syntax_namedconst">Named Constants</a>. After this directive, any further appearance of Named Constants is ignored, and they will be treated as regular identifiers (variable names). This setting remains in effect until the end of parsing or until the <b>$NCON</b> directive is reached.
+</td>
+</tr>
+<tr>
+<td class="Col1"><b>$NCON</b></td>
+<td class="Col2">
+Enables <a href="ce_syntax_misc.html#ce_syntax_namedconst">Named Constants</a>. After this directive, Named Constants are treated in the regular way. This setting remains in effect until the end of parsing or until the <b>$NCOFF</b> directive is reached.
+</td>
+</tr>
+
+<tr>
+<td>&nbsp;</td>
+
+<td>
+<h3>Example</h3>
+<p class="FuncDscrExample">
+$NCOFF  /* disables Named Constants */<br>
+<br>
+/* creates or assigns the M_2PI variable */<br>
+M_2PI = 2 * 3.14;<br>
+<br>
+/* shows value of the variable */<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(M_2PI, "M_2P variable");<br>
+<br>
+$NCON  /* enables Named Constants */<br>
+<br>
+/* shows value of the Named Constant */<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(M_2PI, "M_2P constant");
+</p>
+</td>
+</tr>
+</table>
+
+</div>
+
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</body>
+</html> 

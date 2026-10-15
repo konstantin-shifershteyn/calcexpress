@@ -1,0 +1,41 @@
+/*
+This script is intended to be called in order to estimate some parameters of an input waveform signal. It determines RMS, Average and Frequency of periodical signals.
+The script returns zero on success; otherwise, it returns non-zero value to indicate an error.
+*/
+
+
+/* Definition of input parameters and their default values */
+dbl("Fs");         // sampling frequency
+a1dbl("Signal");   // input waveform
+
+if (Fs <= 0) {
+  msg = sform("Wrong sampling frequency: %d", Fs);
+  goto error;
+}
+if (!size(Signal)) {
+  msg = "Signal array is empty or not passed";
+  goto error;
+}
+
+// *** compute Root Mean Square
+RMS = rms(Signal);
+
+// *** compute Average
+AVE = mean(Signal);
+
+// *** determine frequency
+// *** Used algorithm: Buneman Frequency Estimator
+spec = norm( fft(Signal) );	
+spec[0] = 0;	//cut DC
+n = size(Signal);
+b = pi()/n;
+idx = search(spec, max(spec));
+if (spec[idx-1] > spec[idx+1])	idx -= 1;
+idx += atan(sin(b)/(cos(b) + spec[idx]/spec[idx+1]))/b;
+
+F = min(idx, n-idx) * Fs/n; 
+return 0;
+
+error:
+  MsgBox("ESTIMATOR ERROR\n", msg);
+return 1;

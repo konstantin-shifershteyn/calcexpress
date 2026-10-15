@@ -1,0 +1,1134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>Signal Processing and Measurement functions</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+<script src="js/_lvhelpref.js" type="text/javascript"></script>
+</head>
+
+<body>
+
+<!-- ########################################## -->
+<a name="cef_apspectrum"></a>
+<div class="FuncDscrTitle">
+<h1>APSpectrum</h1>
+<p>The function computes the single-sided, scaled, auto power spectrum of a time-domain signal.</p>
+<p>The function is implemented as a <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>. To perform computation, it uses <b><a HREF="JavaScript:lvhAPSpect.Click()">Auto Power Spectrum.vi</a></b> supplied with LabVIEW FDS and PDS. Refer to the help for this VI for more details.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">APSpectrum(x,vnMag <i>,dt</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function computes the auto power spectrum of the time-domain signal <b>x</b>, sampled with the period <b>dt</b>, and writes it to the <b>vnMag</b> variable.</p>
+<p>The resulting power spectrum is in input signal units rms squared; e.g. if <b>x</b> is in volts, <b>vnMag</b> is in volts rms squared.</p>
+<p>The function returns the line frequency interval <b>df</b> of the power spectrum. <b>df</b> is in Hertz if <b>dt</b> is in seconds. </p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">1D array of DBL</a></td>
+<td class="FuncDscrTblCol3">Input time-domain signal (required parameter).</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>vnMag</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">Identifier</a><i><br>
+(variable name)</i></td>
+<td class="FuncDscrTblCol3">
+Required parameter specifies the name of an existing variable with the <a href="dtypes.html#data_types_table">1D array of DBL</a> data type. The function writes the auto power spectrum to this variable. If the variable does not exist or has another data type, an error occurs.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>dt</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the sample period of the time-domain signal <b>x</b>, typically in seconds.<br> By default, it equals 1.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns <a href="dtypes.html#data_types_table">DBL Number</a> value that is the line frequency interval of the auto power spectrum.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_autocorrel"></a>
+<div class="FuncDscrTitle">
+<h1>AutoCorrel</h1>
+<p>The function computes the autocorrelation of an input sequence.</p>
+<p>The function is implemented as a <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>. To perform computation, it uses <b><a HREF="JavaScript:lvhACorrel.Click()">AutoCorrelation.vi</a></b> supplied with LabVIEW FDS and PDS. Refer to the help for this VI for more details.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">AutoCorrel(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns an array containing the autocorrelation of the sequence <b>x</b>.</p>
+<p>The function assigns an error code returned by the used LabVIEW VI to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">1D Array of DBL</a></td>
+<td class="FuncDscrTblCol3">Input sequence (required parameter).</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns <a href="dtypes.html#data_types_table">1D Array of DBL</a> that contains the autocorrelation of <b>x</b>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_conv"></a>
+<div class="FuncDscrTitle">
+<h1>Conv</h1>
+<p>The function computes the convolution of two input sequences.</p>
+<p>The function is implemented as a <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>. To perform computation, it uses <b><a HREF="JavaScript:lvhConvolution.Click()">Convolution.vi</a></b> supplied with LabVIEW FDS and PDS. Refer to the help for this VI for more details.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">Conv(x,y)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns an array containing the convolution of the sequences <b>x </b>and <b>y</b>.</p>
+<p>The function assigns an error code returned by the used LabVIEW VI to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">1D Array of DBL</a></td>
+<td class="FuncDscrTblCol3">1st input sequence (required parameter).</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>y</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">1D Array of DBL</a></td>
+<td class="FuncDscrTblCol3">2nd input sequence (required parameter).</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns <a href="dtypes.html#data_types_table">1D Array of DBL</a> that contains the convolution of <b>x </b>and <b>y</b>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_cpspectrum"></a>
+<div class="FuncDscrTitle">
+<h1>CPSpectrum</h1>
+<p>The function computes the single-sided, scaled, cross power spectrum of two time-domain signals. It produces both the magnitude and phase of the cross power spectrum.</p>
+<p>The function is implemented as a <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>. To perform computation, it uses <b><a HREF="JavaScript:lvhCPSpect.Click()">Cross Power Spectrum.vi</a></b> supplied with LabVIEW FDS and PDS. Refer to the help for this VI for more details.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">CPSpectrum(x,y,vnMag <i>,dt ,vnPhase</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function computes the cross power spectrum of two time-domain signals <b>x</b> and <b>y</b>, sampled with the period <b>dt</b>. The function writes the power spectrum magnitude to the <b>vnMag</b> variable, and the spectrum phase to the <b>vnPhase</b> variable unless it is omitted in a function call.</p>
+<p>The resulting power spectrum magnitude is in input signal units rms squared; e.g. if <b>x</b> and <b>y</b> are in volts, <b>vnMag</b> is in volts rms squared. The resulting spectrum phase (<b>vnPhase</b>) is in radians, it shows the difference between phases of the <b>x</b> and <b>y</b>.</p>
+<p>The function returns the line frequency interval <b>df</b> of the cross power spectrum. <b>df</b> is in Hertz if <b>dt</b> is in seconds. </p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">1D array of DBL</a></td>
+<td class="FuncDscrTblCol3">1st input time-domain signal (required parameter)</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>y</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">1D array of DBL</a></td>
+<td class="FuncDscrTblCol3">2nd input time-domain signal (required parameter)</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>vnMag</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">Identifier</a><i><br>
+(variable name)</i></td>
+<td class="FuncDscrTblCol3">
+Required parameter specifies the name of an existing variable with the <a href="dtypes.html#data_types_table">1D array of DBL</a> data type. The function writes the cross power spectrum magnitude to this variable. If the variable does not exist or has another data type, an error occurs.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>dt</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the sample period of the time-domain signals <b>x</b> and <b>y</b>, typically in seconds.<br> By default, it equals 1.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>vnPhase</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">Identifier</a><i><br>
+(variable name)</i></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the name of an existing variable with the <a href="dtypes.html#data_types_table">1D array of DBL</a> data type. The function writes the spectrum phase to this variable unless it is omitted in the function call. If the variable does not exist or has another data type, an error occurs.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns <a href="dtypes.html#data_types_table">DBL Number</a> value that is the line frequency interval of the cross power spectrum.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_croscorrel"></a>
+<div class="FuncDscrTitle">
+<h1>CrosCorrel</h1>
+<p>The function computes the cross correlation of two input sequences.</p>
+<p>The function is implemented as a <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>. To perform computation, it uses <b><a HREF="JavaScript:lvhCCorrel.Click()">CrossCorrelation.vi</a></b> supplied with LabVIEW FDS and PDS. Refer to the help for this VI for more details.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">CrosCorrel(x,y)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns an array containing the cross correlation of the sequences <b>x</b> and <b>y</b>.</p>
+<p>The function assigns an error code returned by the used LabVIEW VI to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">1D Array of DBL</a></td>
+<td class="FuncDscrTblCol3">1st input sequence (required parameter).</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>y</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">1D Array of DBL</a></td>
+<td class="FuncDscrTblCol3">2nd input sequence (required parameter).</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns <a href="dtypes.html#data_types_table">1D Array of DBL</a> that contains the cross correlation of <b>x</b> and <b>y</b>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_crospower"></a>
+<div class="FuncDscrTitle">
+<h1>CrosPower</h1>
+<p>The function computes the Cross Power Spectrum of two input sequences.</p>
+<p>The function is implemented as a <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>. To perform computation, it uses <b><a HREF="JavaScript:lvhCPower.Click()">Cross Power.vi</a></b> supplied with LabVIEW FDS and PDS. Refer to the help for this VI for more details.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">CrosPower(x,y)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns a complex array containing the cross power spectrum of the sequences <b>x</b> and <b>y</b>.</p>
+<p>The function assigns an error code returned by the used LabVIEW VI to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">1D Array of DBL</a></td>
+<td class="FuncDscrTblCol3">1st input sequence (required parameter).</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>y</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">1D Array of DBL</a></td>
+<td class="FuncDscrTblCol3">2nd input sequence (required parameter).</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns <a href="dtypes.html#data_types_table">1D Array of CDB</a> that contains the cross power spectrum of <b>x</b> and <b>y</b>.</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="#cef_pspectrum">PSpectrum</a>, <a href="#cef_fft">FFT</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_decimate"></a>
+<div class="FuncDscrTitle">
+<h1>decimate</h1>
+<p>The function decimates an input sequence by the specified decimating factor.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">decimate(x <i>,dcf ,ave</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function decimates the sequence <b>x</b> according to the specified decimating factor <b>dcf</b> and the averaging option <b>ave</b>. It returns the decimated array.</p>
+<p>If Y represents the decimated array then</p>
+<p>if <b>ave</b> is false (zero)</p>
+<p>Y[i] = x[i*dcf]</p>
+<p>if <b>ave</b> is true (non-zero)</p>
+<p>Y[i] = (x[i*dcf] + x[i*dcf+1] +...+ x[i*dcf+dcf-1])/dcf</p>
+<p>for i = 0,1,...,N-1,  where N is the size of decimated array </p>
+<p>N = floor(size(x)/dcf)</p>
+<p>The function assigns an error code returned by the used LabVIEW VI to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">1D array of DBL</a></td>
+<td class="FuncDscrTblCol3">Input sequence (required parameter).</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>dcf</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the decimating factor. The function coerces it to an integer value. <b>dcf</b> must be greater than zero and less than or equal to the size of <b>x</b>. <br> By default, it equals 2.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>ave</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies averaging option. Averaging is enabled, if <b>ave</b> coerced to the integer is non-zero. <br> By default, it equals 0.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns <a href="dtypes.html#data_types_table">1D Array of DBL</a> that contains the decimated array.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_deconv"></a>
+<div class="FuncDscrTitle">
+<h1>DeConv</h1>
+<p>The function computes the deconvolution of two input sequences.</p>
+<p>The function is implemented as a <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>. To perform computation, it uses <b><a HREF="JavaScript:lvhDeconvolution.Click()">Deconvolution.vi</a></b> supplied with LabVIEW FDS and PDS. Refer to the help for this VI for more details.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">DeConv(xy,y)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns an array containing the deconvolution of the sequences <b>xy </b>and <b>y</b>.</p>
+<p>The function assigns an error code returned by the used LabVIEW VI to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>xy</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">1D Array of DBL</a></td>
+<td class="FuncDscrTblCol3">1st input sequence (required parameter).</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>y</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">1D Array of DBL</a></td>
+<td class="FuncDscrTblCol3">2nd input sequence (required parameter).</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns <a href="dtypes.html#data_types_table">1D Array of DBL</a> that contains the deconvolution of <b>xy </b>and <b>y</b>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_derivate"></a>
+<div class="FuncDscrTitle">
+<h1>derivate</h1>
+<p>The function performs the discrete differentiation of a sampled sequence.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>. The FuncVI uses <b><a HREF="JavaScript:lvhDerivative.Click()">Derivative x(t).vi</a></b> supplied with LabVIEW FDS and PDS to perform computation. Refer to the help for this VI for more details.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">derivate(x <i>,dt ,ic ,fc</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns an array containing the result of discrete differentiation of <b>x</b> (<b>dx/dt</b>).</p>
+<p>The function assigns an error code returned by the used LabVIEW VI to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">1D array of DBL</a></td>
+<td class="FuncDscrTblCol3">Input sequence (required parameter).</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>dt</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the sampling interval. <b>dt</b> must be greater than zero.<br>
+By default, it equals 1.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>ic</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the initial condition; i.e. value of <b>x</b>[-1].<br>
+By default, it equals 0.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>fc</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the final condition; i.e. value of <b>x</b>[size(<b>x</b>)].<br>
+By default, it equals 0.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns <a href="dtypes.html#data_types_table">1D Array of DBL</a> that contains the derivative <b>x</b>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_fft"></a>
+<div class="FuncDscrTitle">
+<h1>FFT</h1>
+<p>The function computes the Fast Fourier Transform (FFT) or the Discrete Fourier Transform (DFT) of a real input sequence.</p>
+<p>The function is implemented as a <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>. To perform computation, it uses <b><a HREF="JavaScript:lvhFFT.Click()">Real FFT.vi</a></b> supplied with LabVIEW FDS and PDS. Refer to the help for this VI for more details.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">FFT(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns a complex array containing the result of the Fourier transform of the sequence <b>x</b>. The function performs FFT(<b>x</b>), if the size of <b>x</b> is a power of 2; otherwise it performs DFT(<b>x</b>).</p>
+<p>The function assigns an error code returned by the used LabVIEW VI to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">1D Array of DBL</a></td>
+<td class="FuncDscrTblCol3">Input sequence (required parameter).</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns <a href="dtypes.html#data_types_table">1D Array of CDB</a> that contains the FFT(<b>x</b>).</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="#cef_fftc">FFTc</a>, <a href="#cef_ifft">IFFT</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_fftc"></a>
+<div class="FuncDscrTitle">
+<h1>FFTc</h1>
+<p>The function computes the Fourier transform of a complex input sequence.</p>
+<p>The function is implemented as a <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>. To perform computation, it uses <b><a HREF="JavaScript:lvhFFT.Click()">Complex FFT.vi</a></b> supplied with LabVIEW FDS and PDS. Refer to the help for this VI for more details.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">FFTc(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns a complex array containing the result of the Fourier transform of the sequence <b>x</b>.</p>
+<p>The function assigns an error code returned by the used LabVIEW VI to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">1D Array of CDB</a></td>
+<td class="FuncDscrTblCol3">Input sequence (required parameter).</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns <a href="dtypes.html#data_types_table">1D Array of CDB</a> that contains the FFT(<b>x</b>).</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="#cef_fft">FFT</a>, <a href="#cef_ifftc">IFFTc</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_fhit"></a>
+<div class="FuncDscrTitle">
+<h1>FHIT</h1>
+<p>The function computes the Fast Hilbert Transform of an input sequence.</p>
+<p>The function is implemented as a <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>. To perform computation, it uses <b><a HREF="JavaScript:lvhFHIT.Click()">Fast Hilbert Transform.vi</a></b> supplied with LabVIEW FDS and PDS. Refer to the help for this VI for more details.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">FHIT(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns an array containing the result of the fast Hilbert transform of the sequence <b>x</b>.</p>
+<p>The function assigns an error code returned by the used LabVIEW VI to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">1D Array of DBL</a></td>
+<td class="FuncDscrTblCol3">Input sequence (required parameter).</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns <a href="dtypes.html#data_types_table">1D Array of DBL</a> that contains a result of the fast Hilbert transform of <b>x</b>.</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="#cef_ifhit">IFHIT</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_fht"></a>
+<div class="FuncDscrTitle">
+<h1>FHT</h1>
+<p>The function computes the Fast Hartley Transform (FHT) of an input sequence.</p>
+<p>The function is implemented as a <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>. To perform computation, it uses <b><a HREF="JavaScript:lvhFHT.Click()">FHT.vi</a></b> supplied with LabVIEW FDS and PDS. Refer to the help for this VI for more details.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">FHT(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns an array containing the FHT(<b>x</b>). The size of <b>x</b> must be a valid power of 2; otherwise, the function returns an empty array.</p>
+<p>The function assigns an error code returned by the used LabVIEW VI to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">1D Array of DBL</a></td>
+<td class="FuncDscrTblCol3">Input sequence (required parameter).</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns <a href="dtypes.html#data_types_table">1D Array of DBL</a> that contains FHT(<b>x</b>).</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="#cef_ifht">IFHT</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_ifft"></a>
+<div class="FuncDscrTitle">
+<h1>IFFT</h1>
+<p>The function computes the Inverse Fast Fourier Transform (FFT) or the Inverse Discrete Fourier Transform (DFT) of an input sequence and returns a real result.</p>
+<p>The function is implemented as a <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>. To perform computation, it uses <b><a HREF="JavaScript:lvhIFFT.Click()">Inverse Real FFT.vi</a></b> supplied with LabVIEW FDS and PDS. Refer to the help for this VI for more details.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">IFFT(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns a real array containing the result of the Inverse Fourier transform of the sequence <b>x</b>. The function performs Inverse FFT(<b>x</b>), if the size of <b>x</b> is a power of 2; otherwise it performs Inverse DFT(<b>x</b>).</p>
+<p>The function assigns an error code returned by the used LabVIEW VI to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">1D Array of CDB</a></td>
+<td class="FuncDscrTblCol3">Input sequence (required parameter).</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns <a href="dtypes.html#data_types_table">1D Array of DBL</a> that contains the Inverse FFT(<b>x</b>).</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="#cef_ifftc">IFFTc</a>, <a href="#cef_fft">FFT</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_ifftc"></a>
+<div class="FuncDscrTitle">
+<h1>IFFTc</h1>
+<p>The function computes the Inverse Fourier transform of an input sequence and returns a complex result.</p>
+<p>The function is implemented as a <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>. To perform computation, it uses <b><a HREF="JavaScript:lvhIFFT.Click()">Inverse Complex FFT.vi</a></b> supplied with LabVIEW FDS and PDS. Refer to the help for this VI for more details.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">IFFTc(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns a complex array containing the result of the Inverse Fourier transform of the sequence <b>x</b>.</p>
+<p>The function assigns an error code returned by the used LabVIEW VI to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">1D Array of CDB</a></td>
+<td class="FuncDscrTblCol3">Input sequence (required parameter).</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns <a href="dtypes.html#data_types_table">1D Array of CDB</a> that contains the Inverse FFT(<b>x</b>).</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="#cef_ifft">IFFT</a>, <a href="#cef_fftc">FFTc</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_ifhit"></a>
+<div class="FuncDscrTitle">
+<h1>IFHIT</h1>
+<p>The function computes the Inverse Fast Hilbert Transform of an input sequence.</p>
+<p>The function is implemented as a <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>. To perform computation, it uses <b><a HREF="JavaScript:lvhIFHIT.Click()">Inverse Fast Hilbert Transform.vi</a></b> supplied with LabVIEW FDS and PDS. Refer to the help for this VI for more details.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">IFHIT(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns an array containing the result of the inverse fast Hilbert transform of the sequence <b>x</b>.</p>
+<p>The function assigns an error code returned by the used LabVIEW VI to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">1D Array of DBL</a></td>
+<td class="FuncDscrTblCol3">Input sequence (required parameter).</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns <a href="dtypes.html#data_types_table">1D Array of DBL</a> that contains a result of the inverse fast Hilbert transform of <b>x</b>.</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="#cef_fhit">FHIT</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_ifht"></a>
+<div class="FuncDscrTitle">
+<h1>IFHT</h1>
+<p>The function computes the Inverse Fast Hartley Transform (FHT) of an input sequence.</p>
+<p>The function is implemented as a <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>. To perform computation, it uses <b><a HREF="JavaScript:lvhIFHT.Click()">Inverse FHT.vi</a></b> supplied with LabVIEW FDS and PDS. Refer to the help for this VI for more details.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">IFHT(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns an array containing the Inverse FHT(<b>x</b>). The size of <b>x</b> must be a valid power of 2; otherwise, the function returns an empty array.</p>
+<p>The function assigns an error code returned by the used LabVIEW VI to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">1D Array of DBL</a></td>
+<td class="FuncDscrTblCol3">Input sequence (required parameter).</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns <a href="dtypes.html#data_types_table">1D Array of DBL</a> that contains the Inverse FHT(<b>x</b>).</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="#cef_fht">FHT</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_integral"></a>
+<div class="FuncDscrTitle">
+<h1>integral</h1>
+<p>The function performs the discrete integration of a sampled sequence.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>. The FuncVI uses <b><a HREF="JavaScript:lvhIntegral.Click()">Integral x(t).vi</a></b> supplied with LabVIEW FDS and PDS to perform computation. Refer to the help for this VI for more details.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">integral(x <i>,dt ,ic ,fc</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns an array containing the result of discrete integration of <b>x</b>.</p>
+<p>The function assigns an error code returned by the used LabVIEW VI to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">1D array of DBL</a></td>
+<td class="FuncDscrTblCol3">Input sequence (required parameter).</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>dt</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the sampling interval. <b>dt</b> must be greater than zero.<br>
+By default, it equals 1.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>ic</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the initial condition; i.e. value of <b>x</b>[-1].<br>
+By default, it equals 0.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>fc</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the final condition; i.e. value of <b>x</b>[size(<b>x</b>)].<br>
+By default, it equals 0.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns <a href="dtypes.html#data_types_table">1D Array of DBL</a> that contains the integral <b>x</b>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_pspectrum"></a>
+<div class="FuncDscrTitle">
+<h1>PSpectrum</h1>
+<p>The function computes the Power Spectrum of an input sequence.</p>
+<p>The function is implemented as a <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>. To perform computation, it uses <b><a HREF="JavaScript:lvhPSpect.Click()">Power Spectrum.vi</a></b> supplied with LabVIEW FDS and PDS. Refer to the help for this VI for more details.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">PSpectrum(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns a real array containing the power spectrum of the sequence <b>x</b>.</p>
+<p>The function assigns an error code returned by the used LabVIEW VI to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">1D Array of DBL</a></td>
+<td class="FuncDscrTblCol3">Input sequence (required parameter).</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns <a href="dtypes.html#data_types_table">1D Array of DBL</a> that contains the power spectrum of <b>x</b>.</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="#cef_fft">FFT</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_spectrum"></a>
+<div class="FuncDscrTitle">
+<h1>Spectrum</h1>
+<p>The function computes the single-sided, scaled, amplitude spectrum magnitude and phase of a time-domain signal.</p>
+<p>The function is implemented as a <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>. To perform computation, it uses <b><a HREF="JavaScript:lvhSpectrum.Click()">Amplitude and Phase Spectrum.vi</a></b> supplied with LabVIEW FDS and PDS. Refer to the help for this VI for more details.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">Spectrum(x,vnMag <i>,dt ,uwp ,vnPhase</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function computes the amplitude spectrum of the time-domain signal <b>x</b>, sampled with the period <b>dt</b>. The function writes the spectrum magnitude to the <b>vnMag</b> variable, and the spectrum phase to the <b>vnPhase</b> variable unless it is omitted in a function call.</p>
+<p>The resulting spectrum magnitude is in input signal units rms; e.g. if <b>x</b> is in volts, <b>vnMag</b> is in volts rms. The resulting spectrum phase (<b>vnPhase</b>) is in radians.</p>
+<p>The function returns the line frequency interval <b>df</b> of the amplitude spectrum. <b>df</b> is in Hertz if <b>dt</b> is in seconds.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">1D array of DBL</a></td>
+<td class="FuncDscrTblCol3">Input time-domain signal (required parameter).</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>vnMag</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">Identifier</a><i><br>
+(variable name)</i></td>
+<td class="FuncDscrTblCol3">
+Required parameter specifies the name of an existing variable with the <a href="dtypes.html#data_types_table">1D array of DBL</a> data type. The function writes the spectrum magnitude to this variable. If the variable does not exist or has another data type, an error occurs.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>dt</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the sample period of the time-domain signal <b>x</b>, typically in seconds.<br>
+By default, it equals 1.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>uwp</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter enables phase unwrapping on the output <b>vnPhase</b>. If its value coerced to an integer is non-zero, the function unwraps the phase.<br>
+By default, it equals 0.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>vnPhase</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">Identifier</a><i><br>
+(variable name)</i></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the name of an existing variable with the <a href="dtypes.html#data_types_table">1D array of DBL</a> data type. The function writes the spectrum phase to this variable unless it is omitted in the function call. If the variable does not exist or has another data type, an error occurs.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns <a href="dtypes.html#data_types_table">DBL Number</a> value that is the line frequency interval of the amplitude spectrum.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_unwrapphase"></a>
+<div class="FuncDscrTitle">
+<h1>UnwrapPhase</h1>
+<p>The function unwraps a phase array.</p>
+<p>The function is implemented as a <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>. To perform computation, it uses <b><a HREF="JavaScript:lvhUnwrapPhase.Click()">Unwrap Phase.vi</a></b> supplied with LabVIEW FDS and PDS. Refer to the help for this VI for more details.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">UnwrapPhase(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns an array containing the unwrapped phase.</p>
+<p>The function assigns an error code returned by the used LabVIEW VI to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">1D Array of DBL</a></td>
+<td class="FuncDscrTblCol3">Input sequence (required parameter).</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns <a href="dtypes.html#data_types_table">1D Array of DBL</a> that contains the unwrapped phase.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_zeropad"></a>
+<div class="FuncDscrTitle">
+<h1>ZeroPad</h1>
+<p>The function resizes an input array to the next higher power of 2 and fills new elements with zero.</p>
+<p>The function is implemented as a <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>. To perform computation, it uses <b><a HREF="JavaScript:lvhZeroPad.Click()">Zero Padder.vi</a></b> supplied with LabVIEW FDS and PDS. Refer to the help for this VI for more details.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">ZeroPad(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the zero padded array.</p>
+<p>The function assigns an error code returned by the used LabVIEW VI to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">1D Array of DBL</a></td>
+<td class="FuncDscrTblCol3">Input array (required parameter).</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns <a href="dtypes.html#data_types_table">1D Array of DBL</a>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+</body>
+</html>

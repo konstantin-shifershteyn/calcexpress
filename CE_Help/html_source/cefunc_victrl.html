@@ -1,0 +1,457 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>VI Control functions</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+</head>
+
+<body>
+
+<!-- ########################################## -->
+<a name="cef_viAbort"></a>
+<div class="FuncDscrTitle">
+<h1>viAbort</h1>
+<p>The function stops execution of the specified Virtual Instrument.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">viAbort(viName ,<i>CloseFP</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function opens a VI reference to the VI specified by <b>viName</b> and aborts the execution of it. If requested, the function also closes the VI's Front Panel.</p>
+<p>To specify the target VI, you can pass either the name or the full path of the VI to the <b>viName</b> parameter. Note that the function closes the reference to the VI before it returns. Thus, the VI could be implicitly unloaded when the function returns if its Front Panel is closed and there are no open references to it.</p>
+<p>The function assigns an error code returned by the used LabVIEW functions to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>viName</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter specifies either the name or the full path of the target VI.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>CloseFP</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter. If its value coerced to an integer is non-zero, the function closes the VI's Front Panel. By default, it equals to zero.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns an error status that has the same value as the <a href="ce_rt_error.html">rtErrorCode</a> variable. If no error occured, the function returns zero.</p>
+<p>The Return value has the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_vi.html">VI Control functions</a>, <a href="cef_cat_file.html">File functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_viCtrlGet"></a>
+<div class="FuncDscrTitle">
+<h1>viCtrlGet</h1>
+<p>The function allows obtaining values of Front Panel Controls and Indicators of the specified Virtual Instrument.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">viCtrlGet(viName,ctrlName1,var1 ,<i>ctrlName2</i>,<i>var2</i> ...)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function opens a VI reference to the VI specified by <b>viName</b> and saves the values of its Controls or Indicators, specified by the <b>ctrlName</b> parameters, at the respective <b>var</b> variables.</p>
+<p>To specify the target VI, you can pass either the name or the full path of the VI to the <b>viName</b> parameter. If you provide a VI name, the VI must already be in memory. If you provide a VI path, the function loads the VI into memory unless it is already in memory. Note that the function closes the reference to the VI before it returns. Thus, the VI could be implicitly unloaded when the function returns if it was not in memory before the function call.</p>
+<p>The function saves a Control value at a <b>var</b> variable if they have compatible data types. If the function cannot convert a value of any Control to the data type of the respective variable, it assigns an error code to the <a href="ce_rt_error.html">rtErrorCode</a> variable. The following rules of compatibility are used:</p>
+<ul style="margin:0; padding:0; list-style-position:inside;">
+<li>a control and a variable must have <b>the same dimensionality</b>; i.e.:
+	<ul style="margin:0 0 0 15pt; padding:0; list-style-type:square;">
+	<li>if a variable is an array, the respective control must be an array with the same number of dimensions.</li>
+	<li>if a variable is either a numeric scalar or a string, the respective control must be a simple numeric or string control; it may not be an array, cluster, waveform, and so on.</li>
+	</ul>
+</li>
+<li>a control and a variable must have <b>compatible representations</b>:
+	<ul style="margin:0 0 0 15pt; padding:0; list-style-type:square;">
+	<li>CalcExpress numeric values (DBL and CDB) are compatible to LabVIEW numeric and boolean values.</li>
+	<li>CalcExpress strings are compatible to LabVIEW strings and paths.</li>
+	</ul>
+</li>
+</ul>
+<p>The function assigns an error code returned by the used LabVIEW functions to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>viName</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter specifies either the name or the full path of the target VI.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>ctrlName</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Parameters specify the names of Controls or Indicators on the VI's Front Panel. Control names are case-sensitive.
+<br>The function can handle one or more <b>ctrlName</b> parameters, provided that each one has a corresponding <b>var</b> parameter.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>var</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">Identifier</a><br>(variable name)</td>
+<td class="FuncDscrTblCol3">
+Parameters specify the existing variables of any <a href="dtypes.html#data_types_table">predefined data type</a>. The function saves VI Control values at these variables. If any variable doesn't exist, an error occurs.
+The number of <b>var</b> parameters must be the same as the number of <b>ctrlName</b> parameters. At least one <b>var</b> parameter is required.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns an error status that has the same value as the <a href="ce_rt_error.html">rtErrorCode</a> variable. If no error occured, the function returns zero.</p>
+<p>The Return value has the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_vi.html">VI Control functions</a>, <a href="cef_cat_file.html">File functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_viCtrlSet"></a>
+<div class="FuncDscrTitle">
+<h1>viCtrlSet</h1>
+<p>The function allows assigning values to Front Panel Controls of the specified Virtual Instrument.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">viCtrlSet(viName,ctrlName1,x1 ,<i>ctrlName2</i>,<i>x2</i> ...)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function opens a VI reference to the VI specified by <b>viName</b> and assigns values of its <b>x</b> parameters to the VI's Controls specified by the <b>ctrlName</b> parameters.</p>
+<p>To specify the target VI, you can pass either the name or the full path of the VI to the <b>viName</b> parameter. If you provide a VI name, the VI must already be in memory. If you provide a VI path, the function loads the VI into memory unless it is already in memory. Note that the function closes the reference to the VI before it returns. Thus, the VI could be implicitly unloaded when the function returns if it was not in memory before the function call.</p>
+<p>The function assigns an <b>x</b> value to a Control if they have compatible data types. If the function cannot convert an <b>x</b> value to the data type of the respective Control, it assigns an error code to the <a href="ce_rt_error.html">rtErrorCode</a> variable. The following rules of compatibility are used:</p>
+<ul style="margin:0; padding:0; list-style-position:inside;">
+<li>a control and an <b>x</b> value must have <b>the same dimensionality</b>; i.e.:
+	<ul style="margin:0 0 0 15pt; padding:0; list-style-type:square;">
+	<li>if an <b>x</b> value is an array, the respective control must be an array with the same number of dimensions.</li>
+	<li>if an <b>x</b> value is either a numeric scalar or a string, the respective control must be a simple numeric or string control; it may not be an array, cluster, waveform, and so on.</li>
+	</ul>
+</li>
+<li>a control and an <b>x</b> value must have <b>compatible representations</b>:
+	<ul style="margin:0 0 0 15pt; padding:0; list-style-type:square;">
+	<li>CalcExpress numeric values (DBL and CDB) are compatible to LabVIEW numeric and boolean values.</li>
+	<li>CalcExpress strings are compatible to LabVIEW strings and paths.</li>
+	</ul>
+</li>
+</ul>
+<p>The function assigns an error code returned by the used LabVIEW functions to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>viName</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter specifies either the name or the full path of the target VI.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>ctrlName</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Parameters specify the names of Controls or Indicators on the VI's Front Panel. Control names are case-sensitive.
+<br>The function can handle one or more <b>ctrlName</b> parameters, provided that each one has a corresponding <b>x</b> parameter.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">any predefined</a></td>
+<td class="FuncDscrTblCol3">
+Parameters specify values to be assigned to the respective <b>ctrlName</b> controls. Number of <b>x</b> parameters must be the same as the number of <b>ctrlName</b> parameters. At least one <b>x</b> parameter is required.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns an error status that has the same value as the <a href="ce_rt_error.html">rtErrorCode</a> variable. If no error occured, the function returns zero.</p>
+<p>The Return value has the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+</div>
+
+<h3>Also see</h3>
+<p><a href="cef_cat_vi.html">VI Control functions</a>, <a href="cef_cat_file.html">File functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_viOpenFP"></a>
+<div class="FuncDscrTitle">
+<h1>viOpenFP</h1>
+<p>The function opens or closes Front Panel window of the specified Virtual Instrument.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">viOpenFP(viName ,<i>open</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function opens a VI reference to the VI specified by <b>viName</b> and either opens or closes the VI's Front Panel, depending on the value of the <b>open</b> parameter.</p>
+<p>To specify the target VI, you can pass either the name or the full path of the VI to the <b>viName</b> parameter. If you provide a VI name, the VI must already be in memory. If you provide a VI path, the function loads the VI into memory unless it is already in memory. Note that the function closes the reference to the VI before it returns. Thus, the VI could be implicitly unloaded when the function returns if its Front Panel is closed and there are no open references to it.</p>
+<p>The function assigns an error code returned by the used LabVIEW functions to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>viName</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter specifies either the name or the full path of the target VI.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>open</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter. If its value coerced to an integer is non-zero, the function opens the Front Panel window of the target VI and brings it to the front. Otherwise, the function closes the Front Panel window. By default, it equals to 1.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns an error status that has the same value as the <a href="ce_rt_error.html">rtErrorCode</a> variable. If no error occured, the function returns zero.</p>
+<p>The Return value has the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+</div>
+
+<h3>Also see</h3>
+<p><a href="cef_cat_vi.html">VI Control functions</a>, <a href="cef_cat_file.html">File functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_viRun"></a>
+<div class="FuncDscrTitle">
+<h1>viRun</h1>
+<p>The function starts execution of the specified Virtual Instrument.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">viRun(viName ,<i>OpenFP</i> ,<i>ctrlName1</i>,<i>x1</i> ,<i>ctrlName2</i>,<i>x2</i> ...)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function opens a VI reference to the VI specified by <b>viName</b> and runs it.
+If the function call contains the <b>ctrlName</b> and <b>x</b> parameters, the function assigns the values of <b>x</b> parameters to the VI's Controls specified by the respective <b>ctrlName</b> parameters before starting the VI. If requested, the function opens the Front Panel of the VI just after starting it.</p>
+<p>If the specified VI is not in the idle state (already running or corrupt), the function does not change the Control values and the Front Panel state of the VI. Instead, it assigns an error code to the <a href="ce_rt_error.html">rtErrorCode</a> variable.</p>
+<p>To specify the target VI, you can pass either the name or the full path of the VI to the <b>viName</b> parameter. If you provide a VI name, the VI must already be in memory. If you provide a VI path, the function loads the VI into memory unless it is already in memory. Note that the function closes the reference to the VI before it returns. Thus, the VI could be implicitly unloaded when the function returns if its Front Panel is closed and there are no open references to it. If a called VI needs to run with the closed Front Panel, it should open a VI reference to itself in order to stay in memory.</p>
+
+<p>The function assigns an <b>x</b> value to a Control if they have compatible data types. If the function cannot convert an <b>x</b> value to the data type of the respective Control, it assigns an error code to the <a href="ce_rt_error.html">rtErrorCode</a> variable. The following rules of compatibility are used:</p>
+<ul style="margin:0; padding:0; list-style-position:inside;">
+<li>a control and an <b>x</b> value must have <b>the same dimensionality</b>; i.e.:
+	<ul style="margin:0 0 0 15pt; padding:0; list-style-type:square;">
+	<li>if an <b>x</b> value is an array, the respective control must be an array with the same number of dimensions.</li>
+	<li>if an <b>x</b> value is either a numeric scalar or a string, the respective control must be a simple numeric or string control; it may not be an array, cluster, waveform, and so on.</li>
+	</ul>
+</li>
+<li>a control and an <b>x</b> value must have <b>compatible representations</b>:
+	<ul style="margin:0 0 0 15pt; padding:0; list-style-type:square;">
+	<li>CalcExpress numeric values (DBL and CDB) are compatible to LabVIEW numeric and boolean values.</li>
+	<li>CalcExpress strings are compatible to LabVIEW strings and paths.</li>
+	</ul>
+</li>
+</ul>
+<p>The function assigns an error code returned by the used LabVIEW functions to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>viName</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter specifies either the name or the full path of the target VI.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>OpenFP</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter. If its value coerced to an integer is non-zero, the function opens the VI's Front Panel window and brings it to the front. By default, it is equal to 1.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>ctrlName</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameters specify the names of Controls or Indicators on the VI's Front Panel. Control names are case-sensitive.
+<br>The function can handle zero or more <b>ctrlName</b> parameters, provided that each one has a corresponding <b>x</b> parameter.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">any predefined</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameters specify values to be assigned to the respective <b>ctrlName</b> controls. Number of <b>x</b> parameters must be the same as the number of <b>ctrlName</b> parameters.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns an error status that has the same value as the <a href="ce_rt_error.html">rtErrorCode</a> variable. If no error occured, the function returns zero.</p>
+<p>The Return value has the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+</div>
+
+<h3>Also see</h3>
+<p><a href="cef_cat_vi.html">VI Control functions</a>, <a href="cef_cat_file.html">File functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_viState"></a>
+<div class="FuncDscrTitle">
+<h1>viState</h1>
+<p>The function returns a state of the specified Virtual Instrument.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">viState(viName ,<i>mode</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function opens a VI reference to the VI specified by <b>viName</b> and returns the execution state or the front panel state of the VI, depending on the value of the <b>mode</b> parameter.</p>
+<p>To specify the desired VI, you can pass either a name or a path of the VI to <b>viName</b> parameter. If you pass a VI name, the VI must already be in memory. If you pass a VI path, the function attempts to load it into memory unless it is already in memory. Note that the function closes a reference to the VI before it returns. Thus, the VI can be implicitly unloaded when the function returns if it was not in memory before a call of the function.</p>
+
+<p>
+The optional parameter <b>mode</b> defines what state the function should return.
+</p>
+<p style="padding-left:15pt;"><u><b>mode</b> equals 0 (default)</u>. 
+The function returns the VI execution state whose value is equal to the VI's <i>Execution.State</i> property. According to the LabVIEW documentation, the return value can be one of the following:
+<br>0 - Bad. The VI is not executable.
+<br>1 - Idle. The VI is not running but it is ready to be run.
+<br>2 - Running top level. The VI is running as the top-level VI in an hierarchy.
+<br>3 - Running. The VI is reserved for execution by at least one active top-level VI.
+</p>
+
+<p style="padding-left:15pt;"><u><b>mode</b> equals 1</u>.
+The function returns 1 (TRUE) if the VI's Front Panel is visible (normal or maximized). Otherwise, it returns 0 (FALSE).
+</p>
+
+<p style="padding-left:15pt;"><u><b>mode</b> equals 2</u>.
+The function returns the VI Front Panel state whose value is equal to the VI's <i>Front Panel.State</i> property. According to the LabVIEW documentation, the return value can be one of the following:
+<br>0 - Invalid.
+<br>1 - Standard.
+<br>2 - Closed.
+<br>3 - Hidden.
+<br>4 - Minimized.
+<br>5 - Maximized.
+</p>
+
+<p>The function assigns an error code returned by the used LabVIEW functions to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>viName</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter specifies either the name or the full path of the target VI.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>mode</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the kind of VI state that the function should return. The valid values are 0, 1 and 2. By default, it equals zero.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns an integer value with the <a href="dtypes.html#data_types_table">DBL Number</a> data type, which indicates the requested state.</p>
+</div>
+
+<h3>Also see</h3>
+<p><a href="cef_cat_vi.html">VI Control functions</a>, <a href="cef_cat_file.html">File functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+</body>
+</html>

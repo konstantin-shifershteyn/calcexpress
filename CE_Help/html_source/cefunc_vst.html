@@ -1,0 +1,660 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>Variable statistics functions</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+</head>
+
+<body>
+
+
+<!-- ########################################## -->
+<a name="cef_vstcid"></a>
+<div class="FuncDscrTitle">
+<h1>vstcid</h1>
+<p>The function returns the variable's <b>Creator ID</b>, which is the <a href="varman.html#varman_overview_wrid">Writer ID</a> value defined when the variable was created.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">vstcid(name ,<i>vch</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the <a href="varman.html#varman_overview_wrid">Writer ID</a> value defined when the <u>variable was created</u>. If an error occurs, it returns the negated value of the <a href="errors.html#err_vm_engine">VarMan Engine error code</a> indicating the cause of the error. For example, it returns -2 if the variable is not found, or -4 if an invalid context handle is provided.</p>
+<p>The optional parameter <b>vch</b> defines the handle of the variable context in which the variable <b>name</b> exists. If <b>vch</b> is omitted in the function call, the function defaults to the handle of the current local context passed to the CalcExpress or CSE VI executing the script (the current local context). <b>vch</b> is ignored if <b>name</b> refers to a variable by an alias.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1">&nbsp;</td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>name</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies a variable name. In general, <b>name</b> must comply with the VarMan name specifier syntax and can include a variable name or an alias, or both. See the <a href="varman_vref.html">Referring to variables</a> topic for more information.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>vch</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies the handle of the variable context where the specified variable exists. It is ignored if <b>name</b> refers to a variable by an alias. There are two special values for <b>vch</b>:<br>
+<b>vch</b> equal to 0 denotes the current local context.<br>
+<b>vch</b> equal to -1 denotes the global context.<br>
+By default, <b>vch</b> is equal to 0.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a 32-bit unsigned integer value on success, or a negated error code on failure, represented as the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+</div>
+
+<p><b>Example</b></p>
+<div class="FuncDscrSection">
+
+<p class="FuncDscrExample">
+x = 1;<br>
+for (i=1; i&lt;=10; i++) { <br>
+   <a href="#cef_vwrid">vwrid</a>(i);  /* set script's WriterID to the loop index */<br>
+   x += x;    /* modify the variable */<br>
+}<br>
+<a href="cefunc_user.html#cef_probe">probe</a>( <b>vstcid</b>("x"), "WriterID when the variable was created");<br>
+<a href="cefunc_user.html#cef_probe">probe</a>( <a href="#cef_vstwid">vstwid</a>("x"), "WriterID for the most recent value");<br>
+</div>
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_var.html">Variable management functions</a></p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_vstcms"></a>
+<div class="FuncDscrTitle">
+<h1>vstcms</h1>
+<p>The function returns the Milliseconds Timer value when the variable was created.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">vstcms(name ,<i>vch</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the Milliseconds Timer value (the output of the <b>Tick Count (ms)</b> primitive) when the variable was created. If an error occurs, it returns the negated value of the <a href="errors.html#err_vm_engine">VarMan Engine error code</a> indicating the cause of the error. For example, it returns -2 if the variable is not found, or -4 if an invalid context handle is provided.</p>
+<p>The optional parameter <b>vch</b> defines the handle of the variable context in which the variable <b>name</b> exists. If <b>vch</b> is omitted in the function call, the function defaults to the handle of the current local context passed to the CalcExpress or CSE VI executing the script (the current local context). <b>vch</b> is ignored if <b>name</b> refers to a variable by an alias.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1">&nbsp;</td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>name</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies a variable name. In general, <b>name</b> must comply with the VarMan name specifier syntax and can include a variable name or an alias, or both. See the <a href="varman_vref.html">Referring to variables</a> topic for more information.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>vch</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies the handle of the variable context where the specified variable exists. It is ignored if <b>name</b> refers to a variable by an alias. There are two special values for <b>vch</b>:<br>
+<b>vch</b> equal to 0 denotes the current local context.<br>
+<b>vch</b> equal to -1 denotes the global context.<br>
+By default, <b>vch</b> is equal to 0.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a 32-bit unsigned integer value on success, or a negated error code on failure, represented as the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+</div>
+
+<h3>Comments</h3>
+<div class="FuncDscrSection">
+<p>A Milliseconds Timer value is a 32-bit unsigned integer number. When it reaches <b>2<sup>32</sup>-1</b>, it wraps to <b>0</b> on the next increment. Use the <a href="cefunc_num_gen.html#cef_u32sub">u32sub</a> function to reliably compute the difference between two timer values.</p>
+</div>
+
+<p><b>Example</b></p>
+<div class="FuncDscrSection">
+
+<p class="FuncDscrExample">
+x = 0;<br>
+<a href="cefunc_time.html#cef_wait">Wait</a>(100);  /* milliseconds to wait */</br>
+<a href="cefunc_user.html#cef_probe">probe</a>( <a href="cefunc_num_gen.html#cef_u32sub">u32sub(<a href="cefunc_time.html#cef_getticks">GetTicks</a>(), <b>vstcms</b>("x")), "Milliseconds since creation" );</br>
+<a href="cefunc_user.html#cef_probe">probe</a>( <a href="cefunc_time.html#cef_gettime">GetTime</a>() - <a href="#cef_vstcts">vstcts</a>("x"), "Seconds since creation" );</br>
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_var.html">Variable management functions</a></p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_vstcts"></a>
+<div class="FuncDscrTitle">
+<h1>vstcts</h1>
+<p>The function returns the time stamp when the variable was created.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">vstcts(name ,<i>vch</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the time stamp, in the universal LabVIEW date/time format, when the variable was created. If an error occurs, it returns the negated value of the <a href="errors.html#err_vm_engine">VarMan Engine error code</a> indicating the cause of the error. For example, it returns -2 if the variable is not found, or -4 if an invalid context handle is provided.</p>
+<p>The optional parameter <b>vch</b> defines the handle of the variable context in which the variable <b>name</b> exists. If <b>vch</b> is omitted in the function call, the function defaults to the handle of the current local context passed to the CalcExpress or CSE VI executing the script (the current local context). <b>vch</b> is ignored if <b>name</b> refers to a variable by an alias.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1">&nbsp;</td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>name</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies a variable name. In general, <b>name</b> must comply with the VarMan name specifier syntax and can include a variable name or an alias, or both. See the <a href="varman_vref.html">Referring to variables</a> topic for more information.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>vch</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies the handle of the variable context where the specified variable exists. It is ignored if <b>name</b> refers to a variable by an alias. There are two special values for <b>vch</b>:<br>
+<b>vch</b> equal to 0 denotes the current local context.<br>
+<b>vch</b> equal to -1 denotes the global context.<br>
+By default, <b>vch</b> is equal to 0.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a time stamp on success, or a negated error code on failure, represented as the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+</div>
+
+<p><b>Example</b></p>
+<div class="FuncDscrSection">
+
+<p class="FuncDscrExample">
+x = 0;<br>
+<a href="cefunc_time.html#cef_wait">Wait</a>(100);  /* milliseconds to wait */</br>
+<a href="cefunc_user.html#cef_probe">probe</a>( <a href="cefunc_num_gen.html#cef_u32sub">u32sub(<a href="cefunc_time.html#cef_getticks">GetTicks</a>(), <a href="#cef_vstcms">vstcms</a>("x")), "Milliseconds since creation" );</br>
+<a href="cefunc_user.html#cef_probe">probe</a>( <a href="cefunc_time.html#cef_gettime">GetTime</a>() - <b>vstcts</b>("x"), "Seconds since creation" );</br>
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_var.html">Variable management functions</a></p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_vstwcnt"></a>
+<div class="FuncDscrTitle">
+<h1>vstwcnt</h1>
+<p>The function returns the variable's Write Counter.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">vstwcnt(name ,<i>vch</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the value of the variable's Write Counter. This counter starts at zero (0) when the variable is created and increments every time the variable is written. If an error occurs, it returns the negated value of the <a href="errors.html#err_vm_engine">VarMan Engine error code</a> indicating the cause of the error. For example, it returns -2 if the variable is not found, or -4 if an invalid context handle is provided.</p>
+<p>The optional parameter <b>vch</b> defines the handle of the variable context in which the variable <b>name</b> exists. If <b>vch</b> is omitted in the function call, the function defaults to the handle of the current local context passed to the CalcExpress or CSE VI executing the script (the current local context). <b>vch</b> is ignored if <b>name</b> refers to a variable by an alias.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1">&nbsp;</td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>name</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies a variable name. In general, <b>name</b> must comply with the VarMan name specifier syntax and can include a variable name or an alias, or both. See the <a href="varman_vref.html">Referring to variables</a> topic for more information.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>vch</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies the handle of the variable context where the specified variable exists. It is ignored if <b>name</b> refers to a variable by an alias. There are two special values for <b>vch</b>:<br>
+<b>vch</b> equal to 0 denotes the current local context.<br>
+<b>vch</b> equal to -1 denotes the global context.<br>
+By default, <b>vch</b> is equal to 0.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a 32-bit unsigned integer value on success, or a negated error code on failure, represented as the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+</div>
+
+<h3>Comments</h3>
+<div class="FuncDscrSection">
+<p>A Write Counter value is a 32-bit unsigned integer number. When it reaches <b>2<sup>32</sup>-1</b>, it wraps to <b>0</b> on the next increment. Use the <a href="cefunc_num_gen.html#cef_u32sub">u32sub</a> function to reliably compute the difference between two counter values.</p>
+</div>
+
+<p><b>Example</b></p>
+<div class="FuncDscrSection">
+
+<p class="FuncDscrExample">
+x = 1;<br>
+for (i=1; i&lt;=10; i++) { <br>
+   x *= 2;    /* modify the variable */<br>
+}<br>
+<a href="cefunc_user.html#cef_probe">probe</a>( <b>vstwcnt</b>("x"), "Write Counter value");<br>
+</div>
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_var.html">Variable management functions</a></p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_vstwid"></a>
+<div class="FuncDscrTitle">
+<h1>vstwid</h1>
+<p>The function returns <a href="varman.html#varman_overview_wrid">Writer ID</a> for the most recent value.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">vstwid(name ,<i>vch</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the <a href="varman.html#varman_overview_wrid">Writer ID</a> value defined when the most recent value was written to the variable. If an error occurs, it returns the negated value of the <a href="errors.html#err_vm_engine">VarMan Engine error code</a> indicating the cause of the error. For example, it returns -2 if the variable is not found, or -4 if an invalid context handle is provided.</p>
+<p>The optional parameter <b>vch</b> defines the handle of the variable context in which the variable <b>name</b> exists. If <b>vch</b> is omitted in the function call, the function defaults to the handle of the current local context passed to the CalcExpress or CSE VI executing the script (the current local context). <b>vch</b> is ignored if <b>name</b> refers to a variable by an alias.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1">&nbsp;</td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>name</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies a variable name. In general, <b>name</b> must comply with the VarMan name specifier syntax and can include a variable name or an alias, or both. See the <a href="varman_vref.html">Referring to variables</a> topic for more information.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>vch</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies the handle of the variable context where the specified variable exists. It is ignored if <b>name</b> refers to a variable by an alias. There are two special values for <b>vch</b>:<br>
+<b>vch</b> equal to 0 denotes the current local context.<br>
+<b>vch</b> equal to -1 denotes the global context.<br>
+By default, <b>vch</b> is equal to 0.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a 32-bit unsigned integer value on success, or a negated error code on failure, represented as the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+</div>
+
+<p><b>Example</b></p>
+<div class="FuncDscrSection">
+
+<p class="FuncDscrExample">
+x = 1;<br>
+for (i=1; i&lt;=10; i++) { <br>
+   <a href="#cef_vwrid">vwrid</a>(i);  /* set script's WriterID to the loop index */<br>
+   x += x;    /* modify the variable */<br>
+}<br>
+<a href="cefunc_user.html#cef_probe">probe</a>( <a href="#cef_vstcid">vstcid</a>("x"), "WriterID when the variable was created");<br>
+<a href="cefunc_user.html#cef_probe">probe</a>( <b>vstwid</b>("x"), "WriterID for the most recent value");<br>
+</div>
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_var.html">Variable management functions</a></p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_vstwms"></a>
+<div class="FuncDscrTitle">
+<h1>vstwms</h1>
+<p>The function returns the Milliseconds Timer value when the most recent value was written to the variable.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">vstwms(name ,<i>vch</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the Milliseconds Timer value (the output of the <b>Tick Count (ms)</b> primitive) when the most recent value was written to the variable. If an error occurs, it returns the negated value of the <a href="errors.html#err_vm_engine">VarMan Engine error code</a> indicating the cause of the error. For example, it returns -2 if the variable is not found, or -4 if an invalid context handle is provided.</p>
+<p>The optional parameter <b>vch</b> defines the handle of the variable context in which the variable <b>name</b> exists. If <b>vch</b> is omitted in the function call, the function defaults to the handle of the current local context passed to the CalcExpress or CSE VI executing the script (the current local context). <b>vch</b> is ignored if <b>name</b> refers to a variable by an alias.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1">&nbsp;</td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>name</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies a variable name. In general, <b>name</b> must comply with the VarMan name specifier syntax and can include a variable name or an alias, or both. See the <a href="varman_vref.html">Referring to variables</a> topic for more information.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>vch</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies the handle of the variable context where the specified variable exists. It is ignored if <b>name</b> refers to a variable by an alias. There are two special values for <b>vch</b>:<br>
+<b>vch</b> equal to 0 denotes the current local context.<br>
+<b>vch</b> equal to -1 denotes the global context.<br>
+By default, <b>vch</b> is equal to 0.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a 32-bit unsigned integer value on success, or a negated error code on failure, represented as the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+</div>
+
+<h3>Comments</h3>
+<div class="FuncDscrSection">
+<p>A Milliseconds Timer value is a 32-bit unsigned integer number. When it reaches <b>2<sup>32</sup>-1</b>, it wraps to <b>0</b> on the next increment. Use the <a href="cefunc_num_gen.html#cef_u32sub">u32sub</a> function to reliably compute the difference between two timer values.</p>
+</div>
+
+<p><b>Example</b></p>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+x = 0;<br>
+<a href="cefunc_time.html#cef_wait">Wait</a>(100);  /* milliseconds to wait */</br>
+<a href="cefunc_user.html#cef_probe">probe</a>( <a href="cefunc_num_gen.html#cef_u32sub">u32sub(<a href="cefunc_time.html#cef_getticks">GetTicks</a>(), <b>vstwms</b>("x")), "Milliseconds since last write" );</br>
+<a href="cefunc_user.html#cef_probe">probe</a>( <a href="cefunc_time.html#cef_gettime">GetTime</a>() - <a href="#cef_vstwts">vstwts</a>("x"), "Seconds since last write" );</br>
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_var.html">Variable management functions</a></p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_vstwts"></a>
+<div class="FuncDscrTitle">
+<h1>vstwts</h1>
+<p>The function returns the time stamp when the most recent value was written to the variable.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">vstwts(name ,<i>vch</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the time stamp, in the universal LabVIEW date/time format, when the most recent value was written to the variable. If an error occurs, it returns the negated value of the <a href="errors.html#err_vm_engine">VarMan Engine error code</a> indicating the cause of the error. For example, it returns -2 if the variable is not found, or -4 if an invalid context handle is provided.</p>
+<p>The optional parameter <b>vch</b> defines the handle of the variable context in which the variable <b>name</b> exists. If <b>vch</b> is omitted in the function call, the function defaults to the handle of the current local context passed to the CalcExpress or CSE VI executing the script (the current local context). <b>vch</b> is ignored if <b>name</b> refers to a variable by an alias.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1">&nbsp;</td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>name</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies a variable name. In general, <b>name</b> must comply with the VarMan name specifier syntax and can include a variable name or an alias, or both. See the <a href="varman_vref.html">Referring to variables</a> topic for more information.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>vch</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies the handle of the variable context where the specified variable exists. It is ignored if <b>name</b> refers to a variable by an alias. There are two special values for <b>vch</b>:<br>
+<b>vch</b> equal to 0 denotes the current local context.<br>
+<b>vch</b> equal to -1 denotes the global context.<br>
+By default, <b>vch</b> is equal to 0.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a time stamp on success, or a negated error code on failure, represented as the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+</div>
+
+<p><b>Example</b></p>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+x = 0;<br>
+<a href="cefunc_time.html#cef_wait">Wait</a>(100);  /* milliseconds to wait */</br>
+<a href="cefunc_user.html#cef_probe">probe</a>( <a href="cefunc_num_gen.html#cef_u32sub">u32sub(<a href="cefunc_time.html#cef_getticks">GetTicks</a>(), <a href="#cef_vstwms">vstwms</a>("x")), "Milliseconds since last write" );</br>
+<a href="cefunc_user.html#cef_probe">probe</a>( <a href="cefunc_time.html#cef_gettime">GetTime</a>() - <b>vstwts</b>("x"), "Seconds since last write" );</br>
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_var.html">Variable management functions</a></p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+
+<!-- ########################################## -->
+<a name="cef_vtype"></a>
+<div class="FuncDscrTitle">
+<h1>vtype</h1>
+<p>The function returns the data type code of the given variable.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">vtype(name ,<i>vch</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the <a href="dtypes.html#data_types_table">data type code</a> of the specified variable. If an error occurs, it returns the negated value of the <a href="errors.html#err_vm_engine">VarMan Engine error code</a> indicating the cause of the error. For example, it returns -2 if the variable is not found, or -4 if an invalid context handle is provided.</p>
+<p>The optional parameter <b>vch</b> defines the handle of the variable context in which the variable <b>name</b> exists. If <b>vch</b> is omitted in the function call, the function defaults to the handle of the current local context passed to the CalcExpress or CSE VI executing the script (the current local context). <b>vch</b> is ignored if <b>name</b> refers to a variable by an alias.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1">&nbsp;</td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>name</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies a variable name. In general, <b>name</b> must comply with the VarMan name specifier syntax and can include a variable name or an alias, or both. See the <a href="varman_vref.html">Referring to variables</a> topic for more information.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>vch</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies the handle of the variable context where the specified variable exists. It is ignored if <b>name</b> refers to a variable by an alias. There are two special values for <b>vch</b>:<br>
+<b>vch</b> equal to 0 denotes the current local context.<br>
+<b>vch</b> equal to -1 denotes the global context.<br>
+By default, <b>vch</b> is equal to 0.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a positive data type code on success, or a negated error code on failure, represented as the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+</div>
+
+<p><b>Example</b></p>
+<div class="FuncDscrSection">
+
+<p class="FuncDscrExample">
+varName = &quot;X10&quot;;<br>
+<br>
+/* Determines a context handle by the context name */<br>
+varCntx = <a href="cefunc_vch.html#cef_vch">vch</a>(&quot;Object A12 Parameters&quot;);<br>
+<br>
+/* Determine a type of the variable */<br>
+type = <b>vtype</b>(varName, varCntx);<br>
+<br>
+if (type &lt; 0) {        /* If an error */<br>
+   if (type == -4)<br>
+      <a href="cefunc_user.html#cef_MsgBox">MsgBox</a>(&quot;The specified context doesn't exist&quot;);<br>
+   else<br>
+      <a href="cefunc_user.html#cef_MsgBox">MsgBox</a>(&quot;Variable is not defined: &quot;, varName);<br>
+}<br>
+else<br>
+   <a href="cefunc_user.html#cef_MsgBox">MsgBox</a>(&quot;Data type code: &quot;, type);<br>
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_var.html">Variable management functions</a></p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_vwrid"></a>
+<div class="FuncDscrTitle">
+<h1>vwrid</h1>
+<p>The function defines or returns the <a href="varman.html#varman_overview_wrid">Writer ID</a> value applied to variable write operations executed by the running CalcExpress or CSE instance.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">vwrid(<i>writerID</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The optional parameter <b>writerID</b> specifies a new Writer ID value for the instance. If <b>writerID</b> is omitted in the function call, the function returns the current Writer ID value of the CalcExpress or CSE instance without modifying it.</p>
+<p>Every CalcExpress and CSE instance holds its own Writer ID value, which is passed to VarMan during variable write operations. This value is initialized to 0 when the instance is created, but it can be altered before execution using relevant <a href="hprj:[ce] CalcExpress - Variables Writer ID.vi">CalcExpress</a> or <a href="hprj:CSE - Variables Writer ID.vi">CSE</a> VIs, or during script execution using this function. A new value stays unchanged until it is explicitly altered again.</p>
+<p><a href="varman.html#varman_overview_wrid">Writer ID</a> is a 32-bit unsigned integer value; hence, <b>writerID</b> must be in the range of <b>0</b> to <b>2<sup>32</sup>-1</b>.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1">&nbsp;</td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>writerID</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies a new Writer ID value for the running CalcExpress or CSE instance.
+<br>&nbsp;
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a 32-bit unsigned integer number, which is the Writer ID value of the running instance prior to this function call, represented as the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+</div>
+
+<p><b>Example</b></p>
+<div class="FuncDscrSection">
+
+<p class="FuncDscrExample">
+<a href="cefunc_user.html#cef_probe">probe</a>( <b>vwrid</b>(), "Original WriterID");<br>
+<b>vwrid</b>(1000); /* set new script's WriterID */<br>
+x = 1;<br>
+for (i=1; i&lt;=10; i++) { <br>
+   <b>vwrid</b>(i);  /* set script's WriterID to the loop index */<br>
+   x += x;    /* modify the variable */<br>
+}<br>
+<a href="cefunc_user.html#cef_probe">probe</a>( <a href="#cef_vstcid">vstcid</a>("x"), "WriterID when the variable was created");<br>
+<a href="cefunc_user.html#cef_probe">probe</a>( <a href="#cef_vstwid">vstwid</a>("x"), "WriterID for the most recent value");<br>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_var.html">Variable management functions</a></p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</body>
+</html>

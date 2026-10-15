@@ -1,0 +1,6 @@
+# ignore everything in this folder
+/*
+
+# exclusion for permanent files
+!.gitignore
+!README.md

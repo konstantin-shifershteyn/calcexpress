@@ -1,0 +1,25 @@
+/* Array of function names */
+funcs = vector("sin", "_j0", "acot", "ln");
+
+xMin = 0;
+xMax = pi(4);
+dx   = 0.1;
+
+/* x is numeric sequence from xMin to xMax with dx step */
+x = nvecifs(xMin, xMax, dx);
+
+WFGraph();  //clear graph
+
+for(i=0; i < size(funcs); i+=1) {
+
+  /* call a function with name equals funcs[i]
+     (see help for idn function)  */
+  plotData = idn(funcs[i])(x);
+
+  /* make a plot name */
+  plotName = sform("y=%s(x)", funcs[i]);
+
+  /* draw plot data */
+  WFGraph(i, plotData, xMin, dx, plotName);
+
+}

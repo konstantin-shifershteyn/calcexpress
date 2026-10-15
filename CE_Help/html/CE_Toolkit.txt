@@ -1,0 +1,1551 @@
+[comments]
+; This file contains information on the generated HHP project and HTML files included to it. This information
+; can be usefull for linking your VIs to the CHM file and relevant topics inside it. A "File N" section contains
+; information on the original file (e.g. VI), HTML file generated for it and references to it in the CHM file.
+; Use value of either "CHM LocalPath" or "CHM IndexName" key as the "Help Tag" when defining help for the VI.
+
+[General]
+HHP File = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\CE_Toolkit.hhp"
+TOC File = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\CE_Toolkit.hhc"
+IDX File = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\CE_Toolkit.hhk"
+CHM File = "C:\LV Projects\CalcExpress 40 LV2021\Help\CalcExpress\CEToolkit.chm"
+
+[File 1]
+Original Name = "_cetoolkit.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\_cetoolkit.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\_cetoolkit.html"
+CHM LocalPath = "_cetoolkit.html"
+CHM IndexName = "CalcExpress Toolkit"
+
+[File 2]
+Original Name = "_vi_refs.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\_vi_refs.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\_vi_refs.html"
+CHM LocalPath = "_vi_refs.html"
+CHM IndexName = "CalcExpress Toolkit palette"
+
+[File 3]
+Original Name = "ce.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\ce.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\ce.html"
+CHM LocalPath = "ce.html"
+CHM IndexName = "CalcExpress Overview"
+
+[File 4]
+Original Name = "ce_conversions.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\ce_conversions.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\ce_conversions.html"
+CHM LocalPath = "ce_conversions.html"
+CHM IndexName = "Conversion to Integers"
+
+[File 5]
+Original Name = "ce_functions.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\ce_functions.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\ce_functions.html"
+CHM LocalPath = "ce_functions.html"
+CHM IndexName = "CalcExpress Functions"
+
+[File 6]
+Original Name = "ce_funcvi.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\ce_funcvi.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\ce_funcvi.html"
+CHM LocalPath = "ce_funcvi.html"
+CHM IndexName = "Function Development"
+
+[File 7]
+Original Name = "ce_funcvi_examples.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\ce_funcvi_examples.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\ce_funcvi_examples.html"
+CHM LocalPath = "ce_funcvi_examples.html"
+CHM IndexName = "FuncVI Examples"
+
+[File 8]
+Original Name = "ce_poly.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\ce_poly.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\ce_poly.html"
+CHM LocalPath = "ce_poly.html"
+CHM IndexName = "Polymorphism for Operators"
+
+[File 9]
+Original Name = "ce_rt_error.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\ce_rt_error.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\ce_rt_error.html"
+CHM LocalPath = "ce_rt_error.html"
+CHM IndexName = "Non-Fatal runtime errors"
+
+[File 10]
+Original Name = "ce_syntax.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\ce_syntax.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\ce_syntax.html"
+CHM LocalPath = "ce_syntax.html"
+CHM IndexName = "CalcExpress Expression Syntax"
+
+[File 11]
+Original Name = "ce_syntax_misc.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\ce_syntax_misc.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\ce_syntax_misc.html"
+CHM LocalPath = "ce_syntax_misc.html"
+CHM IndexName = "Constants, variables, comments, etc."
+
+[File 12]
+Original Name = "ce_syntax_op.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\ce_syntax_op.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\ce_syntax_op.html"
+CHM LocalPath = "ce_syntax_op.html"
+CHM IndexName = "Operators"
+
+[File 13]
+Original Name = "ce_syntax_op_algebraic.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\ce_syntax_op_algebraic.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\ce_syntax_op_algebraic.html"
+CHM LocalPath = "ce_syntax_op_algebraic.html"
+CHM IndexName = "Algebraic Operators"
+
+[File 14]
+Original Name = "ce_syntax_op_array.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\ce_syntax_op_array.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\ce_syntax_op_array.html"
+CHM LocalPath = "ce_syntax_op_array.html"
+CHM IndexName = "Array Indexation"
+
+[File 15]
+Original Name = "ce_syntax_op_assignment.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\ce_syntax_op_assignment.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\ce_syntax_op_assignment.html"
+CHM LocalPath = "ce_syntax_op_assignment.html"
+CHM IndexName = "Assignment Operators"
+
+[File 16]
+Original Name = "ce_syntax_op_bitwise.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\ce_syntax_op_bitwise.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\ce_syntax_op_bitwise.html"
+CHM LocalPath = "ce_syntax_op_bitwise.html"
+CHM IndexName = "Bitwise Operators"
+
+[File 17]
+Original Name = "ce_syntax_op_comparison.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\ce_syntax_op_comparison.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\ce_syntax_op_comparison.html"
+CHM LocalPath = "ce_syntax_op_comparison.html"
+CHM IndexName = "Comparison Operators"
+
+[File 18]
+Original Name = "ce_syntax_op_logical.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\ce_syntax_op_logical.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\ce_syntax_op_logical.html"
+CHM LocalPath = "ce_syntax_op_logical.html"
+CHM IndexName = "Logical Operators"
+
+[File 19]
+Original Name = "ce_syntax_op_punctuator.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\ce_syntax_op_punctuator.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\ce_syntax_op_punctuator.html"
+CHM LocalPath = "ce_syntax_op_punctuator.html"
+CHM IndexName = "Punctuators"
+
+[File 20]
+Original Name = "cef_alist.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\cef_alist.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\cef_alist.html"
+CHM LocalPath = "cef_alist.html"
+CHM IndexName = "Functions alphabetical list"
+
+[File 21]
+Original Name = "cef_cat_array.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\cef_cat_array.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\cef_cat_array.html"
+CHM LocalPath = "cef_cat_array.html"
+CHM IndexName = "Array functions overview"
+
+[File 22]
+Original Name = "cef_cat_complex.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\cef_cat_complex.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\cef_cat_complex.html"
+CHM LocalPath = "cef_cat_complex.html"
+CHM IndexName = "Complex Number functions overview"
+
+[File 23]
+Original Name = "cef_cat_dsp.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\cef_cat_dsp.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\cef_cat_dsp.html"
+CHM LocalPath = "cef_cat_dsp.html"
+CHM IndexName = "Signal Processing and Measurement functions overview"
+
+[File 24]
+Original Name = "cef_cat_error.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\cef_cat_error.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\cef_cat_error.html"
+CHM LocalPath = "cef_cat_error.html"
+CHM IndexName = "Error Handling functions overview"
+
+[File 25]
+Original Name = "cef_cat_file.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\cef_cat_file.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\cef_cat_file.html"
+CHM LocalPath = "cef_cat_file.html"
+CHM IndexName = "File functions overview"
+
+[File 26]
+Original Name = "cef_cat_num_conv.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\cef_cat_num_conv.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\cef_cat_num_conv.html"
+CHM LocalPath = "cef_cat_num_conv.html"
+CHM IndexName = "Number conversion and verifications functions overview"
+
+[File 27]
+Original Name = "cef_cat_num_gen.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\cef_cat_num_gen.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\cef_cat_num_gen.html"
+CHM LocalPath = "cef_cat_num_gen.html"
+CHM IndexName = "General Numeric functions overview"
+
+[File 28]
+Original Name = "cef_cat_num_log.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\cef_cat_num_log.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\cef_cat_num_log.html"
+CHM LocalPath = "cef_cat_num_log.html"
+CHM IndexName = "Logarithmic and Exponential functions overview"
+
+[File 29]
+Original Name = "cef_cat_num_spec.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\cef_cat_num_spec.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\cef_cat_num_spec.html"
+CHM LocalPath = "cef_cat_num_spec.html"
+CHM IndexName = "Special Numeric functions overview"
+
+[File 30]
+Original Name = "cef_cat_script.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\cef_cat_script.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\cef_cat_script.html"
+CHM LocalPath = "cef_cat_script.html"
+CHM IndexName = "CSE Script Control functions overview"
+
+[File 31]
+Original Name = "cef_cat_sgen.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\cef_cat_sgen.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\cef_cat_sgen.html"
+CHM LocalPath = "cef_cat_sgen.html"
+CHM IndexName = "Signal Generation functions overview"
+
+[File 32]
+Original Name = "cef_cat_stats.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\cef_cat_stats.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\cef_cat_stats.html"
+CHM LocalPath = "cef_cat_stats.html"
+CHM IndexName = "Probability and Statistics functions overview"
+
+[File 33]
+Original Name = "cef_cat_string.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\cef_cat_string.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\cef_cat_string.html"
+CHM LocalPath = "cef_cat_string.html"
+CHM IndexName = "String functions overview"
+
+[File 34]
+Original Name = "cef_cat_sync.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\cef_cat_sync.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\cef_cat_sync.html"
+CHM LocalPath = "cef_cat_sync.html"
+CHM IndexName = "Synchronization functions overview"
+
+[File 35]
+Original Name = "cef_cat_time.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\cef_cat_time.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\cef_cat_time.html"
+CHM LocalPath = "cef_cat_time.html"
+CHM IndexName = "Time functions overview"
+
+[File 36]
+Original Name = "cef_cat_trig.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\cef_cat_trig.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\cef_cat_trig.html"
+CHM LocalPath = "cef_cat_trig.html"
+CHM IndexName = "Trigonometric and Hyperbolic functions overview"
+
+[File 37]
+Original Name = "cef_cat_user.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\cef_cat_user.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\cef_cat_user.html"
+CHM LocalPath = "cef_cat_user.html"
+CHM IndexName = "Displaying and Interaction functions overview"
+
+[File 38]
+Original Name = "cef_cat_var.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\cef_cat_var.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\cef_cat_var.html"
+CHM LocalPath = "cef_cat_var.html"
+CHM IndexName = "Variable Managenent functions overview"
+
+[File 39]
+Original Name = "cef_cat_vi.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\cef_cat_vi.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\cef_cat_vi.html"
+CHM LocalPath = "cef_cat_vi.html"
+CHM IndexName = "VI Control functions overview"
+
+[File 40]
+Original Name = "cef_main.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\cef_main.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\cef_main.html"
+CHM LocalPath = "cef_main.html"
+CHM IndexName = "CalcExpress predefined functions"
+
+[File 41]
+Original Name = "cef_poly.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\cef_poly.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\cef_poly.html"
+CHM LocalPath = "cef_poly.html"
+CHM IndexName = "Polymorphism for Numeric functions"
+
+[File 42]
+Original Name = "cefunc_array.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\cefunc_array.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\cefunc_array.html"
+CHM LocalPath = "cefunc_array.html"
+CHM IndexName = "Array functions"
+
+[File 43]
+Original Name = "cefunc_complex.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\cefunc_complex.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\cefunc_complex.html"
+CHM LocalPath = "cefunc_complex.html"
+CHM IndexName = "Complex Number functions"
+
+[File 44]
+Original Name = "cefunc_dsp.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\cefunc_dsp.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\cefunc_dsp.html"
+CHM LocalPath = "cefunc_dsp.html"
+CHM IndexName = "Signal Processing and Measurement functions"
+
+[File 45]
+Original Name = "cefunc_error.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\cefunc_error.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\cefunc_error.html"
+CHM LocalPath = "cefunc_error.html"
+CHM IndexName = "Error Handling functions"
+
+[File 46]
+Original Name = "cefunc_file.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\cefunc_file.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\cefunc_file.html"
+CHM LocalPath = "cefunc_file.html"
+CHM IndexName = "File functions"
+
+[File 47]
+Original Name = "cefunc_idn.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\cefunc_idn.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\cefunc_idn.html"
+CHM LocalPath = "cefunc_idn.html"
+CHM IndexName = "Identifier conversion functions"
+
+[File 48]
+Original Name = "cefunc_notif.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\cefunc_notif.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\cefunc_notif.html"
+CHM LocalPath = "cefunc_notif.html"
+CHM IndexName = "Notifier functions"
+
+[File 49]
+Original Name = "cefunc_num_conv.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\cefunc_num_conv.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\cefunc_num_conv.html"
+CHM LocalPath = "cefunc_num_conv.html"
+CHM IndexName = "Number conversion and verifications functions"
+
+[File 50]
+Original Name = "cefunc_num_gen.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\cefunc_num_gen.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\cefunc_num_gen.html"
+CHM LocalPath = "cefunc_num_gen.html"
+CHM IndexName = "General Numeric functions"
+
+[File 51]
+Original Name = "cefunc_num_log.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\cefunc_num_log.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\cefunc_num_log.html"
+CHM LocalPath = "cefunc_num_log.html"
+CHM IndexName = "Logarithmic and Exponential functions"
+
+[File 52]
+Original Name = "cefunc_num_spec.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\cefunc_num_spec.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\cefunc_num_spec.html"
+CHM LocalPath = "cefunc_num_spec.html"
+CHM IndexName = "Special Numeric functions"
+
+[File 53]
+Original Name = "cefunc_queue.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\cefunc_queue.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\cefunc_queue.html"
+CHM LocalPath = "cefunc_queue.html"
+CHM IndexName = "Queue functions"
+
+[File 54]
+Original Name = "cefunc_script.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\cefunc_script.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\cefunc_script.html"
+CHM LocalPath = "cefunc_script.html"
+CHM IndexName = "Script Control functions"
+
+[File 55]
+Original Name = "cefunc_sgen.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\cefunc_sgen.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\cefunc_sgen.html"
+CHM LocalPath = "cefunc_sgen.html"
+CHM IndexName = "Signal Generation functions"
+
+[File 56]
+Original Name = "cefunc_stats.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\cefunc_stats.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\cefunc_stats.html"
+CHM LocalPath = "cefunc_stats.html"
+CHM IndexName = "Probability and Statistics functions"
+
+[File 57]
+Original Name = "cefunc_string.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\cefunc_string.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\cefunc_string.html"
+CHM LocalPath = "cefunc_string.html"
+CHM IndexName = "String functions"
+
+[File 58]
+Original Name = "cefunc_time.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\cefunc_time.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\cefunc_time.html"
+CHM LocalPath = "cefunc_time.html"
+CHM IndexName = "Time functions"
+
+[File 59]
+Original Name = "cefunc_trig.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\cefunc_trig.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\cefunc_trig.html"
+CHM LocalPath = "cefunc_trig.html"
+CHM IndexName = "Trigonometric and Hyperbolic functions"
+
+[File 60]
+Original Name = "cefunc_user.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\cefunc_user.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\cefunc_user.html"
+CHM LocalPath = "cefunc_user.html"
+CHM IndexName = "Displaying and Interaction functions"
+
+[File 61]
+Original Name = "cefunc_vch.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\cefunc_vch.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\cefunc_vch.html"
+CHM LocalPath = "cefunc_vch.html"
+CHM IndexName = "Variable Context functions"
+
+[File 62]
+Original Name = "cefunc_vhist.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\cefunc_vhist.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\cefunc_vhist.html"
+CHM LocalPath = "cefunc_vhist.html"
+CHM IndexName = "Variable History functions"
+
+[File 63]
+Original Name = "cefunc_victrl.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\cefunc_victrl.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\cefunc_victrl.html"
+CHM LocalPath = "cefunc_victrl.html"
+CHM IndexName = "VI Control functions"
+
+[File 64]
+Original Name = "cefunc_vm1.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\cefunc_vm1.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\cefunc_vm1.html"
+CHM LocalPath = "cefunc_vm1.html"
+CHM IndexName = "Variable declaration functions"
+
+[File 65]
+Original Name = "cefunc_vm2.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\cefunc_vm2.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\cefunc_vm2.html"
+CHM LocalPath = "cefunc_vm2.html"
+CHM IndexName = "Variable manipulation functions"
+
+[File 66]
+Original Name = "cefunc_vst.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\cefunc_vst.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\cefunc_vst.html"
+CHM LocalPath = "cefunc_vst.html"
+CHM IndexName = "Variable statistics functions"
+
+[File 67]
+Original Name = "cse.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\cse.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\cse.html"
+CHM LocalPath = "cse.html"
+CHM IndexName = "CSE (CalcExpress Script Engine)"
+
+[File 68]
+Original Name = "cse_isp.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\cse_isp.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\cse_isp.html"
+CHM LocalPath = "cse_isp.html"
+CHM IndexName = "CSE ISP: Interactive Script Processor"
+
+[File 69]
+Original Name = "cse_syntax.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\cse_syntax.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\cse_syntax.html"
+CHM LocalPath = "cse_syntax.html"
+CHM IndexName = "CSE Script syntax"
+
+[File 70]
+Original Name = "directives.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\directives.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\directives.html"
+CHM LocalPath = "directives.html"
+CHM IndexName = "Parsing Directives"
+
+[File 71]
+Original Name = "dtypes.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\dtypes.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\dtypes.html"
+CHM LocalPath = "dtypes.html"
+CHM IndexName = "Data types"
+
+[File 72]
+Original Name = "errors.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\errors.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\errors.html"
+CHM LocalPath = "errors.html"
+CHM IndexName = "Error codes"
+
+[File 73]
+Original Name = "_cemcalc.mnu"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\Menus\cemath\_cemcalc.mnu"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\mnu__cemcalc.html"
+CHM LocalPath = "mnu__cemcalc.html"
+CHM IndexName = "Calculus"
+
+[File 74]
+Original Name = "_cemeval.mnu"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\Menus\cemath\_cemeval.mnu"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\mnu__cemeval.html"
+CHM LocalPath = "mnu__cemeval.html"
+CHM IndexName = "Formula Evaluation"
+
+[File 75]
+Original Name = "_cemfit.mnu"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\Menus\cemath\_cemfit.mnu"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\mnu__cemfit.html"
+CHM LocalPath = "mnu__cemfit.html"
+CHM IndexName = "Curve Fitting"
+
+[File 76]
+Original Name = "_cemipnt.mnu"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\Menus\cemath\_cemipnt.mnu"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\mnu__cemipnt.html"
+CHM LocalPath = "mnu__cemipnt.html"
+CHM IndexName = "Zeroes and Extrema"
+
+[File 77]
+Original Name = "_cemode.mnu"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\Menus\cemath\_cemode.mnu"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\mnu__cemode.html"
+CHM LocalPath = "mnu__cemode.html"
+CHM IndexName = "Differential Equations"
+
+[File 78]
+Original Name = "ce-func.mnu"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\Menus\ce-func.mnu"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\mnu_ce-func.html"
+CHM LocalPath = "mnu_ce-func.html"
+CHM IndexName = "FuncVI Service"
+
+[File 79]
+Original Name = "ce-fvi.mnu"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\Menus\ce-fvi.mnu"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\mnu_ce-fvi.html"
+CHM LocalPath = "mnu_ce-fvi.html"
+CHM IndexName = "FuncVI Development"
+
+[File 80]
+Original Name = "ce-top.mnu"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\Menus\ce-top.mnu"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\mnu_ce-top.html"
+CHM LocalPath = "mnu_ce-top.html"
+CHM IndexName = "CalcExpress"
+
+[File 81]
+Original Name = "cemath.mnu"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\Menus\cemath.mnu"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\mnu_cemath.html"
+CHM LocalPath = "mnu_cemath.html"
+CHM IndexName = "CE Math"
+
+[File 82]
+Original Name = "cse-adv.mnu"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\Menus\cse-adv.mnu"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\mnu_cse-adv.html"
+CHM LocalPath = "mnu_cse-adv.html"
+CHM IndexName = "CSE Advanced VIs"
+
+[File 83]
+Original Name = "cse.mnu"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\Menus\cse.mnu"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\mnu_cse.html"
+CHM LocalPath = "mnu_cse.html"
+CHM IndexName = "CSE Script Processor"
+
+[File 84]
+Original Name = "dir.mnu"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\dir.mnu"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\mnu_dir.html"
+CHM LocalPath = "mnu_dir.html"
+CHM IndexName = "CalcExpress Toolkit"
+
+[File 85]
+Original Name = "vm-hist.mnu"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\Menus\vm-hist.mnu"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\mnu_vm-hist.html"
+CHM LocalPath = "mnu_vm-hist.html"
+CHM IndexName = "Variabe History VIs"
+
+[File 86]
+Original Name = "vm-hrep.mnu"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\Menus\vm-hrep.mnu"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\mnu_vm-hrep.html"
+CHM LocalPath = "mnu_vm-hrep.html"
+CHM IndexName = "History Report &amp; Utility VIs"
+
+[File 87]
+Original Name = "vm-leg.mnu"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\Menus\vm-leg.mnu"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\mnu_vm-leg.html"
+CHM LocalPath = "mnu_vm-leg.html"
+CHM IndexName = "Legacy VarMan VIs"
+
+[File 88]
+Original Name = "vm-mult.mnu"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\Menus\vm-mult.mnu"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\mnu_vm-mult.html"
+CHM LocalPath = "mnu_vm-mult.html"
+CHM IndexName = "R/W Multiple Variables"
+
+[File 89]
+Original Name = "vm-top.mnu"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\Menus\vm-top.mnu"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\mnu_vm-top.html"
+CHM LocalPath = "mnu_vm-top.html"
+CHM IndexName = "Variable Manager"
+
+[File 90]
+Original Name = "vm-topa.mnu"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\Menus\vm-topa.mnu"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\mnu_vm-topa.html"
+CHM LocalPath = "mnu_vm-topa.html"
+CHM IndexName = "Advanced VarMan VIs"
+
+[File 91]
+Original Name = "varman.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\varman.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\varman.html"
+CHM LocalPath = "varman.html"
+CHM IndexName = "Variable Manager"
+
+[File 92]
+Original Name = "varman_spy.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\varman_spy.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\varman_spy.html"
+CHM LocalPath = "varman_spy.html"
+CHM IndexName = "VarMan Spy"
+
+[File 93]
+Original Name = "varman_vhist.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\varman_vhist.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\varman_vhist.html"
+CHM LocalPath = "varman_vhist.html"
+CHM IndexName = "Variable History"
+
+[File 94]
+Original Name = "varman_vref.html"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html_source\varman_vref.html"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\varman_vref.html"
+CHM LocalPath = "varman_vref.html"
+CHM IndexName = "Referring to variables"
+
+[File 95]
+Original Name = "[ce] CalcExpress.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\calcexp.llb\[ce] CalcExpress.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi__ce__CalcExpress.html"
+CHM LocalPath = "vi__ce__CalcExpress.html"
+CHM IndexName = "[ce] CalcExpress.vi"
+
+[File 96]
+Original Name = "[ce] CalcExpress - Abort Evaluation.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\calcexp.llb\[ce] CalcExpress - Abort Evaluation.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi__ce__CalcExpress_-_Abort_Evaluation.html"
+CHM LocalPath = "vi__ce__CalcExpress_-_Abort_Evaluation.html"
+CHM IndexName = "[ce] CalcExpress - Abort Evaluation.vi"
+
+[File 97]
+Original Name = "[ce] CalcExpress - Close Instance.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\calcexp.llb\[ce] CalcExpress - Close Instance.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi__ce__CalcExpress_-_Close_Instance.html"
+CHM LocalPath = "vi__ce__CalcExpress_-_Close_Instance.html"
+CHM IndexName = "[ce] CalcExpress - Close Instance.vi"
+
+[File 98]
+Original Name = "[ce] CalcExpress - Diagnose Script.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\calcexp.llb\[ce] CalcExpress - Diagnose Script.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi__ce__CalcExpress_-_Diagnose_Script.html"
+CHM LocalPath = "vi__ce__CalcExpress_-_Diagnose_Script.html"
+CHM IndexName = "[ce] CalcExpress - Diagnose Script.vi"
+
+[File 99]
+Original Name = "[ce] CalcExpress - Eval Script.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\calcexp.llb\[ce] CalcExpress - Eval Script.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi__ce__CalcExpress_-_Eval_Script.html"
+CHM LocalPath = "vi__ce__CalcExpress_-_Eval_Script.html"
+CHM IndexName = "[ce] CalcExpress - Eval Script.vi"
+
+[File 100]
+Original Name = "[ce] CalcExpress - Not a CE InstanceRef.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\calcexp.llb\[ce] CalcExpress - Not a CE InstanceRef.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi__ce__CalcExpress_-_Not_a_CE_InstanceRef.html"
+CHM LocalPath = "vi__ce__CalcExpress_-_Not_a_CE_InstanceRef.html"
+CHM IndexName = "[ce] CalcExpress - Not a CE InstanceRef.vi"
+
+[File 101]
+Original Name = "[ce] CalcExpress - Parse Script.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\calcexp.llb\[ce] CalcExpress - Parse Script.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi__ce__CalcExpress_-_Parse_Script.html"
+CHM LocalPath = "vi__ce__CalcExpress_-_Parse_Script.html"
+CHM IndexName = "[ce] CalcExpress - Parse Script.vi"
+
+[File 102]
+Original Name = "[ce] CalcExpress - Variables Writer ID.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\calcexp.llb\[ce] CalcExpress - Variables Writer ID.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi__ce__CalcExpress_-_Variables_Writer_ID.html"
+CHM LocalPath = "vi__ce__CalcExpress_-_Variables_Writer_ID.html"
+CHM IndexName = "[ce] CalcExpress - Variables Writer ID.vi"
+
+[File 103]
+Original Name = "[ce] CalcExpress Light.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\calcexp.llb\[ce] CalcExpress Light.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi__ce__CalcExpress_Light.html"
+CHM LocalPath = "vi__ce__CalcExpress_Light.html"
+CHM IndexName = "[ce] CalcExpress Light.vi"
+
+[File 104]
+Original Name = "[ce] Curve Length.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\CE_Math\ce_math.llb\[ce] Curve Length.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi__ce__Curve_Length.html"
+CHM LocalPath = "vi__ce__Curve_Length.html"
+CHM IndexName = "[ce] Curve Length.vi"
+
+[File 105]
+Original Name = "[ce] Differentiation.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\CE_Math\ce_math.llb\[ce] Differentiation.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi__ce__Differentiation.html"
+CHM LocalPath = "vi__ce__Differentiation.html"
+CHM IndexName = "[ce] Differentiation.vi"
+
+[File 106]
+Original Name = "[ce] Eval X-Y(a,t).vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\CE_Math\ce_math.llb\[ce] Eval X-Y(a,t).vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi__ce__Eval_X-Y(a,t).html"
+CHM LocalPath = "vi__ce__Eval_X-Y(a,t).html"
+CHM IndexName = "[ce] Eval X-Y(a,t).vi"
+
+[File 107]
+Original Name = "[ce] Eval X-Y-Z(a,t1,t2).vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\CE_Math\ce_math.llb\[ce] Eval X-Y-Z(a,t1,t2).vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi__ce__Eval_X-Y-Z(a,t1,t2).html"
+CHM LocalPath = "vi__ce__Eval_X-Y-Z(a,t1,t2).html"
+CHM IndexName = "[ce] Eval X-Y-Z(a,t1,t2).vi"
+
+[File 108]
+Original Name = "[ce] Eval y=f(a,x).vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\CE_Math\ce_math.llb\[ce] Eval y=f(a,x).vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi__ce__Eval_y=f(a,x).html"
+CHM LocalPath = "vi__ce__Eval_y=f(a,x).html"
+CHM IndexName = "[ce] Eval y=f(a,x).vi"
+
+[File 109]
+Original Name = "[ce] Eval y=f(a,x1,x2).vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\CE_Math\ce_math.llb\[ce] Eval y=f(a,x1,x2).vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi__ce__Eval_y=f(a,x1,x2).html"
+CHM LocalPath = "vi__ce__Eval_y=f(a,x1,x2).html"
+CHM IndexName = "[ce] Eval y=f(a,x1,x2).vi"
+
+[File 110]
+Original Name = "[ce] Find All Minima and Maxima of f(x).vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\CE_Math\ce_ipnts.llb\[ce] Find All Minima and Maxima of f(x).vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi__ce__Find_All_Minima_and_Maxima_of_f(x).html"
+CHM LocalPath = "vi__ce__Find_All_Minima_and_Maxima_of_f(x).html"
+CHM IndexName = "[ce] Find All Minima and Maxima of f(x).vi"
+
+[File 111]
+Original Name = "[ce] Find All Zeroes and Extrema of f(x).vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\CE_Math\ce_ipnts.llb\[ce] Find All Zeroes and Extrema of f(x).vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi__ce__Find_All_Zeroes_and_Extrema_of_f(x).html"
+CHM LocalPath = "vi__ce__Find_All_Zeroes_and_Extrema_of_f(x).html"
+CHM IndexName = "[ce] Find All Zeroes and Extrema of f(x).vi"
+
+[File 112]
+Original Name = "[ce] Integration.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\CE_Math\ce_math.llb\[ce] Integration.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi__ce__Integration.html"
+CHM LocalPath = "vi__ce__Integration.html"
+CHM IndexName = "[ce] Integration.vi"
+
+[File 113]
+Original Name = "[ce] Levenberg Marquardt.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\CE_Math\ce_fitting.llb\[ce] Levenberg Marquardt.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi__ce__Levenberg_Marquardt.html"
+CHM LocalPath = "vi__ce__Levenberg_Marquardt.html"
+CHM IndexName = "[ce] Levenberg Marquardt.vi"
+
+[File 114]
+Original Name = "[ce] Limit.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\CE_Math\ce_math.llb\[ce] Limit.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi__ce__Limit.html"
+CHM LocalPath = "vi__ce__Limit.html"
+CHM IndexName = "[ce] Limit.vi"
+
+[File 115]
+Original Name = "[ce] ODE R-K Solver of dX(t)_dt=F(t) particular case.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\CE_Math\ce_ode.llb\[ce] ODE R-K Solver of dX(t)_dt=F(t) particular case.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi__ce__ODE_R-K_Solver_of_dX(t)_dt=F(t)_particular_case.html"
+CHM LocalPath = "vi__ce__ODE_R-K_Solver_of_dX(t)_dt=F(t)_particular_case.html"
+CHM IndexName = "[ce] ODE R-K Solver of dX(t)_dt=F(t) particular case.vi"
+
+[File 116]
+Original Name = "[ce] ODE Solver.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\CE_Math\ce_ode.llb\[ce] ODE Solver.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi__ce__ODE_Solver.html"
+CHM LocalPath = "vi__ce__ODE_Solver.html"
+CHM IndexName = "[ce] ODE Solver.vi"
+
+[File 117]
+Original Name = "[ce] Partial Derivatives of f(x1,x2).vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\CE_Math\ce_math.llb\[ce] Partial Derivatives of f(x1,x2).vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi__ce__Partial_Derivatives_of_f(x1,x2).html"
+CHM LocalPath = "vi__ce__Partial_Derivatives_of_f(x1,x2).html"
+CHM IndexName = "[ce] Partial Derivatives of f(x1,x2).vi"
+
+[File 118]
+Original Name = "CSE - Abort Script Execution.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\cse.llb\CSE - Abort Script Execution.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_CSE_-_Abort_Script_Execution.html"
+CHM LocalPath = "vi_CSE_-_Abort_Script_Execution.html"
+CHM IndexName = "CSE - Abort Script Execution.vi"
+
+[File 119]
+Original Name = "CSE - Close Instance.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\cse.llb\CSE - Close Instance.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_CSE_-_Close_Instance.html"
+CHM LocalPath = "vi_CSE_-_Close_Instance.html"
+CHM IndexName = "CSE - Close Instance.vi"
+
+[File 120]
+Original Name = "CSE - Diagnose Script.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\cse.llb\CSE - Diagnose Script.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_CSE_-_Diagnose_Script.html"
+CHM LocalPath = "vi_CSE_-_Diagnose_Script.html"
+CHM IndexName = "CSE - Diagnose Script.vi"
+
+[File 121]
+Original Name = "CSE - Diagnose Statement.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\cse.llb\CSE - Diagnose Statement.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_CSE_-_Diagnose_Statement.html"
+CHM LocalPath = "vi_CSE_-_Diagnose_Statement.html"
+CHM IndexName = "CSE - Diagnose Statement.vi"
+
+[File 122]
+Original Name = "CSE - Execute Parsed Script.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\cse.llb\CSE - Execute Parsed Script.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_CSE_-_Execute_Parsed_Script.html"
+CHM LocalPath = "vi_CSE_-_Execute_Parsed_Script.html"
+CHM IndexName = "CSE - Execute Parsed Script.vi"
+
+[File 123]
+Original Name = "CSE - Execute Script (Basic).vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\cse.llb\CSE - Execute Script (Basic).vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_CSE_-_Execute_Script_(Basic).html"
+CHM LocalPath = "vi_CSE_-_Execute_Script_(Basic).html"
+CHM IndexName = "CSE - Execute Script (Basic).vi"
+
+[File 124]
+Original Name = "CSE - Get number of statements.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\cse.llb\CSE - Get number of statements.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_CSE_-_Get_number_of_statements.html"
+CHM LocalPath = "vi_CSE_-_Get_number_of_statements.html"
+CHM IndexName = "CSE - Get number of statements.vi"
+
+[File 125]
+Original Name = "CSE - Link Error to Source Script.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\cse.llb\CSE - Link Error to Source Script.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_CSE_-_Link_Error_to_Source_Script.html"
+CHM LocalPath = "vi_CSE_-_Link_Error_to_Source_Script.html"
+CHM IndexName = "CSE - Link Error to Source Script.vi"
+
+[File 126]
+Original Name = "CSE - Link Source Script Line to Statements.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\cse.llb\CSE - Link Source Script Line to Statements.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_CSE_-_Link_Source_Script_Line_to_Statements.html"
+CHM LocalPath = "vi_CSE_-_Link_Source_Script_Line_to_Statements.html"
+CHM IndexName = "CSE - Link Source Script Line to Statements.vi"
+
+[File 127]
+Original Name = "CSE - Link Source Script Offset to Statement.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\cse.llb\CSE - Link Source Script Offset to Statement.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_CSE_-_Link_Source_Script_Offset_to_Statement.html"
+CHM LocalPath = "vi_CSE_-_Link_Source_Script_Offset_to_Statement.html"
+CHM IndexName = "CSE - Link Source Script Offset to Statement.vi"
+
+[File 128]
+Original Name = "CSE - Link Statement to Source Script.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\cse.llb\CSE - Link Statement to Source Script.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_CSE_-_Link_Statement_to_Source_Script.html"
+CHM LocalPath = "vi_CSE_-_Link_Statement_to_Source_Script.html"
+CHM IndexName = "CSE - Link Statement to Source Script.vi"
+
+[File 129]
+Original Name = "CSE - Not A CSE RefNum.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\cse.llb\CSE - Not A CSE RefNum.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_CSE_-_Not_A_CSE_RefNum.html"
+CHM LocalPath = "vi_CSE_-_Not_A_CSE_RefNum.html"
+CHM IndexName = "CSE - Not A CSE RefNum.vi"
+
+[File 130]
+Original Name = "CSE - Open Callback VI Reference.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\cse.llb\CSE - Open Callback VI Reference.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_CSE_-_Open_Callback_VI_Reference.html"
+CHM LocalPath = "vi_CSE_-_Open_Callback_VI_Reference.html"
+CHM IndexName = "CSE - Open Callback VI Reference.vi"
+
+[File 131]
+Original Name = "CSE - Parse Script.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\cse.llb\CSE - Parse Script.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_CSE_-_Parse_Script.html"
+CHM LocalPath = "vi_CSE_-_Parse_Script.html"
+CHM IndexName = "CSE - Parse Script.vi"
+
+[File 132]
+Original Name = "CSE - Script Path & Search Paths.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\cse.llb\CSE - Script Path & Search Paths.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_CSE_-_Script_Path___Search_Paths.html"
+CHM LocalPath = "vi_CSE_-_Script_Path___Search_Paths.html"
+CHM IndexName = "CSE - Script Path &amp; Search Paths.vi"
+
+[File 133]
+Original Name = "CSE - Variables Writer ID.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\cse.llb\CSE - Variables Writer ID.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_CSE_-_Variables_Writer_ID.html"
+CHM LocalPath = "vi_CSE_-_Variables_Writer_ID.html"
+CHM IndexName = "CSE - Variables Writer ID.vi"
+
+[File 134]
+Original Name = "Exp - Error handler.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\ceBase.llb\Exp - Error handler.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_Exp_-_Error_handler.html"
+CHM LocalPath = "vi_Exp_-_Error_handler.html"
+CHM IndexName = "Exp - Error handler.vi"
+
+[File 135]
+Original Name = "Exp - Get CalcExpress Error as Error Cluster.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\ceBase.llb\Exp - Get CalcExpress Error as Error Cluster.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_Exp_-_Get_CalcExpress_Error_as_Error_Cluster.html"
+CHM LocalPath = "vi_Exp_-_Get_CalcExpress_Error_as_Error_Cluster.html"
+CHM IndexName = "Exp - Get CalcExpress Error as Error Cluster.vi"
+
+[File 136]
+Original Name = "Exp - Get VC Handle.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\ceBase.llb\Exp - Get VC Handle.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_Exp_-_Get_VC_Handle.html"
+CHM LocalPath = "vi_Exp_-_Get_VC_Handle.html"
+CHM IndexName = "Exp - Get VC Handle.vi"
+
+[File 137]
+Original Name = "Func - Error Status to Error Cluster.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\Funcsup.llb\Func - Error Status to Error Cluster.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_Func_-_Error_Status_to_Error_Cluster.html"
+CHM LocalPath = "vi_Func_-_Error_Status_to_Error_Cluster.html"
+CHM IndexName = "Func - Error Status to Error Cluster.vi"
+
+[File 138]
+Original Name = "Func - FuncVI search paths.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\Funcsup.llb\Func - FuncVI search paths.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_Func_-_FuncVI_search_paths.html"
+CHM LocalPath = "vi_Func_-_FuncVI_search_paths.html"
+CHM IndexName = "Func - FuncVI search paths.vi"
+
+[File 139]
+Original Name = "Func - Get argument.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\Funcsup.llb\Func - Get argument.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_Func_-_Get_argument.html"
+CHM LocalPath = "vi_Func_-_Get_argument.html"
+CHM IndexName = "Func - Get argument.vi"
+
+[File 140]
+Original Name = "Func - Get DBL argument as 1D Array.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\Funcsup.llb\Func - Get DBL argument as 1D Array.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_Func_-_Get_DBL_argument_as_1D_Array.html"
+CHM LocalPath = "vi_Func_-_Get_DBL_argument_as_1D_Array.html"
+CHM IndexName = "Func - Get DBL argument as 1D Array.vi"
+
+[File 141]
+Original Name = "Func - Get declared arguments.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\Funcsup.llb\Func - Get declared arguments.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_Func_-_Get_declared_arguments.html"
+CHM LocalPath = "vi_Func_-_Get_declared_arguments.html"
+CHM IndexName = "Func - Get declared arguments.vi"
+
+[File 142]
+Original Name = "Func - get function name_.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\Funcsup.llb\Func - get function name_.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_Func_-_get_function_name_.html"
+CHM LocalPath = "vi_Func_-_get_function_name_.html"
+CHM IndexName = "Func - get function name_.vi"
+
+[File 143]
+Original Name = "Func - Get list of arguments.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\Funcsup.llb\Func - Get list of arguments.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_Func_-_Get_list_of_arguments.html"
+CHM LocalPath = "vi_Func_-_Get_list_of_arguments.html"
+CHM IndexName = "Func - Get list of arguments.vi"
+
+[File 144]
+Original Name = "Func - Get list of numeric arguments.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\Funcsup.llb\Func - Get list of numeric arguments.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_Func_-_Get_list_of_numeric_arguments.html"
+CHM LocalPath = "vi_Func_-_Get_list_of_numeric_arguments.html"
+CHM IndexName = "Func - Get list of numeric arguments.vi"
+
+[File 145]
+Original Name = "Func - Get list of string arguments.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\Funcsup.llb\Func - Get list of string arguments.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_Func_-_Get_list_of_string_arguments.html"
+CHM LocalPath = "vi_Func_-_Get_list_of_string_arguments.html"
+CHM IndexName = "Func - Get list of string arguments.vi"
+
+[File 146]
+Original Name = "Func - Load Functions.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\Funcsup.llb\Func - Load Functions.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_Func_-_Load_Functions.html"
+CHM LocalPath = "vi_Func_-_Load_Functions.html"
+CHM IndexName = "Func - Load Functions.vi"
+
+[File 147]
+Original Name = "Func - LV runtime error handler (Error Cluster).vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\Funcsup.llb\Func - LV runtime error handler (Error Cluster).vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_Func_-_LV_runtime_error_handler_(Error_Cluster).html"
+CHM LocalPath = "vi_Func_-_LV_runtime_error_handler_(Error_Cluster).html"
+CHM IndexName = "Func - LV runtime error handler (Error Cluster).vi"
+
+[File 148]
+Original Name = "Func - LV runtime error handler_.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\Funcsup.llb\Func - LV runtime error handler_.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_Func_-_LV_runtime_error_handler_.html"
+CHM LocalPath = "vi_Func_-_LV_runtime_error_handler_.html"
+CHM IndexName = "Func - LV runtime error handler_.vi"
+
+[File 149]
+Original Name = "Func - Unflatten-From-String Error handler.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\Funcsup.llb\Func - Unflatten-From-String Error handler.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_Func_-_Unflatten-From-String_Error_handler.html"
+CHM LocalPath = "vi_Func_-_Unflatten-From-String_Error_handler.html"
+CHM IndexName = "Func - Unflatten-From-String Error handler.vi"
+
+[File 150]
+Original Name = "Func - Unflatten Error Handler (Error Cluster).vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\Funcsup.llb\Func - Unflatten Error Handler (Error Cluster).vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_Func_-_Unflatten_Error_Handler_(Error_Cluster).html"
+CHM LocalPath = "vi_Func_-_Unflatten_Error_Handler_(Error_Cluster).html"
+CHM IndexName = "Func - Unflatten Error Handler (Error Cluster).vi"
+
+[File 151]
+Original Name = "Func - Unload Functions.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\Funcsup.llb\Func - Unload Functions.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_Func_-_Unload_Functions.html"
+CHM LocalPath = "vi_Func_-_Unload_Functions.html"
+CHM IndexName = "Func - Unload Functions.vi"
+
+[File 152]
+Original Name = "Func - VarMan Error handler.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\Funcsup.llb\Func - VarMan Error handler.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_Func_-_VarMan_Error_handler.html"
+CHM LocalPath = "vi_Func_-_VarMan_Error_handler.html"
+CHM IndexName = "Func - VarMan Error handler.vi"
+
+[File 153]
+Original Name = "Func - VarMan Error Handler (Error Cluster).vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\Funcsup.llb\Func - VarMan Error Handler (Error Cluster).vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_Func_-_VarMan_Error_Handler_(Error_Cluster).html"
+CHM LocalPath = "vi_Func_-_VarMan_Error_Handler_(Error_Cluster).html"
+CHM IndexName = "Func - VarMan Error Handler (Error Cluster).vi"
+
+[File 154]
+Original Name = "Func - VarMan VI Error Cluster to Func Result Value.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\Funcsup.llb\Func - VarMan VI Error Cluster to Func Result Value.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_Func_-_VarMan_VI_Error_Cluster_to_Func_Result_Value.html"
+CHM LocalPath = "vi_Func_-_VarMan_VI_Error_Cluster_to_Func_Result_Value.html"
+CHM IndexName = "Func - VarMan VI Error Cluster to Func Result Value.vi"
+
+[File 155]
+Original Name = "VHist - Fit DBL history to new timestamps.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\VHistUtils.llb\VHist - Fit DBL history to new timestamps.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VHist_-_Fit_DBL_history_to_new_timestamps.html"
+CHM LocalPath = "vi_VHist_-_Fit_DBL_history_to_new_timestamps.html"
+CHM IndexName = "VHist - Fit DBL history to new timestamps.vi"
+
+[File 156]
+Original Name = "VHist - Fit multi DBL history to new timestamps.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\VHistUtils.llb\VHist - Fit multi DBL history to new timestamps.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VHist_-_Fit_multi_DBL_history_to_new_timestamps.html"
+CHM LocalPath = "vi_VHist_-_Fit_multi_DBL_history_to_new_timestamps.html"
+CHM IndexName = "VHist - Fit multi DBL history to new timestamps.vi"
+
+[File 157]
+Original Name = "VHist - Fit multi STR history to new timestamps.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\VHistUtils.llb\VHist - Fit multi STR history to new timestamps.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VHist_-_Fit_multi_STR_history_to_new_timestamps.html"
+CHM LocalPath = "vi_VHist_-_Fit_multi_STR_history_to_new_timestamps.html"
+CHM IndexName = "VHist - Fit multi STR history to new timestamps.vi"
+
+[File 158]
+Original Name = "VHist - Fit STR history to new timestamps.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\VHistUtils.llb\VHist - Fit STR history to new timestamps.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VHist_-_Fit_STR_history_to_new_timestamps.html"
+CHM LocalPath = "vi_VHist_-_Fit_STR_history_to_new_timestamps.html"
+CHM IndexName = "VHist - Fit STR history to new timestamps.vi"
+
+[File 159]
+Original Name = "VHist - Interpolate DBL History.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\VHistUtils.llb\VHist - Interpolate DBL History.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VHist_-_Interpolate_DBL_History.html"
+CHM LocalPath = "vi_VHist_-_Interpolate_DBL_History.html"
+CHM IndexName = "VHist - Interpolate DBL History.vi"
+
+[File 160]
+Original Name = "VHist - Interpolate multi DBL History.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\VHistUtils.llb\VHist - Interpolate multi DBL History.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VHist_-_Interpolate_multi_DBL_History.html"
+CHM LocalPath = "vi_VHist_-_Interpolate_multi_DBL_History.html"
+CHM IndexName = "VHist - Interpolate multi DBL History.vi"
+
+[File 161]
+Original Name = "VHist - Multiple DBL history to spreadsheet string.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\VHistUtils.llb\VHist - Multiple DBL history to spreadsheet string.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VHist_-_Multiple_DBL_history_to_spreadsheet_string.html"
+CHM LocalPath = "vi_VHist_-_Multiple_DBL_history_to_spreadsheet_string.html"
+CHM IndexName = "VHist - Multiple DBL history to spreadsheet string.vi"
+
+[File 162]
+Original Name = "VHist - Multiple DBL history to Table.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\VHistUtils.llb\VHist - Multiple DBL history to Table.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VHist_-_Multiple_DBL_history_to_Table.html"
+CHM LocalPath = "vi_VHist_-_Multiple_DBL_history_to_Table.html"
+CHM IndexName = "VHist - Multiple DBL history to Table.vi"
+
+[File 163]
+Original Name = "VHist - Time Range from history array.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\VHistUtils.llb\VHist - Time Range from history array.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VHist_-_Time_Range_from_history_array.html"
+CHM LocalPath = "vi_VHist_-_Time_Range_from_history_array.html"
+CHM IndexName = "VHist - Time Range from history array.vi"
+
+[File 164]
+Original Name = "VHistory - Get 1D Array of CDB History.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\vHistory.llb\VHistory - Get 1D Array of CDB History.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VHistory_-_Get_1D_Array_of_CDB_History.html"
+CHM LocalPath = "vi_VHistory_-_Get_1D_Array_of_CDB_History.html"
+CHM IndexName = "VHistory - Get 1D Array of CDB History.vi"
+
+[File 165]
+Original Name = "VHistory - Get 1D Array of DBL History.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\vHistory.llb\VHistory - Get 1D Array of DBL History.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VHistory_-_Get_1D_Array_of_DBL_History.html"
+CHM LocalPath = "vi_VHistory_-_Get_1D_Array_of_DBL_History.html"
+CHM IndexName = "VHistory - Get 1D Array of DBL History.vi"
+
+[File 166]
+Original Name = "VHistory - Get 1D Array of STR History.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\vHistory.llb\VHistory - Get 1D Array of STR History.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VHistory_-_Get_1D_Array_of_STR_History.html"
+CHM LocalPath = "vi_VHistory_-_Get_1D_Array_of_STR_History.html"
+CHM IndexName = "VHistory - Get 1D Array of STR History.vi"
+
+[File 167]
+Original Name = "VHistory - Get 2D Array of CDB History.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\vHistory.llb\VHistory - Get 2D Array of CDB History.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VHistory_-_Get_2D_Array_of_CDB_History.html"
+CHM LocalPath = "vi_VHistory_-_Get_2D_Array_of_CDB_History.html"
+CHM IndexName = "VHistory - Get 2D Array of CDB History.vi"
+
+[File 168]
+Original Name = "VHistory - Get 2D Array of DBL History.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\vHistory.llb\VHistory - Get 2D Array of DBL History.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VHistory_-_Get_2D_Array_of_DBL_History.html"
+CHM LocalPath = "vi_VHistory_-_Get_2D_Array_of_DBL_History.html"
+CHM IndexName = "VHistory - Get 2D Array of DBL History.vi"
+
+[File 169]
+Original Name = "VHistory - Get 2D Array of STR History.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\vHistory.llb\VHistory - Get 2D Array of STR History.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VHistory_-_Get_2D_Array_of_STR_History.html"
+CHM LocalPath = "vi_VHistory_-_Get_2D_Array_of_STR_History.html"
+CHM IndexName = "VHistory - Get 2D Array of STR History.vi"
+
+[File 170]
+Original Name = "VHistory - Get Arbitrary Variable History.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\vHistory.llb\VHistory - Get Arbitrary Variable History.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VHistory_-_Get_Arbitrary_Variable_History.html"
+CHM LocalPath = "vi_VHistory_-_Get_Arbitrary_Variable_History.html"
+CHM IndexName = "VHistory - Get Arbitrary Variable History.vi"
+
+[File 171]
+Original Name = "VHistory - Get CDB Scalar History.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\vHistory.llb\VHistory - Get CDB Scalar History.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VHistory_-_Get_CDB_Scalar_History.html"
+CHM LocalPath = "vi_VHistory_-_Get_CDB_Scalar_History.html"
+CHM IndexName = "VHistory - Get CDB Scalar History.vi"
+
+[File 172]
+Original Name = "VHistory - Get DBL Scalar History.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\vHistory.llb\VHistory - Get DBL Scalar History.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VHistory_-_Get_DBL_Scalar_History.html"
+CHM LocalPath = "vi_VHistory_-_Get_DBL_Scalar_History.html"
+CHM IndexName = "VHistory - Get DBL Scalar History.vi"
+
+[File 173]
+Original Name = "VHistory - Get STR History.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\vHistory.llb\VHistory - Get STR History.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VHistory_-_Get_STR_History.html"
+CHM LocalPath = "vi_VHistory_-_Get_STR_History.html"
+CHM IndexName = "VHistory - Get STR History.vi"
+
+[File 174]
+Original Name = "VHistory - History Controller.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\vHistory.llb\VHistory - History Controller.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VHistory_-_History_Controller.html"
+CHM LocalPath = "vi_VHistory_-_History_Controller.html"
+CHM IndexName = "VHistory - History Controller.vi"
+
+[File 175]
+Original Name = "VHistory - History Info.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\vHistory.llb\VHistory - History Info.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VHistory_-_History_Info.html"
+CHM LocalPath = "vi_VHistory_-_History_Info.html"
+CHM IndexName = "VHistory - History Info.vi"
+
+[File 176]
+Original Name = "VHistory - Preset CDB Scalar History.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\vHistory.llb\VHistory - Preset CDB Scalar History.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VHistory_-_Preset_CDB_Scalar_History.html"
+CHM LocalPath = "vi_VHistory_-_Preset_CDB_Scalar_History.html"
+CHM IndexName = "VHistory - Preset CDB Scalar History.vi"
+
+[File 177]
+Original Name = "VHistory - Preset DBL Scalar History.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\vHistory.llb\VHistory - Preset DBL Scalar History.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VHistory_-_Preset_DBL_Scalar_History.html"
+CHM LocalPath = "vi_VHistory_-_Preset_DBL_Scalar_History.html"
+CHM IndexName = "VHistory - Preset DBL Scalar History.vi"
+
+[File 178]
+Original Name = "VHistory - Preset STR History.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\vHistory.llb\VHistory - Preset STR History.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VHistory_-_Preset_STR_History.html"
+CHM LocalPath = "vi_VHistory_-_Preset_STR_History.html"
+CHM IndexName = "VHistory - Preset STR History.vi"
+
+[File 179]
+Original Name = "VM3 - 1D Array of CDB.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\VarMan.llb\VM3 - 1D Array of CDB.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VM3_-_1D_Array_of_CDB.html"
+CHM LocalPath = "vi_VM3_-_1D_Array_of_CDB.html"
+CHM IndexName = "VM3 - 1D Array of CDB.vi"
+
+[File 180]
+Original Name = "VM3 - 1D Array of DBL.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\VarMan.llb\VM3 - 1D Array of DBL.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VM3_-_1D_Array_of_DBL.html"
+CHM LocalPath = "vi_VM3_-_1D_Array_of_DBL.html"
+CHM IndexName = "VM3 - 1D Array of DBL.vi"
+
+[File 181]
+Original Name = "VM3 - 1D Array of Strings.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\VarMan.llb\VM3 - 1D Array of Strings.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VM3_-_1D_Array_of_Strings.html"
+CHM LocalPath = "vi_VM3_-_1D_Array_of_Strings.html"
+CHM IndexName = "VM3 - 1D Array of Strings.vi"
+
+[File 182]
+Original Name = "VM3 - 2D Array of CDB.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\VarMan.llb\VM3 - 2D Array of CDB.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VM3_-_2D_Array_of_CDB.html"
+CHM LocalPath = "vi_VM3_-_2D_Array_of_CDB.html"
+CHM IndexName = "VM3 - 2D Array of CDB.vi"
+
+[File 183]
+Original Name = "VM3 - 2D Array of DBL.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\VarMan.llb\VM3 - 2D Array of DBL.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VM3_-_2D_Array_of_DBL.html"
+CHM LocalPath = "vi_VM3_-_2D_Array_of_DBL.html"
+CHM IndexName = "VM3 - 2D Array of DBL.vi"
+
+[File 184]
+Original Name = "VM3 - 2D Array of Strings.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\VarMan.llb\VM3 - 2D Array of Strings.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VM3_-_2D_Array_of_Strings.html"
+CHM LocalPath = "vi_VM3_-_2D_Array_of_Strings.html"
+CHM IndexName = "VM3 - 2D Array of Strings.vi"
+
+[File 185]
+Original Name = "VM3 - Arbitrary Data.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\VarMan.llb\VM3 - Arbitrary Data.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VM3_-_Arbitrary_Data.html"
+CHM LocalPath = "vi_VM3_-_Arbitrary_Data.html"
+CHM IndexName = "VM3 - Arbitrary Data.vi"
+
+[File 186]
+Original Name = "VM3 - CDB Scalar.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\VarMan.llb\VM3 - CDB Scalar.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VM3_-_CDB_Scalar.html"
+CHM LocalPath = "vi_VM3_-_CDB_Scalar.html"
+CHM IndexName = "VM3 - CDB Scalar.vi"
+
+[File 187]
+Original Name = "VM3 - DBL Scalar.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\VarMan.llb\VM3 - DBL Scalar.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VM3_-_DBL_Scalar.html"
+CHM LocalPath = "vi_VM3_-_DBL_Scalar.html"
+CHM IndexName = "VM3 - DBL Scalar.vi"
+
+[File 188]
+Original Name = "VM3 - Read Variables (ANY).vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\VarMan.llb\VM3 - Read Variables (ANY).vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VM3_-_Read_Variables_(ANY).html"
+CHM LocalPath = "vi_VM3_-_Read_Variables_(ANY).html"
+CHM IndexName = "VM3 - Read Variables (ANY).vi"
+
+[File 189]
+Original Name = "VM3 - Read Variables (DBL).vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\VarMan.llb\VM3 - Read Variables (DBL).vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VM3_-_Read_Variables_(DBL).html"
+CHM LocalPath = "vi_VM3_-_Read_Variables_(DBL).html"
+CHM IndexName = "VM3 - Read Variables (DBL).vi"
+
+[File 190]
+Original Name = "VM3 - Read Variables (STR).vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\VarMan.llb\VM3 - Read Variables (STR).vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VM3_-_Read_Variables_(STR).html"
+CHM LocalPath = "vi_VM3_-_Read_Variables_(STR).html"
+CHM IndexName = "VM3 - Read Variables (STR).vi"
+
+[File 191]
+Original Name = "VM3 - String.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\VarMan.llb\VM3 - String.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VM3_-_String.html"
+CHM LocalPath = "vi_VM3_-_String.html"
+CHM IndexName = "VM3 - String.vi"
+
+[File 192]
+Original Name = "VM3 - Variable Data Info.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\VarMan.llb\VM3 - Variable Data Info.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VM3_-_Variable_Data_Info.html"
+CHM LocalPath = "vi_VM3_-_Variable_Data_Info.html"
+CHM IndexName = "VM3 - Variable Data Info.vi"
+
+[File 193]
+Original Name = "VM3 - Write Variables (ANY).vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\VarMan.llb\VM3 - Write Variables (ANY).vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VM3_-_Write_Variables_(ANY).html"
+CHM LocalPath = "vi_VM3_-_Write_Variables_(ANY).html"
+CHM IndexName = "VM3 - Write Variables (ANY).vi"
+
+[File 194]
+Original Name = "VM3 - Write Variables (DBL).vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\VarMan.llb\VM3 - Write Variables (DBL).vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VM3_-_Write_Variables_(DBL).html"
+CHM LocalPath = "vi_VM3_-_Write_Variables_(DBL).html"
+CHM IndexName = "VM3 - Write Variables (DBL).vi"
+
+[File 195]
+Original Name = "VM3 - Write Variables (STR).vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\VarMan.llb\VM3 - Write Variables (STR).vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VM3_-_Write_Variables_(STR).html"
+CHM LocalPath = "vi_VM3_-_Write_Variables_(STR).html"
+CHM IndexName = "VM3 - Write Variables (STR).vi"
+
+[File 196]
+Original Name = "VM - 1D Array of CDB.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\VarMan.llb\VM - 1D Array of CDB.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VM_-_1D_Array_of_CDB.html"
+CHM LocalPath = "vi_VM_-_1D_Array_of_CDB.html"
+CHM IndexName = "VM - 1D Array of CDB.vi"
+
+[File 197]
+Original Name = "VM - 1D Array of DBL.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\VarMan.llb\VM - 1D Array of DBL.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VM_-_1D_Array_of_DBL.html"
+CHM LocalPath = "vi_VM_-_1D_Array_of_DBL.html"
+CHM IndexName = "VM - 1D Array of DBL.vi"
+
+[File 198]
+Original Name = "VM - 1D Array of Strings.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\VarMan.llb\VM - 1D Array of Strings.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VM_-_1D_Array_of_Strings.html"
+CHM LocalPath = "vi_VM_-_1D_Array_of_Strings.html"
+CHM IndexName = "VM - 1D Array of Strings.vi"
+
+[File 199]
+Original Name = "VM - 2D Array of CDB.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\VarMan.llb\VM - 2D Array of CDB.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VM_-_2D_Array_of_CDB.html"
+CHM LocalPath = "vi_VM_-_2D_Array_of_CDB.html"
+CHM IndexName = "VM - 2D Array of CDB.vi"
+
+[File 200]
+Original Name = "VM - 2D Array of DBL.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\VarMan.llb\VM - 2D Array of DBL.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VM_-_2D_Array_of_DBL.html"
+CHM LocalPath = "vi_VM_-_2D_Array_of_DBL.html"
+CHM IndexName = "VM - 2D Array of DBL.vi"
+
+[File 201]
+Original Name = "VM - 2D Array of Strings.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\VarMan.llb\VM - 2D Array of Strings.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VM_-_2D_Array_of_Strings.html"
+CHM LocalPath = "vi_VM_-_2D_Array_of_Strings.html"
+CHM IndexName = "VM - 2D Array of Strings.vi"
+
+[File 202]
+Original Name = "VM - Alias Controller.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\VarMan.llb\VM - Alias Controller.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VM_-_Alias_Controller.html"
+CHM LocalPath = "vi_VM_-_Alias_Controller.html"
+CHM IndexName = "VM - Alias Controller.vi"
+
+[File 203]
+Original Name = "VM - Arbitrary Data.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\VarMan.llb\VM - Arbitrary Data.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VM_-_Arbitrary_Data.html"
+CHM LocalPath = "vi_VM_-_Arbitrary_Data.html"
+CHM IndexName = "VM - Arbitrary Data.vi"
+
+[File 204]
+Original Name = "VM - CDB Scalar.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\VarMan.llb\VM - CDB Scalar.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VM_-_CDB_Scalar.html"
+CHM LocalPath = "vi_VM_-_CDB_Scalar.html"
+CHM IndexName = "VM - CDB Scalar.vi"
+
+[File 205]
+Original Name = "VM - Close Context.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\VarMan.llb\VM - Close Context.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VM_-_Close_Context.html"
+CHM LocalPath = "vi_VM_-_Close_Context.html"
+CHM IndexName = "VM - Close Context.vi"
+
+[File 206]
+Original Name = "VM - Close loose contexts.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\VarMan.llb\VM - Close loose contexts.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VM_-_Close_loose_contexts.html"
+CHM LocalPath = "vi_VM_-_Close_loose_contexts.html"
+CHM IndexName = "VM - Close loose contexts.vi"
+
+[File 207]
+Original Name = "VM - Context Info.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\VarMan.llb\VM - Context Info.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VM_-_Context_Info.html"
+CHM LocalPath = "vi_VM_-_Context_Info.html"
+CHM IndexName = "VM - Context Info.vi"
+
+[File 208]
+Original Name = "VM - Context Names.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\VarMan.llb\VM - Context Names.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VM_-_Context_Names.html"
+CHM LocalPath = "vi_VM_-_Context_Names.html"
+CHM IndexName = "VM - Context Names.vi"
+
+[File 209]
+Original Name = "VM - DBL Scalar.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\VarMan.llb\VM - DBL Scalar.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VM_-_DBL_Scalar.html"
+CHM LocalPath = "vi_VM_-_DBL_Scalar.html"
+CHM IndexName = "VM - DBL Scalar.vi"
+
+[File 210]
+Original Name = "VM - Destroy Variable.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\VarMan.llb\VM - Destroy Variable.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VM_-_Destroy_Variable.html"
+CHM LocalPath = "vi_VM_-_Destroy_Variable.html"
+CHM IndexName = "VM - Destroy Variable.vi"
+
+[File 211]
+Original Name = "VM - Get list of contexts.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\VarMan.llb\VM - Get list of contexts.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VM_-_Get_list_of_contexts.html"
+CHM LocalPath = "vi_VM_-_Get_list_of_contexts.html"
+CHM IndexName = "VM - Get list of contexts.vi"
+
+[File 212]
+Original Name = "VM - Initializing.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\VarMan.llb\VM - Initializing.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VM_-_Initializing.html"
+CHM LocalPath = "vi_VM_-_Initializing.html"
+CHM IndexName = "VM - Initializing.vi"
+
+[File 213]
+Original Name = "VM - List of Aliases.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\VarMan.llb\VM - List of Aliases.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VM_-_List_of_Aliases.html"
+CHM LocalPath = "vi_VM_-_List_of_Aliases.html"
+CHM IndexName = "VM - List of Aliases.vi"
+
+[File 214]
+Original Name = "VM - List of Variables.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\VarMan.llb\VM - List of Variables.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VM_-_List_of_Variables.html"
+CHM LocalPath = "vi_VM_-_List_of_Variables.html"
+CHM IndexName = "VM - List of Variables.vi"
+
+[File 215]
+Original Name = "VM - Not a VC Handle.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\VarMan.llb\VM - Not a VC Handle.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VM_-_Not_a_VC_Handle.html"
+CHM LocalPath = "vi_VM_-_Not_a_VC_Handle.html"
+CHM IndexName = "VM - Not a VC Handle.vi"
+
+[File 216]
+Original Name = "VM - Open Context.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\VarMan.llb\VM - Open Context.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VM_-_Open_Context.html"
+CHM LocalPath = "vi_VM_-_Open_Context.html"
+CHM IndexName = "VM - Open Context.vi"
+
+[File 217]
+Original Name = "VM - Strings.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\VarMan.llb\VM - Strings.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VM_-_Strings.html"
+CHM LocalPath = "vi_VM_-_Strings.html"
+CHM IndexName = "VM - Strings.vi"
+
+[File 218]
+Original Name = "VM - Type Code to CalcExpress Data Type.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\VarMan.llb\VM - Type Code to CalcExpress Data Type.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VM_-_Type_Code_to_CalcExpress_Data_Type.html"
+CHM LocalPath = "vi_VM_-_Type_Code_to_CalcExpress_Data_Type.html"
+CHM IndexName = "VM - Type Code to CalcExpress Data Type.vi"
+
+[File 219]
+Original Name = "VM - Variable Attribute.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\VarMan.llb\VM - Variable Attribute.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VM_-_Variable_Attribute.html"
+CHM LocalPath = "vi_VM_-_Variable_Attribute.html"
+CHM IndexName = "VM - Variable Attribute.vi"
+
+[File 220]
+Original Name = "VM - Variable Info.vi"
+Original Path = "C:\LV Projects\CalcExpress 40 LV2021\vi.lib\addons\CalcExpress\VarMan.llb\VM - Variable Info.vi"
+HTML FilePath = "C:\LV Projects\CalcExpress 40 LV2021\CE_Help\html\vi_VM_-_Variable_Info.html"
+CHM LocalPath = "vi_VM_-_Variable_Info.html"
+CHM IndexName = "VM - Variable Info.vi"

@@ -1,0 +1,13 @@
+x0   = 0;
+dx   = 0.1;
+xMax = 12;
+
+/* sequence from x0 to xMax with dx step */
+x = nvecifs(x0, xMax, dx);
+
+wfGraph();  //clear graphs
+
+for (i=1; i<=5; i++) {
+  wfGraph(i-1, gammai(x,i), x0, dx, sform("a=%d",i));
+  wfGraph(i+4, gammai(i,x), x0, dx, sform("b=%d",i));
+}

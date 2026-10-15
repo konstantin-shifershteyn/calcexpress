@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>CSE (CalcExpress Script Engine)</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+<style>
+td.TblCol1  { padding:0 5pt 0 0pt; valign:top; white-space:nowrap; }
+td.TblCol2  { padding:0 5pt 0 10pt; valign:top;  }
+</style>
+</head>
+
+<body>
+
+<!-- ########################################## -->
+<a name="cse_overview"></a>
+<div class="GenSectTitle">
+<h1><span class="PageTitleL">CSE Overview</span></h1>
+</div>
+
+<p>CSE (CalcExpress Script Engine) is a <a href="mnu_cse.html">collection of VIs</a> to execute textual scripts. CSE VIs are reentrant and multithreaded, enabling them to execute multiple scripts simultaneously and operate in parallel with other LabVIEW VIs. Beyond data processing, CSE can manage high-level application execution by directly interfacing with and controlling external VIs. This includes developing custom functions to be called from scripts as VIs (<a href="ce_functions.html#ce_func_implementation">FuncVI</a>), as well as utilizing ordinary VIs by running them directly from scripts and dynamically transferring data between active scripts and VIs using  <a href="cef_cat_vi.html">VI Control functions</a>.</p>
+
+<p>CSE is a superset of <a href="ce.html">CalcExpress</a>, enabling the use of all CalcExpress features while adding new capabilities to control script execution flow. Along with the sequential execution of script blocks, it provides repeated execution (loops), conditional execution (branches), and transfer of control (jumps). In addition, <a href="cef_cat_script.html">CSE Script Control functions</a> can be used to call a script from within another script or execute a script within the context of a running script.</p>
+
+<p>To evaluate expressions within CSE statements, CSE calls the CalcExpress kernel. Because both CSE and CalcExpress use a syntax similar to the C language, a CSE script structurally resembles a C program. See the <a href="cse_syntax.html">Script Syntax</a> topic for more information.</p>
+
+<p>Like CalcExpress, CSE utilizes <a href="varman.html">VarMan</a> to operate on variables within a script. This architecture allows for specifying whether variables remain local to a single script or are shared across other VIs. Standard VarMan VIs are used to manage and manipulate these script variables externally.</p>
+
+<p>&nbsp;</p>
+
+<p>Refer to the following topics for further information:</p>
+<table>
+<tr>
+<td class="TblCol1"><a href="mnu_cse.html">CSE VIs</a></td>
+<td class="TblCol2">The collection of VIs to execute CSE Scripts.</td>
+</tr>
+<tr>
+<td class="TblCol1"><a href="cse_syntax.html">CSE Script syntax</a></td>
+<td class="TblCol2">Detailed reference information regarding CSE script syntax.</td>
+</tr>
+<tr>
+<td class="TblCol1"><a href="cse_isp.html">CSE ISP</a></td>
+<td class="TblCol2">The Interactive Script Processor utility.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</body>
+</html>

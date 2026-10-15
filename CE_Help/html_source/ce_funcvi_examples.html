@@ -1,0 +1,257 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>FuncVI Examples</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+</head>
+
+<body>
+
+<!-- ########################################## -->
+<a name="ce_funcvi_examples"></a>
+<div class="GenSectTitle">
+<h1><span class="PageTitleL">FuncVI Examples</span></h1>
+</div>
+
+
+<p>Here are a few references to topics that show basic techniques for developing FuncVIs. For further learning, review the FuncVIs supplied with CalcExpress. You can find the supplied FuncVIs in the folder: <i>&lt;vilib&gt;\addons\CalcExpress\FuncVI</i>.</p>
+<p>&nbsp;</p>
+
+
+<h2><a href="#cevi_exmpl_nargs">GaussianNoise FuncVI</a></h2>
+<table border=0 cellspacing=0 cellpadding=0 style='border-collapse:collapse'>
+<tr>
+<td width=284 valign=top style='width:213.05pt;padding:0cm 5.4pt 0cm 5.4pt'>
+<b>Example shows:</b>
+</td>
+<td width=284 valign=top style='width:213.05pt;padding:0cm 5.4pt 0cm 5.4pt'>
+<b>Used VIs:</b>
+</td>
+</tr>
+<tr>
+<td width=284 valign=top style='width:213.05pt;padding:0cm 5.4pt 0cm 5.4pt'>
+<ul class="GenCE">
+<li>a way to operate on numeric scalar arguments</li>
+<li>a way to return a value with a data type different from DBL Number and String</li>
+</ul>
+</td>
+<td width=284 valign=top style='width:213.05pt;padding:0cm 5.4pt 0cm 5.4pt'>
+<a href="vi_Func_-_Get_list_of_numeric_arguments.html">Func - Get list of numeric arguments.vi</a><br>
+<a href="vi_Func_-_LV_runtime_error_handler_.html">Func - LV runtime error handler.vi</a>
+</td>
+</tr>
+</table>
+
+
+<h2><a href="#cevi_exmpl_sargs">ConcatenateStrings FuncVI</a></h2>
+<table border=0 cellspacing=0 cellpadding=0 style='border-collapse:collapse'>
+<tr>
+<td width=284 valign=top style='width:213.05pt;padding:0cm 5.4pt 0cm 5.4pt'>
+<b>Example shows:</b>
+</td>
+<td width=284 valign=top style='width:213.05pt;padding:0cm 5.4pt 0cm 5.4pt'>
+<b>Used VIs:</b>
+</td>
+</tr>
+<tr>
+<td width=284 valign=top style='width:213.05pt;padding:0cm 5.4pt 0cm 5.4pt'>
+<ul class="GenCE">
+<li>a way to operate on arbitrary number of string arguments</li>
+<li>a way to return a string value</li>
+</ul>
+</td>
+<td width=284 valign=top style='width:213.05pt;padding:0cm 5.4pt 0cm 5.4pt'>
+<a href="vi_Func_-_Get_list_of_string_arguments.html">Func - Get list of string arguments.vi</a>
+</td>
+</tr>
+</table>
+
+
+<h2><a href="#cevi_exmpl_aargs">APSpectrum FuncVI</a></h2>
+<table border=0 cellspacing=0 cellpadding=0 style='border-collapse:collapse'>
+<tr>
+<td width=284 valign=top style='width:213.05pt;padding:0cm 5.4pt 0cm 5.4pt'>
+<b>Example shows:</b>
+</td>
+<td width=284 valign=top style='width:213.05pt;padding:0cm 5.4pt 0cm 5.4pt'>
+<b>Used VIs:</b>
+</td>
+</tr>
+<tr style='page-break-inside:avoid'>
+<td width=284 valign=top style='width:213.05pt;padding:0cm 5.4pt 0cm 5.4pt'>
+<ul class="GenCE">
+<li>a way to specify argument prototypes</li>
+<li>a way to specify a default value for optional arguments</li>
+<li>a way to operate on non-scalar arguments</li>
+<li>a way to use variables to return function values</li>
+</ul>
+</td>
+<td width=284 valign=top style='width:213.05pt;padding:0cm 5.4pt 0cm 5.4pt'>
+<a href="vi_Func_-_Get_declared_arguments.html">Func - Get declared arguments.vi</a><br>
+<a href="vi_Func_-_VarMan_Error_handler.html">Func - VarMan error handler.vi</a><br>
+<a href="vi_Func_-_Unflatten-From-String_Error_handler.html">Func - Unflatten-From-String error handler.vi</a><br>
+<a href="vi_Exp_-_Get_VC_Handle.html">Exp - Get VC handle.vi</a>
+</td>
+</tr>
+</table>
+
+
+<h2><a href="#ce_funcvi_example_args">SumDBL FuncVI</a></h2>
+<table border=0 cellspacing=0 cellpadding=0 style='border-collapse:collapse'>
+<tr>
+<td width=284 valign=top style='width:213.05pt;padding:0cm 5.4pt 0cm 5.4pt'>
+<b>Example shows:</b>
+</td>
+<td width=284 valign=top style='width:213.05pt;padding:0cm 5.4pt 0cm 5.4pt'>
+<b>Used VIs:</b>
+</td>
+</tr>
+<tr style='page-break-inside:avoid'>
+<td width=284 valign=top style='width:213.05pt;padding:0cm 5.4pt 0cm 5.4pt'>
+<ul class="GenCE">
+<li>a way to operate on arguments of arbitrary data types</li>
+<li>a way to operate on arbitrary number of arguments</li>
+<li>a way to handle errors specific for a FuncVI</li>
+</ul>
+</td>
+<td width=284 valign=top style='width:213.05pt;padding:0cm 5.4pt 0cm 5.4pt'>
+<a href="vi_Func_-_Get_list_of_arguments.html">Func - Get list of arguments.vi</a><br>
+<a href="vi_Exp_-_Error_handler.html">Exp - Error handler.vi</a>
+</td>
+</tr>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cevi_exmpl_nargs"></a>
+<div class="GenSectTitle">
+<h1><span class="PageTitleL">FuncVI example: </span>GaussianNoise</h1>
+</div>
+
+<p>The figure below shows the block diagram of FuncVI that performs the function</p>
+<p style="margin-left:20pt;"><b>GaussianNoise(ns, std, seed)</b></p>
+<p>The function returns <i>1D Array of DBL</i> that contains Gaussian noise pattern.
+The function operates on arguments that must have the <i>DBL Number</i> data type.</p>
+
+<h3>Function arguments:</h3>
+<ul class="GenCE">
+<li><b>ns</b> is number of samples</li>
+<li><b>std</b> is standard deviation</li>
+<li><b>seed</b> is an optional parameter that can be omitted in a function call, by default it equals 0.</li>
+</ul>
+
+<h3>Used CalcExpress VIs</h3>
+<ul class="GenCE">
+<li><a href="vi_Func_-_Get_list_of_numeric_arguments.html">Func - Get list of numeric arguments.vi</a></li>
+<li><a href="vi_Func_-_LV_runtime_error_handler_.html">Func - LV runtime error handler.vi</a></li>
+</ul>
+
+<p>For more information on Gaussian noise generation, see help for <b>Gaussian White Noise.vi</b> that is used in the FuncVI to perform the function.</p>
+<p>&nbsp;</p>
+
+<p><b>FuncVI-GaussianNoise.vi Diagram</b></p>
+<p><img src="image/vie-narg.png"></p>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cevi_exmpl_sargs"></a>
+<div class="GenSectTitle">
+<h1><span class="PageTitleL">FuncVI example: </span>ConcatenateStrings</h1>
+</div>
+
+<p>The figure below shows the block diagram of FuncVI that performs the function</p>
+<p style="margin-left:20pt;"><b>ConcatenateStrings(s1,s2...,sn)</b></p>
+
+<p>The function concatenates its string arguments and returns the resulting string. A number of arguments, on which the function can operate, is in the range from 2 up to 100.</p>
+
+<h3>Used CalcExpress VIs</h3>
+<ul class="GenCE">
+<li><a href="vi_Func_-_Get_list_of_string_arguments.html">Func - Get list of string arguments.vi</a></li>
+</ul>
+<p>&nbsp;</p>
+
+<h3>FuncVI-ConcatenateString.vi Diagram</h3>
+<p><img src="image/vie-sarg.png"></p>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cevi_exmpl_aargs"></a>
+<div class="GenSectTitle">
+<h1><span class="PageTitleL">FuncVI example: </span>APSpectrum</h1>
+</div>
+
+<p>The figure below shows the block diagram of FuncVI that performs the function</p>
+<p style="margin-left:20pt;"><b>APSpectrum(signal, spect <i>,dt</i>)</b></p>
+<p>The function computes the power spectrum of a time-domain signal and saves it in a given variable. The function returns the line frequency interval of the power spectrum (df).</p>
+
+<h3>Function arguments:</h3>
+<ul class="GenCE">
+<li><b>signal</b> is <i>1D Array of DBL</i> containing a time-domain signal.</li>
+<li><b>spect</b> is an <i>Identifier</i> that specify the name of an existing variable of the <i>1D Array of DBL</i> data type. The function assigns a computed value of spectrum to this variable.</li>
+<li><b>dt</b> is the sample period of the time-domain signal. If this optional argument is omitted in a function call, it gets 1.0 as a default value.</li>
+</ul>
+
+<h3>Used CalcExpress VIs</h3>
+<ul class="GenCE">
+<li><a href="vi_Func_-_Get_declared_arguments.html">Func - Get declared arguments.vi</a></li>
+<li><a href="vi_Func_-_VarMan_Error_handler.html">Func - VarMan error handler.vi</a></li>
+<li><a href="vi_Func_-_Unflatten-From-String_Error_handler.html">Func - Unflatten-From-String error handler.vi</a></li>
+<li><a href="vi_Exp_-_Get_VC_Handle.html">Exp - Get VC handle.vi</a></li>
+</ul>
+
+<p>For more information on spectrum computing, see help for<b> Auto Power Spectrum.vi </b>that is used in the FuncVI to perform the function.</p>
+<p>&nbsp;</p>
+
+<h3>FuncVI-APSpectrum.vi Diagram</h3>
+<p><img src="image/vie-aarg.png"></p>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="ce_funcvi_example_args"></a>
+<div class="GenSectTitle">
+<h1><span class="PageTitleL">FuncVI example: </span>SumDBL</h1>
+</div>
+
+<p>The figure below shows the block diagram of FuncVI that performs the function</p>
+<p style="margin-left:20pt;"><b>SumDBL(x1 <i>... ,xn</i>)</b></p>
+<p>The function computes a total sum of all its arguments. The function operates on arbitrary non-zero number of arguments, which can have one of the following data types: <i>DBL Number</i>, <i>1D Array of DBL</i>, <i>2D Array of DBL</i>. If an argument is an array, the function sums all its elements and adds them to the total sum.</p>
+
+<h3>Used CalcExpress VIs</h3>
+<ul class="GenCE">
+<li><a href="vi_Func_-_Get_list_of_arguments.html">Func - Get list of arguments.vi</a></li>
+<li><a href="vi_Exp_-_Error_handler.html">Exp - Error handler.vi</a></li>
+</ul>
+<p>&nbsp;</p>
+
+<h3>FuncVI-SumDBL.vi Diagram</h3>
+<p><img src="image/vie-args.png"></p>
+
+<h3>Hidden Frames</h3>
+<p><img src="image/vie-args2.png">  <img src="image/vie-args3.png">  <img src="image/vie-args4.png"></p>
+<p>&nbsp;</p>
+<p><img src="image/vie-args5.png"></p>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+</body>
+</html>

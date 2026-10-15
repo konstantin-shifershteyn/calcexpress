@@ -1,0 +1,24 @@
+Ns = 1000;           // signal samples
+ps = 50;             // probability samples
+
+hy = vectorn(0, ps); // init histogram values
+
+for (i=0; i<20; i++) { /* repeat to smooth result */
+   x = GWNoise(Ns, 1);  /* Gaussian white noise */
+// x = UWNoise(Ns, 1);  /* uniform white noise */
+   hy += histy(x, ps);  /* computes histogram values */
+}
+hx   = histx(x, ps);    /* computes histogram x values */
+
+/* Probability Distribution */
+dist = integral(hy, 1/(Ns*i), 0,0);
+
+/* Probability Density */
+dens = derivate(dist, 1, 0,1);
+
+wfGraph();       //clears Waveform Graph
+wfGraph(0, x, 0,1, "Signal");
+
+xyGraph();       //clears XY Graph
+xyGraph(0, hx, dist,      "Distribution");
+xyGraph(1, hx, dens * 10, "Density x10");

@@ -1,0 +1,577 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>Algebraic Operators</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+</head>
+
+<body>
+
+<!-- ########################################## -->
+<a name="ce_op_add"></a>
+<div class="GenSectTitle">
+<h2><span class="PageTitleR">Addition operator:  +</span></h2>
+</div>
+
+<p>The addition operator causes its two operands to be added.</p>
+
+<h3>Syntax:</h3>
+<p class="StatementSyntax">
+<i>expression1</i> <b>+</b> <i>expression2</i>
+</p>
+
+<p>The operator can work on scalars, arrays, and combinations thereof. It produces a value according to the <a href="ce_poly.html">polymorphism rules</a> for binary operators.</p>
+
+<h3>Operand data types</h3>
+<div class="FuncDscrSection">
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol">DBL Number</td>
+<td class="FuncDTTblCol">1D Array of DBL</td>
+<td class="FuncDTTblCol">2D Array of DBL</td>
+</tr>
+<tr>
+<td class="FuncDTTblCol">CDB Number</td>
+<td class="FuncDTTblCol">1D Array of CDB</td>
+<td class="FuncDTTblCol">2D Array of CDB</td>
+</tr>
+</table>
+<p><a href="dtypes.html">click here</a> to get general information on data types.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+x = 75; y = 55;<br>
+z = x + y - 30;            /* z equals 100 */<br>
+v1 = vector(100,200,300);  /* v1 is array {100,200,300} */<br>
+v2 = vector(10,20,30);     /* v2 is array {10,20,30}    */<br>
+vo = v1 + v2 + 5;          /* vo is array {115,225,335} */<br>
+</p>
+</div>
+
+<h3>Also see</h3>
+<p>
+<a href="ce_syntax_op.html">CalcExpress Operators</a><br>
+<a href="ce_syntax.html">CalcExpress Syntax</a><br>
+<a href="ce.html">CalcExpress Overview</a>
+</p>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="ce_op_div"></a>
+<div class="GenSectTitle">
+<h2><span class="PageTitleR">Division operator:  /</span></h2>
+</div>
+
+<p>The division operator causes the first (left-hand) operand to be divided by the second (right-hand) operand.</p>
+
+<h3>Syntax:</h3>
+<p class="StatementSyntax">
+<i>expression1</i> <b>/</b> <i>expression2</i>
+</p>
+
+<p>The operator can work on scalars, arrays, and combinations thereof. It produces a value according to the <a href="ce_poly.html">polymorphism rules</a> for binary operators.</p>
+
+<h3>Operand data types</h3>
+<div class="FuncDscrSection">
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol">DBL Number</td>
+<td class="FuncDTTblCol">1D Array of DBL</td>
+<td class="FuncDTTblCol">2D Array of DBL</td>
+</tr>
+<tr>
+<td class="FuncDTTblCol">CDB Number</td>
+<td class="FuncDTTblCol">1D Array of CDB</td>
+<td class="FuncDTTblCol">2D Array of CDB</td>
+</tr>
+</table>
+<p><a href="dtypes.html">click here</a> to get general information on data types.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+x = pi();           /* x equals the pi */<br>
+v = vector(1,2,3);  /* v is array {1,2,3} */<br>
+y1 = x / 2;         /* y1 equals pi/2 */<br>
+y2 = x / v;         /* y2 is array {pi, pi/2, pi/3} */<br>
+</p>
+</div>
+
+<h3>Also see</h3>
+<p>
+<a href="ce_syntax_op.html">CalcExpress Operators</a><br>
+<a href="ce_syntax.html">CalcExpress Syntax</a><br>
+<a href="ce.html">CalcExpress Overview</a>
+</p>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+
+<!-- ########################################## -->
+<a name="ce_op_exp"></a>
+<div class="GenSectTitle">
+<h2><span class="PageTitleR">Exponentiation operator:  **</span></h2>
+</div>
+
+<p>The exponentiation operator causes the first (left-hand) operand to be raised to the second (right-hand) operand power.</p>
+
+<h3>Syntax:</h3>
+<p class="StatementSyntax">
+<i>expression1</i> <b>**</b> <i>expression2</i>
+</p>
+
+<p>The operator can work on scalars, arrays, and combinations thereof. It produces a value according to the <a href="ce_poly.html">polymorphism rules</a> for binary operators.</p>
+
+<h3>Operand data types</h3>
+<div class="FuncDscrSection">
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol">DBL Number</td>
+<td class="FuncDTTblCol">1D Array of DBL</td>
+<td class="FuncDTTblCol">2D Array of DBL</td>
+</tr>
+<tr>
+<td class="FuncDTTblCol">CDB Number</td>
+<td class="FuncDTTblCol">1D Array of CDB</td>
+<td class="FuncDTTblCol">2D Array of CDB</td>
+</tr>
+</table>
+<p><a href="dtypes.html">click here</a> to get general information on data types.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+x = 5;  y = 3;<br>
+z = y ** x;              /* z equals 243 */<br>
+v = y ** vector(2,3,4);  /* v is array {9,27,81} */<br>
+</p>
+</div>
+
+<h3>Also see</h3>
+<p>
+<a href="ce_syntax_op.html">CalcExpress Operators</a><br>
+<a href="ce_syntax.html">CalcExpress Syntax</a><br>
+<a href="ce.html">CalcExpress Overview</a>
+</p>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="ce_op_mul"></a>
+<div class="GenSectTitle">
+<h2><span class="PageTitleR">Multiplication operator:  *</span></h2>
+</div>
+
+<p>The multiplication operator causes its two operands to be multiplied.</p>
+
+<h3>Syntax:</h3>
+<p class="StatementSyntax">
+<i>expression1</i> <b>*</b> <i>expression2</i>
+</p>
+
+<p>The operator can work on scalars, arrays, and combinations thereof. It produces a value according to the <a href="ce_poly.html">polymorphism rules</a> for binary operators.</p>
+
+<h3>Operand data types</h3>
+<div class="FuncDscrSection">
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol">DBL Number</td>
+<td class="FuncDTTblCol">1D Array of DBL</td>
+<td class="FuncDTTblCol">2D Array of DBL</td>
+</tr>
+<tr>
+<td class="FuncDTTblCol">CDB Number</td>
+<td class="FuncDTTblCol">1D Array of CDB</td>
+<td class="FuncDTTblCol">2D Array of CDB</td>
+</tr>
+</table>
+<p><a href="dtypes.html">click here</a> to get general information on data types.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+x = pi();           /* x equals the pi */<br>
+v = vector(1,2,3);  /* v is array {1,2,3} */<br>
+y1 = 2 * x;         /* y1 equals 2*pi */<br>
+y2 = v * x;         /* y2 is array {pi, 2*pi, 3*pi} */<br>
+</p>
+</div>
+
+<h3>Also see</h3>
+<p>
+<a href="ce_syntax_op.html">CalcExpress Operators</a><br>
+<a href="ce_syntax.html">CalcExpress Syntax</a><br>
+<a href="ce.html">CalcExpress Overview</a>
+</p>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="ce_op_remd"></a>
+<div class="GenSectTitle">
+<h2><span class="PageTitleR">Remainder operator:  %</span></h2>
+</div>
+
+<p>The remainder operator produces the remainder when the first (left-hand) operand is divided by the second (right-hand) operand.</p>
+
+<h3>Syntax:</h3>
+<p class="StatementSyntax">
+<i>expression1</i> <b>%</b> <i>expression2</i>
+</p>
+
+<p>The operator can work on scalars, arrays, and combinations thereof. It produces a value according to the <a href="ce_poly.html">polymorphism rules</a> for binary operators.</p>
+
+<h3>Operand data types</h3>
+<div class="FuncDscrSection">
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol">DBL Number</td>
+<td class="FuncDTTblCol">1D Array of DBL</td>
+<td class="FuncDTTblCol">2D Array of DBL</td>
+</tr>
+</table>
+<p>Note that the operator can't operate on complex numbers.</p>
+<p><a href="dtypes.html">click here</a> to get general information on data types.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+x = 5.75;<br>
+out = x % 2;  /* out equals 1.75 */<br>
+</p>
+</div>
+
+<h3>Also see</h3>
+<p>
+<a href="ce_syntax_op.html">CalcExpress Operators</a><br>
+<a href="ce_syntax.html">CalcExpress Syntax</a><br>
+<a href="ce.html">CalcExpress Overview</a>
+</p>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="ce_op_sub"></a>
+<div class="GenSectTitle">
+<h2><span class="PageTitleR">Subtraction operator:  -</span></h2>
+</div>
+
+<p>The subtraction operator subtracts its second (right-hand) operand from the first (left-hand) operand.</p>
+
+<h3>Syntax:</h3>
+<p class="StatementSyntax">
+<i>expression1</i> <b>-</b> <i>expression2</i>
+</p>
+
+<p>The operator can work on scalars, arrays, and combinations thereof. It produces a value according to the <a href="ce_poly.html">polymorphism rules</a> for binary operators.</p>
+
+<h3>Operand data types</h3>
+<div class="FuncDscrSection">
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol">DBL Number</td>
+<td class="FuncDTTblCol">1D Array of DBL</td>
+<td class="FuncDTTblCol">2D Array of DBL</td>
+</tr>
+<tr>
+<td class="FuncDTTblCol">CDB Number</td>
+<td class="FuncDTTblCol">1D Array of CDB</td>
+<td class="FuncDTTblCol">2D Array of CDB</td>
+</tr>
+</table>
+<p><a href="dtypes.html">click here</a> to get general information on data types.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+x = 75; y = 55;<br>
+z = x + y - 30;            /* z equals 100 */<br>
+v1 = vector(100,200,300);  /* v1 is array {100,200,300}*/<br>
+v2 = vector(10,20,30);     /* v2 is array {10,20,30}   */<br>
+vo = v1 - v2 - 5;          /* vo is array {85,175,265} */<br>
+</p>
+</div>
+
+<h3>Also see</h3>
+<p>
+<a href="ce_syntax_op.html">CalcExpress Operators</a><br>
+<a href="ce_syntax.html">CalcExpress Syntax</a><br>
+<a href="ce.html">CalcExpress Overview</a>
+</p>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="ce_op_postinc"></a>
+<a name="ce_op_postdec"></a>
+<div class="GenSectTitle">
+<h2><span class="PageTitleR">Postfix Increment and Decrement operators:  ++ and --</span></h2>
+</div>
+
+<p>
+Postfix Increment operator adds one to its operand, Postfix Decrement operator subtracts one from its operand.
+Both operators require the operand to be modifiable; i.e. refer to a variable or indexed-variable (see <a href="ce_syntax_op_array.html#ce_op_subscript">Subscript operator</a>).
+If the operand's value is an array, increment or decrement operation is applied to every element of the array.
+</p>
+</p>
+Postfix increment or decrement expression evaluates to the value of its operand prior to the respecive operator is applied. The increment or decrement operation occurs after the operand is evaluated.
+Both value and datatype of a postfix expression is the same as operand's value and datatype.
+</p>
+
+<h3>Syntax:</h3>
+<p class="StatementSyntax">
+<i>variable-expression</i> <b>++</b>
+<br>
+<i>variable-expression</i> <b>--</b>
+</p>
+
+<p>The operators can work on scalars and arrays. They produce values according to the <a href="ce_poly.html">polymorphism rules</a> for unary operators.</p>
+
+<h3>Operand data types</h3>
+<div class="FuncDscrSection">
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol">DBL Number</td>
+<td class="FuncDTTblCol">1D Array of DBL</td>
+<td class="FuncDTTblCol">2D Array of DBL</td>
+</tr>
+</table>
+<p><a href="dtypes.html">click here</a> to get general information on data types.</p>
+</div>
+
+<h3>Comments</h3>
+<div class="FuncDscrSection">
+<p>The <i>variable-expression</i> must refer to an existing variable or indexed-variable.</p>
+<p>Indexed-variable is an identifier (name of variable) followed by the <a href="ce_syntax_op_array.html#ce_op_subscript">Subscript operator</a>. For example: x[1]</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+x1 = 1;                  /* x1 is 1 */<br>
+x2 = 2 + x1++;           /* x1 is 2, x2 is 3 */<br>
+v1 = vector(1,2,3,4,5);  /* v1 is array {1,2,3,4,5} */<br>
+v2 = v1--;               /* v1 is array {0,1,2,3,4}, v2 is array {1,2,3,4,5} */<br>
+v2[0]--;                 /* v2 is array {0,2,3,4,5} */<br>
+x3 = v1[x1++];           /* x1 is 3, x3 is 2 */<br>
+</p>
+</div>
+
+<h3>Also see</h3>
+<p>
+<a href="ce_syntax_op.html">CalcExpress Operators</a><br>
+<a href="ce_syntax.html">CalcExpress Syntax</a><br>
+<a href="ce.html">CalcExpress Overview</a>
+</p>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="ce_op_prefinc"></a>
+<a name="ce_op_prefdec"></a>
+<div class="GenSectTitle">
+<h2><span class="PageTitleR">Prefix Increment and Decrement operators:  ++ and --</span></h2>
+</div>
+
+<p>
+Prefix Increment operator adds one to its operand, Prefix Decrement operator subtracts one from its operand.
+Both operators require the operand to be modifiable; i.e. refer to a variable or indexed-variable (see <a href="ce_syntax_op_array.html#ce_op_subscript">Subscript operator</a>).
+If the operand's value is an array, increment or decrement operation is applied to every element of the array.
+</p>
+</p>
+Prefix increment or decrement operator modifies its operand first and evalauates expression value afterwards.
+A value of a prefix expression is the new operand's value. Datatype of an expression value is the same as operand's value datatype.
+</p>
+
+<h3>Syntax:</h3>
+<p class="StatementSyntax">
+<b>++</b> <i>variable-expression</i>
+<br>
+<b>--</b> <i>variable-expression</i>
+</p>
+
+<p>The operators can work on scalars and arrays. They produce values according to the <a href="ce_poly.html">polymorphism rules</a> for unary operators.</p>
+
+<h3>Operand data types</h3>
+<div class="FuncDscrSection">
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol">DBL Number</td>
+<td class="FuncDTTblCol">1D Array of DBL</td>
+<td class="FuncDTTblCol">2D Array of DBL</td>
+</tr>
+</table>
+<p><a href="dtypes.html">click here</a> to get general information on data types.</p>
+</div>
+
+<h3>Comments</h3>
+<div class="FuncDscrSection">
+<p>The <i>variable-expression</i> must refer to an existing variable or indexed-variable.</p>
+<p>Indexed-variable is an identifier (name of variable) followed by the <a href="ce_syntax_op_array.html#ce_op_subscript">Subscript operator</a>. For example: x[1]</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+x1 = 1;                  /* x1 is 1 */<br>
+x2 = 2 + ++x1;           /* x1 is 2, x2 is 4 */<br>
+v1 = vector(1,2,3,4,5);  /* v1 is array {1,2,3,4,5} */<br>
+v2 = --v1;               /* v1 is array {0,1,2,3,4}, v2 is array {0,1,2,3,4} */<br>
+--v2[0];                 /* v2 is array {-1,1,2,3,4} */<br>
+x3 = v1[++x1];           /* x1 is 3, x3 is 3 */<br>
+</p>
+</div>
+
+<h3>Also see</h3>
+<p>
+<a href="ce_syntax_op.html">CalcExpress Operators</a><br>
+<a href="ce_syntax.html">CalcExpress Syntax</a><br>
+<a href="ce.html">CalcExpress Overview</a>
+</p>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="ce_op_neg"></a>
+<div class="GenSectTitle">
+<h2><span class="PageTitleR">Unary Negation operator:  -</span></h2>
+</div>
+
+<p>The negation operator produces the negative value of its operand.</p>
+
+<h3>Syntax:</h3>
+<p class="StatementSyntax">
+<b>-</b> <i>expression</i>
+</p>
+
+<p>The operator can work on scalars and arrays. It produces a value according to the <a href="ce_poly.html">polymorphism rules</a> for unary operators.</p>
+
+<h3>Operand data types</h3>
+<div class="FuncDscrSection">
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol">DBL Number</td>
+<td class="FuncDTTblCol">1D Array of DBL</td>
+<td class="FuncDTTblCol">2D Array of DBL</td>
+</tr>
+<tr>
+<td class="FuncDTTblCol">CDB Number</td>
+<td class="FuncDTTblCol">1D Array of CDB</td>
+<td class="FuncDTTblCol">2D Array of CDB</td>
+</tr>
+</table>
+<p><a href="dtypes.html">click here</a> to get general information on data types.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+x = -(7+3);         /* x is -10 */<br>
+v = vector(1,2,3);  /* v is array {1,2,3} */<br>
+y1 = -x;            /* y1 is 10 */<br>
+y2 = -v;            /* y2 is array {-1,-2,-3} */<br>
+</p>
+</div>
+
+<h3>Also see</h3>
+<p>
+<a href="ce_syntax_op.html">CalcExpress Operators</a><br>
+<a href="ce_syntax.html">CalcExpress Syntax</a><br>
+<a href="ce.html">CalcExpress Overview</a>
+</p>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="ce_op_pos"></a>
+<div class="GenSectTitle">
+<h2><span class="PageTitleR">Unary Plus operator:  +</span></h2>
+</div>
+
+<p>The unary-plus operator returns the value of its operand.</p>
+
+<h3>Syntax:</h3>
+<p class="StatementSyntax">
+<b>+</b> <i>expression</i>
+</p>
+
+<p>The operator can work on scalars and arrays. It produces a value according to the <a href="ce_poly.html">polymorphism rules</a> for unary operators.</p>
+
+<h3>Operand data types</h3>
+<div class="FuncDscrSection">
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol">DBL Number</td>
+<td class="FuncDTTblCol">1D Array of DBL</td>
+<td class="FuncDTTblCol">2D Array of DBL</td>
+</tr>
+<tr>
+<td class="FuncDTTblCol">CDB Number</td>
+<td class="FuncDTTblCol">1D Array of CDB</td>
+<td class="FuncDTTblCol">2D Array of CDB</td>
+</tr>
+</table>
+<p><a href="dtypes.html">click here</a> to get general information on data types.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+x = +(7+3);         /* x is 10 */<br>
+v = vector(1,2,3);  /* v is array {1,2,3} */<br>
+y = +v;             /* y is array {1,2,3} */<br>
+</p>
+</div>
+
+<h3>Also see</h3>
+<p>
+<a href="ce_syntax_op.html">CalcExpress Operators</a><br>
+<a href="ce_syntax.html">CalcExpress Syntax</a><br>
+<a href="ce.html">CalcExpress Overview</a>
+</p>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+</body>
+</html>

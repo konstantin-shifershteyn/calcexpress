@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>Synchronization functions overview</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+<script src="js/vih_frames.js" type="text/javascript"></script>
+<script src="js/vih_print.js" type="text/javascript"></script>
+</head>
+
+<body class="framesJS">
+
+<noscript>
+<p>JavaScript is disabled...</p>
+<hr size=1; noshade;>
+</noscript>
+
+
+<!-- ########################################## -->
+<div class="PageTitleJS" id="styleDivTitle">
+
+<h1><span class="PageTitleL">Synchronization functions</span></h1>
+
+<p>The functions listed in this section are implemented as <a href="cef_main.html#pdfunc_quick_fvi">FuncVIs</a>. When you call any of these functions, CalcExpress calls LabVIEW Synchronization VIs to perform the task. Most functions assign an error code, which LabVIEW VIs return, to the <a href="ce_rt_error.html">rtErrorCode</a> variable.</p>
+<p>Click on a function name below for detailed information on the function.</p>
+
+<hr size=1 noshade>
+<table class="CEFuncList">
+<tr>
+<td class="CEFuncListC1f"><b>function</b></td>
+<td class="CEFuncListC2f"><b>quick info</b></td>
+</tr>
+</table>
+
+</div>
+
+
+<!-- ########################################## -->
+<div id="styleDivScrolling">
+
+<h3><a name="pdfunc_sync_notif"></a>Notifications</h3>
+<table class="CEFuncList">
+<tr>
+<td class="CEFuncListC1f"><a href="cefunc_notif.html#cef_notifCancel">NotifCancel(name)</a></td>
+<td class="CEFuncListC2f">discards any existing notification</td>
+</tr>
+<tr>
+<td class="CEFuncListC1f"><a href="cefunc_notif.html#cef_notifCreate">NotifCreate(name)</a></td>
+<td class="CEFuncListC2f">creates a notifier with the specified name</td>
+</tr>
+<tr>
+<td class="CEFuncListC1f"><a href="cefunc_notif.html#cef_notifDestroy">NotifDestroy(name)</a></td>
+<td class="CEFuncListC2f">destroys the specified notifier</td>
+</tr>
+<tr>
+<td class="CEFuncListC1f"><a href="cefunc_notif.html#cef_notifSend">NotifSend(name,msg)</a></td>
+<td class="CEFuncListC2f">sends a message to the specified notifier</td>
+</tr>
+<tr>
+<td class="CEFuncListC1f"><a href="cefunc_notif.html#cef_notifTest">NotifTest(name)</a></td>
+<td class="CEFuncListC2f">tests whether the specified notifier exists</td>
+</tr>
+<tr>
+<td class="CEFuncListC1f"><a href="cefunc_notif.html#cef_notifWait">NotifWait(name<i>,tmo,ign</i>)</a></td>
+<td class="CEFuncListC2f">waits for a message sent to the specified notifier</td>
+</tr>
+</table>
+
+<h3><a name="pdfunc_sync_queue">Queues</h3>
+<table class="CEFuncList">
+<tr>
+<td class="CEFuncListC1f"><a href="cefunc_queue.html#cef_queueCreate">QueueCreate(name)</a></td>
+<td class="CEFuncListC2f">creates a queue with the specified name</td>
+</tr>
+<tr>
+<td class="CEFuncListC1f"><a href="cefunc_queue.html#cef_queueDestroy">QueueDestroy(name)</a></td>
+<td class="CEFuncListC2f">destroys the specified queue</td>
+</tr>
+<tr>
+<td class="CEFuncListC1f"><a href="cefunc_queue.html#cef_queueGet">QueueGet(name<i>,tmo</i>)</a></td>
+<td class="CEFuncListC2f">extracts an alement from the specified queue</td>
+</tr>
+<tr>
+<td class="CEFuncListC1f"><a href="cefunc_queue.html#cef_queueGetAll">QueueGetAll(name)</a></td>
+<td class="CEFuncListC2f">extracts all elements from the specified queue</td>
+</tr>
+<tr>
+<td class="CEFuncListC1f"><a href="cefunc_queue.html#cef_queueLength">QueueLength(name)</a></td>
+<td class="CEFuncListC2f">returns the number of elements in the specified queue</td>
+</tr>
+<tr>
+<td class="CEFuncListC1f"><a href="cefunc_queue.html#cef_queuePut">QueuePut(name,msg<i>,tmo,stk</i>)</a></td>
+<td class="CEFuncListC2f">inserts an element to the specified queue</td>
+</tr>
+<tr>
+<td class="CEFuncListC1f"><a href="cefunc_queue.html#cef_queueTest">QueueTest(name)</a></td>
+<td class="CEFuncListC2f">tests whether the specified queue exists</td>
+</tr>
+</table>
+
+
+<p>&nbsp;</p>
+</div>
+
+</body>
+</html>

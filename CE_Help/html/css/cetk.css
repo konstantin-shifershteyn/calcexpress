@@ -1,0 +1,176 @@
+/***** new VIHelpeks 3.0.1 definitions *****/
+body {
+	background-color: #FFFFFF;
+	color: #000000;
+	font-family: Verdana, sans-serif;
+	font-size: 8pt;
+	overflow-x: auto;
+	overflow-y: scroll;
+	margin:  0px;
+	padding: 5px;
+}
+body.helpMenu {
+    overflow-x: auto;
+    overflow-y: scroll;
+	margin:  0px;
+	padding: 0px 0px 2px 5px; 
+}
+body.helpVI,
+body.helpPolyVI {
+    overflow-x: hidden;
+    overflow-y: hidden;
+	margin:  0px;
+	padding: 0px 0px 0px 0px; 
+}
+#styleDivTitle {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    border-bottom: 3px solid black; 
+    margin:  0px;
+    padding: 0px 0px 0px 5px;
+    width: auto;
+}
+#styleDivScrolling {
+    overflow-x: auto;
+    overflow-y: scroll;
+	margin:  0px;
+    padding: 0px 0px 0px 5px; 
+    width: auto;
+}
+a.CtrlDscrTarget {
+    display: block;
+    position: relative;
+    top: -1pt;
+/*    visibility: hidden; */
+}
+/***** End of new VIHelpeks 3.0.1 definitions *****/
+
+/***** Start: adaptation to VIHelpeks 3.0.1 *****/
+body {
+	overflow-x: auto;
+	overflow-y: scroll;
+	margin:  0px;
+/*	padding: 0px 5px 5px 5px;	*/
+	padding: 0px 5px 5px 5px;
+}
+body.framesJS {
+	/* same as "body.helpVI" */
+	overflow-x: hidden;
+	overflow-y: hidden;
+	margin:  0px;
+/*	padding: 5px 0px 5px 5px;	*/
+	padding: 0px 0px 0px 0px;
+}
+/***** End: adaptation to VIHelpeks 3.0.1 *****/
+
+
+P { margin-top: 6pt; margin-bottom: 6pt;}
+
+BR { font-size: 4pt; }
+
+H1 { margin-top: 3pt; margin-bottom: 3pt; font-size: 140%; font-weight: bold; }
+H2 { margin-top: 3pt; margin-bottom: 3pt; font-size: 125%; font-weight: bold; }
+H3 { margin-top: 5pt; margin-bottom: 2pt; font-size: 100%; font-weight: bold; }
+
+P.VIDescription { }
+P.ProductInfo { }
+
+Table { font-size: 100%; }
+TD { vertical-align: top; padding: 3px; }
+
+Table.VIConPane { border-style: none; margin-top: 10px; margin-bottom: 10px; }
+TD.VIConPane {border-style: solid;  border-width: 1px; border-color: black; padding: 5px; }
+TD.VIConPane2 { padding:10px 0px 0px 10px; color:#404040; }
+
+Table.PaletteObjectTbl{ width:100%; border-style: solid; border-width: 1px; border-color: #000000; border-collapse: collapse; }
+TH.PaletteObjectTbl{ border-style: solid; border-width: 1px; padding: 3px;}
+TD.PaletteObjectTbl{ border-style: solid; border-width: 1px; }
+TD.PaletteObjectTblIcon{ border-style: solid; border-width: 1px; border-right: none; width: 1%; }
+TD.PaletteObjectTblName{ border-style: solid; border-width: 1px; border-left: none; }
+
+Table.VICtrlDscr { width: 100%; border-style: none; }
+TD.TermImage { width: 36px; padding-left: 0px; }
+
+Table.EnumValTable { border-style: solid; border-width: 1px; border-color: #C0C0C0; border-collapse: collapse; }
+TD.EnumVal { border-style: solid; border-width: 1px; border-color: #C0C0C0; padding-top:1px; padding-bottom:1px; padding-left:3px; padding-right:10px; }
+
+Table.RingValTable { border-style: solid; border-width: 1px; border-color: #C0C0C0; border-collapse: collapse; }
+TD.RingVal { border-style: solid; border-width: 1px; border-color: #C0C0C0; padding-top:1px; padding-bottom:1px; padding-left:3px; padding-right:10px; }
+
+a:link { color: #007700 }
+a:visited { color: #7F007F }
+a:link:hover { color: #FF0000 }
+a:link:active { color: #FF0000 }
+a:link  img { border: none }
+a:visited  img { border: none }
+
+/**************************************/
+/***** CalcExpress Toolkit styles *****/
+/**************************************/
+
+div.PageTitleJS { background-color:#FFFFF0; }
+div.PageTitle {	border:none; border-top:solid 1pt; border-bottom:solid 1pt;	margin:0pt -10pt 0pt -10pt; padding:0pt 10pt 1pt 10pt; background-color:#FFFFF0; }
+
+
+span.PageTitleL { color:#800000; }
+span.PageTitleR { color:#000000; }
+
+hr.TopicSeparator { border:1pt solid black; width=100%; margin-top:15pt; margin-bottom:10pt; }
+hr.LittleHeight   { border:1px solid black; width=100%; margin-top:5pt; margin-bottom:5pt; }
+
+/* TD.CETK { vertical-align: top; padding: 3px; } */
+span.FixedFont { font-size:9.0pt; font-family:"Courier New"; }
+
+
+/***** CE Function Lists *****/
+
+table.CEFuncList { border:0; cellspacing:0; cellpadding:0; margin-left:0pt; border-collapse:collapse; }
+/*
+td.CEFuncListC0 { width:450; column-span:2; valign:top; padding-top:0pt; padding-left:5pt; padding-bottom: 0.5pt; padding-right: 2pt; }
+*/
+td.CEFuncListC1   { width:100; valign:top; padding-top:0pt; padding-left:5pt; padding-bottom: 2pt; padding-right: 2pt; }
+td.CEFuncListC2   { width:350; valign:top; padding-top:0pt; padding-left:2pt; padding-bottom: 2pt; padding-right: 5pt; }
+td.CEFuncListC3   { width:60;  valign:top; padding-top:0pt; padding-left:2pt; padding-bottom: 2pt; padding-right: 2pt; }
+td.CEFuncListC4   { width:50;  valign:top; padding-top:0pt; padding-left:2pt; padding-bottom: 2pt; padding-right: 2pt; }
+
+td.CEFuncListC1c  { width:150; valign:top; padding-top:0pt; padding-left:5pt; padding-bottom: 2pt; padding-right: 2pt; }
+td.CEFuncListC2c  { width:350; valign:top; padding-top:0pt; padding-left:2pt; padding-bottom: 2pt; padding-right: 2pt; }
+
+td.CEFuncListC1f  { width:220; valign:top; padding-top:0pt; padding-left:5pt; padding-bottom: 2pt; padding-right: 2pt; }
+td.CEFuncListC2f  { width:350; valign:top; padding-top:0pt; padding-left:2pt; padding-bottom: 2pt; padding-right: 2pt; }
+
+td.CEFuncListC2vi { width:270; valign:top; padding-top:0pt; padding-left:2pt; padding-bottom: 2pt; padding-right: 2pt; }
+td.CEFuncListC3vi { width:250; valign:top; padding-top:0pt; padding-left:2pt; padding-bottom: 2pt; padding-right: 2pt; }
+
+table.CEFuncCatTbl  { border:0; cellspacing:0; cellpadding:0; margin-left:6pt; border-collapse:collapse; }
+tr.CEFuncCatTblRow  { page-break-inside:avoid; }
+td.CEFuncCatTblCell { width:280; valign:top; padding-top:1pt; padding-left:5pt; padding-bottom: 2pt; padding-right: 2pt; }
+
+/***** Functions Description styles *****/
+
+div.FuncDscrTitle   { border:none; border-top:solid 1pt; border-bottom:solid 1pt; margin:0pt -10pt 0pt -10pt; padding:0pt 10pt 1pt 10pt; background-color:#FFFFF0;}
+div.FuncDscrSection { margin-left:20pt; border:none; padding:0pt 0pt 2pt 0pt; }
+/*p.FuncDscrSyntax    { margin-left:20pt; font-family:"Lucida Console"; font-size:9pt; }		/* used without "div.FuncDscrSection" */
+/*p.FuncDscrExample   { font-family:"Lucida Console"; font-size:8.5pt; padding-bottom:0pt;}	/* used within "div.FuncDscrSection" */
+p.FuncDscrSyntax    { margin-left:20pt; font-family:"Courier New"; font-size:9pt; }		/* used without "div.FuncDscrSection" */
+p.FuncDscrExample   { font-family:"Courier New"; font-size:8.5pt; padding-bottom:0pt;}	/* used within "div.FuncDscrSection" */
+/******/
+table.FuncDscrTbl  { border:0; margin-left:0pt; border-collapse:collapse; }
+td.FuncDscrTblCol1 { width:70;  valign:top; padding:3pt 0pt 0pt 0pt; white-space:nowrap; }
+td.FuncDscrTblCol2 { width:130; valign:top; padding:3pt 0pt 0pt 0pt; white-space:nowrap; }
+td.FuncDscrTblCol3 { width:350; valign:top; padding:3pt 0pt 0pt 0pt;  }
+/******/
+table.FuncDTTbl  { border:0; margin-left:0pt; border-collapse:collapse; }
+/*td.FuncDTTblCol  { valign:top; padding:0pt 15pt 0pt 0pt; white-space:nowrap; } */
+td.FuncDTTblCol  { valign:top; padding:0pt 15pt 0pt 3pt; white-space:nowrap; border: 1px solid #E0E0E0;}
+
+/***** General Description styles *****/
+
+div.GenSectTitle   { border:none; border-top:solid 1pt; border-bottom:solid 1pt; margin:0pt -10pt 0pt -10pt; padding:0pt 10pt 1pt 10pt; background-color:#FFFFF0;}
+p.GenDscrSyntax    { margin-left:20pt; font-family:"Courier New"; font-size:9pt; }		/* used without "div.FuncDscrSection" */
+p.StatementSyntax  { margin:5pt 0pt 5pt 20pt; }
+p.StatementExample { margin-left:20pt; font-family:"Courier New"; font-size:8.5pt; }
+
+ul.GenCE { margin-left:0pt; padding-left:15pt; }
+li.GenCE { padding-bottom:3pt; }
+

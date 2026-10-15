@@ -1,0 +1,178 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>Identifier conversion functions</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+</head>
+
+<body>
+
+
+<!-- ########################################## -->
+<a name="cef_idn"></a>
+<div class="FuncDscrTitle">
+<h1>idn</h1>
+<p>The function converts its string parameter to an identifier.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">idn(name)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value that equals the string parameter <b>name</b> but has the <a href="dtypes.html#data_types_table">Identifier</a> data type, which is used to denote variable names and function names. This function is useful to specify a variable to access or a function to perform at run-time.</p>
+<p>A call of this function has the same effect as if you explicitly write the identifier (a variable name or a function name) specified by <b>name</b>. For example, the following statements have the same effect:</p>
+<p class="FuncDscrExample">x = y + sin(z);<br>idn(&quot;x&quot;) = idn(&quot;y&quot;) + idn(&quot;sin&quot;)(z);</p>
+<p>This function can be used to access a variable by an alias associated with it. It is impossible to directly use a complete VarMan name specifier to access a variable by an alias because of non-strict alias syntax and using equality sign ( = ) to specify an alias (see <a href="varman_vref.html">Referring to variable</a> topic). Use of this function eliminates this restriction. For example, if there is a variable existing in any context that has an associated alias equal to &quot;Variable N&quot;, you can operate on it as shown below:</p>
+<p class="FuncDscrExample">x = idn(&quot;=Variable N&quot;);<br>idn(&quot;=Variable N&quot;) = 5;<br>idn(&quot;=Variable N&quot;) += 1;</p>
+<p>This function can be used to arrange an indirect function call when a desired function is chosen at run-time. Herewith, both FastFunc and FuncVI functions can be called using this technique. For example:</p>
+<p class="FuncDscrExample">funcs = vector(&quot;sin&quot;,&quot;cos&quot;,&quot;tan&quot;,&quot;atan&quot;);<br>x = 1.0;<br>y = idn(funcs[2])(x);  // y is equal to tan(x)</p>
+
+<p><b>Important notes.</b></p>
+<ul>
+<li>The function does not check a correctness of the identifier; it merely converts its string parameter into an operand that has the <a href="dtypes.html#data_types_table">Identifier</a> data type.</li>
+<li>If the function is used to specify a variable, either by name or by an alias, the function itself does not evaluate the variable. The variable will be evaluated later when its value is required to complete an expression evaluation. It can cause an error at script execution time if the specified variable does not exist.</li>
+<li>The function can safely be used as the left-hand operand in simple assignment operator providing that a name specifier is correct. If the specified variable does not exist, it will be created.</li>
+<li>If the function is used to specify a function name, the resulting function call cannot be validated during script parsing. Hence, it can cause an error at script execution time if the specified function does not exist or cannot operate on the specified set of parameters.</li>
+</ul>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>name</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies an identifier in the string representation.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The return value has the <a href="dtypes.html#data_types_table">Identifier</a> data type.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+/* It's example of CSE script */<br>
+x23 = &quot;a variable&quot;;<br>
+msg = &quot;VarName: x23&quot;;<br>
+/* extracts a variable name from a message */<br>
+varName = <a href="cefunc_string.html#cef_scanstr">scanstr</a>(msg, &quot;VarName: %s&quot;);<br>
+if (<a href="cefunc_vm2.html#cef_vtest">vtest</a>(varName) &gt;= 0) {<br>
+   /* show a variable value if it exists */<br>
+   <a href="cefunc_user.html#cef_Probe">probe</a>( <b>idn</b>(varName) );<br>
+}<br>
+else {<br>
+   <a href="cefunc_user.html#cef_MsgBox">MsgBox</a>(&quot;Undefined variable: &quot;,varName);<br>
+}
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_var.html">Variable management functions</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_vnidn"></a>
+<div class="FuncDscrTitle">
+<h1>vnidn</h1>
+<p>The function converts its string parameter to an identifier.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">vnidn(name)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>This function performs the same operation as the <a href="#cef_idn">idn</a> function. See description of <a href="#cef_idn">idn</a> function for more information.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_vnstr"></a>
+<div class="FuncDscrTitle">
+<h1>vnstr</h1>
+<p>The function converts an identifier to a string.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">vnstr(ident)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns a string that has the same value as the identifier name specified by <b>ident</b> parameter. The function can be used to represent an identifier as a string at run time.</p>
+<p>Call of this function has the same effect as if you explicitly write a string constant containing the identifier specified by <b>name</b>. For example, the following two statements have the identical effect:</p>
+<p class="FuncDscrExample">vtest(&quot;ident&quot;);<br>vtest(vnstr(ident));</p>
+<p>Note that the function does not evaluate the specified variable, it merely converts the identifier name to a string. Therefore, no error occurs if the identifier denotes a non-existent variable.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>ident</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">Identifier</a></td>
+<td class="FuncDscrTblCol3">
+required parameter that specifies an identifier to be converted to a string.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The return value has the <a href="dtypes.html#data_types_table">String</a> data type.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+/*<br>
+It's example of CSE script.<br>
+*/<br>
+varName = <b>vnstr</b>(param10);<br>
+type = <a href="cefunc_vm2.html#cef_vtest">vtest</a>(varName);<br>
+if (type &gt;= 0)<br>
+   <a href="cefunc_user.html#cef_MsgBox">MsgBox</a>( <a href="cefunc_string.html#cef_sform">sform</a>(&quot;Variable %s has type %d&quot;,varName,type));<br>
+else<br>
+   <a href="cefunc_user.html#cef_MsgBox">MsgBox</a>( <a href="cefunc_string.html#cef_sform">sform</a>(&quot;Variable %s doesn't exist&quot;, varName));
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_var.html">Variable management functions</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+</body>
+</html>

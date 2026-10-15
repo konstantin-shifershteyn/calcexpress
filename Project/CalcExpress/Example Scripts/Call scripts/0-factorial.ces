@@ -1,0 +1,48 @@
+/*
+This example script demonstrates capability of recursive script
+calls on example of factorial calculation.
+
+A call of scripts is performed with the help of 'call' function
+that reads a script file and executes the script. A called
+script has its own variable context that does not interfere with
+a context of the calling script. The 'call' function passes the
+specified parameters between variable contexts of calling and
+called scripts.
+*/
+
+if (!CallLevel()) {
+  // Ask for a number if the first call in the call chain
+  num = NumDialog("Enter the number to calculate factorial",
+                   1, 5, 1, 20);
+  if (_isnan(num)) return;  // exit if cancelled
+}
+
+// recursive call for calculation of factorial
+if (num <= 1) {
+  factr  = 1;
+}
+else {
+  // get file path of this script 
+  script = ScriptPath();
+
+  // call new instance of this script and
+  // pass value of num-1 to it as an input value
+  factr  = num * call(script, (x=num-1,"x >> num"));
+
+// ---
+// the statement above is similar to:
+// x = num - 1;
+// factr = num * call(script, "x >> num");
+//
+// in C, it can look like:
+// factr = num * factorial(num-1);
+// ---
+}
+
+if (!CallLevel()) {
+  // Display result of calculation if the instance is
+  // top-level in the call chain (i.e. calculation completed)
+  msg = sform("Factorial of %d is equal to %.0f", num,factr);
+  MsgBox(msg);
+}
+return factr;

@@ -1,0 +1,421 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>Complex Number functions</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+</head>
+
+<body>
+
+<!-- ########################################## -->
+<a name="cef_arg"></a>
+<div class="FuncDscrTitle">
+<h1>arg</h1>
+<p>The function computes the phase angle (argument) of a complex number.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">arg(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the argument of the complex <b>x</b>.<br> If complex <b>x</b> is represented as <b>r * exp(</b><b><i>i </i>* </b><b>j)</b>, the function returns <b>j</b>.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>, except that the result always has a real representation (DBL). Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+<tr>
+<td class="FuncDTTblCol"><i>CDB Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of CDB</i></td>
+<td class="FuncDTTblCol"><i>2D Array of CDB</i></td>
+</tr>
+</table>
+<p>If <b>x</b> has a non-complex representation, it is considered to be a complex number with an imaginary part equal to zero.</p>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>Depending on the data type of <b>x</b>, the function returns a value that has one of the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+x = 5;                // x is real 5<br>
+z = complex(x,x);     // z is complex (5,5)<br>
+a = arg( z );         // a is equal to p/4<br>
+b = arg( x );         // b is equal to 0<br>
+</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_complex"></a>
+<div class="FuncDscrTitle">
+<h1>complex</h1>
+<p>The function creates a complex number in the rectangular notation.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">complex(x ,<i>y</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns a complex number built from <b>x</b> and <b>y</b> in rectangular notation:</p>
+<p><b>  x </b>+ <b><i>i </i>y</b>.</p>
+<p><b>y</b> is an optional argument. If it is omitted in the function call, it is treated as zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars, arrays and combinations thereof. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>, except that the result always has a complex representation (CDB). Formally, <b>x</b> and <b>y</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>Depending on the data types of <b>x</b> and <b>y</b>, the function returns a value that has one of the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>CDB Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of CDB</i></td>
+<td class="FuncDTTblCol"><i>2D Array of CDB</i></td>
+</tr>
+</table>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+v = vector(1,2,3);  // v is array {1,2,3}<br>
+z1 = complex(6);    // z1 is complex (6,0)<br>
+z2 = complex(v,1);  // z2 is array {(1,1),(2,1),(3,1)}<br>
+</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_conj"></a>
+<div class="FuncDscrTitle">
+<h1>conj</h1>
+<p>The function computes the complex conjugate of a number.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">conj(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the conjugate of the complex <b>x</b>.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>, except that the result always has a complex representation (CDB). Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+<tr>
+<td class="FuncDTTblCol"><i>CDB Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of CDB</i></td>
+<td class="FuncDTTblCol"><i>2D Array of CDB</i></td>
+</tr>
+</table>
+<p>If <b>x</b> has a non-complex representation, it is considered to be a complex number with an imaginary part equal to zero.</p>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>Depending on the data type of <b>x</b>, the function returns a value that has one of the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>CDB Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of CDB</i></td>
+<td class="FuncDTTblCol"><i>2D Array of CDB</i></td>
+</tr>
+</table>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+z = complex(5,3);  // z is complex {5,3}<br>
+z1 = conj( z );    // z1 is equal to {5,-3}<br>
+z2 = conj( 1 );    // z2 is equal to {1,0}<br>
+</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_imag"></a>
+<div class="FuncDscrTitle">
+<h1>imag</h1>
+<p>The function computes the imaginary part of a complex number.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">imag(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the imaginary part of the complex <b>x</b>.<br> If complex <b>x</b> is represented as <b>a + </b><b><i>i </i></b><b>b</b>, the function returns <b>b</b>.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>, except that the result always has a real representation (DBL). Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+<tr>
+<td class="FuncDTTblCol"><i>CDB Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of CDB</i></td>
+<td class="FuncDTTblCol"><i>2D Array of CDB</i></td>
+</tr>
+</table>
+<p>If <b>x</b> has a non-complex representation, it is considered to be a complex number with an imaginary part equal to zero.</p>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>Depending on the data type of <b>x</b>, the function returns a value that has one of the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+z = complex(6,2); // z is complex (6,2)<br>
+a = imag( z );    // a is equal to 2<br>
+b = imag( 5 );    // b is equal to 0<br>
+</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_norm"></a>
+<div class="FuncDscrTitle">
+<h1>norm</h1>
+<p>The function computes the absolute value (complex magnitude) of a complex number.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">norm(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the absolute value of the complex <b>x</b>.<br> If complex <b>x</b> is represented as <b>r * exp(</b><b><i>i </i>* </b><b>j)</b>, the function returns <b>r</b>.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>, except that the result always has a real representation (DBL). Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+<tr>
+<td class="FuncDTTblCol"><i>CDB Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of CDB</i></td>
+<td class="FuncDTTblCol"><i>2D Array of CDB</i></td>
+</tr>
+</table>
+<p>If <b>x</b> has a non-complex representation, it is considered to be a complex number with an imaginary part equal to zero.</p>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>Depending on the data type of <b>x</b>, the function returns a value that has one of the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+z = complex(3,4);  // z is complex (3,4)<br>
+a = norm( z );     // a is equal to 5<br>
+b = norm( 1.2 );   // b is equal to 1.2<br>
+</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_polar"></a>
+<div class="FuncDscrTitle">
+<h1>polar</h1>
+<p>The function creates a complex number in the polar notation.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">polar(x ,<i>y</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns a complex number built from <b>x</b> and <b>y</b> in polar notation:</p>
+<p><b>  x * exp(<i>i </i></b>*<b>y)</b>.</p>
+<p><b>y</b> is an optional argument. If it is omitted in the function call, it is treated as zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars, arrays and combinations thereof. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>, except that the result always has a complex representation (CDB). Formally, <b>x</b> and <b>y</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>Depending on the data types of <b>x</b> and <b>y</b>, the function returns a value that has one of the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>CDB Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of CDB</i></td>
+<td class="FuncDTTblCol"><i>2D Array of CDB</i></td>
+</tr>
+</table>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+v = vector(-1,-2,-3); // v is array {-1,-2,-3}<br>
+z1 = polar(6);        // z1 is complex (6,0)<br>
+z2 = polar(v,pi());   // z2 is array {(1,0),(2,0),(3,0)}<br>
+</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_real"></a>
+<div class="FuncDscrTitle">
+<h1>real</h1>
+<p>The function computes the real part of a complex number.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">real(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the real part of the complex <b>x</b>.<br> If complex <b>x</b> is represented as <b>a + </b><b><i>i
+</i></b><b>b</b>, the function returns <b>a</b>.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>, except that the result always has a real representation (DBL). Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+<tr>
+<td class="FuncDTTblCol"><i>CDB Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of CDB</i></td>
+<td class="FuncDTTblCol"><i>2D Array of CDB</i></td>
+</tr>
+</table>
+<p>If <b>x</b> has a non-complex representation, it is considered to be a complex number with an imaginary part equal to zero.</p>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>Depending on the data type of <b>x</b>, the function returns a value that has one of the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+z = complex(6,2);  // z is complex (6,2)<br>
+a = real( z );     // a is equal to 6<br>
+b = real( 5 );     // b is equal to 5<br>
+</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+</body>
+</html>

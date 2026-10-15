@@ -1,0 +1,28 @@
+/*
+   For details on array indexing, refer to
+  "Operators, subscript operator" topic in CalcExpress help
+*/
+
+/* create 2D array */
+matrix = nmtxins(0,5,10,5,1);
+probe(matrix, "Initial array");
+
+/* read a cell */
+cell = matrix[3,0];
+probe(cell, "cell at row 3 and column 0");
+
+/* read a row */
+row = matrix[2];     //same as: row = matrix[2,$>];
+probe(row, "row 2");
+
+/* read a column */
+col = matrix[$>,1];
+probe(col, "column 1");
+
+/* read the main diagonal */
+diag = matrix[$> @ $>];
+probe(diag, "main diagonal");
+
+/* read a 2D subset */
+subset = matrix[1:3, 0:1];
+probe(subset, "2D subset at rows 1..3 and columns 0..1");

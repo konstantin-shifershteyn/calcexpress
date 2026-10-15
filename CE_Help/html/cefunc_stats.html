@@ -1,0 +1,636 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>Probability and Statistics functions</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+</head>
+
+<body>
+
+<!-- ########################################## -->
+<a name="cef_histx"></a>
+<a name="cef_histy"></a>
+<div class="FuncDscrTitle">
+<h1>histx, histy</h1>
+<p>The functions compute the discrete histogram of the specified data set.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">
+histx(x ,<i>n</i>)<br>
+histy(x ,<i>n</i>)<br>
+</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>
+The <b>histx</b> function returns <i>X values</i> of the histogram computed on <b><i>n</i></b> intervals. The <i>X values</i> is an 1D array that has size <b>n</b>. Elements of <i>X values</i> are computed by the formula:
+</p>
+<p style="margin-left:15">
+<b>X[i] = min + 0.5*dx + i*dx</b>     for <b>i</b>=0,1,..., <b>n</b>-1
+</p>
+<p style="margin-left:15">, where</p>
+<p style="margin-left:15">
+<b>dx = (max-min)/n</b> ,<br>
+<b>min</b> is the minimum value found in <b>x</b> ,<br>
+<b>max</b> is the maximum value found in <b>x</b>.
+</p>
+<p>The <b>histy</b> function returns <i>Y values</i> of the histogram computed on <b><i>n</i></b> intervals (histigram value). The <i>Y values</i> is an 1D array that has size <b>n</b>. Each element of the <i>Y values</i> (<b>Y[i]</b>) contains number of elements in <b>x</b> that meet the condition:
+</p>
+<p style="margin-left:15">
+<b>X[i]-dx</b>  <img src="image/eq_LEQ.png"> <b>x</b> <img src="image/eq_LS.png"> <b>X[i]+dx    </b>for <b>i</b>=0,1,..., <b>n</b>-1
+</p>
+<p>If <b>x</b> is an empty array, or <b>n</b> is less than or equal to 0, the both functions return NaN.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p><b>x</b> can have any of the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+<p><b>n</b> (number of intervals) is the optional parameter that can be omitted in a function call. By default, <b>n</b> is equal to size(<b>x</b>)/2. If <b>n</b> is less than 1, it assumes to be 1.</p>
+<p>If <b>n</b> is present in a function call, it must have the <i>DBL Number</i> data type.</p>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>Both functions return a value that has the <i>1D Array of DBL</i> data type.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+x = <a href="cefunc_sgen.html#cef_gwnoise">GWNoise</a>(10000,2);     /*generates Gaussian white noise*/<br>
+N = 50;<br>
+<a href="cefunc_user.html#cef_xygraph">XYGraph</a>(0, <b>histx</b>(x,N), <b>histy</b>(x,N));  /*shows the histogram*/<br>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<a href="cef_cat_stats.html">Probability and Statistics functions</a>.<br>
+&nbsp;<br>
+&nbsp;
+</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_madev"></a>
+<div class="FuncDscrTitle">
+<h1>madev</h1>
+<p>The function computes the Mean Absolute Deviation of the input data set.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">madev(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the mean absolute deviation of the values in <b>x</b>. If <b>x</b> is an empty array, the function returns NaN.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value that has the <i>DBL Number</i> data type.</p>
+</div>
+
+<h3>Comments</h3>
+<div class="FuncDscrSection">
+<p>The function computes the Mean Absolute Deviation of <b>x</b> using the formula:</p>
+<p><img src="image/madev.png"></p>
+<p>, where <b>n</b> is number of elements in <b>x</b>, and <img src="image/__x__.png"> is the mean of <b>x</b> values:</p>
+<p><img src="image/mean.png"></p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_stats.html">Probability and Statistics functions</a>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_mean"></a>
+<div class="FuncDscrTitle">
+<h1>mean</h1>
+<p>The function computes the mean (average) of argument values.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">mean(x1 ,<i>x2</i> ... ,<i>xn</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on an arbitrary non-zero number of arguments; herewith, it considers all the actual parameters as a single aggregate data set.</p>
+<p>The function returns the mean of all the elements in the aggregate data set. The mean is computed using the formula <b>sum(X)/N</b>, where <b>X</b> is the aggregate data set, and <b>N</b> is the number of elements in the aggregate data set.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars, arrays, and any combinations thereof. Formally, it works on the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+<tr>
+<td class="FuncDTTblCol"><i>CDB Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of CDB</i></td>
+<td class="FuncDTTblCol"><i>2D Array of CDB</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a scalar value. The value has the <i>DBL Number</i> data type if all of the actual parameters have a real representation (DBL). If there is a parameter with a complex representation (CDB), the return value has the <i>CDB Number</i> data type.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+x = 5;<br>
+v = vector(10,20,30); //v is array {10,20,30}<br>
+mean(v);       //returns 20<br>
+mean(x,6,7);   //returns 6<br>
+mean(v,x,15);  //returns 16<br>
+&nbsp;<br>
+&nbsp;
+</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_median"></a>
+<div class="FuncDscrTitle">
+<h1>median</h1>
+<p>The function searches for the Median in the input data set.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">median(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the median value in <b>x</b>. To find the median value, the function sorts values of <b>x</b>, and then returns either the middle element of the sorted array, if <b>x</b> consists of odd number of elements, or the average of the two middle elements, if <b>x</b> contains even number of elements.</p>
+<p>If <b>x</b> is an empty array, the function returns NaN.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value that has the <i>DBL Number</i> data type.</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_stats.html">Probability and Statistics functions</a>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_mode"></a>
+<div class="FuncDscrTitle">
+<h1>mode</h1>
+<p>The function searches for the Mode of the input data set.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">mode(x ,<i>n</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the mode of <b>x</b>. To find the mode of <b>x</b>, the function computes the discrete histogram of <b>x</b> with the <b>n</b> intervals and then searches for the interval that has maximum histogram value (<i>Y value</i>). The function returns the central value of the found interval (<i>X value</i>) as the mode of <b>x</b>. For more information see description of <a href="#cef_histx">histogram functions</a>.</p>
+<p>If <b>x</b> is an empty array, or <b>n</b> is less than or equal to 0, the function returns NaN.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p><b>x</b> can have any of the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+<p><b>n</b> (number of intervals) is the optional parameter that can be omitted in a function call. By default, <b>n</b> is equal to size(<b>x</b>)/2. If <b>n</b> is less than 1, it assumes to be 1.</p>
+<p>If <b>n</b> is present in a function call, it must have the <i>DBL Number</i> data type.</p>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value that has the <i>DBL Number</i> data type.</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="#cef_histx">histx(x,n)</a>, <a href="#cef_histy">histy(x,n)</a></p>
+<p><a href="cef_cat_stats.html">Probability and Statistics functions</a>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_moment"></a>
+<div class="FuncDscrTitle">
+<h1>moment</h1>
+<p>The function computes the specified moment about the mean of the input data set.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">moment(x,m)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the <b>m</b>-th order moment about the mean of <b>x</b>. If <b>x</b> is an empty array, or <b>m</b> is less than or equal to 0, the function returns NaN.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p><b>x</b> can have any of the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+<p><b>m</b> must have the <i>DBL Number</i> data type.</p>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value that has the <i>DBL Number</i> data type.</p>
+</div>
+
+<h3>Comments</h3>
+<div class="FuncDscrSection">
+<p>The function computes the <b>m</b>-th order moment of <b>x</b> using the formula:</p>
+<p><img src="image/moment.png"></p>
+<p>, where <b>n</b> is number of elements in <b>x</b>, and <img src="image/__x__.png"> is the mean of <b>x</b> values:</p>
+<p><img src="image/mean.png"></p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_stats.html">Probability and Statistics functions</a>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_mse"></a>
+<div class="FuncDscrTitle">
+<h1>mse</h1>
+<p>The function computes the Mean Squared Error (MSE) of two data sets.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">mse(x,y)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the mean squared error of <b>x</b> and <b>y</b>.</p>
+<p>If number of elements in <b>x</b> is different from number of elements in <b>y</b>, the function computes MSE based on the smallest of them. If <b>x</b> or <b>y</b> is an empty array, the function returns NaN.</p>
+<p>Note that if both <b>x</b> and <b>y</b> are 2D arrays, the function does not pay attention on dimension sizes. It considers 2D array like 1D array that contains the same number of elements as the original 2D array, and is produced by concatenation of rows of the original 2D array (i.e. it contains elements of the first row, then elements of the second row, etc.).</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p><b>x</b> and <b>y</b> must have the same type that can be any of the following: </p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value that has the <i>DBL Number</i> data type.</p>
+</div>
+
+<h3>Comments</h3>
+<div class="FuncDscrSection">
+<p>The function computes the MSE of <b>x</b> and <b>y</b> using the formula:</p>
+<p><img src="image/mse.png"></p>
+<p>, where <b>n</b> is the smallest number of elements in <b>x</b> and <b>y</b>.</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_stats.html">Probability and Statistics functions</a>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_rms"></a>
+<div class="FuncDscrTitle">
+<h1>rms</h1>
+<p>The function computes the Root Mean Square (RMS) of the input data set.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">rms(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the RMS of the values in <b>x</b>. If <b>x</b> is an empty array, the function returns NaN.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value that has the <i>DBL Number</i> data type.</p>
+</div>
+
+<h3>Comments</h3>
+<div class="FuncDscrSection">
+<p>The function computes the Root Mean Square of <b>x</b> using the formula:</p>
+<p><img src="image/rms.png"></p>
+<p>, where <b>n</b> is number of elements in <b>x</b>.</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_stats.html">Probability and Statistics functions</a>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_stdev"></a>
+<div class="FuncDscrTitle">
+<h1>stdev</h1>
+<p>The function computes the Standard Deviation of the input data set.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">stdev(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the standard deviation of the values in <b>x</b>. If <b>x</b> is an empty array, the function returns NaN.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value that has the <i>DBL Number</i> data type.</p>
+</div>
+
+<h3>Comments</h3>
+<div class="FuncDscrSection">
+<p>The function computes the standard deviation of <b>x</b> using the formula:</p>
+<p><img src="image/stdev.png"></p>
+<p>, where <b>n</b> is number of elements in <b>x</b>, and <img src="image/__x__.png"> is the mean of <b>x</b> values:</p>
+<p><img src="image/mean.png"></p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="#cef_stdev_">_stdev(x)</a> , <a href="#cef_var">var(x)</a></p>
+<p><a href="cef_cat_stats.html">Probability and Statistics functions</a>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_stdev_"></a>
+<div class="FuncDscrTitle">
+<h1>_stdev</h1>
+<p>The function computes the Sample Standard Deviation of the input data set.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">_stdev(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the sample standard deviation of the values in <b>x</b>. If <b>x</b> contains less than two elements, the function returns NaN.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value that has the <i>DBL Number</i> data type.</p>
+</div>
+
+<h3>Comments</h3>
+<div class="FuncDscrSection">
+<p>The function computes the sample standard deviation of <b>x</b> using the formula:</p>
+<p><img src="image/_stdev.png"></p>
+<p>, where <b>n</b> is number of elements in <b>x</b>, and <img src="image/__x__.png"> is the mean of <b>x</b> values:</p>
+<p><img src="image/mean.png"></p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="#cef_stdev">stdev(x)</a> , <a href="#cef_var_">_var(x)</a></p>
+<p><a href="cef_cat_stats.html">Probability and Statistics functions</a>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_var"></a>
+<div class="FuncDscrTitle">
+<h1>var</h1>
+<p>The function computes the Variance of the input data set.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">var(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the variance of the values in <b>x</b>. If <b>x</b> is an empty array, the function returns NaN.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value that has the <i>DBL Number</i> data type.</p>
+</div>
+
+<h3>Comments</h3>
+<div class="FuncDscrSection">
+<p>The function computes the variance of <b>x</b> using the formula:</p>
+<p><img src="image/var.png"></p>
+<p>, where <b>n</b> is number of elements in <b>x</b>, and <img src="image/__x__.png"> is the mean of <b>x</b> values:</p>
+<p><img src="image/mean.png"></p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="#cef_var_">_var(x)</a> , <a href="#cef_stdev">stdev(x)</a></p>
+<p><a href="cef_cat_stats.html">Probability and Statistics functions</a>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_var_"></a>
+<div class="FuncDscrTitle">
+<h1>_var</h1>
+<p>The function computes the Sample Variance of the input data set.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">_var(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the sample variance of the values in <b>x</b>. If <b>x</b> contains less than two elements, the function returns NaN.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value that has the <i>DBL Number</i> data type.</p>
+</div>
+
+<h3>Comments</h3>
+<div class="FuncDscrSection">
+<p>The function computes the sample variance of <b>x</b> using the formula:</p>
+<p><img src="image/_var.png"></p>
+<p>, where <b>n</b> is number of elements in <b>x</b>, and <img src="image/__x__.png"> is the mean of <b>x</b> values:</p>
+<p><img src="image/mean.png"></p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="#cef_var">var(x)</a> , <a href="#cef_stdev_">_stdev(x)</a></p>
+<p><a href="cef_cat_stats.html">Probability and Statistics functions</a>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+</body>
+</html>

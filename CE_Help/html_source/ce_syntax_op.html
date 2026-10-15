@@ -1,0 +1,327 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>Operators</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+<style>
+h3.OpTitle     { margin-top: 10pt; margin-bottom: 2pt; font-size: 100%; font-weight: bold; }
+table.OpTable  { cellspacing:0; cellpadding:0; margin-left:0pt; border:0; border-collapse:collapse;}
+td.OpTableCol1 { valign:top; padding:0pt 12pt 2pt 3pt; white-space:nowrap; }
+<!--
+table.AsTable  { width:100%; cellspacing:0; cellpadding:0; margin:10pt 0 10pt -5pt; border:0; border-collapse:collapse; border-top:solid 1pt; border-bottom:solid 1pt; }
+-->
+table.AsTable  { width:auto; cellspacing:0; cellpadding:0; margin:10pt -10pt 10pt 0pt; border:0; border-collapse:collapse; border:solid 1pt lightgray; }
+td.AsTableCol1 { width:140; valign:top; padding:0pt 5pt 3pt 5pt; border-bottom:solid 1pt lightgray;}
+td.AsTableCol2 { width:160; valign:top; padding:0pt 5pt 3pt 5pt; border-bottom:solid 1pt lightgray;}
+td.AsTableCol3 { valign:top; padding:0pt 5pt 3pt 5pt; border-bottom:solid 1pt lightgray;}
+
+</style>
+</head>
+
+<body>
+
+<!-- ########################################## -->
+<a name="ce_syntax_op"></a>
+<div class="GenSectTitle">
+<h1><span class="PageTitleL">Operators</span></h1>
+</div>
+
+<p>Operators are used to perform actions on operands. An operand is a value or expression that an operator acts on.  There are the following types of operators:</p>
+<ul class="GenCE">
+<li class="GenCE">Unary operators perform operations on a single operand</li>
+<li class="GenCE">Binary operators perform operations on two operands</li>
+<li class="GenCE">Punctuators influence the order of expression evaluation</li>
+<li class="GenCE"><a href="ce_syntax_op_array.html#ce_op_subscript">Subscript operator</a></li>
+</ul>
+
+<p>All CalcExpress operators are polymorphic, which means they can act on operands of multiple data types. Most operators operate only on predefined data types, but some can handle user-defined data types as well. The description of each operator includes a list of supported data types. <a href="ce_poly.html">Click here</a> for more information on polymorphism for operators.</p>
+
+<p>The table below shows CalcExpress operators grouped into categories. Click on an operator in the table to get details about it. To learn about the precedence and associativity of operators, see <a href="#ce_syntax_eval_order">Order of Expression Evaluation</a> topic.</p>
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+<p>&nbsp;</p>
+</div>
+
+
+<table class="OpTable">
+<tr>
+<td colspan="4"><h3 class="OpTitle">Algebraic Operators</h3></td>
+</tr>
+<tr>
+<td class="OpTableCol1"><a href="ce_syntax_op_algebraic.html#ce_op_neg">Unary Negation: -</a></td>
+<td class="OpTableCol1"><a href="ce_syntax_op_algebraic.html#ce_op_pos">Unary Plus: +</a></td>
+<td class="OpTableCol1"></td>
+<td class="OpTableCol1"></td>
+</tr>
+
+<tr>
+<td class="OpTableCol1"><a href="ce_syntax_op_algebraic.html#ce_op_postinc">Postfix Increment: ++</a></td>
+<td class="OpTableCol1"><a href="ce_syntax_op_algebraic.html#ce_op_postdec">Postfix Decrement: --</a></td>
+<td class="OpTableCol1"><a href="ce_syntax_op_algebraic.html#ce_op_prefinc">Prefix Increment: ++</a></td>
+<td class="OpTableCol1"><a href="ce_syntax_op_algebraic.html#ce_op_prefdec">Prefix Decrement: --</a></td>
+</tr>
+
+
+<tr>
+<td class="OpTableCol1"><a href="ce_syntax_op_algebraic.html#ce_op_exp">Exponentiation: **</a></td>
+<td class="OpTableCol1"><a href="ce_syntax_op_algebraic.html#ce_op_mul">Multiplication: *</a></td>
+<td class="OpTableCol1"><a href="ce_syntax_op_algebraic.html#ce_op_div">Division: /</a></td>
+<td class="OpTableCol1"><a href="ce_syntax_op_algebraic.html#ce_op_remd">Remainder: %</a></td>
+</tr>
+<tr>
+<td class="OpTableCol1"><a href="ce_syntax_op_algebraic.html#ce_op_add">Addition: +</a></td>
+<td class="OpTableCol1"><a href="ce_syntax_op_algebraic.html#ce_op_sub">Subtraction: -</a></td>
+<td class="OpTableCol1"></td>
+<td class="OpTableCol1"></td>
+</tr>
+
+<tr>
+<td colspan="4"><h3 class="OpTitle">Bitwise Operators</h3></td>
+</tr>
+<tr>
+<td class="OpTableCol1"><a href="ce_syntax_op_bitwise.html#ce_op_b-not">Bitwise-NOT: ~</a></td>
+<td class="OpTableCol1"><a href="ce_syntax_op_bitwise.html#ce_op_b-and">Bitwise-AND: &amp;</a></td>
+<td class="OpTableCol1"><a href="ce_syntax_op_bitwise.html#ce_op_b-or">Bitwise-OR: |</a></td>
+<td class="OpTableCol1"><a href="ce_syntax_op_bitwise.html#ce_op_b-xor">Bitwise-XOR: ^</a></td>
+</tr>
+<tr>
+<td class="OpTableCol1"><a href="ce_syntax_op_bitwise.html#ce_op_b-lshift">Bitwise-Left-Shift: &lt;&lt;</a></td>
+<td class="OpTableCol1"><a href="ce_syntax_op_bitwise.html#ce_op_b-rshift">Bitwise-Right-Shift: &gt;&gt;</a></td>
+<td class="OpTableCol1"></td>
+<td class="OpTableCol1"></td>
+</tr>
+
+<tr>
+<td colspan="4"><h3 class="OpTitle">Logical Operators</h3></td>
+</tr>
+<tr>
+<td class="OpTableCol1"><a href="ce_syntax_op_logical.html#ce_op_l-not">Logical-NOT: !</a></td>
+<td class="OpTableCol1"><a href="ce_syntax_op_logical.html#ce_op_l-and">Logical-AND: &amp;&amp;</a></td>
+<td class="OpTableCol1"><a href="ce_syntax_op_logical.html#ce_op_l-or">Logical-OR: ||</a></td>
+<td class="OpTableCol1"><a href="ce_syntax_op_logical.html#ce_op_l-xor">Logical-XOR: ^^</a></td>
+</tr>
+
+<tr>
+<td colspan="4"><h3 class="OpTitle">Comparison Operators</h3></td>
+</tr>
+<tr>
+<td class="OpTableCol1"><a href="ce_syntax_op_comparison.html#ce_op_equal">Equality: ==</a></td>
+<td class="OpTableCol1"><a href="ce_syntax_op_comparison.html#ce_op_equal">Inequality: !=</a></td>
+<td class="OpTableCol1"></td>
+<td class="OpTableCol1"></td>
+</tr>
+<tr>
+<td class="OpTableCol1"><a href="ce_syntax_op_comparison.html#ce_op_relation">Greater: &gt;</a></td>
+<td class="OpTableCol1"><a href="ce_syntax_op_comparison.html#ce_op_relation">Greater-Or-Equal: &gt;=</a></td>
+<td class="OpTableCol1"><a href="ce_syntax_op_comparison.html#ce_op_relation">Less: &lt;</a></td>
+<td class="OpTableCol1"><a href="ce_syntax_op_comparison.html#ce_op_relation">Less-Or-Equal: &lt;=</a></td>
+</tr>
+
+<tr>
+<td colspan="4"><h3 class="OpTitle">Assignment Operators</h3></td>
+</tr>
+<tr>
+<td class="OpTableCol1" style="padding-bottom:5pt"><a href="ce_syntax_op_assignment.html#ce_op_assign">Assignment: =</a></td>
+<td class="OpTableCol1"></td>
+<td class="OpTableCol1"></td>
+<td class="OpTableCol1"></td>
+</tr>
+<tr>
+<td class="OpTableCol1" style="padding-bottom:5pt"><a href="ce_syntax_op_assignment.html#ce_op_cassign">Exponentiation<br>Assignment: **=</a></td>
+<td class="OpTableCol1"><a href="ce_syntax_op_assignment.html#ce_op_cassign">Multiplication<br>Assignment: *=</a></td>
+<td class="OpTableCol1"><a href="ce_syntax_op_assignment.html#ce_op_cassign">Division<br>Assignment: /=</a></td>
+<td class="OpTableCol1"><a href="ce_syntax_op_assignment.html#ce_op_cassign">Remainder<br>Assignment: %=</a></td>
+</tr>
+<tr>
+<td class="OpTableCol1" style="padding-bottom:5pt"><a href="ce_syntax_op_assignment.html#ce_op_cassign">Addition<br>Assignment: +=</a></td>
+<td class="OpTableCol1"><a href="ce_syntax_op_assignment.html#ce_op_cassign">Subtraction<br>Assignment: -=</a></td>
+<td class="OpTableCol1"><a href="ce_syntax_op_assignment.html#ce_op_cassign">Left-Shift<br>Assignment: &lt;&lt;=</a></td>
+<td class="OpTableCol1"><a href="ce_syntax_op_assignment.html#ce_op_cassign">Right-Shift<br>Assignment: &gt;&gt;=</a></td>
+</tr>
+<tr>
+<td class="OpTableCol1" style="padding-bottom:5pt"><a href="ce_syntax_op_assignment.html#ce_op_cassign">Bitwise-AND<br>Assignment: &amp;=</a></td>
+<td class="OpTableCol1"><a href="ce_syntax_op_assignment.html#ce_op_cassign">Bitwise-XOR<br>Assignment: ^=</a></td>
+<td class="OpTableCol1"><a href="ce_syntax_op_assignment.html#ce_op_cassign">Bitwise-OR<br>Assignment: |=</a></td>
+<td class="OpTableCol1"></td>
+</tr>
+
+<tr>
+<td colspan="4"><h3 class="OpTitle">Array Indexation</h3></td>
+</tr>
+<tr>
+<td class="OpTableCol1"><a href="ce_syntax_op_array.html#ce_op_subscript">Subscript: []</a></td>
+<td class="OpTableCol1"><a href="ce_syntax_op_array.html#ce_op_idxrange">IndexRange: <b>:</b></a></td>
+<td class="OpTableCol1"></td>
+<td class="OpTableCol1"></td>
+</tr>
+
+<tr>
+<td colspan="4"><h3 class="OpTitle">Punctuators</h3></td>
+</tr>
+<tr>
+<td class="OpTableCol1"><a href="ce_syntax_op_punctuator.html#ce_op_parentheses">Function call: ()</a><br><a href="ce_syntax_op_punctuator.html#ce_op_parentheses">Grouping: ()</a></td>
+<td class="OpTableCol1"><a href="ce_syntax_op_punctuator.html#ce_op_comma">Sequential<br>Evaluation: ,</a></td>
+<td class="OpTableCol1"><a href="ce_syntax_op_punctuator.html#ce_op_semicolon">Expression<br>Terminator: ;</a></td>
+<td class="OpTableCol1"></td>
+</tr>
+</table>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="ce_syntax_eval_order"></a>
+<div class="GenSectTitle">
+<h1><span class="PageTitleL">Order of Evaluation</span></h1>
+</div>
+
+<p>CalcExpress evaluates linear (sequential) scripts. A script may consist of a single expression or a sequence of <i>expression-statements</i>, which may be followed by another expression (meaning that the semicolon may be omitted at the end of the script).</p>
+
+<p>If an expression is followed by a semicolon <span style="white-space:nowrap;">( ; )</span>, it is an <i>expression-statement</i>. <i>Expression-statements</i> are evaluated in the order they appear in a script. CalcExpress completely evaluates an <i>expression statement</i>, including all <a href="ce_syntax_misc.html#ce_syntax_side_effect">side effects</a>, before beginning to evaluate the next expression or <i>expression-statement</i>.</p>
+
+<p>Expressions are evaluated in the order determined by the precedence and associativity of operators used. To change this order, you can use parentheses to group expressions that need to be evaluated first. Note that parentheses are also used to denote function calls (see <a href="ce_functions.html#ce_func_syntax">Function Call syntax</a> topic).</p>
+
+<p>High-precedence operators are evaluated first. If there are several operators with the same precedence, they are evaluated according to their associativity order. Expressions enclosed in parentheses () and brackets [] are evaluated before their values are used. The deeper an expression is nested, the earlier it is evaluated.</p>
+
+<p><a name="ce_syntax_op_table"></a></p>
+
+<hr class="TopicSeparator">
+
+<p>The table below shows the precedence and associativity of CalcExpress operators. Operators are listed in order of their precedence, from highest to lowest.</p>
+
+<table class="AsTable">
+<tr>
+<td class="AsTableCol1"><b><u>Operator</u></b><b><u>&nbsp;</u></b></td>
+<td class="AsTableCol2"><b><u>Type of Operation</u></b></td>
+<td class="AsTableCol3"><b><u>Associativity</u></b></td>
+</tr>
+<tr>
+<td class="AsTableCol1">
+<a href="ce_syntax_op_punctuator.html#ce_op_parentheses">()</a> &nbsp;<a href="ce_syntax_op_array.html#ce_op_subscript">[]</a><br>
+<a href="ce_syntax_op_algebraic.html#ce_op_postinc">++</a> &nbsp;<a href="ce_syntax_op_algebraic.html#ce_op_postdec">--</a> &nbsp;(postfix)
+</td>
+<td class="AsTableCol2">Grouping, Function Call, Subscript, Postfix</td>
+<td class="AsTableCol3">Left to Right</td>
+</tr>
+<tr>
+<td class="AsTableCol1">
+<a href="ce_syntax_op_algebraic.html#ce_op_neg">-</a> &nbsp;<a href="ce_syntax_op_algebraic.html#ce_op_pos">+</a> &nbsp;
+<a href="ce_syntax_op_logical.html#ce_op_l-not">!</a> &nbsp;<a href="ce_syntax_op_bitwise.html#ce_op_b-not">~</a><br>
+<a href="ce_syntax_op_algebraic.html#ce_op_prefinc">++</a> &nbsp;<a href="ce_syntax_op_algebraic.html#ce_op_prefdec">--</a> &nbsp;(prefix)
+</td>
+<td class="AsTableCol2">Unary</td>
+<td class="AsTableCol3">Right to Left</td>
+</tr>
+<tr>
+<td class="AsTableCol1"><a href="ce_syntax_op_algebraic.html#ce_op_exp">**</a></td>
+<td class="AsTableCol2">Exponentiation</td>
+<td class="AsTableCol3">Left to Right</td>
+</tr>
+<tr>
+<td class="AsTableCol1">
+<a href="ce_syntax_op_algebraic.html#ce_op_mul">*</a> &nbsp;<a href="ce_syntax_op_algebraic.html#ce_op_div">/</a> &nbsp;
+<a href="ce_syntax_op_algebraic.html#ce_op_remd">%</a>
+</td>
+<td class="AsTableCol2">Multiplicative</td>
+<td class="AsTableCol3">Left to Right</td>
+</tr>
+<tr>
+<td class="AsTableCol1">
+<a href="ce_syntax_op_algebraic.html#ce_op_add">+</a> &nbsp;<a href="ce_syntax_op_algebraic.html#ce_op_sub">-</a>
+</td>
+<td class="AsTableCol2">Additive</td>
+<td class="AsTableCol3">Left to Right</td>
+</tr>
+<tr>
+<td class="AsTableCol1">
+<a href="ce_syntax_op_bitwise.html#ce_op_b-rshift">&gt;&gt;</a> &nbsp;<a href="ce_syntax_op_bitwise.html#ce_op_b-lshift">&lt;&lt;</a>
+</td>
+<td class="AsTableCol2">Bitwise shifts</td>
+<td class="AsTableCol3">Left to Right</td>
+</tr>
+<tr>
+<td class="AsTableCol1">
+<a href="ce_syntax_op_comparison.html#ce_op_relation">&gt;</a> &nbsp;<a href="ce_syntax_op_comparison.html#ce_op_relation">&gt;=</a> &nbsp;
+<a href="ce_syntax_op_comparison.html#ce_op_relation">&lt;</a> &nbsp;<a href="ce_syntax_op_comparison.html#ce_op_relation">&lt;=</a>
+</td>
+<td class="AsTableCol2">Relational</td>
+<td class="AsTableCol3">Left to Right</td>
+</tr>
+<tr>
+<td class="AsTableCol1">
+<a href="ce_syntax_op_comparison.html#ce_op_equal">==</a> &nbsp;<a href="ce_syntax_op_comparison.html#ce_op_equal">!=</a>
+</td>
+<td class="AsTableCol2">Equality</td>
+<td class="AsTableCol3">Left to Right</td>
+</tr>
+<tr>
+<td class="AsTableCol1"><a href="ce_syntax_op_bitwise.html#ce_op_b-and">&amp;</a></td>
+<td class="AsTableCol2">Bitwise-AND</td>
+<td class="AsTableCol3">Left to Right</td>
+</tr>
+<tr>
+<td class="AsTableCol1"><a href="ce_syntax_op_bitwise.html#ce_op_b-xor">^</a></td>
+<td class="AsTableCol2">Bitwise-XOR</td>
+<td class="AsTableCol3">Left to Right</td>
+</tr>
+<tr>
+<td class="AsTableCol1"><a href="ce_syntax_op_bitwise.html#ce_op_b-or">|</a></td>
+<td class="AsTableCol2">Bitwise-OR</td>
+<td class="AsTableCol3">Left to Right</td>
+</tr>
+<tr>
+<td class="AsTableCol1"><a href="ce_syntax_op_logical.html#ce_op_l-and">&amp;&amp;</a></td>
+<td class="AsTableCol2">Logical-AND</td>
+<td class="AsTableCol3">Left to Right</td>
+</tr>
+<tr>
+<td class="AsTableCol1"><a href="ce_syntax_op_logical.html#ce_op_l-xor">^^</a></td>
+<td class="AsTableCol2">Logical-XOR</td>
+<td class="AsTableCol3">Left to Right</td>
+</tr>
+<tr>
+<td class="AsTableCol1"><a href="ce_syntax_op_logical.html#ce_op_l-or">||</a></td>
+<td class="AsTableCol2">Logical-OR</td>
+<td class="AsTableCol3">Left to Right</td>
+</tr>
+<tr>
+<td class="AsTableCol1"><a href="ce_syntax_op_array.html#ce_op_idxrange">:</a></td>
+<td class="AsTableCol2">Index Range</td>
+<td class="AsTableCol3">Left to Right</td>
+</tr>
+<tr>
+<td class="AsTableCol1">
+<a href="ce_syntax_op_assignment.html#ce_op_assign">=</a> &nbsp;
+<a href="ce_syntax_op_assignment.html#ce_op_cassign">**=</a> &nbsp;<a href="ce_syntax_op_assignment.html#ce_op_cassign">*=</a> &nbsp;
+<a href="ce_syntax_op_assignment.html#ce_op_cassign">/=</a> &nbsp;<a href="ce_syntax_op_assignment.html#ce_op_cassign">%=</a><br>
+<a href="ce_syntax_op_assignment.html#ce_op_cassign">+=</a> &nbsp;<a href="ce_syntax_op_assignment.html#ce_op_cassign">-=</a> &nbsp;
+<a href="ce_syntax_op_assignment.html#ce_op_cassign">&lt;&lt;=</a> &nbsp;<a href="ce_syntax_op_assignment.html#ce_op_cassign">&gt;&gt;=</a><br>
+<a href="ce_syntax_op_assignment.html#ce_op_cassign">&amp;=</a> &nbsp;<a href="ce_syntax_op_assignment.html#ce_op_cassign">^=</a> &nbsp;
+<a href="ce_syntax_op_assignment.html#ce_op_cassign">|=</a>
+</td>
+<td class="AsTableCol2">Assignments</td>
+<td class="AsTableCol3">Right to Left</td>
+</tr>
+<tr>
+<td class="AsTableCol1"><a href="ce_syntax_op_punctuator.html#ce_op_comma">,</a></td>
+<td class="AsTableCol2">Sequential Evaluation</td>
+<td class="AsTableCol3">Left to Right</td>
+</tr>
+<tr>
+<td class="AsTableCol1"><a href="ce_syntax_op_punctuator.html#ce_op_semicolon">;</a></td>
+<td class="AsTableCol2">Expression Terminator</td>
+<td class="AsTableCol3">Left to Right</td>
+</tr>
+</table>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</body>
+</html>

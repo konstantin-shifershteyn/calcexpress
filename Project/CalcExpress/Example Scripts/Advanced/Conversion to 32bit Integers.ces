@@ -1,0 +1,14 @@
+x = 3.14;
+x = -1;
+x = 5000000005.5;
+x = -5000000005.5;
+
+i32_sat = i32s(x);
+i32_bit = i32b(x);
+u32_sat = u32s(x);
+u32_bit = u32b(x);
+
+probe( i32_sat, "i32 saturated");
+probe( i32_bit, "i32 bit-keeping");
+probe( u32_sat, "u32 saturated");
+probe( u32_bit, "u32 bit-keeping");

@@ -1,0 +1,171 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>CalcExpress Functions</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+</head>
+
+<body>
+
+<!-- ########################################## -->
+<a name="ce_func_overview"></a>
+<div class="GenSectTitle">
+<h1><span class="PageTitleL">Functions in CalcExpress and CSE</span></h1>
+</div>
+
+<p>Functions are used in CalcExpress and CSE scripts to perform specific tasks. CalcExpress has a large set of predefined functions, as well as the ability to create and use custom functions.</p>
+<p>The distinguishing feature of a CalcExpress function is its implementation. There are two methods of implementation: FastFunc and FuncVI. The FastFunc method is used for implementing predefined functions only. The FuncVI method can be used to implement both predefined and user-defined functions. If you need a new function, create a VI named FuncVI and use it like any other predefined function. Since a FuncVI is a VI, you can use all LabVIEW features for implementing your functions.</p>
+<p>CalcExpress provides a uniform syntax for function calls regardless of a function implementation. The syntax allows calling a function that processes an arbitrary set of arguments and returns an arbitrary value (both values and datatypes should be considered under this statement). This means that CalcExpress supports polymorphic functions as well as polymorphic operators. Many of the predefined functions are polymorphic.</p>
+
+<h3>Also see</h3>
+<ul class="GenCE">
+<li class="GenCE"><a href="#ce_func_syntax">Function Call syntax</a></li>
+<li class="GenCE"><a href="#ce_func_implementation">Functions Implementation</a></li>
+<li class="GenCE"><a href="ce_funcvi.html">Functions Development</a></li>
+<li class="GenCE"><a href="cef_main.html">Predefined Functions</a></li>
+</ul>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="ce_func_syntax"></a>
+<div class="GenSectTitle">
+<h1><span class="PageTitleL">Function Call Syntax</span></h1>
+</div>
+
+<p>
+The syntax of a function call is the same for all functions, regardless of the function <a href="#ce_func_implementation">implementation</a>. A function call has the following form:
+</p>
+
+<p style="margin-left:15pt"><i>funcname </i>(<i> arguments-list</i> )</p>
+<p style="margin-left:15pt">, where</p>
+<p>
+<i>funcname</i> is a name of the called function (<a href="#ce_func_syntax_name">function name</a>).<br>
+<i>argument-list</i> is a list of arguments passed to the function (<a href="#ce_func_syntax_args">argument list</a>).
+</p>
+<p>&nbsp;</p>
+
+
+<a name="ce_func_syntax_name"></a>
+<h2>Function name</h2>
+
+<p>A function name consist of alphabetic characters, digits and the underscore characters, but the first character is not a digit. Case sensitivity of a function name depends on the <a href="#ce_func_implementation">implementation</a> of that function. FastFunc functions have case-sensitive names, while FuncVI functions have case-insensitive names. Many predefined functions have both FastFunc and FuncVI implementations. This rule of case sensitivity makes it possible to choose the desired implementation of a predefined function to perform the function.</p>
+
+<h3>Example:</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+y = sin(x);  /* sin(x) is call of FastFunc function */<br>
+y = Sin(x);  /* Sin(x) is call of FuncVI function   */<br>
+y = SIN(x);  /* SIN(x) is call of FuncVI function too */
+</p>
+</div>
+
+<p>Function names do not conflict with variable names. This means that a variable can have the same name as a function. CalcExpress differentiates between a function name and a variable name depending on the context it is met.</p>
+<h3>Example:</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+max = 0;          /* max is variable */<br>
+x = max(-1,2);    /* max is function name */<br>
+max = max(x,max); /* variable max equals 2 */
+</p>
+</div>
+<p>&nbsp;</p>
+
+
+<p><a name="ce_func_syntax_args"></a></p>
+<h2>Argument list</h2>
+
+<p>An argument list may contain any number of arguments, with no restrictions. If there are two or more arguments, they are separated by commas. Commas within string constants, character constants, comments, or nested parentheses are ignored. If an argument is an expression involving the comma operator, put it within parentheses.</p>
+
+<h3>Example:</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+/* after code avaluation, s will be equal &quot;x=0.250, x/erf(x)=9.04727E-1&quot; */<br>
+x=.25;<br>
+s=<a href="cefunc_string.html#cef_sform">sform</a>(&quot;x=%.3f, x/erf(x)=%.5e&quot;, x, (y=erf(x), x/y));
+</p>
+</div>
+
+<p>In general, an argument is any expression, such as a constant, a variable, or an expression that involves operands, operators, or function calls. CalcExpress passes arguments to functions by value (except for variables) and evaluates them before calling the function. The arguments are evaluated, including any <a href="ce_syntax_misc.html#ce_syntax_side_effect">side effects</a>, in the order they appear in the function call.</p>
+
+<h3>Example:</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+/* after code evaluation, y equals 125, and x equals 5 */<br>
+x=4;<br>
+y=<a href="cefunc_num_log.html#cef_pow">pow</a>( x+=1, x-2 );
+</p>
+</div>
+
+<p>If an argument is a variable name (identifier), it is passed to a function as-is. A function receives the variable name as an input parameter; in this way, the function can evaluate the value of the variable or/and assign a new value to it.</p>
+<p>CalcExpress has no syntax restrictions on the number of function arguments, argument data types, and a return value. CalcExpress calls a function without checking the amount and data types of arguments. If all the arguments in a function call are successfully evaluated, CalcExpress passes them all to the function.</p>
+<p>When a function is called, it receives both argument values and their data types. The called function verifies the passed arguments and decides whether they are valid, i.e., whether the function can use the arguments to perform a specific task.</p>
+<p>&nbsp;</p>
+
+<h2>Return value</h2>
+<p>Every function returns a value. The return value and its data type are determined by the function itself. The data type of the return value can be either constant or dependent on the data types of the arguments passed to the function.</p>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+
+<!-- ########################################## -->
+<a name="ce_func_implementation"></a>
+<div class="GenSectTitle">
+<h1><span class="PageTitleL">Functions Implementation</span></h1>
+</div>
+
+<p>CalcExpress uses two kinds of function implementations: <a href="#ce_func_implementation_fastfunc">FastFunc</a> and <a href="#ce_func_implementation_funcvi">FuncVI</a>.
+Both methods are used to implement predefined functions but only the FuncVI method can be used to implement user-defined functions.</p>
+
+<p>See the following topics for more information:</p>
+<ul class="GenCE">
+<li class="GenCE"><a href="#ce_func_syntax">Function Syntax</a></li>
+<li class="GenCE"><a href="ce_funcvi.html">Function Development</a></li>
+<li class="GenCE"><a href="cef_main.html">Predefined Functions</a></li>
+<li class="GenCE"><a href="ce.html">CalcExpress Overview</a></li>
+</ul>
+<p>&nbsp;</p>
+
+
+<a name="ce_func_implementation_funcvi"></a>
+<h2>FuncVI functions</h2>
+
+<p>The FuncVI method allows using a custom VI (referred to as a FuncVI) to implement a script function. Because a FuncVI is a standard LabVIEW VI, you can utilize any native LabVIEW functions and VIs to implement custom routines of any complexity.</p>
+
+<p>CalcExpress utilizes dynamic calls to load FuncVIs. None of the core CalcExpress VIs contain FuncVIs in their hierarchy; instead, the engine loads only those specific FuncVIs required to process the active script.</p>
+
+<p>CalcExpress automatically loads the required FuncVI into memory at runtime if it is not already present. Furthermore, you can forcefully pre-load a FuncVI before starting script execution to eliminate the overhead of loading it during the first function call. Use <a href="vi_Func_-_Load_Functions.html">Func - Load Functions.vi</a> to programmatically load FuncVIs at runtime. Alternatively, you can force LabVIEW to load a FuncVI into memory by dropping a Static VI Reference to it onto your application's block diagram.</p>
+
+<p>To determine which FuncVI needs to be executed, CalcExpress resolves the function name dynamically. If the script engine encounters a function call that does not correspond to a built-in core function (FastFunc), it attempts to locate and execute a matching FuncVI on disk. CalcExpress searches for the appropriate file based on the function name and then runs it dynamically. Note that CalcExpress cannot determine if a function name is valid until it actually attempts to locate and call the corresponding FuncVI. Search paths are managed via <a href="vi_Func_-_FuncVI_search_paths.html">Func - FuncVI search paths.vi</a>.</p>
+
+<p>When building a standalone application (EXE), you must ensure that CalcExpress can successfully open VI references to used FuncVIs at runtime. The easiest approach is to include them directly inside your compiled executable file. It can be achieved either by using Static VI References to necessary FuncVIs or by including them in your application's project file ("Always Included" list). A more advanced but flexible method is to store your FuncVIs in separate external directories or LLB libraries; this allows you to update or expand your script vocabulary without rebuilding the core application binaries. However, if you store them externally, you must be careful to preserve the entire sub-VI dependency hierarchy when distributing your application.</p>
+
+<p>&nbsp;</p>
+
+
+<a name="ce_func_implementation_fastfunc"></a>
+<h2>FastFunc functions</h2>
+
+<p>The FastFunc method is used to implement both built-in functions and operators. FastFunc functions are a native part of the CalcExpress Engine DLL; they do not require any external VIs because they are executed directly inside the compiled CalcExpress kernel.</p>
+
+<p>Consequently, FastFunc functions are faster (often significantly faster) than FuncVI functions.</p>
+
+<p>CalcExpress recognizes FastFunc function names during the parsing phase. If a function call matches a recognized FastFunc function name, the engine executes it natively; otherwise, CalcExpress attempts to locate and perform a FuncVI function instead.</p>
+
+<p>To retrieve the complete list of available FastFunc functions, you can call the <a href="cefunc_string.html#cef_fflist">_fflist</a> function within a script. This function returns a spreadsheet string containing the name and the number of expected arguments for every FastFunc function.
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</body>
+</html>

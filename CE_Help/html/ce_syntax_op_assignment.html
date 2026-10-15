@@ -1,0 +1,182 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>Assignment Operators</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+<style>
+table.OpList { border:0; cellspacing:0; cellpadding:0; margin:-2pt 0pt 0pt 0pt; border-collapse:collapse; }
+td.ListColX  { valign:top; padding:0pt 5pt 0pt 0pt; }
+td.ListColY  { valign:top; padding:0pt 0pt 0pt 30pt; }
+</style>
+</head>
+
+<body>
+
+<!-- ########################################## -->
+<a name="ce_op_assign"></a>
+<div class="GenSectTitle">
+<h2><span class="PageTitleR">Assignment operator:  =</span></h2>
+</div>
+
+<p>The Assignment operator assigns the value of its second (right-hand) operand to the first (left-hand) operand. The left-hand operand must be either a variable or an indexed-variable (see <a href="ce_syntax_op_array.html#ce_op_subscript">Subscript operator</a>).</p>
+
+<h3>Syntax:</h3>
+<p class="StatementSyntax">
+<i>variable-expression </i> <b>=</b> <i>value-expression</i>
+</p>
+
+<h3>Operand data types</h3>
+<div class="FuncDscrSection">
+<p>The Assignment operator can operate on operands of all predefined data types, as well as user-defined data types. For more information, see comments below.</p>
+<p><a href="dtypes.html">click here</a> to get general information on data types.</p>
+</div>
+
+<h3>Comments</h3>
+<div class="FuncDscrSection">
+<p>Indexed-variable is an identifier (name of variable) followed by the <a href="ce_syntax_op_array.html#ce_op_subscript">Subscript operator</a>. For example: x[1]</p>
+<p>If the <i>variable-expression</i> denotes an existing variable (but not an indexed-variable), the <i>value-expression</i> must have the same data type as the variable.</p>
+<p>If the <i>variable-expression</i> denotes an an indexed-variable, the <i>value-expression</i> must have a data type compatible with the <i>variable-expression</i>. An assignment is performed according to the rules described in the topics devoted to the <a href="ce_syntax_op_array.html#ce_op_subscript">Subscript operator</a>. Note that the <i>variable-expression</i> must refer to an existing variable.</p>
+<p>If the <i>variable-expression</i> is an identifier that does not correspond to any existing variable, a new variable can be created. In such a case, the new variable will have the same data type and value as the <i>value-expression</i>. You can forbid this feature by setting <b>params.autoVar</b> connector of a CalcExpress VI to FALSE when call it to process a script. Note that CalcExpress cannot create a variable if the <i>variable-expression</i> denotes an indexed-variable.</p>
+
+<p>An assignment expression has the value and data type of its right-hand operand (<i>value-expression</i>).</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+x = 4;<br>
+y1 = y2 = x+1;          /* both y1 and y2 are now 5 */<br>
+<br>
+v1 = vector(1,2,3,4,5); /* v1 is 1D array {1,2,3,4,5} */<br>
+v2 = vector(7,8,9);     /* v2 is 1D array {7,8,9} */<br>
+<br>
+v1[0] = 0;              /* v1 is now {0,2,3,4,5} */<br>
+v1[1:2] = 1;            /* v1 is now {0,1,1,4,5} */<br>
+v1[3:4] = v2;           /* v1 equals {0,1,1,7,8} now */<br>
+</p>
+</div>
+
+<h3>Also see</h3>
+<p>
+<a href="ce_syntax_op.html">CalcExpress Operators</a><br>
+<a href="ce_syntax.html">CalcExpress Syntax</a><br>
+<a href="ce.html">CalcExpress Overview</a>
+</p>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="ce_op_cassign"></a>
+<div class="GenSectTitle">
+<h2><span class="PageTitleR">Compound Assignment operators</span></h2>
+</div>
+
+<p>The Compound Assignment operators perform a relevant binary operation on the operands, and assign the result value to the left-hand operand. The left-hand operand must be either a variable or an indexed-variable (see <a href="ce_syntax_op_array.html#ce_op_subscript">Subscript operator</a>).</p>
+
+<h3>Syntax:</h3>
+<p class="StatementSyntax">
+<table class="OpList">
+<tr>
+<td class="ListColX"><i>variable-expression</i>  <b>**=</b></td>
+<td class="ListColX"><i>expression</i></td>
+<td class="ListColY">(<a href="ce_syntax_op_algebraic.html#ce_op_exp">Exponentiation</a> Assignment)</td>
+</tr>
+<tr>
+<td class="ListColX"><i>variable-expression</i>  <b>*=</b></td>
+<td class="ListColX"><i>expression</i></td>
+<td class="ListColY">(<a href="ce_syntax_op_algebraic.html#ce_op_mul">Multiplication</a> Assignment)</td>
+</tr>
+<tr>
+<td class="ListColX"><i>variable-expression</i>  <b>/=</b></td>
+<td class="ListColX"><i>expression</i></td>
+<td class="ListColY">(<a href="ce_syntax_op_algebraic.html#ce_op_div">Division</a> Assignment)</td>
+</tr>
+<tr>
+<td class="ListColX"><i>variable-expression</i>  <b>%</b><b>=</b></td>
+<td class="ListColX"><i>expression</i></td>
+<td class="ListColY">(<a href="ce_syntax_op_algebraic.html#ce_op_remd">Remainder</a> Assignment)</td>
+</tr>
+<tr>
+<td class="ListColX"><i>variable-expression</i>  <b>+=</b></td>
+<td class="ListColX"><i>expression</i></td>
+<td class="ListColY">(<a href="ce_syntax_op_algebraic.html#ce_op_add">Addition</a> Assignment)</td>
+</tr>
+<tr>
+<td class="ListColX"><i>variable-expression</i>  <b>-=</b></td>
+<td class="ListColX"><i>expression</i></td>
+<td class="ListColY">(<a href="ce_syntax_op_algebraic.html#ce_op_sub">Subtraction</a> Assignment)</td>
+</tr>
+<tr>
+<td class="ListColX"><i>variable-expression</i>  <b>&gt;&gt;=</b></i></td>
+<td class="ListColX"><i>expression</i></td>
+<td class="ListColY">(<a href="ce_syntax_op_bitwise.html#ce_op_b-rshift">Right-Shift</a> Assignment)</td>
+</tr>
+<tr>
+<td class="ListColX"><i>variable-expression</i>  <b>&lt;&lt;=</b></td>
+<td class="ListColX"><i>expression</i></td>
+<td class="ListColY">(<a href="ce_syntax_op_bitwise.html#ce_op_b-lshift">Left-Shift</a> Assignment)</td>
+</tr>
+<tr>
+<td class="ListColX"><i>variable-expression</i>  <b>&amp;</b><b>=</b></td>
+<td class="ListColX"><i>expression</i></td>
+<td class="ListColY">(<a href="ce_syntax_op_bitwise.html#ce_op_b-and">Bitwise-AND</a> Assignment)</td>
+</tr>
+<tr>
+<td class="ListColX"><i>variable-expression</i>  <b>|=</b></td>
+<td class="ListColX"><i>expression</i></td>
+<td class="ListColY">(<a href="ce_syntax_op_bitwise.html#ce_op_b-or">Bitwise-OR</a> Assignment)</td>
+</tr>
+<tr>
+<td class="ListColX"><i>variable-expression</i>  <b>^=</b></td>
+<td class="ListColX"><i>expression</i></td>
+<td class="ListColY">(<a href="ce_syntax_op_bitwise.html#ce_op_b-xor">Bitwise-XOR</a> Assignment)</td>
+</tr>
+</table>
+</p>
+
+<h3>Operand data types</h3>
+<div class="FuncDscrSection">
+<p>Compound Assignment operators can work on the same data types as the corresponding binary operators (click links above to get more information).</p>
+<p><a href="dtypes.html">click here</a> to get general information on data types.</p>
+</div>
+
+<h3>Comments</h3>
+<div class="FuncDscrSection">
+<p>The <i>variable-expression</i> must refer to an existing variable. Unlike the simple <a href="#ce_op_assign">Assignment</a> operator, Compound Assignment operators cannot create a new variable.</p>
+<p>First, a Compound Assignment operator performs the same operation as the corresponding binary operator. Then, the result value is assigned to a variable denoted by the left-hand operand (<i>variable-expression</i>). An expression involving a Compound Assignment operator 'x <i>op</i>= y' can be understood as 'x = x <i>op</i> y'. For example, 'x+=y' expression is similar to 'x=x+y' expression.</p>
+<p>A compound assignment expression has the value and data type of its left-hand operand (<i>variable-expression</i>) after assignment.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+x = 4;                  /* x is scalar equal to 4 */<br>
+v = vector(1,2,3,4,5);  /* v is 1D array {1,2,3,4,5} */<br>
+x += 1;                 /* x is now 5 */<br>
+v *= x;                 /* v is now {5,10,15,20,25} */<br>
+v[1:3] -= v[2];         /* v is now {5,-5, 0, 5,25} */<br>
+<br>
+</p>
+</div>
+
+
+<h3>Also see</h3>
+<p>
+<a href="ce_syntax_op.html">CalcExpress Operators</a><br>
+<a href="ce_syntax.html">CalcExpress Syntax</a><br>
+<a href="ce.html">CalcExpress Overview</a>
+</p>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+</body>
+</html>

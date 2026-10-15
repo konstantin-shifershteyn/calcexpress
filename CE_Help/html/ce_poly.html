@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>Polymorphism for Operators</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+</head>
+
+<body>
+
+<!-- ########################################## -->
+<div class="PageTitle">
+<h1><span class="PageTitleL">Polymorphism for Operators</span></h1>
+</div>
+
+
+<!-- ########################################## -->
+<div>
+<p>CalcExpress has polymorphism capabilities similar to LabVIEW. This topic describes the general rules for polymorphism that CalcExpress operators comply with. Also, most CalcExpress predefined numeric functions follow these same rules.</p>
+<p>CalcExpress operators work on numeric data. Some operators can handle both real (DBL) and complex (CDB) numbers, while others only work with real numbers. A description of each operator has a list of data types it can operate. See <a href="dtypes.html#data_types">Data Types</a> topic for more information on supported data types.</p>
+</div>
+
+<!-- ########## -->
+<p>&nbsp;</p><hr class="TopicSeparator">
+
+<div>
+<h2>Polymorphism for Unary Operators</h2>
+<p>Unary operators can operate on scalars, 1D arrays, and 2D arrays. Every unary operator produces a value with the same data type as its operand. If an operand is an array, an unary operator acts on each element of the array to produce a result that has the same dimensions and size as the operand.</p>
+</div>
+
+<!-- ########## -->
+<p>&nbsp;</p><hr class="TopicSeparator">
+
+<div>
+<h2>Polymorphism for Binary Operators</h2>
+<p>If a binary operator can work on operands with different representations (DBL and CDB), the result has the widest representation of the operands. That is, combinations of DBL and CDB representable operands produce CDB representable result.</p>
+<p>Binary operators can work on scalars, 1D arrays, 2D arrays, and any combinations thereof. Data type of resulting value depends on combination of the operand data types. Possible combinations of operand data types and the way of result computations are described below.</p>
+<p>&nbsp;</p>
+
+<h3>Both operands are Scalars</h3>
+<p>CalcExpress performs an operator on operands and produces a scalar value.</p>
+<p>&nbsp;</p>
+
+<h3>Scalar and Array of any dimensionality</h3>
+<p>CalcExpress performs an operator on the scalar and each element of the array. A result is an array that has the same dimensionality and size(s) as the input array.</p>
+<p>&nbsp;</p>
+
+<p style='color:#606060'><b>Example 1</b></p>
+<table border=0 cellspacing=0 cellpadding=0 style='border-collapse:collapse'>
+<tr>
+<td width=230 valign=top style='padding:0pt 6pt 6pt 6pt'>
+<span class="FixedFont">tmp = vector(1,2,3,4);<br>x1 = matrix(tmp, tmp+4);<br>x2 = 2;<br>y = x1 ** x2;</span>
+</td>
+<td width=370 valign=top style='padding:0pt 6pt 6pt 6pt'>
+<img src="image/poly-2d-scalar.png">
+</td>
+</tr>
+</table>
+
+<p style='color:#606060'><b>Example 2</b></p>
+<table border=0 cellspacing=0 cellpadding=0 style='border-collapse:collapse'>
+<tr>
+<td width=230 valign=top style='padding:0pt 6pt 6pt 6pt'>
+<span class="FixedFont">x1 = 20;<br>x2 = vector(1,2,4,5);<br>y = x1 / x2;<br></span>
+</td>
+<td width=370 valign=top style='padding:0pt 6pt 6pt 6pt'>
+<img src="image/poly-1d-scalar.png">
+</td>
+</tr>
+</table>
+<p>&nbsp;</p>
+
+
+<h3>Two Arrays of the same dimensionality</h3>
+<p>CalcExpress performs an operator on the respective elements of the input arrays. A result is an array with the same dimensionality as the input arrays. The result has the same size(s) as input arrays, if their sizes are identical. If input 1D arrays have different sizes, the result has the same size as the smallest input array. If input 2D arrays have different number of rows, the result has number of rows that equals to the smallest number of rows in input arrays. If input 2D arrays have different number of columns, the result has number of columns that equals to the smallest number of columns in input arrays.</p>
+<p>&nbsp;</p>
+
+<p style='color:#606060'><b>Example 1</b></p>
+<table border=0 cellspacing=0 cellpadding=0 style='border-collapse:collapse'>
+<tr>
+<td width=230 valign=top style='padding:0pt 6pt 6pt 6pt'>
+<span class="FixedFont">x1 = nvecins(10,5,1);<br>x2 = vector(2,3,4,5,6,7);<br>y = x1 * x2;</span>
+</td>
+<td width=370 valign=top style='padding:0pt 6pt 6pt 6pt'>
+<img src="image/poly-1d-1d.png">
+</td>
+</tr>
+</table>
+
+<p style='color:#606060'><b>Example 2</b></p>
+<table border=0 cellspacing=0 cellpadding=0 style='border-collapse:collapse'>
+<tr>
+<td width=230 valign=top style='padding:0pt 6pt 6pt 6pt'>
+<span class="FixedFont">tmp = nvecins(10,4);<br>x1 = matrix(tmp,tmp+10,tmp+20);<br>tmp = nvecins(1,5);<br>x2 = matrix(tmp,tmp+4);<br>y = x1 + x2;</span>
+</td>
+<td width=370 valign=top style='padding:0pt 6pt 6pt 6pt'>
+<img src="image/poly-2d-2d.png">
+</td>
+</tr>
+</table>
+<p>&nbsp;</p>
+
+<h3>Combination of 1D Array and 2D Array</h3>
+<p>CalcExpress performs an operator on elements of the 1D Array and the respective elements of every row in the 2D Array. A result is 2D Array. It has the same number of rows as the input 2D Array. Number of columns is the smallest value among number of columns in the 2D Array and size of the 1D Array.</p>
+<p>You can consider this situation like the following. An operator is performed on two 2D Arrays according to typical LabVIEW polymorphism rules, where the second (virtual) 2D Array has the same number of rows as the input 2D Array, and each its row is equal to the input 1D Array.</p>
+<p>&nbsp;</p>
+
+<p style='color:#606060'><b>Example</b></p>
+
+<table border=0 cellspacing=0 cellpadding=0 style='border-collapse:collapse'>
+<tr>
+<td width=230 valign=top style='padding:0pt 6pt 6pt 6pt'>
+<span class="FixedFont">x1 = nmtxins(10,3,10,5,1);<br>x2 = vector(2,3,4,5,6,7);<br>y = x1 + x2;</span>
+</td>
+<td width=370 valign=top style='padding:0pt 6pt 6pt 6pt'>
+<img src="image/poly-1d-2d.png">
+</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+</body>
+</html> 

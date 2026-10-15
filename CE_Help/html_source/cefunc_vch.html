@@ -1,0 +1,161 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>Variable Context functions</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+</head>
+
+<body>
+
+<!-- ########################################## -->
+<a name="cef_vch"></a>
+<div class="FuncDscrTitle">
+<h1>vch</h1>
+<p>The function returns the handle of a variable context.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">vch(<i>name</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>If the optional parameter <b>name</b> is omitted in a function call or is an empty string, the function returns a handle of the variable context used by a CalcExpress VI or CSE VI that is executing the script. Otherwise, it looks for a context with the specified <b>name</b> and returns its handle.</p>
+<p>On success, the function returns the context handle. Otherwise, it returns the negated value of the <a href="errors.html#err_vm_engine">VarMan Engine error code</a> indicating an error reason. For example, it returns -18 if a context with the specified name was not found.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td><td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>name</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies a variable context name.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns either a variable context handle or an error code (see above).</p>
+<p>The return value has the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_var.html">Variable management functions</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_vchtest"></a>
+<div class="FuncDscrTitle">
+<h1>vchtest</h1>
+<p>The function validates a handle of variable context.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">vchtest(<i>vch</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function checks if the <b>vch</b> parameter is a valid handle of a local variable context. If <b>vch</b> is omitted in a function call, the function checks the handle of the variable context used by a CalcExpress VI or CSE VI executing the script.</p>
+<p>On success, the function returns zero. Otherwise, it returns the negated value of the <a href="errors.html#err_vm_engine">VarMan Engine error code</a> indicating an error reason. For example, it returns -4 if an invalid context handle was specified.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td><td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>vch</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies a variable context handle.
+If <b>vch</b> is equal to 0 or omitted, the handle of the current context is assumed.
+By default, <b>vch</b> is equal to 0.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns an execution status code (see above).</p>
+<p>The return value has the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_var.html">Variable management functions</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_vcname"></a>
+<div class="FuncDscrTitle">
+<h1>vcname</h1>
+<p>The function returns a name assigned to the specified variable context.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">vcname(<i>vch</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the name of the variable context specified by the <b>vch</b> parameter. If <b>vch</b> is omitted in a function call, the function returns the name of the variable context used by a CalcExpress VI or CSE VI executing the script. If <b>vch</b> is not a valid handle, or if it refers to a context that does not have a name, the function returns an empty string.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td><td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>vch</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies a variable context handle.
+If <b>vch</b> is equal to 0 or omitted, the handle of the current context is assumed.
+By default, <b>vch</b> is equal to 0.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns the name of the variable context.</p>
+<p>The return value has the <a href="dtypes.html#data_types_table">String</a> data type.</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_var.html">Variable management functions</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+</body>
+</html>

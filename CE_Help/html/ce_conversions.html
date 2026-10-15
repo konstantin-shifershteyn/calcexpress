@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>Conversion to Integers</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+<script src="js/_lvhelpref.js" type="text/javascript"></script>
+<style>
+h2 { padding-top:10pt; }
+</style>
+</head>
+
+<body>
+
+<!-- ########################################## -->
+<a name="ce_int_convert"></a>
+<div class="PageTitle">
+<h1><span class="PageTitleL">Conversion to Integer Values</span></h1>
+</div>
+
+<p>
+Some CalcExpress operators and functions assume that the processed data is represented in a 32-bit integer format, while CalcExpress uses a floating-point data type as its basic type to store and operate on numeric data. Two conversion methods are utilized for implicitly converting floating-point values to a 32-bit integer representation, depending on the operational goal.
+</p>
+
+<!------------>
+<h2>Saturating Conversion</h2>
+<p class="FuncDscrSyntax">
+(int32)(max(min(dbl,INT_MAX),INT_MIN))
+</p>
+<p>
+A standard single-step numeric conversion. The goal of this conversion is to keep the value as close to the original magnitude as possible within the limits of the target data type. This conversion rounds floating-point values to the nearest integer and coerces (saturates) the result to the range of a signed 32-bit integer. This conversion is used for standard mathematical rounding and scaling, but it destroys the original low-order binary bit architecture on overflow, making it unsuitable for bitwise or logical operations.
+</p>
+<li>This is the default conversion method that is applied in all cases unless explicitly noted otherwise.</li>
+<li> When it is explicitly noted, the similar behavior applies to unsigned 32-bit destinations: <span style="white-space:nowrap;"><kbd>(uInt32)dbl</kbd></span>.</li>
+
+
+<!------------>
+<h2>Bit-keeping Conversion</h2>
+<p class="FuncDscrSyntax">
+(int32)(int64)dbl
+</p>
+<p>
+A multi-step numeric conversion designed to bypass standard saturating/clamping behavior. The goal of this conversion is to precisely preserve the lowest 32 bits of the integer part of a floating point value. By casting the large float to a 64-bit integer before narrowing it to a 32-bit integer, this operation safely discards the upper bits while keeping the targeted lower bit pattern intact. This conversion is used when performing bitwise and logical operators and functions, ensuring that mask operations, bit-shifting, or logic gates receive the correct underlying bit architecture.
+</p>
+<li>When it is explicitly noted, the similar behavior applies to unsigned 32-bit destinations: <span style="white-space:nowrap;"><kbd>(uInt32)(int64)dbl</kbd></span>.</li>
+
+
+<!------------>
+<h2>Explicit Conversions</h2>
+<p>
+Whenever it is required to explicitly convert a floating-point value to an integer, the following built-in functions should be used:<br>
+<a href="cefunc_num_gen.html#cef_i32b">i32b</a>, <a href="cefunc_num_gen.html#cef_i32s">i32s</a>, <a href="cefunc_num_gen.html#cef_u32b">u32b</a>, and <a href="cefunc_num_gen.html#cef_u32s">u32s</a>. They perform Saturating and Bit-keeping Conversions to signed and unsigned integers.
+</p>
+
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</body>
+</html> 

@@ -1,0 +1,1012 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>Trigonometric and Hyperbolic functions</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+</head>
+
+<body>
+
+<!-- ########################################## -->
+<a name="cef_acos"></a>
+<div class="FuncDscrTitle">
+<h1>acos</h1>
+<p>The function computes the inverse cosine.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">acos(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the arccosine of <b>x</b> in radians. For real numbers, the function returns values in the range 0 to pi; if <b>x</b> is less than -1 or greater than 1, the function returns NaN.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+<tr>
+<td class="FuncDTTblCol"><i>CDB Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of CDB</i></td>
+<td class="FuncDTTblCol"><i>2D Array of CDB</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value that has the same data type as <b>x</b>.</p>
+</div>
+
+<h3>Comment</h3>
+<div class="FuncDscrSection">
+<p>For complex arguments the <b>acos</b> function is computed with the formula:</p>
+<p><i>-<b>i</b></i> * ln(x+sqrt(x*x-1))</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_acosh"></a>
+<div class="FuncDscrTitle">
+<h1>acosh</h1>
+<p>The function computes the inverse hyperbolic cosine.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">acosh(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the hyperbolic argcosine of <b>x</b>. For real numbers, if <b>x</b> is less than 1, the function returns NaN.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+<tr>
+<td class="FuncDTTblCol"><i>CDB Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of CDB</i></td>
+<td class="FuncDTTblCol"><i>2D Array of CDB</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value that has the same data type as <b>x</b>.</p>
+</div>
+
+<h3>Comment</h3>
+<div class="FuncDscrSection">
+<p>The hyperbolic argcosine is defined by the formula:</p>
+<p>ln(x+sqrt(x*x-1))</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_acot"></a>
+<div class="FuncDscrTitle">
+<h1>acot</h1>
+<p>The function computes the inverse cotangent.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">acot(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the arccotangent of <b>x</b> in radians. For real numbers, the function returns values in the range from 0 to pi.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value that has the same data type as <b>x</b>.</p>
+</div>
+
+<h3>Comment</h3>
+<div class="FuncDscrSection">
+<p>The <b>acot</b> function is computed with the formula:</p>
+<p>pi/2 - atan(x)</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_acoth"></a>
+<div class="FuncDscrTitle">
+<h1>acoth</h1>
+<p>The function computes the inverse hyperbolic cotangent.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">acoth(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the hyperbolic argcotangent of <b>x</b>. For real numbers, if <b>x</b> is within the range from -1 to 1, the function returns NaN.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value that has the same data type as <b>x</b>.</p>
+</div>
+
+<h3>Comment</h3>
+<div class="FuncDscrSection">
+<p>The hyperbolic argcotangent is defined by the formula:</p>
+<p>ln((x+1)/(x-1))/2</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_asin"></a>
+<div class="FuncDscrTitle">
+<h1>asin</h1>
+<p>The function computes the inverse sine.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">asin(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the arcsine of <b>x</b> in radians. For real numbers, the function returns values in the range from -pi/2 to pi/2; if <b>x</b> is less than -1 or greater than 1, the function returns NaN.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+<tr>
+<td class="FuncDTTblCol"><i>CDB Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of CDB</i></td>
+<td class="FuncDTTblCol"><i>2D Array of CDB</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value that has the same data type as <b>x</b>.</p>
+</div>
+
+<h3>Comment</h3>
+<div class="FuncDscrSection">
+<p>For complex arguments the <b>asin</b> function is computed with the formula:</p>
+<p>-<b><i>i </i></b> * ln( <b><i>i</i></b> *x + sqrt(1-x*x))</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_asinh"></a>
+<div class="FuncDscrTitle">
+<h1>asinh</h1>
+<p>The function computes the inverse hyperbolic sine.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">asinh(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the hyperbolic argsine of <b>x</b>.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+<tr>
+<td class="FuncDTTblCol"><i>CDB Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of CDB</i></td>
+<td class="FuncDTTblCol"><i>2D Array of CDB</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value that has the same data type as <b>x</b>.</p>
+</div>
+
+<h3>Comment</h3>
+<div class="FuncDscrSection">
+<p>The hyperbolic argsine is defined by the formula:</p>
+<p>ln(x+sqrt(x*x+1))</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_atan"></a>
+<div class="FuncDscrTitle">
+<h1>atan</h1>
+<p>The function computes the inverse tangent.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">atan(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the arctangent of <b>x</b> in radians. For real numbers, the function returns values in the range from -pi/2 to pi/2.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+<tr>
+<td class="FuncDTTblCol"><i>CDB Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of CDB</i></td>
+<td class="FuncDTTblCol"><i>2D Array of CDB</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value that has the same data type as <b>x</b>.</p>
+</div>
+
+<h3>Comment</h3>
+<div class="FuncDscrSection">
+<p>For complex arguments the <b>atan</b> function is computed with the formula:</p>
+<p>ln((1+<b><i>i </i></b>*x)/(1-<b><i>i </i></b>*x))/(2*<b><i>i</i></b>)</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_atan2"></a>
+<div class="FuncDscrTitle">
+<h1>atan2</h1>
+<p>The function computes the inverse tangent of x/y.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">atan2(x,y)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the arctangent of <b>x/y</b> in radians. For real numbers, the function returns values in the range from -pi to pi. If both <b>x</b> and <b>y</b> are equal to 0, the function returns 0.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars, arrays, and combinations thereof. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> and <b>y</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+<tr>
+<td class="FuncDTTblCol"><i>CDB Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of CDB</i></td>
+<td class="FuncDTTblCol"><i>2D Array of CDB</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The data type of the returned value is determined by the <a href="cef_poly.html">polymorphism rules</a> for functions with two arguments.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_atanh"></a>
+<div class="FuncDscrTitle">
+<h1>atanh</h1>
+<p>The function computes the inverse hyperbolic tangent.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">atanh(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the hyperbolic argtangent of <b>x</b>. For real numbers, if <b>x</b> is less than -1 or greater than 1, the function returns NaN.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+<tr>
+<td class="FuncDTTblCol"><i>CDB Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of CDB</i></td>
+<td class="FuncDTTblCol"><i>2D Array of CDB</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value that has the same data type as <b>x</b>.</p>
+</div>
+
+<h3>Comment</h3>
+<div class="FuncDscrSection">
+<p>The hyperbolic argtangent is defined by the formula:</p>
+<p>ln((1+x)/(1-x))/2</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_cos"></a>
+<div class="FuncDscrTitle">
+<h1>cos</h1>
+<p>The function computes the cosine.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">cos(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the cosine of <b>x</b>, where <b>x</b> is in radians.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+<tr>
+<td class="FuncDTTblCol"><i>CDB Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of CDB</i></td>
+<td class="FuncDTTblCol"><i>2D Array of CDB</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value that has the same data type as <b>x</b>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_cosh"></a>
+<div class="FuncDscrTitle">
+<h1>cosh</h1>
+<p>The function computes the hyperbolic cosine.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">cosh(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the hyperbolic cosine of <b>x</b>.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+<tr>
+<td class="FuncDTTblCol"><i>CDB Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of CDB</i></td>
+<td class="FuncDTTblCol"><i>2D Array of CDB</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value that has the same data type as <b>x</b>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_cot"></a>
+<div class="FuncDscrTitle">
+<h1>cot</h1>
+<p>The function computes the cotangent.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">cot(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the cotangent of <b>x</b>, where <b>x</b> is in radians.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+<tr>
+<td class="FuncDTTblCol"><i>CDB Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of CDB</i></td>
+<td class="FuncDTTblCol"><i>2D Array of CDB</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value that has the same data type as <b>x</b>.</p>
+</div>
+
+<h3>Comment</h3>
+<div class="FuncDscrSection">
+<p>The cotangent is defined by the formula:</p>
+<p>1/tan(x)</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_coth"></a>
+<div class="FuncDscrTitle">
+<h1>coth</h1>
+<p>The function computes the hyperbolic cotangent.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">coth(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the hyperbolic cotangent of <b>x</b>.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+<tr>
+<td class="FuncDTTblCol"><i>CDB Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of CDB</i></td>
+<td class="FuncDTTblCol"><i>2D Array of CDB</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value that has the same data type as <b>x</b>.</p>
+</div>
+
+<h3>Comment</h3>
+<div class="FuncDscrSection">
+<p>The hyperbolic cotangent is defined by the formula:</p>
+<p>1/tanh(x)</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_csc"></a>
+<div class="FuncDscrTitle">
+<h1>csc</h1>
+<p>The function computes the cosecant.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">csc(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the cosecant of <b>x</b>, where <b>x</b> is in radians.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+<tr>
+<td class="FuncDTTblCol"><i>CDB Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of CDB</i></td>
+<td class="FuncDTTblCol"><i>2D Array of CDB</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value that has the same data type as <b>x</b>.</p>
+</div>
+
+<h3>Comment</h3>
+<div class="FuncDscrSection">
+<p>The cosecant is defined by the formula:</p>
+<p>1/sin(x)</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_csch"></a>
+<div class="FuncDscrTitle">
+<h1>csch</h1>
+<p>The function computes the hyperbolic cosecant.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">csch(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the hyperbolic cosecant of <b>x</b>.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+<tr>
+<td class="FuncDTTblCol"><i>CDB Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of CDB</i></td>
+<td class="FuncDTTblCol"><i>2D Array of CDB</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value that has the same data type as <b>x</b>.</p>
+</div>
+
+<h3>Comment</h3>
+<div class="FuncDscrSection">
+<p>The hyperbolic cosecant is defined by the formula:</p>
+<p>1/sinh(x)</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_sec"></a>
+<div class="FuncDscrTitle">
+<h1>sec</h1>
+<p>The function computes the secant.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">sec(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the secant of <b>x</b>, where <b>x</b> is in radians.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+<tr>
+<td class="FuncDTTblCol"><i>CDB Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of CDB</i></td>
+<td class="FuncDTTblCol"><i>2D Array of CDB</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value that has the same data type as <b>x</b>.</p>
+</div>
+
+<h3>Comment</h3>
+<div class="FuncDscrSection">
+<p>The secant is defined by the formula:</p>
+<p>1/cos(x)</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_sech"></a>
+<div class="FuncDscrTitle">
+<h1>sech</h1>
+<p>The function computes the hyperbolic secant.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">sech(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the hyperbolic secant of <b>x</b>.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+<tr>
+<td class="FuncDTTblCol"><i>CDB Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of CDB</i></td>
+<td class="FuncDTTblCol"><i>2D Array of CDB</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value that has the same data type as <b>x</b>.</p>
+</div>
+
+<h3>Comment</h3>
+<div class="FuncDscrSection">
+<p>The hyperbolic secant is defined by the formula:</p>
+<p>1/cosh(x)</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_sin"></a>
+<div class="FuncDscrTitle">
+<h1>sin</h1>
+<p>The function computes the sine.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">sin(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the sine of <b>x</b>, where <b>x</b> is in radians.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+<tr>
+<td class="FuncDTTblCol"><i>CDB Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of CDB</i></td>
+<td class="FuncDTTblCol"><i>2D Array of CDB</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value that has the same data type as <b>x</b>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_sinc"></a>
+<div class="FuncDscrTitle">
+<h1>sinc</h1>
+<p>The function computes the sin(x)/x.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">sinc(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the sine of <b>x</b> divided by <b>x</b>, where <b>x</b> is in radians.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+<tr>
+<td class="FuncDTTblCol"><i>CDB Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of CDB</i></td>
+<td class="FuncDTTblCol"><i>2D Array of CDB</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value that has the same data type as <b>x</b>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_sinh"></a>
+<div class="FuncDscrTitle">
+<h1>sinh</h1>
+<p>The function computes the hyperbolic sine.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">sinh(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the hyperbolic sine of <b>x</b>.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+<tr>
+<td class="FuncDTTblCol"><i>CDB Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of CDB</i></td>
+<td class="FuncDTTblCol"><i>2D Array of CDB</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value that has the same data type as <b>x</b>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_tan"></a>
+<div class="FuncDscrTitle">
+<h1>tan</h1>
+<p>The function computes the tangent.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">tan(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the tangent of <b>x</b>, where <b>x</b> is in radians.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+<tr>
+<td class="FuncDTTblCol"><i>CDB Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of CDB</i></td>
+<td class="FuncDTTblCol"><i>2D Array of CDB</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value that has the same data type as <b>x</b>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_tanh"></a>
+<div class="FuncDscrTitle">
+<h1>tanh</h1>
+<p>The function computes the hyperbolic tangent.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">tanh(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the hyperbolic tangent of <b>x</b>.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+<tr>
+<td class="FuncDTTblCol"><i>CDB Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of CDB</i></td>
+<td class="FuncDTTblCol"><i>2D Array of CDB</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value that has the same data type as <b>x</b>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+</body>
+</html>

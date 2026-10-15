@@ -1,0 +1,29 @@
+timeStart = 0; timeEnd = 10; h = 0.001; //conditions
+t = timeStart; x = 0; y = 3;            //initial values
+
+ta = nvecifs(timeStart, timeEnd, h);    //time array
+
+N  = size(ta);                     //number of points
+xa = vectorn(x, N);                //output x values
+ya = vectorn(y, N);                //output y values
+xk = yk = vectorn(0,4);            //x and y temporaries
+hk = vector(h/2, h/2, h);          //time coefficients
+
+for (i=1; i < N; i++ ) {
+  t0=t; x0=x; y0=y;
+  for (j=0; ; j++) {
+    xk[j] = sin(t*x)+y;       // formula 1
+    yk[j] = -t*x-y;           // formula 2
+    if (j >= 3)
+      break;
+    t = t0 + hk[j];
+    x = x0 + xk[j] * hk[j];
+    y = y0 + yk[j] * hk[j];
+  }
+  t = ta[i];
+  xa[i] = x = x0 + h * (xk[0]+2*(xk[1]+xk[2])+xk[3])/6;
+  ya[i] = y = y0 + h * (yk[0]+2*(yk[1]+yk[2])+yk[3])/6;
+}
+XYGraph(-1); // clear graph
+XYGraph(0, ta, xa, "x values");
+XYGraph(1, ta, ya, "y values");

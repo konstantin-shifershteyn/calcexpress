@@ -1,0 +1,29 @@
+/* create variables */
+dbl   = 3.1415;
+a1dbl = vector(dbl, dbl+1, dbl+2, dbl+3, dbl+4);
+a2dbl = matrix(a1dbl, a1dbl+10, a1dbl+20);
+
+cdb   = complex(2,5);
+a1cdb = vector(cdb, cdb+1, cdb+2, cdb+3, cdb+4);
+a2cdb = matrix(a1cdb, a1cdb+10, a1cdb+20);
+
+str = "hello world!!!";
+a1str = vector("cell0", "cell1", "cell2", "cell3", "cell4");
+a2str = matrix(smix("row0:",a1str), smix("row1:",a1str), smix("row2:",a1str));
+
+ir = ir(5, 10);
+
+/* display the variables in the probes */
+probe(str,   "STR");
+probe(dbl,   "DBL");
+probe(cdb,   "CDB");
+
+probe(a1str, "A1STR");
+probe(a1dbl, "A1DBL");
+probe(a1cdb, "A1CDB");
+
+probe(a2str, "A2STR");
+probe(a2dbl, "A2DBL");
+probe(a2cdb, "A2CDB");
+
+probe(ir,    "IdxRange");

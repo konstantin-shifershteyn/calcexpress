@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>Referring to variables</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+<style>
+table.Tbl   { width:400pt; }
+td.TblCol1  { padding:0pt 5pt 10pt 0pt; valign:top; }
+td.TblCol2  { padding:0pt 0pt 10pt 0pt; valign:top; width:100pt; text-align:right; }
+</style>
+</head>
+
+<body>
+
+<!-- ########################################## -->
+<a name="var_referring"></a>
+<div class="GenSectTitle">
+<h1><span class="PageTitleL">Referring to variables</span></h1>
+</div>
+
+
+<!-- ########################################## -->
+<p>VarMan supports two methods to refer to a variable: by using its name or by using an alias associated with it. Many VarMan VIs have a control called <b>name_spec</b>. To refer to a variable, a proper name specifier must be passed to the <b>name_spec</b> control. Also, if a variable is referenced by name, a handle of the context where the variable exists (or should be created) must be provided.</p>
+<p>Generic format of a name specifier (<b>name_spec</b>):</p>
+
+<p class="GenDscrSyntax">[name][=alias]</p>
+<p>, where</p>
+<ul>
+<li><b>name</b> is an <a href="ce_syntax_misc.html#ce_syntax_ident">identifier</a> that specifies a variable name. It can consist of letters, digits, and underscores; the first character must not be a digit.</li>
+<li>equality mark <span style="white-space:nowrap;">( <b>=</b> )</span> indicates that an alias follows. Spaces are not allowed between the equality mark and a name or alias.</li>
+<li><b>alias</b> is an arbitrary string that may consist of characters with codes greater than or equal to 0x20 (space mark), but the space mark must not be the first or last character. VarMan treats a string after the equality mark as an alias.</li>
+</ul>
+<p>Either <b>name</b> or =<b>alias</b> can be omitted in <b>name_spec</b>, but not both.</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<p>&nbsp;</p><hr class="TopicSeparator">
+<h2>Use cases while operating on existing variables</h2>
+<p>An existing variable can be referred to using its name or an alias, if one has been associated. The following patterns show how to do this.</p>
+<p>&nbsp;</p>
+
+<p><b>name_spec</b> is like either <b>&quot;name&quot;</b> or <b>&quot;name=alias&quot;</b></p>
+<table class="Tbl"><tr>
+<td class="TblCol1">If the first character in a name specifier is not an equality mark, VarMan will treat all characters up to the end of string or before an equality mark (if any) to be a variable name. In this case, VarMan ignores alias (if any) and performs an operation on the variable with the specified name in the specified context.</td>
+<td class="TblCol2"><img src="image/nspec_any n=a.png"></td>
+</tr></table>
+
+<p><b>name_spec</b> is like <b>&quot;=alias&quot;</b></p>
+<table class="Tbl"><tr>
+<td class="TblCol1">If the first character in a name specifier is an equality mark (i.e. a name is omitted), VarMan interprets the rest of string as an alias. In this case, it performs an operation on the variable that is associated with that alias. There is no need to specify a context handle (any value will be ignored), VarMan will take it from the alias' record.</td>
+<td class="TblCol2"><img src="image/nspec_any =a.png"></td>
+</tr></table>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<p>&nbsp;</p><hr class="TopicSeparator">
+<h2>Use cases while creating variables</h2>
+<p>When you create a variable, you can optionally associate an alias with it (if needed, an alias can be associated later with the help of <a href="vi_VM_-_Alias_Controller.html">VM - Alias Controller.vi</a>). When creating a variable, you must always explicitly specify the variable context where the variable is to be created.</p>
+<p>The following patterns show how to create variables and aliases.</p>
+<p>&nbsp;</p>
+
+<p><b>name_spec</b> is like <b>&quot;name&quot;</b></p>
+<table class="Tbl"><tr>
+<td class="TblCol1">If a name specifier contains only a variable name (there is no equality mark), VarMan creates a variable with that name in the given context, but does not associate any alias with it.</td>
+<td class="TblCol2"><img src="image/nspec_cre n.png"></td>
+</tr></table>
+
+<p><b>name_spec</b> is like <b>&quot;name=alias&quot;</b></p>
+<table class="Tbl"><tr>
+<td class="TblCol1">If a name specifier contains both a variable name and an alias (there is an equality mark in any position except the first one), VarMan creates a variable with the specified name in the given context and associates the specified alias with it.</td>
+<td class="TblCol2"><img src="image/nspec_cre n=a.png"></td>
+</tr></table>
+
+<p><b>name_spec</b> is like <b>&quot;=alias&quot;</b></p>
+<table class="Tbl"><tr>
+<td class="TblCol1">If a name specifier contains only an alias (the first character is an equality mark), VarMan creates a variable with a randomly generated unique name in the given context and associates the specified alias with it.</td>
+<td class="TblCol2"><img src="image/nspec_cre =a.png"></td>
+</tr></table>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<p>&nbsp;</p><hr class="TopicSeparator">
+<h2>Using aliases in CalcExpress and CSE scripts</h2>
+<p>In order to use aliases in scripts, there are CalcExpress functions designed to manage variables. These functions accept a variable name as a string parameter and can work with aliases, according to the "Referring to Variables" rules described above.</p>
+
+<h3>Example</h3>
+
+<div class="FuncDscrSection">
+
+<p class="FuncDscrExample">
+/*****  It is CSE Script *****/<br>
+
+alias = &quot;Test Tag #1&quot;;     /* alias associated with a desired variable */<br>
+nspec = <a href="cefunc_string.html#cef_scat">scat</a>(&quot;=&quot;, alias);  /* name specifier equals &quot;=Test Tag #1&quot; */<br>
+<br>
+/*<br>
+Test if the alias exists and associated variable has dbl scalar type<br>
+it's required to prevent a run-time error that may occur otherwise<br>
+*/<br>
+if (<a href="cefunc_vm2.html#cef_vtest">vtest</a>(nspec) != 1) {<br>
+&nbsp;&nbsp; <a href="cefunc_user.html#cef_MsgBox">MsgBox</a>(&quot;Error: Alias is not found or &quot;<br>
+&nbsp;&nbsp; &quot;a targer variable is not DBL scalar&quot;);<br>
+&nbsp;&nbsp; return 0;    /* terminates script execution */<br>
+}<br>
+<br>
+// Evaluate a desired variable<br>
+x = <a href="cefunc_idn.html#cef_idn">idn</a>(nspec);     /* x is equal to value of a desired variable */<br>
+<br>
+// Assign a value to a desired variable<br>
+<a href="cefunc_idn.html#cef_idn">idn</a>(nspec) = 10;    /* a desired variable is now equal to 10 */<br>
+<br>
+// Increment a desired variable<br>
+<a href="cefunc_idn.html#cef_idn">idn</a>(nspec) += 1;    /* a desired variable is now equal to 11 */<br>
+</p>
+</div>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<p>&nbsp;</p><hr class="TopicSeparator">
+
+<p>In addition, see the following items in <a href="varman.html">VarMan Overview</a> topic:</p>
+<ul>
+<li><a href="varman.html#varman_overview_context">Variable Context</a></li>
+<li><a href="varman.html#varman_overview_name">Variable Name</a></li>
+<li><a href="varman.html#varman_overview_alias">Alias</a></li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+$NCOFF  /* disables Named Constants */
+
+/* creates or assigns the M_2PI variable */
+M_2PI = 2 * 3.14;
+
+/* shows value of the variable */
+probe(M_2PI, "M_2P variable");
+
+$NCON  /* enables Named Constants */
+
+/* shows value of the Named Constant */
+probe(M_2PI, "M_2P constant");

@@ -1,0 +1,345 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>Script Control functions</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+</head>
+
+<body>
+
+<!-- ########################################## -->
+<a name="cef_abort"></a>
+<div class="FuncDscrTitle">
+<h1>abort</h1>
+<p>The function aborts execution of CalcExpress and CSE scripts.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">abort()</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>If this function is called in either CalcExpress or CSE script, the execution of the script immediately terminates with an "aborted" error. This will also abort the execution of all higher-level scripts in the call chain of the script.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>No parameters.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>No return.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_Call"></a>
+<div class="FuncDscrTitle">
+<h1>Call     (CSE scripts only)</h1>
+<p>The function calls a <a href="cse.html#cse_overview">CSE</a> script from a CSE script.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">Call(ScriptPath ,<i>parSpec1 </i>,<i>parSpec2</i> ...)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function reads the specified script file and executes the script. The called script has its own unique Variable Context that does not interfere with the context of the calling script.
+In addition, the function allows the transfer of values (variable values or constants) between the variable contexts of the calling and called scripts.</p>
+<p>The function can be used to call a script recursively, but it is your responsibility to ensure that the script has a mechanism to stop the recursive calls to avoid infinite recursion. The <a href="#cef_CallLevel">CallLevel</a> function can be used to determine the current level of nesting in a script's call chain.</p>
+<p>The function returns the value that the called script returns using the <a href="cse_syntax.html#cse_return">return</a> statement.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>ScriptPath</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter specifies either an absolute or relative path to the script file that is to be called. If the path is relative, the function looks for the file in locations relative to<br>
+1) a directory where the calling script resides<br>
+2) directories assigned as the search paths<br>
+A file path of the top-level script has to be specified before CSE starts executing; for this, use <a href="vi_CSE_-_Script_Path___Search_Paths.html">CSE - Script Path &amp; Search Paths.vi</a>. 
+Search paths can be defined before starting the top-level script (<a href="vi_CSE_-_Script_Path___Search_Paths.html">CSE - Script Path &amp; Search Paths.vi</a>) as well as they can be defined during a script execution (<a href="#cef_SearchPath">SearchPath</a> function). A called script inherits search paths from its caller.
+A file path of the script can be retrieved with the call of <a href="#cef_ScriptPath">ScriptPath</a> function.<br>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>parSpec<br>
+<br>
+</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameters specify variables to be transferred to and-or from the called script. The function supports arbitrary number of <b>parSpec</b> parameters (including zero).<br>
+<p><b><u>parSpec format</u></b></p>
+<p>
+    "<i>LocalVar</i>  <i>Cmd</i>  <i>CalledVar</i>"  , where<br>
+</p>
+<i>LocalVar</i>  is the name of variable in context of the calling script.<br>
+<i>CalledVar</i> is the name of variable in context of the called script.<br>
+<i>Cmd</i>    defines an <u>operation</u>:<br>
+    <b>&gt;&gt;</b>  : <i>LocalVar</i> is to be copied to <i>CalledVar</i> before the called script starts.<br>
+    <b>&lt;&lt;</b>  : <i>CalledVar</i> is to be copied to <i>LocalVar</i> after the called script completes.<br>
+    <b>&lt;&gt;</b>  : combines &gt;&gt; and &lt;&lt; <u>operations</u>.
+</p>
+<p>
+<b><u>Remarks</u></b></p>
+<p>
+1)  if the destination variable in an <u>operation</u> does not exist, it will be created with the same data type and value as the source variable.<br>
+2)  if the destination variable exists, it must have the same data type as the source variable.<br>
+3)  it is possible to combine a few <b>parSpecs</b> within a single string using '<b>&amp;</b>' character as a delimiter.<br>
+4)  it is possible to specify a numeric constant instead of a source variable name.
+</p>
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns the value that the called script returns using the <a href="cse_syntax.html#cse_return">return</a> statement. </p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+/*1*/ err = call(&quot;calc.txt&quot;, &quot;var &gt;&gt; x&quot;, &quot;-2.5 &gt;&gt; y&quot;, &quot;result &lt;&lt; z&quot;);<br>
+/*2*/ err = call(&quot;calc.txt&quot;, &quot;var &gt;&gt; x  &amp; -2.5 &gt;&gt; y  &amp; result &lt;&lt; z&quot;);
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="#cef_Exec">Exec function</a>,  <a href="cef_cat_script.html">CSE Script Control functions</a>,  <a href="cef_cat_file.html">File functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_CallLevel"></a>
+<div class="FuncDscrTitle">
+<h1>CallLevel     (CSE scripts only)</h1>
+<p>The function returns the nesting level of the current CSE script in its call chain.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">CallLevel()</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns a positive integer that represents the nesting level of the current script in its call chain.</p>
+<p>The top-level script has the nesting level of zero. If a script is called directly from the top-level script, its nesting level equals to 1, and so on. In general, each call of the <a href="#cef_Call">Call</a> or <a href="#cef_Exec">Exec</a> function increases the nesting level of the called script by one compared to its caller. This also applies to recursive script calls.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1">No parameters.</td>
+<td class="FuncDscrTblCol2">&nbsp;</td>
+<td class="FuncDscrTblCol3">&nbsp;
+&nbsp;</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a positive integer value of the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_script.html">CSE Script Control functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_Exec"></a>
+<div class="FuncDscrTitle">
+<h1>Exec     (CSE scripts only)</h1>
+<p>The function executes a <a href="cse.html#cse_overview">CSE</a> script in framework of another CSE script.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">Exec(ScriptPath)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function reads the specified script file and executes the script. The function works similar to the <a href="#cef_Call">Call</a> function except it does not create a variable context for the called script. Instead, the called script inherits the context of its caller; this means the callee has direct access to the variables of the caller.</p>
+<p>The <a href="#cef_CallLevel">CallLevel</a> function can be used to determine the current level of nesting in a script's call chain.</p>
+<p>The function returns the value that the called script returns using the <a href="cse_syntax.html#cse_return">return</a> statement.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>ScriptPath</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter specifies either an absolute or relative path to the script file that is to be called. If the path is relative, the function looks for the file in locations relative to<br>
+1) a directory where the calling script resides<br>
+2) directories assigned as the search paths<br>
+A file path of the top-level script has to be specified before CSE starts executing; for this, use <a href="vi_CSE_-_Script_Path___Search_Paths.html">CSE - Script Path &amp; Search Paths.vi</a>. 
+Search paths can be defined before starting the top-level script (<a href="vi_CSE_-_Script_Path___Search_Paths.html">CSE - Script Path &amp; Search Paths.vi</a>) as well as they can be defined during a script execution (<a href="#cef_SearchPath">SearchPath</a> function). A called script inherits search paths from its caller.
+A file path of the script can be retrieved with the call of <a href="#cef_ScriptPath">ScriptPath</a> function.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns the value that the called script returns using the <a href="cse_syntax.html#cse_return">return</a> statement.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+err = exec(&quot;a_script.txt&quot;);
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="#cef_Call">Call( )</a>, <a href="cef_cat_script.html">CSE Script Control functions</a>, <a href="cef_cat_file.html">File functions</a>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_ScriptPath"></a>
+<div class="FuncDscrTitle">
+<h1>ScriptPath     (CSE scripts only)</h1>
+<p>The function returns a file path associated with a CSE script.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">ScriptPath(<i>level</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns a file path associated with a running CSE script. Depending on the <b>level</b> parameter, it returns either the path of the current script or the path of one of its callers.</p>
+<p>The function returns the requested path.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>level</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the nesting level of desired script in the call chain of the current script. Depending on its value, the function returns:
+<p>
+-2 or less: the path of the current script (by default)<br>
+-1 : the path of the calling script<br>
+ 0 : the path of the top-level script<br>
+ 1 or greater : a script path at the specified nesting level
+</p>
+If <b>level</b> is equal to or greater than the current script level, the current script path is returned.
+By default, if <b>level</b> is omitted, the function returns the current script path.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a <a href="dtypes.html#data_types_table">String</a> with the requested path. </p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_script.html">CSE Script Control functions</a>, <a href="cef_cat_file.html">File functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_SearchPath"></a>
+<div class="FuncDscrTitle">
+<h1>SearchPath     (CSE scripts only)</h1>
+<p>The function defines or returns directory paths where to search for CSE script files.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">SearchPath(<i>path1 ,path2 ...</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function adds the specified path(s) to the search paths used by the current script. The <a href="#cef_Call">Call</a> and <a href="#cef_Exec">Exec</a> functions use these search paths to find the script file if its path is not absolute.</p>
+<p>Note that a called script inherits the search paths from its caller.</p>
+<p>The function returns the stored search paths.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>path</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameters specify directory paths. The number of <b>path</b> parameters is arbitrary (including zero). If there is no one <b>path</b> specified, the function merely returns the stored search paths.
+<br>
+(*) Relative paths are converted to absolute paths by appending them to the directory where the top-level VI resides.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a <a href="dtypes.html#data_types_table">1D Array of Strings</a> with the search paths used by the current script.</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_script.html">CSE Script Control functions</a>, <a href="cef_cat_file.html">File functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+</body>
+</html>

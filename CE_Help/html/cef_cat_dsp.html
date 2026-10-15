@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>Signal Processing and Measurement functions overview</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+<script src="js/vih_frames.js" type="text/javascript"></script>
+<script src="js/vih_print.js" type="text/javascript"></script>
+</head>
+
+<body class="framesJS">
+
+<noscript>
+<p>JavaScript is disabled...</p>
+<hr size=1; noshade;>
+</noscript>
+
+
+<!-- ########################################## -->
+<div class="PageTitleJS" id="styleDivTitle">
+
+<h1><span class="PageTitleL">Signal Processing and Measurement functions</span></h1>
+
+<p>Most of the functions listed in this section are implemented as <a href="cef_main.html#pdfunc_quick_fvi">FuncVIs</a>. When you call any of these functions, CalcExpress calls the corresponding LabVIEW Advanced Analysis VI to perform the task. You must have LabVIEW FDS or PDS to be able to use these functions. If a function calls a LabVIEW VI that returns an error code, the function assigns the error code to the <a href="ce_rt_error.html">rtErrorCode</a> variable.</p>
+<p>Click on a function name below for detailed information on the function.</p>
+
+<hr size=1 noshade>
+<table class="CEFuncList">
+<tr>
+<td class="CEFuncListC1"><b>function</b></td>
+<td class="CEFuncListC2vi"><b>quick info</b></td>
+<td class="CEFuncListC3vi"><b>corresponding LabVIEW VI</b></td>
+</tr>
+</table>
+
+</div>
+
+
+
+
+<!-- ########################################## -->
+<div id="styleDivScrolling">
+
+<h3>Time domain functions</h3>
+<table class="CEFuncList">
+<td class="CEFuncListC1"><a href="cefunc_dsp.html#cef_autocorrel">AutoCorrel</a></td>
+<td class="CEFuncListC2vi">Autocorrelation</td>
+<td class="CEFuncListC3vi">AutoCorrelation.vi</td>
+</tr>
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_dsp.html#cef_conv">Conv</a></td>
+<td class="CEFuncListC2vi">Convolution</td>
+<td class="CEFuncListC3vi">Convolution.vi</td>
+</tr>
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_dsp.html#cef_croscorrel">CrosCorrel</a></td>
+<td class="CEFuncListC2vi">Cross Correlation</td>
+<td class="CEFuncListC3vi">CrossCorrelation.vi</td>
+</tr>
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_dsp.html#cef_decimate">decimate</a></td>
+<td class="CEFuncListC2vi">decimates an array (<span style='color:#800000'>FuncVI &amp; FastFunc</span>)</td>
+<td class="CEFuncListC3vi">Decimate.vi</td>
+</tr>
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_dsp.html#cef_deconv">DeConv</a></td>
+<td class="CEFuncListC2vi">Deconvolution</td>
+<td class="CEFuncListC3vi">Deconvolution.vi</td>
+</tr>
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_dsp.html#cef_derivate">derivate</a></td>
+<td class="CEFuncListC2vi">discrete differentiation (<span style='color:#800000'>FuncVI &amp; FastFunc</span>)</td>
+<td class="CEFuncListC3vi">Derivate x(t).vi</td>
+</tr>
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_dsp.html#cef_integral">integral</a></td>
+<td class="CEFuncListC2vi">discrete integration (<span style='color:#800000'>FuncVI &amp; FastFunc</span>)</td>
+<td class="CEFuncListC3vi">Integral x(t).vi</td>
+</tr>
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_dsp.html#cef_unwrapphase">UnwrapPhase</a></td>
+<td class="CEFuncListC2vi">unwraps a phase array</td>
+<td class="CEFuncListC3vi">Unwrap Phase.vi</td>
+</tr>
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_dsp.html#cef_zeropad">ZeroPad</a></td>
+<td class="CEFuncListC2vi">resizes an array to the next higher power of two</td>
+<td class="CEFuncListC3vi">Zero Padder.vi</td>
+</tr>
+</table>
+
+<h3>Frequency domain functions</h3>
+<table class="CEFuncList">
+<td class="CEFuncListC1"><a href="cefunc_dsp.html#cef_crospower">CrosPower</a></td>
+<td class="CEFuncListC2vi">Cross Power Spectrum</td>
+<td class="CEFuncListC3vi">Cross Power.vi</td>
+</tr>
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_dsp.html#cef_fft">FFT</a></td>
+<td class="CEFuncListC2vi">FFT of Real argument</td>
+<td class="CEFuncListC3vi">Real FFT.vi</td>
+</tr>
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_dsp.html#cef_fftc">FFTc</a></td>
+<td class="CEFuncListC2vi">FFT of Complex argument</td>
+<td class="CEFuncListC3vi">Complex FFT.vi</td>
+</tr>
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_dsp.html#cef_fhit">FHIT</a></td>
+<td class="CEFuncListC2vi">Fast Hilbert Transform</td>
+<td class="CEFuncListC3vi">Fast Hilbert Transform.vi</td>
+</tr>
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_dsp.html#cef_fht">FHT</a></td>
+<td class="CEFuncListC2vi">Fast Hartley Transform</td>
+<td class="CEFuncListC3vi">FHT.vi</td>
+</tr>
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_dsp.html#cef_ifft">IFFT</a></td>
+<td class="CEFuncListC2vi">Inverse FFT to produce Real result</td>
+<td class="CEFuncListC3vi">Inverse Real FFT.vi</td>
+</tr>
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_dsp.html#cef_ifftc">IFFTc</a></td>
+<td class="CEFuncListC2vi">Inverse FFT to produce Complex result</td>
+<td class="CEFuncListC3vi">Inverse Complex FFT.vi</td>
+</tr>
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_dsp.html#cef_ifhit">IFHIT</a></td>
+<td class="CEFuncListC2vi">Inverse Fast Hilbert Transform</td>
+<td class="CEFuncListC3vi">Inverse Fast Hilbert Transform.vi</td>
+</tr>
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_dsp.html#cef_ifht">IFHT</a></td>
+<td class="CEFuncListC2vi">Inverse Fast Hartley Transform</td>
+<td class="CEFuncListC3vi">Inverse FHT.vi</td>
+</tr>
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_dsp.html#cef_pspectrum">PSpectrum</a></td>
+<td class="CEFuncListC2vi">Power Spectrum</td>
+<td class="CEFuncListC3vi">Power Spectrum.vi</td>
+</tr>
+</table>
+
+<h3>Measurement functions</h3>
+<table class="CEFuncList">
+<td class="CEFuncListC1"><a href="cefunc_dsp.html#cef_apspectrum">APSpectrum</a></td>
+<td class="CEFuncListC2vi">Auto Power Spectrum</td>
+<td class="CEFuncListC3vi">Auto Power Spectrum.vi</td>
+</tr>
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_dsp.html#cef_cpspectrum">CPSpectrum</a></td>
+<td class="CEFuncListC2vi">Cross Power Spectrum</td>
+<td class="CEFuncListC3vi">Cross Power Spectrum.vi</td>
+</tr>
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_dsp.html#cef_spectrum">Spectrum</a></td>
+<td class="CEFuncListC2vi">Amplitude Spectrum</td>
+<td class="CEFuncListC3vi">Amplitude and Phase Spectrum.vi</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+</div>
+
+</body>
+</html>

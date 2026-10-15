@@ -1,0 +1,36 @@
+x0 = 0;
+err = vhAttach("x0", 100); //attach history to x0 (size=100)
+if (err) {
+  /* error handling (optional) */
+  lvErrorMessage("vhAttach() function", 7000-err); return;
+}
+
+baseTime = GetTime();  //get current time
+
+/* x0 is changed in the loop */
+for(i=0; i<100; i+=1) {
+  x0 += i;
+  WaitUntil(10); //delay 10 ms
+}
+
+/* display history of x0 (see help fo vhShow function) */
+vhShow( "x0", "History of x0" );
+
+a1dbl("x0_history");    //create variable for history data
+
+/* retrieve history values (see help for vhQuery function) */
+err = vhQuery("x0", "x0_history", "", 0);
+if (err) {
+  /* error handling (optional) */
+  lvErrorMessage("vhQuery() function", 7000-err); return;
+}
+// display on waveform graph
+wfGraph(-1); wfGraph(0, x0_history);
+
+a1dbl("x0_timestamps"); //create variable for time stamps
+
+/* retrieve history data and timestamps (see help for vhQuery function) */
+err = vhQuery("x0", "x0_history", "x0_timestamps");
+// display on x-y graph
+xyGraph(-1);
+xyGraph(0, x0_timestamps - baseTime, x0_history);

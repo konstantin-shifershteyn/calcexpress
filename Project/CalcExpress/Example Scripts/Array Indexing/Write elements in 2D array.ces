@@ -1,0 +1,34 @@
+/*
+   For details on array indexing, refer to
+  "Operators, subscript operator" topic in CalcExpress help
+*/
+
+/* create 2D array */
+matrix = nmtxins(0,5,10,5,1);
+probe(matrix, "Initial array");
+
+/* write a cell */
+z=matrix;
+z[3,0] = -100;
+probe(z, "cell at row 3 and column 0 is set to -100");
+
+/* fill a column with a value*/
+z=matrix;
+z[$>,1] = -100;
+probe(z, "column 1 is filled with -100");
+
+/* negate values in a row */
+z=matrix;
+z[3] = -z[3];
+probe(z, "values in row 3 are negated");
+
+/* assign values to cells in a column, number of cells
+to be written depends on size of input array */
+z=matrix;
+z[$>,1] = vector(-100,-101,-102);
+probe(z, "3 cells in column 1 are set");
+
+/* Assigns 2D array to subset */
+z=matrix;
+z[1:3, 0:1] = nmtxins(-100,5,-1);
+probe(z, "cells in rows 1..3 and columns 0..1 are set");

@@ -1,0 +1,21 @@
+xyGraph();       //clears graphs
+a1dbl("stdar");  //declares array of standard deviations
+
+for (i=0; i<5; i+=1) {
+
+   std = (i+1)*20;  //standard deviation
+
+   /* generates Gaussian white noise */
+   x = GWNoise(2048, std);
+
+   ni = 64;   // number of intervals
+
+   /* dispalys a histogram */
+   xyGraph(i, histx(x,ni), histy(x,ni), sform("std=%.1f",std) );
+
+   /* compiles array of standard deviations */
+   stdar = vector(stdar, stdev(x));
+}
+
+/* displays array of standard deviations */
+probe(stdar, "Standard Deviations");

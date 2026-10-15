@@ -1,0 +1,53 @@
+/*
+This script is intended to be called in order to generate a periodical waveform signal with the specified parameters. Furthermore, the script calls a script adding noise to the produced signal if a noise amplitude parameter is greater than zero.
+The script returns zero on success; otherwise, it returns non-zero value to indicate an error.
+*/
+
+/* Definition of input parameters and their default values */
+str("Form", "sine"); // form of signal (sine,square,triangle)
+dbl("Ns", 1000);     // number of samples
+dbl("Fs", 1000);     // sampling frequency, Hz
+dbl("F" , 10);       // signal frequency, Hz
+dbl("A" , 1);        // signal amplitude
+dbl("Ph", 0);        // phase
+dbl("DC", 0);        // DC
+
+dbl("Noise", 0);             // noise amplitude
+str("NoiseKind", "uniform"); // kind of noise
+
+/* local variables */
+a1dbl("Signal");     // buffer for resulting data
+
+
+/* Generate a waveform */
+if   (Form == "sine")
+    Ph = SineWave  (Signal, Ns, F/Fs, A, Ph );
+else
+  if (Form == "square")
+    Ph = SquareWave(Signal, Ns, F/Fs, A, Ph );
+else
+  if (Form == "triangle")
+    Ph = TriangWave(Signal, Ns, F/Fs, A, Ph );
+else {
+   MsgBox("GENERATOR ERROR\n"
+          "Wrong specifier of signal form:\n", Form);
+   return 1;
+}
+
+/* Add DC */
+Signal += DC;
+
+/* Add noise if required */
+if (Noise > 0) {
+  return call( "2-noise.ces",
+                  "Noise >> NoiseVal",
+                  "NoiseKind >> kind",
+                  "Signal <> Signal"      // input/output
+         );
+
+  /* it can also be performed with the use of exec() function
+  as it is shown below: */
+//  NoiseVal = Noise;
+//  return exec("2-noise.ces");
+}
+return 0;

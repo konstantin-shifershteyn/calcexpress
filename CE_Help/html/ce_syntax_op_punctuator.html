@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>Punctuators</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+</head>
+
+<body>
+
+<!-- ########################################## -->
+<a name="ce_op_comma"></a>
+<div class="GenSectTitle">
+<h2><span class="PageTitleR">Sequential-Evaluation operator:  ,</span></h2>
+</div>
+
+<p>The Sequential-Evaluation operator (also called the comma operator) is typically used to evaluate two or more expressions in cases where only one expression is expected. In addition, the comma is used as a delimiter for  arguments in <a href="ce_functions.html#ce_func_syntax">function calls</a> and indices in the <a href="ce_syntax_op_array.html#ce_op_subscript">Subscript operator</a>.</p>
+
+<h3>Syntax:</h3>
+<p class="StatementSyntax">
+<i>expression1</i> <b>,</b> <i>expression2</i>
+</p>
+
+<p>The comma operator evaluates its two operands sequentially from left to right. CalcExpress completely evaluates the left-hand expression, including all <a href="ce_syntax_misc.html#ce_syntax_side_effect">side effects</a>, before it starts evaluating the right-hand expression.</p>
+<p>The comma operator allows any data types for operands, both predefined  and user-defined (<a href="dtypes.html">click here</a> to get general information on data types). The result of the operation has the same data type and value as the right-hand operand.</p>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+x = 4 * (y=1, y+2);     /* x equals 12, y equals 1 */<br>
+</p>
+</div>
+
+<h3>Also see</h3>
+<p>
+<a href="ce_syntax_op.html">CalcExpress Operators</a><br>
+<a href="ce_syntax.html">CalcExpress Syntax</a><br>
+<a href="ce.html">CalcExpress Overview</a>
+</p>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="ce_op_semicolon"></a>
+<div class="GenSectTitle">
+<h2><span class="PageTitleR">Expression Terminator:  ;</span></h2>
+</div>
+
+<p>The Expression Terminator <span style="white-space:nowrap;">( ; )</span> forms the <i>expression-statement</i>. It allows combining a few expressions into a single script. The Expression Terminator causes a preceding expression to be evaluated. <i>Expression-statements</i> are evaluated according to the rules described in <a href="ce_syntax_op.html#ce_syntax_eval_order">Order of Script Evaluation</a> topic.</p>
+<p>NOTICE: Unlike an expression, the <i>expression-statement</i> does not produce a value that can be used for further evaluation.</p>
+
+<h3>Syntax:</h3>
+<p class="StatementSyntax">
+<i>expression</i> <b>;</b>
+</p>
+
+<p>The <i>expression</i> can have any data type, both predefined and user-defined data types are alowed (<a href="dtypes.html">click here</a> to get general information on data types).</p>
+<p>A semicolon <span style="white-space:nowrap;">( ; )</span> must not appear within parentheses () or brackets [].</p>
+<p>If an <i>expression-statement</i> consists of only semicolon, it is called the <i>null-statement</i>. Nothing happens when a <i>null-statement</i> is performed.</p>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+x = 1.75;<br>
+y = sin(x) * exp(x);<br>
+x = 4, y = 2, z = x*y;  /* it is a single statement */<br>
+;;                      /* a couple of null-statements */<br>
+</p>
+</div>
+
+<h3>Also see</h3>
+<p>
+<a href="ce_syntax_op.html">CalcExpress Operators</a><br>
+<a href="ce_syntax.html">CalcExpress Syntax</a><br>
+<a href="ce.html">CalcExpress Overview</a>
+</p>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="ce_op_parentheses"></a>
+<div class="GenSectTitle">
+<h2><span class="PageTitleR">Parentheses:  (  )</span></h2>
+</div>
+
+<p>Parentheses must always appear in pairs; i.e., each '(' must have a matching ')'. Parentheses are used for two purposes.<p>
+
+<p>Parentheses are used to designate a function call if they follow an identifier. A list of function arguments is located within parentheses. See <a href="ce_functions.html#ce_func_syntax">Function Call Syntax</a> topic for more information.</p>
+
+<p>Parentheses are used to change the order of expression evaluation. You can enclose any expression in parentheses to increase the precedence of the enclosed expression without changing its data type or value. It is guaranteed that the expression within parentheses will be evaluated, including any <a href="ce_syntax_misc.html#ce_syntax_side_effect">side effects</a>, before it is used for further evaluation. Expressions within parentheses can themselves be enclosed in other parentheses. The deeper an expression is nested within parentheses, the higher its precedence is.</p>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+x = 7 * (10+(3+5)/4);  /* x is equal to 84 */<br>
+</p>
+</div>
+
+<p>You can use parentheses to clarify your intention when you use commas to form function arguments or array indexes.</p>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+/* three arguments are passed to a function */<br>
+AnyFunction(a, (b=5, c=3, b+c), d);<br>
+<br>
+/* returns a cell value in the first row and the second column */<br>
+AnyArray[(i1=1,i2=i1+1,i1) , i2];<br>
+</p>
+</div>
+
+<h3>Also see</h3>
+<p>
+<a href="ce_syntax_op.html">CalcExpress Operators</a><br>
+<a href="ce_syntax.html">CalcExpress Syntax</a><br>
+<a href="ce.html">CalcExpress Overview</a>
+</p>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+</body>
+</html>

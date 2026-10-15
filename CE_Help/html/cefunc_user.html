@@ -1,0 +1,650 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>Displaying and Interaction functions</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+</head>
+
+<body>
+
+<!-- ########################################## -->
+<a name="cef_beep"></a>
+<div class="FuncDscrTitle">
+<h1>beep</h1>
+<p>The function produces a sound.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">Beep( <i>Freq</i> ,<i>msec</i> )</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function causes the system to emit a sound, which can be a default system alert or an audible tone with the specified frequency and duration, depending on the parameters passed to the function.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>Freq</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the frequency of the tone in Hertz. If its value is less than or equal to zero, it causes the default system alert. By default, it equals to 0.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>msec</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies the duration of the tone in milliseconds. If its value is less than or equal to zero, it causes the default system alert. By default, it equals to 200.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns <b>0</b> of the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+beep(3000,200); // 3kHz tone during 200ms
+<br>wait(1000);     // delay
+<br>beep();         // system alert
+</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_DialogBox"></a>
+<a name="cef_DialogBoxSL"></a>
+<div class="FuncDscrTitle">
+<h1>DialogBox, DialogBoxSL</h1>
+<p>The functions open a dialog window where a user can input information.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">
+DialogBox  (var ,<i>s1 </i>... ,<i>sn</i>)<br>
+DialogBoxSL(var ,<i>s1 </i>... ,<i>sn</i>)
+</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>These functions open a dialog box that contains a message, a string control for input, and OK and Cancel buttons. The functions are identical, except that DialogBox provides a multi-line string control, while DialogBoxSL provides a single-line string control in a dialog window.</p>
+<p>The message is formed by concatenating the optional string parameters <b>s1</b>...<b>sn</b>. The function supports an arbitrary number of these parameters.</p>
+<p>The string control takes its initial value from the <b>var</b> variable. If the string control needs to be empty, assign an empty string to <b>var</b> before calling the function.</p>
+<p>If a user clicks the OK button, the function saves the value of the string control at the <b>var</b> variable and returns 1 (TRUE). If a user either clicks the Cancel button or closes the dialog box, the function returns 0 (FALSE) without updating the <b>var</b> variable.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>var</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">Identifier</a><br><i>(variable name)</i></td>
+<td class="FuncDscrTblCol3">
+Required parameter specifies the name of an existing variable with the <a href="dtypes.html#data_types_table">String</a> data type.
+If a user presses the OK button, the function saves the value of the dialog's string control at this variable. If the variable does not exist or has a different data type, an error occurs.
+In addition, the initial value of the dialog's string control is taken from the <b>var</b> variable.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>s1...sn</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameters are concatenated to form the message in the dialog box.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value of the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+/* It's example of CSE script */<br>
+for(;;) {<br>
+  /* set FilePath variable to the current folder */<br>
+  FilePath = FileBasePath();<br>
+  /* request a file name */<br>
+  if ( <b>DialogBox</b>(FilePath, &quot;Enter file path&quot;)) {<br>
+    /* read a file if OK button is clicked */<br>
+    data = &quot;&quot;;<br>
+    FileLoad( FilePath, data );<br>
+    /* exit from the 'for' loop if no error */<br>
+    if (!errno())<br>
+       break;<br>
+    /* display an error message and repeat */<br>
+    lvErrorMessage(&quot;FileLoad function&quot;);<br>
+  }<br>
+  else {<br>
+    /* terminate the script if Cancel button is clicked */<br>
+    return 0;<br>
+  }  /* end of if() */<br>
+}    /* end of for() */<br>
+/*<br>
+  process data here ...<br>
+ */<br>
+return 1;
+</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_MsgBox"></a>
+<div class="FuncDscrTitle">
+<h1>MsgBox</h1>
+<p>The function opens a dialog window with a message and a button.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">MsgBox(<i>x1 </i>... ,<i>xn</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function opens a dialog window with a message built from the <b>x1</b>..<b>xn</b> parameters and the OK button.</p>
+<p>The function supports an arbitrary number of the <b>x</b> parameters, which are all combined to form a message. If any <b>x</b> parameter is not a string, it is converted to a string before being added to the message.</p>
+<p>The function always returns 1 (TRUE).</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x1 ... xn</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a>
+<br>or<br>
+<a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameters are combined to form a message. Both string and numeric values are accepted. If any <b>x</b> is numeric, it is converted to a string using the format "%#_g".
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value of the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+x = erf(0.5);<br>
+MsgBox(&quot;The current value of x is &quot;,x);
+</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_MsgBox2"></a>
+<div class="FuncDscrTitle">
+<h1>MsgBox2</h1>
+<p>The function opens a dialog window with a message and two buttons.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">MsgBox2(<i>x1 </i>... ,<i>xn</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function opens a dialog window with a message built from the <b>x1</b>..<b>xn</b> parameters and two buttons: OK and Cancel.</p>
+<p>The function supports an arbitrary number of the <b>x</b> parameters, which are all combined to form a message. If any <b>x</b> parameter is not a string, it is converted to a string before being added to the message.</p>
+<p>The function returns 1 (TRUE) if a user clicks the OK button; otherwise, it returns 0 (FALSE).</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x1 ... xn</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a>
+<br>or<br>
+<a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameters are combined to form a message. Both string and numeric values are accepted. If any <b>x</b> is numeric, it is converted to a string using the format "%#_g".
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value of the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+/* It's example of CSE script */<br>
+for(;;) {<br>
+  /* set FilePath to the current folder */<br>
+  FilePath = FileBasePath();<br>
+  /* request a file name */<br>
+  if ( !DialogBox(FilePath, &quot;Enter file path&quot;)) {<br>
+    /* exit if Cancel button is clicked */<br>
+    return 0;<br>
+  }<br>
+  /* come here if OK button is clicked */<br>
+  data = &quot;&quot;;<br>
+  FileLoad( FilePath, data );<br>
+  /* break for-loop if there is no error */<br>
+  if (!errno())<br>
+     break;<br>
+  /* display an error message */<br>
+  if (!<b>MsgBox2</b>(&quot;The following error is occurred:\n&quot;,<br>
+      &quot;---\n&quot;,<br>
+      lvErrorString(),<br>
+      &quot;\n---&quot;,<br>
+      &quot;\nDo you want to repeat?&quot;))<br>
+  {<br>
+    /* exit if Cancel button is clicked in message box*/<br>
+    return -1;<br>
+  }<br>
+} /* end of for(;;) */<br>
+/*<br>
+  process data here ...<br>
+*/<br>
+return 1;
+</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_NumDialog"></a>
+<div class="FuncDscrTitle">
+<h1>NumDialog</h1>
+<p>The functions open a dialog window asking to enter a numeric value.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">NumDialog(<i>msg</i><i> ,</i><i>int ,iniVal , min ,max</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>This function opens a dialog window that contains a message, a numeric control for input, and OK  and Cancel buttons.</p>
+<p>If a user clicks the OK button, the function returns the value of the dialog's numeric control. If the user either clicks the Cancel button or closes the dialog, the function returns <b>NaN</b>.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>msg</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies the message to display.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>int</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter. A non-zero value (TRUE) indicates that an integer value is expected. Otherwise, a fractional value is allowed. Default value is zero (FALSE).
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>iniVal</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies the initial value for the dialog's numeric control. If the value is out of the range specified by the <b>min</b> and <b>max</b> parameters, it will be forced to the range.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>min</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies the minimum value permitted. By default, it is equal to -Inf.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>max</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies the maximum value permitted. By default, it is equal to +Inf.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value of the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+NumDialog(&quot;Enter a number in the range -1 to 1&quot;, 0, 0, -1, 1);
+</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_probe"></a>
+<div class="FuncDscrTitle">
+<h1>Probe</h1>
+<p>The function displays an input value in a probe window.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">Probe(x<i> ,winName ,winX ,winY</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function opens a probe window that displays the value and data type of the <b>x</b> parameter. The function can display values of all predefined data types as well as user-defined data types. Values of predefined data types are displayed in the native LabVIEW format, while values of user-defined data types are displayed in the Flattened-To-String format.</p>
+
+<p>The function can open an arbitrary number of probe windows. If the function is called with the <b>winName</b> parameter specified, it displays <b>x</b> in the probe window that has the <b>winName</b> title. If a probe window with that title already exists, the function updates it with new data; otherwise, it opens a new one. If <b>winName</b> is omitted in the function call, the function displays <b>x</b> in a default probe window.</p>
+<p>Each probe window stays open until closed explicitly. It displays the most recent value passed to it and allows choosing the format and precision for numeric data, or the display style for string data.</p>
+<p>The function returns 1 (TRUE) if <b>x</b> is successfully displayed in a probe window; otherwise, it returns 0 (FALSE).</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types">any data type</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies the value to be displayed in a probe window.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>winName</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies the title of the probe window where <b>x</b> is to be displayed. 
+If <b>winName</b> is omitted in the function call, <b>x</b> is displayed in a default probe window.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>winX,<br> winY</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameters that specify the coordinates of the top-left corner of a probe window when it is opened for the first time; they do not affect a probe window if it is already open. The function coerces these values to integers.
+<br>
+<b>winX</b> and <b>winY</b> define the global desktop coordinates (if a system has more than one monitor). By default, these parameters are equal to <b>NaN</b>, which forces the function to open probe windows in cascade on the monitor where the Front Panel of the top-level VI executing the script is shown.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns an execution status code of the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+num = 10;<br>
+str = &quot;hello&quot;;<br>
+probe(num);   // default probe displays 10<br>
+probe(num*2); // default probe displays 20<br>
+probe(str);   // default probe displays &quot;hello&quot;<br>
+probe(num, "Numeric"); // &quot;Numeric&quot; titled probe displays 10<br>
+probe(str, "String");  // &quot;String&quot; titled probe displays &quot;hello&quot;<br>
+</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_wfGraph"></a>
+<div class="FuncDscrTitle">
+<h1>WFGraph</h1>
+<p>The function opens a window containing a Waveform Graph and displays the input data on the given plot of the graph.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">WFGraph(<i>plot ,y ,x0 ,dx ,plotName ,winName ,winX ,winY</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>
+The function opens a window containing a Waveform Graph. Depending on the parameters provided, the function either displays the value of <b>y</b> on the target <b>plot</b> of the graph or clears the graph.</p>
+<p>The function can open an arbitrary number of graph windows. If the function is called with the <b>winName</b> parameter specified, it displays data in the graph window that has the <b>winName</b> title. If a graph window with that title already exists, the function updates it with new data; otherwise, it opens a new one. If <b>winName</b> is omitted in the function call, the function displays data in a default graph window.</p>
+<p>The function creates a graph window for each unique <b>winName</b>. Each graph window stays open until closed explicitly. A graph window displays the most recent data passed to each of its plots.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>plot</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies the index of a plot of the Waveform Graph on which <b>y</b> is to be displayed. If <b>plot</b> is not an integer, the function coerces it to an integer. If <b>plot</b> is greater than or equal to 0, the function displays data on the plot defined by this parameter, while other plots on the graph remain unaffected. If <b>plot</b> is negative, the function clears all plots of the WaveForm Graph. By default, plot is equal to -1.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>y</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">1D Array of DBL</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies the data to be displayed on the <b>plot</b>.
+The function clears the specified plot if this parameter is omitted in the function call or if an empty array is passed to it. 
+By default, <b>y</b> is an empty array.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x0</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies the initial value of the X scale.
+By default, <b>x0</b> is equal to 0.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>dx</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies the incrementation value of the X scale.
+By default, <b>dx</b> is equal to 1.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>plotName</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies the name to be assigned to the plot. If <b>plotName</b> is omitted in the function call or is an empty string, the displayed plot takes the &quot;Plot N&quot; name, where N is the value of the <b>plot</b> parameter.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>winName</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies the name of the graph window on which the function operates. If <b>winName</b> is omitted in the function call, the function operates on a default graph window.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>winX,<br> winY</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameters that specify the coordinates of the top-left corner of a graph window when it is opened for the first time; they do not affect a graph window if it is already open. The function coerces these values to integers.
+<br>
+<b>winX</b> and <b>winY</b> define the global desktop coordinates (if a system has more than one monitor). By default, these parameters are equal to <b>NaN</b>, which forces the function to open graph windows in cascade on the monitor where the Front Panel of the top-level VI executing the script is shown.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns <b>0</b> of the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+x0 = 0;<br>
+dx = pi()/100;<br>
+/* array of x values in the range x0 to 2pi with dx step */<br>
+x = nvecifs(x0, pi(2), dx);<br>
+/* opens graph window and clears all plots of the graph */<br>
+WFGraph();<br>
+/* displays sin(x) on plot 0 */<br>
+WFGraph(0, sin(x), x0,dx, &quot;SIN(x)&quot;);<br>
+/* displays the Bessel function of the 1st kind on plot 1 */<br>
+WFGraph(1, _jn(2,x), x0,dx, &quot;Jn(x)&quot;);
+</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_xyGraph"></a>
+<div class="FuncDscrTitle">
+<h1>XYGraph</h1>
+<p>The function opens a window containing an XY Graph and displays the input data on the specified plot of the graph.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">XYGraph(<i>plot ,x ,y ,plotName ,winName ,winX ,winY</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function opens a window containing an XY Graph. Depending on the parameters provided, the function either displays the {<b>x</b>,<b>y</b>} data series on the target plot of the graph or clears the graph.</p>
+<p>The function can open an arbitrary number of graph windows. If the function is called with the <b>winName</b> parameter specified, it displays data in the graph window that has the <b>winName</b> title. If a graph window with that title already exists, the function updates it with new data; otherwise, it opens a new one. If <b>winName</b> is omitted in the function call, the function displays data in a default graph window.</p>
+<p>The function creates a graph window for each unique <b>winName</b>. Each graph window stays open until closed explicitly. A graph window displays the most recent data passed to each of its plots.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>plot</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies the index of a plot of the XY Graph on which the {<b>x</b>,<b>y</b>} input series are to be displayed. If <b>plot</b> is not an integer, the function coerces it to an integer. If <b>plot</b> is greater than or equal to 0, the function displays data on the plot defined by this parameter, while other plots on the graph remain unaffected. If <b>plot</b> is negative, the function clears all plots of the XY Graph. By default, plot is equal to -1.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x, y</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">1D Array of DBL</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameters that specify the data to be displayed on the <b>plot</b>; <b>x</b> defines values on the X-axis and <b>y</b> defines the respective values on the Y-axis.
+The function clears the specified <b>plot</b> if these parameters are omitted in the function call or if empty arrays are passed to them. By default, both <b>x</b> and <b>y</b> are empty arrays.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>plotName</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies the name to be assigned to the plot. If <b>plotName</b> is omitted in the function call or is an empty string, the displayed plot takes the &quot;Plot N&quot; name, where N is the value of the <b>plot</b> parameter.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>winName</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies the name of the graph window on which the function operates. If <b>winName</b> is omitted in the function call, the function operates on a default graph window.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>winX,<br> winY</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameters that specify the coordinates of the top-left corner of a graph window when it is opened for the first time; they do not affect a graph window if it is already open. The function coerces these values to integers.
+<br>
+<b>winX</b> and <b>winY</b> define the global desktop coordinates (if a system has more than one monitor). By default, these parameters are equal to <b>NaN</b>, which forces the function to open graph windows in cascade on the monitor where the Front Panel of the top-level VI executing the script is shown.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns <b>0</b> of the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+x0 = 0;<br>
+dx = pi()/100;<br>
+/* array of x values in the range x0 to 2p with dx step */<br>
+x = nvecifs(x0, pi(2), dx);<br>
+/* opens graph window and clears all plots of the graph */<br>
+XYGraph();<br>
+/* displays a circle on plot 0 */<br>
+XYGraph(0, sin(x), cos(x), &quot;Circle&quot;);<br>
+/* displays a spiral on plot 1 */<br>
+XYGraph(1, x/pi(2)*sin(x*4), x/pi(2)*cos(x*4), &quot;Spiral&quot;);
+</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+</body>
+</html>

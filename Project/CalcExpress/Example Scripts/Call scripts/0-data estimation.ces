@@ -1,0 +1,81 @@
+/*
+This example script demonstrates ways to call scripts and pass
+parameters to and from a called script.
+
+The script calls '1-generator.ces' script in order to generate
+a waveform signal and '1-estimator.ces' script to estimate
+signal parameters. In addition, '2-noise.ces' script will also
+be called from '1-generator.ces'.
+
+A call of scripts is performed with the help of 'call' function
+that reads a script file and executes the script. A called
+script has its own variable context that does not interfere
+with the context of the calling script. The 'call' function
+passes the specified parameters between variable contexts of
+calling and called scripts.
+
+The 'call' function accepts a path of script to be called as
+string parameter that should specify either an absolute or
+relative file path. If a path is relative, the 'call' function
+firstly attempts to read the script file in the directory
+containing the calling script. If it fails, the 'call' function
+uses 'search paths' in order to find the required script file.
+
+A file path of the top-level script has to be specified with
+the help of a respective CSE VI before CSE starts executing the
+script. Search paths can be defined before execution of a
+top-level script as well as they can be defined in a script
+with the help of 'SearchPath' function. A called script inherits
+search paths from its caller. A file path of a script can be
+retrieved with the call of 'ScriptPath' function.
+*/
+
+/* Define search path(s) if the current script has no specified file path */
+if ( ScriptPath() == "") {
+  path = FileGetAppPath(9);  // CE Project directory
+  path = FileBuildPath(path, "Example Scripts/call scripts");
+  SearchPath(path);          // set script search path
+}
+
+Form = "sine";  // signal form: "sine","square","triangle"
+A  = 3.5;       // amplitude
+F  = 8.65;      // signal frequency
+Ph = 0;         // initial phase
+DC = 0.5;       // DC value
+Fs = 1000;      // sampling frequency
+Ns = 1000;      // number of samples
+NA = 0.7;       // noise apmlitude
+NK = "uniform"; // noise kind: "uniform","gaussian","random"
+
+/*
+Call the script to generate a waveform signal.
+The 'waveform' variable will be implicitly created after the called script completed.
+Non-specified parameters like Ns (number of samples) will get
+the default values. See the called script for details.
+*/
+err = call( "1-generator.ces",
+                  "Form >> Form",
+                  "Fs   >> Fs",
+                  "A    >> A",
+                  "F    >> F",
+                  "DC   >> DC",
+                  "NA   >> Noise",
+                  "waveform << Signal");
+if (err) return;
+
+/* display waveform */
+WFGraph(0, waveform, 0, 1/Fs, "Signal","Generated Signal");
+
+/* Call the script to estimate waveform signal parameters */
+frq = rms = ave = 0;
+err = call( "1-estimator.ces",
+                  "waveform >> Signal & Fs >> Fs",
+                  "frq << F & rms << RMS & ave << AVE");
+if (err) return;
+
+Report = sform(	"Estimated parameters of a %s signal:\n"
+		"RMS = %.4f\n"
+		"AVE = %.4f\n"
+		"Frequency = %.2f"
+		, Form, rms, ave, frq );
+MsgBox( Report );

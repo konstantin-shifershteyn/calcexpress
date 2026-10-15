@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>Non-Fatal runtime errors</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+</head>
+
+<body>
+
+<!-- ########################################## -->
+<div class="PageTitle">
+<h1><span class="PageTitleL">Non-Fatal runtime errors</span></h1>
+</div>
+
+
+<!-- ########################################## -->
+<div>
+
+<p>Within every variable context there is a hidden variable (called the <i>rtErrorCode)</i> to keep code of runtime errors that don't cause a CalcExpress error. CalcExpress VIs use this variable to store execution status of some functions; typically, it is LabVIEW error code. For instance, if a FuncVI function uses a LabVIEW VI that returns an error code (through either digital error indicator or error cluster), it assigns the LabVIEW error code to this variable when it is completed.</p>
+
+<p>Although it is impossible to directly access <i>rtErrorCode</i> you can both evaluate it and assign a value to it in a script with the help of <a href="cefunc_error.html#cef_errno">errno</a> function. CalcExpress VIs never change a value of <i>rtErrorCode</i> unless they perform a function that does it. Refer to a function description to learn whether the function changes <i>rtErrorCode</i> value.</p>
+
+<p>Due to the fact <i>rtErrorCode</i> is kept within a variable context, a few CalcExpress instances use the same <i>rtErrorCode</i> if they operate on the same variable context. The advantage of this is possibility to use <i>rtErrorCode</i> in <a href="cse.html#cse_overview">CSE</a> scripts when it is assigned and evaluated sequentially by different CalcExpress instances. However you should be careful if you evaluate <i>rtErrorCode</i> in CalcExpress VIs, which simultaneously work on the same variable context.</p>
+
+<p>To access <i>rtErrorCode</i> in a script, use <a href="cefunc_error.html#cef_errno">errno</a>, <a href="cefunc_error.html#cef_lverrmsg">lvErrorMessage</a>, or <a href="cefunc_error.html#cef_lverrstr">lvErrorString</a> functions.</p>
+
+<p>If you need to assign a value to <i>rtErrorCode</i> in a FuncVI you develop, use <a href="vi_Func_-_LV_runtime_error_handler_.html">Func-LV runtime error code.vi</a></p>
+
+<p>&nbsp;</p>
+</div>
+
+</body>
+</html> 

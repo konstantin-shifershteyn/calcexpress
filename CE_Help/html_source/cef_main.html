@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>CalcExpress predefined functions</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+</head>
+
+<body>
+
+<!-- ########################################## -->
+<div class="PageTitle">
+<h1><a name="pdfunc_contents"></a><span class="PageTitleL">CalcExpress and CSE functions</span></h1>
+</div>
+
+
+<!-- ########################################## -->
+<div>
+
+<h2><br>Functions by categories</h2>
+
+<table class="CEFuncCatTbl">
+<tr class="CEFuncCatTblRow">
+<td class="CEFuncCatTblCell"><a href="cef_cat_num_gen.html">General Numeric functions</a></td>
+<td class="CEFuncCatTblCell"><a href="cef_cat_array.html">Array functions</a></td>
+</tr>
+<tr class="CEFuncCatTblRow">
+<td class="CEFuncCatTblCell"><a href="cef_cat_num_log.html">Logarithmic and Exponential</a></td>
+<td class="CEFuncCatTblCell"><a href="cef_cat_string.html">String functions</a></td>
+</tr>
+<tr class="CEFuncCatTblRow">
+<td class="CEFuncCatTblCell"><a href="cef_cat_trig.html">Trigonometric and Hyperbolic</a></td>
+<td class="CEFuncCatTblCell"><a href="cef_cat_file.html">File functions</a></td>
+</tr>
+<tr class="CEFuncCatTblRow">
+<td class="CEFuncCatTblCell"><a href="cef_cat_complex.html">Complex numbers</a></td>
+<td class="CEFuncCatTblCell"><a href="cef_cat_vi.html">VI Control functions</a></td>
+</tr>
+<tr class="CEFuncCatTblRow">
+<td class="CEFuncCatTblCell"><a href="cef_cat_num_conv.html">Number conversion and verification</a></td>
+<td class="CEFuncCatTblCell"><a href="cef_cat_script.html">CSE Script Control functions</a></td>
+</tr>
+<tr class="CEFuncCatTblRow">
+<td class="CEFuncCatTblCell">&nbsp;</td>
+<td class="CEFuncCatTblCell">&nbsp;</td>
+</tr>
+<tr class="CEFuncCatTblRow">
+<td class="CEFuncCatTblCell"><a href="cef_cat_num_spec.html">Special Numeric functions</a></td>
+<td class="CEFuncCatTblCell"><a href="cef_cat_var.html">Variable management</a></td>
+</tr>
+<tr class="CEFuncCatTblRow">
+<td class="CEFuncCatTblCell"><a href="cef_cat_stats.html">Probability and Statistics</a></td>
+<td class="CEFuncCatTblCell"><a href="cef_cat_sync.html">Synchronization</a></td>
+</tr>
+<tr class="CEFuncCatTblRow">
+<td class="CEFuncCatTblCell"><a href="cef_cat_dsp.html">Signal Processing and Measurement</a></td>
+<td class="CEFuncCatTblCell"><a href="cef_cat_user.html">Displaying and Interaction</a></td>
+</tr>
+<tr class="CEFuncCatTblRow">
+<td class="CEFuncCatTblCell"><a href="cef_cat_sgen.html">Signal Generation</a></td>
+<td class="CEFuncCatTblCell"><a href="cef_cat_time.html">Time functions</a></td>
+</tr>
+<tr class="CEFuncCatTblRow">
+<td class="CEFuncCatTblCell">&nbsp;</td>
+<td class="CEFuncCatTblCell"><a href="cef_cat_error.html">Error Handling</a></td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<h2><br>Alphabetical list</h2>
+<p><b><a href="cef_alist.html">Click here</a></b> to look at the alphabetical list of functions.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</div>
+
+<!-- ########## -->
+<p>&nbsp;</p><hr class="TopicSeparator">
+
+<div>
+<a name="pdfunc_quick_ff"></a>
+<h2>FastFunc functions</h2>
+<p><b>FastFunc</b> is a name of <a href="ce_functions.html#ce_func_implementation">function implementation</a> designating embedded functions. Due to the fact FastFunc functions are integral part of CalcExpress kernel, they have two advantages:</p>
+<ul>
+<li>FastFunc functions works faster than FuncVI</li>
+<li>There are no additional resources required to perform FastFunc functions except a CalcExpress VI that evaluates expressions</li>
+</ul>
+<p>Names of FastFunc functions are case-sensitive. To call a FastFunc function, you must use the exact name of the function as it is given in this manual.</p>
+<p>If a function has both FastFunc and FuncVI implementations, you can choose which one to call to perform the function. Use the following rule:</p>
+<ul>
+<li>use a function name the same as the function name in this manual to call the FastFunc</li>
+<li>use a function name in different from the specified in this manual case to call the FuncVI</li>
+</ul>
+
+<p>For example,  <b>sin(x)</b> is a call of FastFunc, but both <b>Sin(x)</b> and <b>SIN(x)</b> are calls of FuncVI.</p>
+<p>&nbsp;</p>
+</div>
+
+<!-- ########## -->
+<p>&nbsp;</p><hr class="TopicSeparator">
+
+<div>
+<a name="pdfunc_quick_fvi"></a>
+<h2>FuncVI functions</h2>
+<p><b>FuncVI</b> is a name of <a href="ce_functions.html#ce_func_implementation">function implementation</a> designating functions implemented as VI. FuncVI functions use LabVIEW features to be performed.</p>
+
+<p>A name of FuncVI function is not case-sensitive. If a function has both FastFunc and FuncVI implementations, you can choose which one should be called to perform the function. Use the following rule:</p>
+<ul>
+<li>use a function name the same as the function name in this manual to call the FastFunc</li>
+<li>use a function name in different from the specified in this manual case to call the FuncVI</li>
+</ul>
+
+<p>For example,  <b>sin(x)</b> is a call of FastFunc, but both <b>Sin(x)</b> and <b>SIN(x)</b> are calls of FuncVI.</p>
+<p>&nbsp;</p>
+
+<p>
+<b>IMPORTANT NOTICE:</b> To use a FuncVI function in a built application (EXE), its corresponding VI must be included in the application build. There are several options to achieve this. For example, you can use a Static VI Reference to the FuncVI on your block diagram. Another standard option is to add the FuncVI files directly to your LabVIEW project tree and include them in the "Always Included" list of your application's build specifications.
+</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</div>
+
+<!-- ########## -->
+<p>&nbsp;</p><hr class="TopicSeparator">
+
+<div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+</body>
+</html> 

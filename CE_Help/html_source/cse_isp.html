@@ -1,0 +1,197 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>CSE ISP: Interactive Script Processor</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+<style>
+table.Tbl   { border-collapse:collapse; }
+td.TblCol1  { padding:0pt 20pt 10pt 0pt; valign:top; width:10pt; white-space:nowrap; }
+td.TblCol2  { padding:0pt 20pt 10pt 0pt; valign:top; width:10pt; white-space:nowrap; }
+td.TblCol3  { padding:0pt 0pt 10pt 0pt; valign:top;   }
+</style>
+</head>
+
+<body>
+
+<!-- ########################################## -->
+<a name="cse_isp"></a>
+<div class="GenSectTitle">
+<h1><span class="PageTitleL">CSE ISP: Interactive Script Processor</span></h1>
+</div>
+
+
+<!-- ########################################## -->
+<p>&nbsp;</p>
+<p>CSE ISP (further called as ISP) is a utility that allows users to run <a href="cse.html">CSE</a> scripts interactively. ISP is a multi-instance utility; you can open several ISP windows, and each one can execute its own script in parallel with the others. The controls and menu options for an ISP window are described below. Additionally, see the <a href="#cse_isp_tips">Quick Tips</a> topic to learn some useful tips.</p>
+
+
+<!-- ########################################## -->
+<p>&nbsp;</p><hr class="TopicSeparator">
+<h2>Front Panel Controls</h2>
+<p>&nbsp;</p>
+
+<p><img src="image/cse_isp.png"></p>
+
+<p>&nbsp;</p>
+
+
+<table class="tbl">
+<tr>
+<td class="TblCol1"><b><u>Control</u></b></td>
+<td class="TblCol2"><b><u>Hotkey</u></b></td>
+<td class="TblCol3"><b><u>Description</u></b></td>
+</tr>
+<tr>
+<td class="TblCol1"><img src="image/cse_isp_ctrl_run.png"></td>
+<td class="TblCol2">&lt;F5&gt;</td>
+<td class="TblCol3">Parse and execute the script.</td>
+</tr>
+<tr>
+<td class="TblCol1"><img src="image/cse_isp_ctrl_test.png"></td>
+<td class="TblCol2">&lt;F4&gt;</td>
+<td class="TblCol3">Parse the script only (test syntax).</td>
+</tr>
+<tr>
+<td class="TblCol1"><img src="image/cse_isp_ctrl_abort.png"></td>
+<td class="TblCol2">&lt;Esc&gt;</td>
+<td class="TblCol3">Abort execution of the running script.</td>
+</tr>
+<tr>
+<td class="TblCol1"><img src="image/cse_isp_ctrl_mode.png"></td>
+<td class="TblCol2">n/a</td>
+<td class="TblCol3">
+Specifies an execution mode:<br>
+<b>Regular</b> - Execute scripts.<br>
+<b>Debugging</b> - Execute scripts in debugging mode.<br>
+<b>Custom Callback</b> - Execute scripts using a custom CSE Callback VI.
+</td>
+</tr>
+<tr>
+<td class="TblCol1"><img src="image/cse_isp_ctrl_path.png"></td>
+<td class="TblCol2">n/a</td>
+<td class="TblCol3">Path of a custom CSE Callback VI to use.</td>
+</tr>
+</table>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<p>&nbsp;</p><hr class="TopicSeparator">
+<h2>CSE ISP menus</h2>
+<p>&nbsp;</p>
+
+<h3>File menu</h3>
+<div class="FuncDscrSection">
+<p><b>New</b> option creates a new empty script.</p>
+<p><b>Load...</b> option loads a script from a file.</p>
+<p><b>Save</b> option saves a script to the file it was loaded.</p>
+<p><b>Save as...</b> option saves a script to an arbitrary file.</p>
+<p><b>Open new CSE ISP</b> option starts a new ISP instance and opens its window. You can open as many ISP windows as needed. Each ISP instance is independent of others and can run its script simultaneously with other instances.</p>
+<p><b>Exit</b> option terminates ISP and closes its window.</p>
+<p>&nbsp;</p>
+</div>
+
+<h3>Operate menu</h3>
+<div class="FuncDscrSection">
+<p><b>Run script</b> option parses and executes the script. You can also execute the script by clicking the <i>Run</i> button or pressing F5 key. When the script is running, you can abort it by clicking the <i>Abort</i> button or pressing ESC key.</p>
+<p><b>Test script syntax</b> option parses the script only. You can also parse the script by clicking the <i>Test Syntax</i> button or pressing F4 key. Note that it is impossible to detect all errors during script parsing. Errors such as &quot;undefined variable&quot;, &quot;invalid data type&quot; and some others can only be detected during script execution.</p>
+<p><b>Release FuncVIs</b> option closes all opened VI references to FuncVIs. After the option has been done, all FuncVIs with opened front panels become editable and FuncVIs with closed front panels are unloaded from memory. This option is useful if you are developing FuncVIs and wish to edit any.</p>
+<p><b>Close Variable Context</b> option closes the variable context that is used by the current ISP instance. A context stays opened after ISP completes script execution if the <b>Options&gt;&gt;Reuse Variable Context</b> option is enabled. In this case, use this option to explicitly close the context.</p>
+<p>&nbsp;</p>
+</div>
+
+<h3>Tools menu</h3>
+<div class="FuncDscrSection">
+<p><b>VarMan Spy...</b> option launches <a href="varman_spy.html">VarMan Spy</a> utility. The Spy can be extremally helpful for debugging your scripts if you enable both <b>Options&gt;&gt;Reuse Variable Context</b> and <b>Options&gt;&gt;Keep variables</b> options. It makes it possible to investigate variable values and review the history of variable modifications. See online help for VarMan Spy for more information.</p>
+<p><b>Examples Navigator...</b> options starts the Example Navigator utility.</p>
+<p>&nbsp;</p>
+</div>
+
+<h3>Options menu</h3>
+<div class="FuncDscrSection">
+<p>This menu contains a set of options that influence the work of ISP. See the <a href="#cse_isp_options">Options menu details</a> topic below for details.</p>
+<p>&nbsp;</p>
+</div>
+
+<h3>Examples menu</h3>
+<div class="FuncDscrSection">
+<p>This menu contains the names of example scripts that you can load and execute.</p>
+<p>&nbsp;</p>
+</div>
+
+<h3>Help menu</h3>
+<div class="FuncDscrSection">
+<p>This menu contains references to some related topics in the CalcExpress Help.</p>
+<p>&nbsp;</p>
+</div>
+
+<p><a name="cse_isp_options"></a></p>
+<h3>Options menu details</h3>
+
+<p><img src="image/cse_isp_menuOpt.png"></p>
+<p>&nbsp;</p>
+
+<p><b>Set default options</b> reinitializes all the options listed below to their default values.</p>
+<p><b>Save current options</b> saves current values of all the options listed below to an INI file. Note that all ISP instances use the same INI file.</p>
+<p><b>[x] Save options on exit</b>. If it is checked, all options used by the current ISP instance are saved to an INI file when it ends. Note that all ISP instances use the same INI file.</p>
+<p><b>[x] Parse: test FuncVI calls</b>. If it is checked, ISP loads the respective FuncVI for each function that is not recognized as an embedded function during script parsing. In addition, it validates number of actual parameters in each call of FuncVI functions.</p>
+<p><b>[x] Parse: auto parsing</b>. If it is checked, ISP parses a script if only you have changed it since the last execution or if you load a new script. If it is not checked, ISP parses a script every time you run it.</p>
+<p><b>[x] Parse: group statements</b>. If it is checked, ISP generates code where sequential expression statements are grouped into a single statement, this might speed up script execution a little bit.</p>
+<p><b>[x] Exec: implicit creating variables</b>. If it is checked, a variable can be created implicitly during script execution when it appears as the left-hand operand in an assignment operator. Otherwise, you have to create variables explicitly using variable manager functions.</p>
+<p><b>[x] Exec: polymorphic arithmetic</b>. If it is checked, operators are permitted to use the polymorphism feature. Otherwise, most operators only work on DBL scalars.</p>
+<p><b>[x] Debug: line mode</b>. If it is checked, ISP debugger tracks the script a line by line; otherwise, it tracks it a statement by statement. This option affects the way ISP debugger follows the script when multiple statements occupy a single line or a statement spans multiple lines.</p>
+<p><b>[x] Release FuncVIs after execution</b>. If it is checked, ISP closes VI references to the FuncVIs that were used to execute the script after the execution is finished.</p>
+<p><b>[x] Reuse Variable Context</b>. If it is checked, the ISP does not close the used variable context after the execution is finished. When the ISP executes either the same script or another script next time, it will use the same variable context. This option can be helpful for debugging scripts.</p>
+<p><b>[x] Keep Variables</b>. If it is checked, ISP does not destroy the variables that remain in the used variable context after the execution is finished. This option is useful for debugging scripts, as it allows you to examine variable values and the history of their modifications; for example, with the help of VarMan Spy. This option is only available if <b>Reuse Variable Context</b> option is checked.</p>
+<p><b>[x] Reuse Variables</b>. If it is checked, ISP does not destroy the variables, which could exist in the used variable context, before it starts executing the script. This gives you the opportunity to reuse the variables from the previous script execution. As well, you can define some variables externally (e.g. using VarMan Spy) and use them in the script. This option is only available if both <b>Reuse Variable Context</b> and <b>Keep Variables</b> options are checked. </p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<p>&nbsp;</p>
+<a name="cse_isp_tips"></a>
+<hr class="TopicSeparator">
+<h2>CSE ISP: Quick Tips</h2>
+
+<p><b>&nbsp;</b></p>
+
+<h3>Displaying data</h3>
+<p>To display either the results of computation or intermediate data, consider using <a href="cef_cat_user.html">displaying and interaction functions</a>. Values of any data type can be easily displayed using the <a href="cefunc_user.html#cef_probe">Probe</a> function.</p>
+<p>&nbsp;</p>
+
+<h3>Access variables in an arbitrary context</h3>
+<p>If you need to access a variable in a context other than the current ISP instance uses, consider using <a href="cef_cat_var.html">variable management functions</a>. To access a variable in another context, you need both a name of the variable and the context in which it exists. Alternatively, you can use an alias to refer to the variable if one has been defined. Use the <a href="cefunc_idn.html#cef_idn">idn</a> function to reference a variable by its alias.</p>
+<p>&nbsp;</p>
+
+<h3>Script debugging</h3>
+<p>CSE ISP can execute scripts in debugging mode. When you select the <b>Debugging</b> mode on the main ISP window and run a script, the debugger window appears. The debugger helps you to track script execution and inspect changes to variables. There are the following options for tracking script execution:</p>
+<ul>
+<li>Run script</li>
+<li>Pause</li>
+<li>Go to cursor</li>
+<li>Go to breakpoint(s)</li>
+<li>Single step / Step Into</li>
+<li>Step over</li>
+<li>Step out</li>
+<li>Restart script</li>
+</ul>
+
+
+<p>Furthermore, some tricks can be used to debug scripts, also in the <b>Regular</b> mode:</p>
+<ul>
+<li>Use <a href="cef_cat_user.html">displaying and interaction functions</a> to display intermediate data. You can display as many values of any data type as you need using the <a href="cefunc_user.html#cef_probe">probe</a> function.</li>
+<li>Use the <a href="cse_syntax.html#cse_return">return</a> statement to terminate script execution and, optionally, return a value.</li>
+<li>Use <a href="cef_cat_var.html">History management</a> functions to review the history of variable modifications. To do this, attach a history to the desired variable at the beginning of the script and then display the history when you want. Use <a href="cefunc_vhist.html#cef_vhattach">vhAttach</a> function to attach the history and <a href="cefunc_vhist.html#cef_vhshow">vhShow</a> function to display it.</li>
+<li>Use <a href="varman_spy.html">VarMan Spy</a> to investigate variable values and the history of variable modifications. 
+
+Note that you may need to enable the <b>Options&gt;&gt;Keep Variables</b> option to prevent ISP from destroying variables after script execution.</li>
+</ul>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>Function Development</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+<script src="js/_lvhelpref.js" type="text/javascript"></script>
+</head>
+
+<body>
+
+<!-- ########################################## -->
+<a name="ce_funcvi"></a>
+<div class="GenSectTitle">
+<h1><span class="PageTitleL">Function Development</span></h1>
+<p>Also see <a href="mnu_ce-fvi.html">VIs to develop FuncVIs</a> | <a href="ce_funcvi_examples.html">FuncVI Examples</a></p>
+</div>
+
+<p>To develop a function that can be used in a script (CalcExpress or CSE), you should create a FuncVI that performs the function. See <a href="ce_functions.html#ce_func_implementation">Function Implementations</a> topic for more information.</p>
+<p>As CalcExpress calls a FuncVI, it passes the parameters specified in the function call to the FuncVI. There is a <a href="mnu_ce-fvi.html">set of VIs</a> that helps to access function arguments and handle possible errors. When FuncVI completes, it returns a value that represents the function's value, which can be used in a script for further evaluation. If a FuncVI needs to return more than one value, it should return additional values through variables. Use <a href="varman.html">VarMan VIs</a> to access variables. For more information on how CalcExpress exchanges parameters with FuncVIs see <i>Description of FuncVI controls and indicators</i> below (<a href="#ce_funcvi_connectors">click here</a>).</p>
+<p>CalcExpress uses dynamic method to call FuncVIs. To execute a FuncVI, CalcExpress opens a strictly-typed VI reference to the FuncVI (if not opened yet), and runs &quot;Call By Reference Node&quot; primitive to call the FuncVI. A FuncVI must comply with the following requirements:</p>
+
+<a name="ce_funcvi_name_rule"></a>
+<h3>FuncVI name</h3>
+<div class="FuncDscrSection">
+<p>A FuncVI name must follow a uniform naming convention, as follows:</p>
+<p><b>FuncVI</b>-<i>FunctionName</i><b>.vi</b></p>
+<p>, where <i>FunctionName</i> is a name of the function to be called from a script. <i>FunctionName</i> can consist of alphanumeric characters and the underscore <span style="white-space:nowrap;">( _ )</span>. See <a href="ce_functions.html#ce_func_syntax">Function Call Syntax</a> topic for more information.</p>
+</div>
+
+<h3>FuncVI location</h3>
+<div class="FuncDscrSection">
+<p>CalcExpress needs to know the location of a FuncVI when it dynamically opens a VI reference to it. Use <a href="vi_Func_-_FuncVI_search_paths.html">Func - FuncVI Search Paths.vi</a> to define paths in which you store your FuncVIs.</p>
+<p>Alternatively, you can use the Static VI References in your VIs that refer to the desired FunVIs. In this scenario, the FuncVIs are loaded together with your VIs, and their location does not matter.
+</p>
+</div>
+
+<h3>FuncVI state</h3>
+<div class="FuncDscrSection">
+<p>A FuncVI must be runnable as a sub-VI when it's called.</p>
+</div>
+
+<h3>FuncVI connector pane</h3>
+<div class="FuncDscrSection">
+<p>CalcExpress uses strictly-typed VI reference to call FuncVIs. This means that all FuncVIs must have the same controls, indicators, and connector pane to be successfully called. To create a FuncVI that meets this requirement, use either FuncVI-Template (see below) or one of FuncVIs supplied with CalcExpress.
+</p>
+</div>
+<p>&nbsp;</p>
+
+
+<!-- ================== -->
+<hr class="TopicSeparator">
+<a name="ce_funcvi_connectors"></a>
+<h2>Description of FuncVI controls and indicators</h2>
+
+<p><img src="image/vi-funcvi.png"></p>
+<p>The figure shows the typical FuncVI Front Panel when you open the FuncVI-Template.vit. This VI has controls, indicators, and connector pane that every FuncVI must have. Save your FuncVI with a name that complies with the rule of <a href="#ce_funcvi_name_rule">FuncVI naming</a>.</p>
+<p><b>Remark</b>. To open the FuncVI-Template.vit, use the <b>CalcExpress &gt;&gt; Open CalcExpress Template...</b> utility in the <b>Tools</b> menu.</p>
+<p>&nbsp;</p>
+
+<p><a name="ce_funcvi_iref"></a></p>
+<p><img src="image/in_refnum.png">   <b>InstanceRef</b> control</p>
+<p>As a CalcExpress VI calls a FuncVI, it passes a unique reference to itself (a reference to the instance of the caller) to FuncVI via this control. This reference is required for FuncVI to operate within the scope of the expression evaluated by the calling CalcExpress instance.</p>
+
+<p><a name="ce_funcvi_args"></a></p>
+<p><img src="image/in_cluster1_arr.png">   <b>arg list</b> control</p>
+<p>CalcExpress passes actual parameters to FuncVI through this control.
+<br><b>arg list</b> is an array of clusters, with the same number of elements as the number of parameters in the function call. Each element of the array contains both the value and the datatype code of the respective parameter in the function call. The order of elements in the array matches the order in which the parameters are listed in the function call.
+<br>Typically, CalcExpress passes actual parameters to FuncVIs by values. However, if a parameter is an identifier (a variable name), CalcExpress passes the variable name to the FuncVI. Thus, FuncVI has the ability to both read from and write to variables.</p>
+<p>An element of <b>arg list</b> is a cluster with the following members:</p>
+<div style="margin-left:20pt;">
+<p><img src="image/in_u32.png">   <b>type</b> contains a datatype code of the parameter. Click <a href="dtypes.html#data_types">here</a> for general information on data types.</p>
+<p><img src="image/in_str.png">   <b>str</b> contains either a string value of the parameter or a variable name if <b>type</b> is equal to 2 (<a href="dtypes.html#data_types_table"><i>Identifier</i></a>). The value is valid unless <b>type</b> is equal to 1 (<i>DBL Number</i>). If the parameter data type is either one of <a href="dtypes.html#data_types_predefined">Complex</a> data types or a user-defined data type, <b>str</b> contains a value represented in the <a href="#ce_quick_flatten_format">Flattened-To-String</a> format.</p>
+<p><img src="image/in_dbl.png">   <b>num</b> contains numeric value of the parameter. It is valid if only <b>type</b> is equal to 1 (<i>DBL Number</i>).</p>
+</div>
+
+<p><a name="ce_funcvi_amin"></a></p>
+<p><img src="image/in_i32.png">   <b>min arg num</b> control</p>
+<p>CalcExpress uses default value of this control to determine the minimum number of parameters on which a FuncVI can operate. CalcExpress evaluates this control during a parsing of a script to validate number of actual parameters in a function call. CalcExpress does not use this control to execute a FuncVI. Make the default value of <b>min arg num</b> equal to minimum number of parameters your FuncVI requires</p>
+
+<p><a name="ce_funcvi_amax"></a></p>
+<p><img src="image/in_i32.png">   <b>max arg num</b> control</p>
+<p>CalcExpress uses default value of this control to determine the maximum number of parameters on which a FuncVI can operate. CalcExpress evaluates this control during a parsing of a script to validate number of actual parameters in a function call. CalcExpress does not use this control to execute a FuncVI. Make the default value of <b>max arg num</b> equal to maximum number of parameters your FuncVI requires.</p>
+
+<p><a name="ce_funcvi_result"></a></p>
+<p><img src="image/out_cluster1.png">   <b>result</b> indicator</p>
+<p>A FuncVI returns the function value through this indicator. The value can be of any data type, both predefined and user-defined data types are allowed.</p>
+<p>The <b>result </b>indicator is a cluster with the following members:</p>
+<div style="margin-left:20pt;">
+<p><img src="image/out_u32.png">   <b>type</b> must contain the datatype code of the return value. This code must match the actual format of the return value, otherwise CalcExpress might fail to handle it correctly.</p>
+<p><img src="image/out_str.png">   <b>str</b> has to contain either the immediate string value, if a function returns a string, or a value represented in the <a href="#ce_quick_flatten_format">Flattened-To-String</a> format, if the return value has either of <i>Complex</i> data types or a user-defined data type. CalcExpress ignores the value of <b>str</b> if <b>type</b> is equal to 1 (DBL Number).</p>
+<p><img src="image/out_dbl.png">   <b>num</b> has to contain a numeric value. CalcExpress ignores this value unless <b>type</b> is equal to 1 (DBL Number).</p>
+</div>
+
+<p><a name="ce_funcvi_oerr"></a></p>
+<p><img src="image/out_bool.png">   <b>error out</b> indicator</p>
+<p>A FuncVI returns an error status in this indicator. CalcExpress does not validate the number of arguments and their data types when calling a FuncVI function. A FuncVI must validate the parameters it receives and generate a CalcExpress error if it is unable to operate on them. Typically, such errors are similar to syntax errors in programming languages, such as invalid number of parameters, incorrect parameter data types, undefined variables, and so on.</p>
+<p>To produce a CalcExpress error, a FuncVI puts the error description to the <a href="#ce_quick_error_protocol">Error Protocol</a> and returns TRUE in <b>error out</b>. CalcExpress returns both the error status and the error description when it completes evaluating the expression that caused the error.</p>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+
+<!-- ================== -->
+<hr class="TopicSeparator">
+<a name="ce_quick_error_protocol"></a>
+<h2>Error Protocol</h2>
+
+<p>Each CalcExpress instance has its own context for storing intermediate data. An Error Protocol is a string member of the context that retains error messages. Similar to the overall context, an Error Protocol is unique to each CalcExpress instance.</p>
+<p>If a FuncVI encounters an error, it returns the error status and posts the error description to the Error Protocol of the CalcExpress instance that initiated its call. A CalcExpress instance returns the contents of its Error Protocol as an error description if it terminates evaluation with an error condition.</p>
+<p>CalcExpress VIs designed to support FuncVI development handle the most typical errors that can occur. However, if an application requires handling errors that are specific to custom FuncVIs, the <a href="vi_Exp_-_Error_handler.html">Exp - Error handler.vi</a> can be used to directly access the Error Protocol content.</p>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ================== -->
+<hr class="TopicSeparator">
+<a name="ce_quick_flatten_format"></a>
+<h2>Flattened-To-String format</h3>
+
+<table>
+<tr>
+<td style="valign:top;"><p><img src="image/vi-lv-flat+unflat.png"></p></td>
+<td style="valign:top;">
+<p>CalcExpress exchanges data (parameter values and function results) with FuncVIs in the LabVIEW Flattened-To-String format if the data has either one of the <a href="dtypes.html#data_types_predefined">Complex data types</a> or a <a href="dtypes.html#data_types_user_defined">user-defined data type</a>.</p>
+<p>The native <a HREF="JavaScript:lvhFlatStr.Click()"><b>Flatten To String</b></a> and <a HREF="JavaScript:lvhUnflatStr.Click()"><b>Unflatten From String</b></a> LabVIEW functions are used to convert data to and from the Flattened-To-String format.</p>
+<p>Note that the CalcExpress Kernel validates the format of flattened data for predefined data types only.</p>
+</td>
+</tr>
+</table>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</body>
+</html>

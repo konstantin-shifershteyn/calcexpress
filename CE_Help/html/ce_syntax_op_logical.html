@@ -1,0 +1,225 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>Logical Operators</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+</head>
+
+<body>
+
+
+<!-- ########################################## -->
+<a name="ce_op_l-not"></a>
+<div class="GenSectTitle">
+<h2><span class="PageTitleR">Logical-NOT operator:  !</span></h2>
+</div>
+
+<p>The Logical-NOT operator produces the value 1 (true) if its operand is zero (false), and the value 0 (false) if its operand is non-zero (true). The operand is considered to have a 32-bit integer representation, for which <a href="ce_conversions.html">Bit-keeping Conversion</a> is applied.</p>
+
+<h3>Syntax:</h3>
+<p class="StatementSyntax">
+<b>!</b> <i>expression</i>
+</p>
+
+<p>The operator can work on scalars and arrays. It produces a value according to the <a href="ce_poly.html">polymorphism rules</a> for unary operators.</p>
+<p>By definition, the operator manipulates integer values. To perform the operation, CalcExpress converts its operand (or every element of the operand if it is an array) into a 32-bit integer value by applying <a href="ce_conversions.html">Bit-keeping Conversion</a>. After completing the operation, it performs the reverse conversion and stores the result in the floating-point representation (DBL).</p>
+
+<h3>Operand data types</h3>
+<div class="FuncDscrSection">
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol">DBL Number</td>
+<td class="FuncDTTblCol">1D Array of DBL</td>
+<td class="FuncDTTblCol">2D Array of DBL</td>
+</tr>
+</table>
+<p><a href="dtypes.html">click here</a> to get general information on data types.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+x1 = !0;          /* x1 equals 1 */</br>
+x2 = !-1.1;       /* x2 equals 0 */</br>
+x3 = !(5.79 - 5); /* x3 equals 1 */</br>
+<br>
+v0 = vector(0,2,0,3,5);</br>
+v1 = !v0;          /* v1 is array {1,0,1,0,0} */</br>
+</p>
+</div>
+
+<h3>Also see</h3>
+<p>
+<a href="ce_syntax_op.html">CalcExpress Operators</a><br>
+<a href="ce_syntax.html">CalcExpress Syntax</a><br>
+<a href="ce.html">CalcExpress Overview</a>
+</p>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="ce_op_l-and"></a>
+<div class="GenSectTitle">
+<h2><span class="PageTitleR">Logical-AND operator:  &amp;&amp;</span></h2>
+</div>
+
+<p>The Logical-AND operator produces the value 1 (true) if both operands are non-zero (true), and the value 0 (false) otherwise. Both operands are considered to have a 32-bit integer representation, for which <a href="ce_conversions.html">Bit-keeping Conversion</a> is applied.</p>
+
+<h3>Syntax:</h3>
+<p class="StatementSyntax">
+<i>expression1</i> <b>&amp;&amp;</b> <i>expression2</i>
+</p>
+
+<p>The operator can work on scalars, arrays, and combinations thereof. It produces a value according to the <a href="ce_poly.html">polymorphism rules</a> for binary operators.</p>
+<p>By definition, the operator manipulates integer values. To perform the operation, CalcExpress converts its operands (or every element of the operands if either is an array) into a 32-bit integer value by applying <a href="ce_conversions.html">Bit-keeping Conversion</a>. After completing the operation, it performs the reverse conversion and stores the result in the floating-point representation (DBL).</p>
+
+<h3>Operand data types</h3>
+<div class="FuncDscrSection">
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol">DBL Number</td>
+<td class="FuncDTTblCol">1D Array of DBL</td>
+<td class="FuncDTTblCol">2D Array of DBL</td>
+</tr>
+</table>
+<p><a href="dtypes.html">click here</a> to get general information on data types.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+x1 = 0.9;  x2 = -10;<br>
+y1 = x1 &amp;&amp; x2;          /* y1 equals 0 */<br>
+y2 = (x1&gt;0)&amp;&amp;(x2&lt;0);    /* y2 equals 1 */<br>
+<br>
+v1 = vector(0,0,3,5);<br>
+v2 = vector(0,2,0,3);<br>
+v0 = v1 &amp;&amp; v2;          /* v0 is array {0,0,0,1} */<br>
+</p>
+</div>
+
+<h3>Also see</h3>
+<p>
+<a href="ce_syntax_op.html">CalcExpress Operators</a><br>
+<a href="ce_syntax.html">CalcExpress Syntax</a><br>
+<a href="ce.html">CalcExpress Overview</a>
+</p>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="ce_op_l-or"></a>
+<div class="GenSectTitle">
+<h2><span class="PageTitleR">Logical-OR operator:  ||</span></h2>
+</div>
+
+<p>The Logical-OR operator produces the value 1 (true) if at least one of its operands is non-zero (true). If both operands are zero (false), it produces the value 0 (false). Both operands are considered to have a 32-bit integer representation, for which <a href="ce_conversions.html">Bit-keeping Conversion</a> is applied.</p>
+
+<h3>Syntax:</h3>
+<p class="StatementSyntax">
+<i>expression1</i> <b>||</b> <i>expression2</i>
+</p>
+
+<p>The operator can work on scalars, arrays, and combinations thereof. It produces a value according to the <a href="ce_poly.html">polymorphism rules</a> for binary operators.</p>
+<p>By definition, the operator manipulates integer values. To perform the operation, CalcExpress converts its operands (or every element of the operands if either is an array) into a 32-bit integer value by applying <a href="ce_conversions.html">Bit-keeping Conversion</a>. After completing the operation, it performs the reverse conversion and stores the result in the floating-point representation (DBL).</p>
+
+<h3>Operand data types</h3>
+<div class="FuncDscrSection">
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol">DBL Number</td>
+<td class="FuncDTTblCol">1D Array of DBL</td>
+<td class="FuncDTTblCol">2D Array of DBL</td>
+</tr>
+</table>
+<p><a href="dtypes.html">click here</a> to get general information on data types.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+x1 = 0.9;  x2 = -10;<br>
+y1 = x1 || x2;          /* y1 equals 1 */<br>
+y2 = (x1&lt;0)||(x2&gt;0);    /* y2 equals 0 */<br>
+<br>
+v1 = vector(0,0,3,5);<br>
+v2 = vector(0,2,0,3);<br>
+v0 = v1 || v2;          /* v0 is array {0,1,1,1} */<br>
+</p>
+</div>
+
+<h3>Also see</h3>
+<p>
+<a href="ce_syntax_op.html">CalcExpress Operators</a><br>
+<a href="ce_syntax.html">CalcExpress Syntax</a><br>
+<a href="ce.html">CalcExpress Overview</a>
+</p>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="ce_op_l-xor"></a>
+<div class="GenSectTitle">
+<h2><span class="PageTitleR">Logical-XOR operator:  ^^</span></h2>
+</div>
+
+<p>The Logical-XOR operator logically compares its operands. It produces the value 1 (true) if one operand is non-zero (true) and the other is zero (false). If both operands are either non-zero (true) or zero (false), the operator produces 0 (false). Both operands are considered to have a 32-bit integer representation, for which <a href="ce_conversions.html">Bit-keeping Conversion</a> is applied.</p>
+
+<h3>Syntax:</h3>
+<p class="StatementSyntax">
+<i>expression1</i> <b>^^</b> <i>expression2</i>
+</p>
+
+<p>The operator can work on scalars, arrays, and combinations thereof. It produces a value according to the <a href="ce_poly.html">polymorphism rules</a> for binary operators.</p>
+<p>By definition, the operator manipulates integer values. To perform the operation, CalcExpress converts its operands (or every element of the operands if either is an array) into a 32-bit integer value by applying <a href="ce_conversions.html">Bit-keeping Conversion</a>. After completing the operation, it performs the reverse conversion and stores the result in the floating-point representation (DBL).</p>
+
+<h3>Operand data types</h3>
+<div class="FuncDscrSection">
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol">DBL Number</td>
+<td class="FuncDTTblCol">1D Array of DBL</td>
+<td class="FuncDTTblCol">2D Array of DBL</td>
+</tr>
+</table>
+<p><a href="dtypes.html">click here</a> to get general information on data types.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+x1 = 2.5;  x2 = -10;<br>
+y1 = x1 ^^ x2;          /* y1 equals 0 */<br>
+y2 = (x1&gt;0)^^(x2&gt;0);    /* y2 equals 1 */<br>
+<br>
+v1 = vector(0,0,3,5);<br>
+v2 = vector(0,2,0,3);<br>
+v0 = v1 ^^ v2;          /* v0 is array {0,1,1,0} */<br>
+</p>
+</div>
+
+<h3>Also see</h3>
+<p>
+<a href="ce_syntax_op.html">CalcExpress Operators</a><br>
+<a href="ce_syntax.html">CalcExpress Syntax</a><br>
+<a href="ce.html">CalcExpress Overview</a>
+</p>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</body>
+</html>

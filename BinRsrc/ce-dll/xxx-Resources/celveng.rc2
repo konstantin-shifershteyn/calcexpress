@@ -1,0 +1,63 @@
+//
+// celveng.RC2 - resources Microsoft Visual C++ does not edit directly
+//
+
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Add manually edited resources here...
+
+#include <CE_ProductInfo.h>
+#include "ceDllBuildNo.h"
+
+#define	__tostring__(m)		#m
+#define	__zstringizing(v)	__tostring__(v\0)
+
+#define	DLL_PRODUCT_VERSION	__DLL_VER_MAJOR, __DLL_VER_MINOR, __DLL_RELEASE, 0
+#define	DLL_FILE_VERSION	__DLL_VER_MAJOR, __DLL_VER_MINOR, __DLL_RELEASE, __DLL_BUILD
+
+#define	DLL_PSTR_VERSION	__DLL_VER_MAJOR.__DLL_VER_MINOR.__DLL_RELEASE.0
+#define	DLL_FSTR_VERSION	__DLL_VER_MAJOR.__DLL_VER_MINOR.__DLL_RELEASE.__DLL_BUILD
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+1 VERSIONINFO
+	FILEVERSION	DLL_FILE_VERSION
+	PRODUCTVERSION	DLL_PRODUCT_VERSION
+	FILEFLAGSMASK	0x3fL
+	FILEFLAGS	0x0L
+	FILEOS		0x40004L
+	FILETYPE	0x2L
+	FILESUBTYPE	0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+//	BLOCK "04090000"
+//        BLOCK "000004b0"
+        BLOCK "040904e4"
+	BEGIN
+	//	VALUE "Comments",		"\0"
+		VALUE "CompanyName",		AUTHOR_NAME				//"Konstantin Shifershteyn\0"
+		VALUE "FileDescription",	"CalcExpress Toolkit, Core DLL\0"
+		VALUE "FileVersion",		__zstringizing(DLL_FSTR_VERSION)
+		VALUE "InternalName",		__zstringizing(CE_DLL_NAME)		//"celveng\0"
+		VALUE "LegalCopyright",		COPYRIGHT
+	//	VALUE "LegalTrademarks",	"\0"
+		VALUE "OriginalFilename",	__zstringizing(CE_DLL_FULLNAME)		//"celveng.dll\0"
+	//	VALUE "PrivateBuild",		"\0"
+		VALUE "ProductName",		PRODUCT_FULL_NAME
+		VALUE "ProductVersion",		__zstringizing(DLL_PSTR_VERSION)
+	//	VALUE "SpecialBuild",		"\0"
+	END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////

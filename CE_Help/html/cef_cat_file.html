@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>File functions overview</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+<script src="js/vih_frames.js" type="text/javascript"></script>
+<script src="js/vih_print.js" type="text/javascript"></script>
+</head>
+
+<body class="framesJS">
+
+<noscript>
+<p>JavaScript is disabled...</p>
+<hr size=1; noshade;>
+</noscript>
+
+
+<!-- ########################################## -->
+<div class="PageTitleJS" id="styleDivTitle">
+
+<h1><span class="PageTitleL">File functions</span></h1>
+
+<p>The functions listed in this section are implemented as <a href="cef_main.html#pdfunc_quick_fvi">FuncVIs</a>. When you call any of these functions, CalcExpress calls a LabVIEW File Function or VI to perform the task. Many functions assign an error code, which LabVIEW VIs return, to the <a href="ce_rt_error.html">rtErrorCode</a> variable.</p>
+<p>Click on a function name below for detailed information on the function.</p>
+
+<hr size=1 noshade>
+<table class="CEFuncList">
+<tr>
+<td class="CEFuncListC1f"><b>function</b></td>
+<td class="CEFuncListC2f"><b>quick info</b></td>
+</tr>
+</table>
+
+</div>
+
+
+<!-- ########################################## -->
+<div id="styleDivScrolling">
+
+<h3><a name="pdfunc_file_paths"></a>Path manipulations</h3>
+<table class="CEFuncList">
+<tr>
+<td class="CEFuncListC1f"><a href="cefunc_file.html#cef_fileBasePath">FileBasePath(<i>path</i>)</a></td>
+<td class="CEFuncListC2f">sets or returns a path that is used as base path if relative paths are used in the file functions</td>
+</tr>
+<tr>
+<td class="CEFuncListC1f"><a href="cefunc_file.html#cef_fileBuildPath">FileBuildPath(p1...<i>,pn</i>)</a></td>
+<td class="CEFuncListC2f">builds a path from the specified components</td>
+</tr>
+<tr>
+<td class="CEFuncListC1f"><a href="cefunc_file.html#cef_fileGetAppPath">FileGetAppPath(<i>obj</i>)</a></td>
+<td class="CEFuncListC2f">returns some important paths</td>
+</tr>
+<tr>
+<td class="CEFuncListC1f"><a href="cefunc_file.html#cef_fileGetDir">FileGetDir(path)</a></td>
+<td class="CEFuncListC2f">returns the longest absolute directory path found in the specified path</td>
+</tr>
+<tr>
+<td class="CEFuncListC1f"><a href="cefunc_file.html#cef_filePathToArray">FilePathToArray(path <i>,abs</i>)</a></td>
+<td class="CEFuncListC2f">converts the specified string path to array of path components</td>
+</tr>
+<tr>
+<td class="CEFuncListC1f"><a href="cefunc_file.html#cef_fileStripPath">FileStripPath(path ,<i>dir</i>)</a></td>
+<td class="CEFuncListC2f">returns either the last component of the specified path or the path without the last component</td>
+</tr>
+</table>
+
+<h3><a name="pdfunc_file_io"></a>File I/O functions</h3>
+<table class="CEFuncList">
+<tr>
+<td class="CEFuncListC1f"><a href="cefunc_file.html#cef_fileLoad">FileLoad(path,var)</a></td>
+<td class="CEFuncListC2f">reads a file and stores its contents at a string variable</td>
+</tr>
+<tr>
+<td class="CEFuncListC1f"><a href="cefunc_file.html#cef_fileLoadSS">FileLoadSS(path,var ,<i>tr</i>,<i>fs</i>,<i>d</i>))</a></td>
+<td class="CEFuncListC2f">reads a spreadsheet text file and stores the data at a variable</td>
+</tr>
+<tr>
+<td class="CEFuncListC1f"><a href="cefunc_file.html#cef_fileSave">FileSave(path,mode,x)</a></td>
+<td class="CEFuncListC2f">saves or appends the string data to the specified file</td>
+</tr>
+<tr>
+<td class="CEFuncListC1f"><a href="cefunc_file.html#cef_fileSaveSS">FileSaveSS(path,mode,x ,<i>tr</i>,<i>fs</i>,<i>d</i>)</a></td>
+<td class="CEFuncListC2f">converts any data to the spreadsheet string, and then saves or appends the string to the specified file</td>
+</tr>
+</table>
+
+<h3><a name="pdfunc_file_misc"></a>Advanced functions</h3>
+<table class="CEFuncList">
+<tr>
+<td class="CEFuncListC1f"><a href="cefunc_file.html#cef_fileCopy">FileCopy(src,dst)</a></td>
+<td class="CEFuncListC2f">copies the specified file or directory</td>
+</tr>
+<tr>
+<td class="CEFuncListC1f"><a href="cefunc_file.html#cef_fileDelete">FileDelete(path)</a></td>
+<td class="CEFuncListC2f">deletes the specified file or directory</td>
+</tr>
+<tr>
+<td class="CEFuncListC1f"><a href="cefunc_file.html#cef_fileDialog">FileDialog(<i>path,mod,msg,ptn,def</i>)</a></td>
+<td class="CEFuncListC2f">displays a dialog box to select a file or directory</td>
+</tr>
+<tr>
+<td class="CEFuncListC1f"><a href="cefunc_file.html#cef_fileListDir">FileListDir(path ,<i>ptn</i>,<i>dir</i>)</a></td>
+<td class="CEFuncListC2f">returns the list of either file names or subdirectory names found in the specified directory</td>
+</tr>
+<tr>
+<td class="CEFuncListC1f"><a href="cefunc_file.html#cef_fileMove">FileMove(src,dst)</a></td>
+<td class="CEFuncListC2f">moves or renames the specified file or directory</td>
+</tr>
+<tr>
+<td class="CEFuncListC1f"><a href="cefunc_file.html#cef_fileNewDir">FileNewDir(path)</a></td>
+<td class="CEFuncListC2f">creates new directory</td>
+</tr>
+<tr>
+<td class="CEFuncListC1f"><a href="cefunc_file.html#cef_fileTest">FileTest(path)</a></td>
+<td class="CEFuncListC2f">tests the specified file or directory</td>
+</tr>
+</table>
+
+
+<p>&nbsp;</p>
+</div>
+
+</body>
+</html>

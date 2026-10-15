@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>VarMan Spy</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+<style>
+ul { margin-left:0pt; padding-left:20pt; }
+li { padding-bottom:3pt; }
+</style>
+</head>
+
+<body>
+
+<!-- ########################################## -->
+<a name="varman_spy"></a>
+<div class="GenSectTitle">
+<h1><span class="PageTitleL">VarMan Spy</span></h1>
+</div>
+
+<!-- ########################################## -->
+
+<p>VarMan Spy is a utility that allows users to monitor and manage objects within <a href="varman.html">VarMan</a>.</p>
+<p>Use LabVIEW Context Help (Ctrl-H) to get information on the controls and indicators of VarMan Spy and its dialogs.</p>
+
+
+<h3>Display mode selector</h3>
+<p>Specifies what to show in the Variable List.</p>
+<ul>
+<li>In the <i>Variables</i> display mode, the Variable List displays brief information on variables in the selected context.</li>
+<li>In the <i>Aliases</i> display mode, the Variable List displays brief information about all existing aliases associated with variables, regardless of the contexts in which they exist.</li>
+</ul>
+
+<h3>Context list</h3>
+<p>Displays list of all Variable Contexts existing in VarMan. The list has two columns:</p>
+<ul>
+<li>"VC Handle" column indicates unique numeric identifiers of the contexts.</li>
+<li>"Context Name" column indicates optional names that can be assigned to the contexts.</li>
+</ul>
+
+<p>
+<u>&lt;right-click&gt;</u> opens a shortcut menu with available options.<br>
+<u>&lt;double-click&gt;</u> on a context opens a dialog box with more details on the context if <b>Display mode</b> is <i>Variables</i>; otherwise, this switches <b>Display mode</b> to <i>Variables</i> and makes Variable List display variables of the context.<br>
+<u>&lt;double-click&gt;</u> on a column header sorts the list on this column.
+</p>
+
+<h3>Variable list</h3>
+<p>Depending on the <b>Display mode</b> selector, the list can indicate information on either variables or aliases. In the <i>Variables</i> display mode, the list displays brief information on the variables in the selected context. In the <i>Aliases</i> display mode, the list displays brief information on all existing aliases associated with variables, regardless of their contexts.</p>
+
+<p>
+<u>&lt;right-click&gt;</u> opens a shortcut menu with available options.<br>
+<u>&lt;double-click&gt;</u> opens a probe window (<a href="#vmspy_inspector">Variable Inspector</a>) that lets you review the current value and history (if attached) of the variable. You can also select several variables at once and open probes for them by using a shortcut menu.<br>
+<u>&lt;Ctrl&gt;+&lt;double-click&gt;</u> opens a dialog to set a variable value.
+</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<p>&nbsp;</p><hr class="TopicSeparator">
+<a name="vmspy_inspector"></a>
+<h2>VarMan Spy: Variable Inspector</h2>
+
+<p><a href="#varman_spy">VarMan Spy</a> opens an independent Variable Inspector window for every variable you want to monitor. The Inspector displays detailed information on the monitored variable and gives you full control over it. The Inspector window is open until you close it or the monitored variable is destroyed.</p>
+<p>&nbsp;</p>
+
+<h3><u>Window's title</u></h3>
+<p><img src="image/Var_Inspector_WinTitle.png"></p>
+<p>Every Inspector window has a unique title that indicates information on the monitored variable. If the variable has an alias associated, the title displays the alias with a leading equal sign ( = ). Otherwise, the title displays the variable name and information on the context where the variable exists.</p>
+<p>&nbsp;</p>
+
+<h3><u>Spy menu</u></h3>
+<table width=400pt><tr>
+<td><p><img src="image/Var_Inspector_Menu.png"></td>
+<td>
+<b>Set value...</b> option opens a dialog box to assign a value to the monitored variable.<br>
+<b>Alias...</b> option opens a dialog box to control the alias association for the monitored variable. Use it to create, rename or destroy the variable's alias.<br>
+<b>History...</b> option opens a dialog box to control a history of the monitored variable. Use it to attach, detach, reset or reconfigure a history.<br>
+<b>Destroy...</b> option destroys the monitored variable.<br>
+<b>Close...</b> option closes the Inspector window.
+</td>
+</tr></table>
+<p>&nbsp;</p>
+
+<h3><u>Variable info-zone</u></h3>
+<p><img src="image/Var_Inspector_VarInfo.png"></p>
+<p>Here, the Inspector displays information on the monitored variable including the variable name, context, data type and value. The Inspector automatically updates the variable value indicator to display the current value, unless the <b>Pause</b> button is pushed. The time indicator shows the timestamp of the displayed value. In addition, there are some controls that allow you to choose the display format for the variable value.</p>
+<p>&nbsp;</p>
+
+
+<h3><u>History toolbar</u></h3>
+<p><img src="image/Var_Inspector_HistBar.png"></p>
+
+<p>Controls on the history toolbar are only active if the monitored variable has a history attached.</p>
+<p><b>History</b> checkbox makes the Inspector display a variable history if it is checked. The Inspector displays a variable history indicator below the history toolbar and enables another controls on the history toolbar when <b>History</b> checkbox is checked. </p>
+<p><b>reversed</b> checkbox specifies an order in which a history is displayed. You can review a history in either direct or reversed chronological order.</p>
+<p><b>auto update</b> checkbox makes the Inspector automatically update a history if it is checked.</p>
+<p><b>Update [F5]</b> button makes the Inspector update the history when it is clicked or the <b>F5</b> key is pressed on the keyboard.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+</body>
+</html> 

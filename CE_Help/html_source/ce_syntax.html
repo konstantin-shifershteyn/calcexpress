@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>CalcExpress Expression Syntax</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+<style>
+table.StTbl   { margin-left:0pt;border-collapse:collapse; }
+td.StTblCol1  { width:100pt; padding:3pt 5pt 0pt 5pt; valign:top; white-space:nowrap; }
+td.StTblCol2  { width:120pt; padding:3pt 5pt 0pt 5pt; valign:top; white-space:nowrap; }
+</style>
+</head>
+
+<body>
+
+<!-- ########################################## -->
+<a name="ce_syntax"></a>
+<div class="GenSectTitle">
+<h1><span class="PageTitleL">CalcExpress Expression Syntax</span></h1>
+</div>
+
+
+<!-- ########################################## -->
+<p><a href="ce.html">CalcExpress</a> evaluates linear scripts containing one or more expressions. An <b>expression</b> is sequence of operands, operators, and function calls that performs any sequential actions to compute a value (the expression value). Besides, an expression can produce <a href="ce_syntax_misc.html#ce_syntax_side_effect">side effects</a> if it involves variable assignments and-or function calls. If you need to perform a script that involves loops and/or conditional branches, use <a href="cse.html">CSE (CalcExpress Script Engine)</a> that is CalcExpress superset.</p>
+
+<p>To combine a few expressions into a single script a <a href="ce_syntax_op_punctuator.html#ce_op_semicolon">semicolon</a>, that is an expression terminator, is used. An expression that is followed by a semicolon is an <i>expression-statement</i>. An <i>expression-statement</i> must contain a complete expression; i.e. CalcExpress must be able to fully evaluate it according to the rules for applying operators. CalcExpress evaluates an <i>expression-statement</i> completely (including all side effects) before starting to evaluate the next one. See <a href="ce_syntax_op.html#ce_syntax_eval_order">Order of Script Evaluation</a> topic. </p>
+
+<p><a href="mnu_ce-top.html">CalcExpress VIs</a> can directly return the value of the last expression in a script, as long as it is not an <i>expression-statement</i> (i.e., it does not end with a semicolon). You can use this feature to obtain the value of an expression in your VIs (another way is to pass values through variables).</p>
+
+<p><u>Operands</u> are entities that operators act on. Constants, variables, the values returned by functions, and the results of operator evaluations are all operands. Each operand is characterized by its value and <a href="dtypes.html">data type</a>. If an expression consists of an operand only, the expression value equals the operand's value. The value of a blank expression (which contains no operands) is undefined.</p>
+
+<p><a href="ce_syntax_op.html">Operators</a> perform actions on operands. Operators acting on a single operand are called unary operators. Operators acting on two operands are called binary operators. CalcExpress operators are polymorphic; it means they can act on operands of different <a href="dtypes.html#data_types_predefined">predefined data types</a> as well as combinations thereof (for binary operators). A few operators support <a href="dtypes.html#data_types_user_defined">user-defined data types</a>.
+</p>
+
+<p><a href="ce_functions.html">Functions</a> are used to perform more complex tasks than operators can do. When a function is called, it receives passed parameters, performs a specific task and returns a result value. Furthermore, a function can produce <a href="ce_syntax_misc.html#ce_syntax_side_effect">side effects</a>; for example, it can change a variable value, open a dialog window, send a notification, etc. CalcExpress has a large set of <a href="cef_main.html">predefined functions</a>. In addition, CalcExpress provides the ability to implement custom functions as VIs (known as <a href="ce_functions.html#ce_func_implementation_funcvi">FuncVI</a>) and call them in a script in the same way as you would call predefined functions.</p>
+
+<p>In order to document a script, <a href="ce_syntax_misc.html#ce_syntax_comment">comments</a> are used. CalcExpress supports both single-line and multi-line comments.</p>
+<p>&nbsp;</p>
+
+<h3>Further syntax information</h3>
+<table class="StTbl">
+<tr>
+<td class="StTblCol1"><a href="ce_syntax_op.html">Operators</a></td>
+<td class="StTblCol2"><a href="ce_syntax_misc.html#ce_syntax_var">Variables</a></td>
+</tr>
+<tr>
+<td class="StTblCol1"><a href="ce_functions.html#ce_func_syntax">Function Calls</a></td>
+<td class="StTblCol2"><a href="ce_syntax_misc.html#ce_syntax_const_num">Numeric Constants</a></td>
+</tr>
+<tr>
+<td class="StTblCol1"><a href="ce_syntax_misc.html#ce_syntax_comment">Comments</a></td>
+<td class="StTblCol2"><a href="ce_syntax_misc.html#ce_syntax_const_str">String Constants</a></td>
+</tr>
+<tr>
+<td class="StTblCol1">&nbsp;</td>
+<td class="StTblCol2"><a href="ce_syntax_misc.html#ce_syntax_namedconst">Named Constants</a></td>
+</tr>
+</table>
+<p>&nbsp;</p>
+
+<h3>Related topics</h3>
+<ul class="GenCE">
+<li class="GenCE"><a href="cef_main.html">Predefined Functions</a></li>
+<li class="GenCE"><a href="ce_functions.html">Functions Overview</a></li>
+</ul>
+<p>&nbsp;</p>
+
+<h3>Also see</h3>
+<ul class="GenCE">
+<li class="GenCE"><a href="ce.html">CalcExpress Overview</a></li>
+<li class="GenCE"><a href="cse.html">CSE Overview</a></li>
+<li class="GenCE"><a href="varman.html">Variable Manager Overview</a></li>
+</ul>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</body>
+</html>

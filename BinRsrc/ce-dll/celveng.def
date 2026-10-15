@@ -1,0 +1,138 @@
+;LIBRARY	celveng64
+
+VERSION	4.0
+
+EXPORTS
+
+; ==============================
+; *** General functions
+; ==============================
+
+	cemodstat
+	cemodval
+	cestub
+
+	viGetRefnums			; in file "RsrcManager\source\ceRefnum.c"
+	VMTest_HashKey			; in file "VarMan\VMEngine\HashTbl_Vars.c"
+	VMTest_HashKey_SetMode	; in file "VarMan\VMEngine\HashTbl_Vars.c"
+;	VMTest_FindVars			; in file "VarMan\VMEngine\GetVarPointer.c"
+
+; ==============================
+; *** Miscellaneous functions
+; ==============================
+
+	lmfitabx
+	lvmemuse
+
+; ==============================
+; *** Resource manager functions
+; ==============================
+
+	cersamg
+	cerstor
+
+; ==============================
+; *** Variable Manager functions
+; ==============================
+
+;	VMEngine
+
+	viAliasController
+	viAliasInfoList
+
+	viVMInit
+	viVCOpen
+	viVCClose
+	viVCTest
+	viVCInfo
+	viVCList
+	viVCNames
+
+	viVarAttribute
+	viVarDestroy
+	viVarInfo
+	viVarInfo2					; #CE_3.0.8 2026-07-31
+	viVarDataInfo				; #CE_3.0.8 2026-07-31
+	viVarInfoList
+	viVarTest
+	viVarList
+
+;	viVarValALL
+
+	viVarValDBL
+	viVarValDBL2				; #CE_3.0.7 2026-07-26
+	viVarValSTR2				; #CE_3.0.7 2026-07-26
+	viVarValDBL3				; #CE_3.1.0 2026-08-22
+	viVarValSTR3				; #CE_3.1.0 2026-08-22
+
+	viVarValFLAT
+	viVarValFLAT3				; #CE_3.1.0 2026-08-22
+	viVarValNUM
+	viVarValNUM3				; #CE_3.1.0 2026-08-22
+
+	viReadMultiVars_DBL			; #CE_3.0.7 2026-07-26
+	viReadMultiVars_STR			; #CE_3.0.7 2026-07-26
+	viReadMultiVars_ANY			; #CE_3.0.7 2026-07-26
+	viWriteMultiVars_DBL		; #CE_3.0.7 2026-07-26
+	viWriteMultiVars_STR		; #CE_3.0.7 2026-07-26
+	viWriteMultiVars_ANY		; #CE_3.0.7 2026-07-26
+
+	viHistCtrl
+	viHistGet
+	viHistPreset
+
+	viVMMetrics
+
+; =========================
+; *** CalcExpress functions
+; =========================
+
+	cekrnl
+
+	viCE_DllInstance
+	viCE_DllInstance_Reserve
+	viCE_DllInstance_UnReserve
+
+	viCEError
+	viCEAbort
+	viCEDestroyInst
+	viCETestInst
+	viCEDiagExp
+	viCEEval
+	viCEParse
+	viCEComp
+
+	viCEVarWriterID			; #CE_3.0.7 2026-07-26
+
+	viRTErrCode
+	viFuncVIPars
+	viFuncVIResult
+	viOpdValue
+	viVCHandle
+	viIdxRngConv
+
+; =========================
+; *** CSE functions
+; =========================
+
+	cseVI_DllInstance
+	cseVI_DllInstance_Reserve
+	cseVI_DllInstance_UnReserve
+
+	cseVIAbort
+	cseVIDestroyInst
+	cseVITestInst
+	cseVIParse
+	cseVIExecute
+
+	cseVICtxErrAcc
+	cseVIDiagScript
+	cseVIDiagStm
+	cseVIStmInfo
+	cseVIStmInLine
+	cseVIStmInOffset
+
+	cseVILinkScripts
+	cseVIScriptPaths
+
+	cseVIVarWriterID		; #CE_3.0.7 2026-07-26

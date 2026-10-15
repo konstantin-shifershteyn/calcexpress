@@ -1,0 +1,295 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>Array functions overview</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+<script src="js/vih_frames.js" type="text/javascript"></script>
+<script src="js/vih_print.js" type="text/javascript"></script>
+</head>
+
+<body class="framesJS">
+
+<noscript>
+<p>JavaScript is disabled...</p>
+<hr size=1; noshade;>
+</noscript>
+
+
+<!-- ########################################## -->
+<div class="PageTitleJS" id="styleDivTitle">
+
+<h1><span class="PageTitleL">Array functions</span></h1>
+
+<p>Most array functions work with arrays of any predefined data type, except for a few functions that build numeric arrays.<p>
+<p>Click on a function name below for detailed information on the function.</p>
+
+<hr size=1 noshade>
+<table class="CEFuncList">
+<tr>
+<td class="CEFuncListC1"><b>function</b></td>
+<td class="CEFuncListC2"><b>quick info</b></td>
+<td class="CEFuncListC3"><b><a href="cef_main.html#pdfunc_quick_ff">FastFunc</a></b></td>
+<td class="CEFuncListC4"><b><a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a></b></td>
+</tr>
+</table>
+
+</div>
+
+
+<!-- ########################################## -->
+<div id="styleDivScrolling">
+
+<h3><a name="pdfunc_array_creation"></a>Array creation</h3>
+<table class="CEFuncList">
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_array.html#cef_matrix">matrix(x1..<i>xn</i>)</a></td>
+<td class="CEFuncListC2">creates a matrix from arbitrary arguments</td>
+<td class="CEFuncListC3">+</td>
+<td class="CEFuncListC4">&nbsp;</td>
+</tr>
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_array.html#cef_matrixd">matrixd(x,n<i>,d</i>)</a></td>
+<td class="CEFuncListC2">creates a diagonal matrix</td>
+<td class="CEFuncListC3">+</td>
+<td class="CEFuncListC4">&nbsp;</td>
+</tr>
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_array.html#cef_matrixdv">matrixdv(x<i>,d</i>)</a></td>
+<td class="CEFuncListC2">creates a diagonal matrix from the vector</td>
+<td class="CEFuncListC3">+</td>
+<td class="CEFuncListC4">&nbsp;</td>
+</tr>
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_array.html#cef_matrixn">matrixn(x,r<i>,c</i>)</a></td>
+<td class="CEFuncListC2">creates a matrix and fills it with the specified value</td>
+<td class="CEFuncListC3">+</td>
+<td class="CEFuncListC4">&nbsp;</td>
+</tr>
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_array.html#cef_matrixnv">matrixnv(x<i>,r</i> )</a></td>
+<td class="CEFuncListC2">creates a matrix and fills it with the specified vector</td>
+<td class="CEFuncListC3">+</td>
+<td class="CEFuncListC4">&nbsp;</td>
+</tr>
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_array.html#cef_vector">vector(x1..<i>xn</i>)</a></td>
+<td class="CEFuncListC2">creates a vector from arbitrary arguments</td>
+<td class="CEFuncListC3">+</td>
+<td class="CEFuncListC4">&nbsp;</td>
+</tr>
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_array.html#cef_vectorn">vectorn(x,n)</a></td>
+<td class="CEFuncListC2">creates a vector and fills it with the specified value</td>
+<td class="CEFuncListC3">+</td>
+<td class="CEFuncListC4">&nbsp;</td>
+</tr>
+</table>
+
+<h3><a name="pdfunc_array_sequences"></a>Numeric sequences</h3>
+<table class="CEFuncList">
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_array.html#cef_nmtxifn">nmtxifn(i,f<i>,</i>n<i>,f,n</i>)</a></td>
+<td class="CEFuncListC2">creates a numeric matrix filled with sequential values<br><i>parameters: init, final, number of elements</i></td>
+<td class="CEFuncListC3">+</td>
+<td class="CEFuncListC4">&nbsp;</td>
+</tr>
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_array.html#cef_nmtxifs">nmtxifs(i,f<i>,</i>s<i>,f,s</i>)</a></td>
+<td class="CEFuncListC2">creates a numeric matrix filled with sequential values<br><i>parameters: init, final, step</i></td>
+<td class="CEFuncListC3">+</td>
+<td class="CEFuncListC4">&nbsp;</td>
+</tr>
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_array.html#cef_nmtxins">nmtxins(i,n<i>,</i>s<i>,n,s</i>)</a></td>
+<td class="CEFuncListC2">creates a numeric matrix filled with sequential values<br><i>parameters: init, number of elements, step</i></td>
+<td class="CEFuncListC3">+</td>
+<td class="CEFuncListC4">&nbsp;</td>
+</tr>
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_array.html#cef_nvecifn">nvecifn(i,f<i>,n</i>)</a></td>
+<td class="CEFuncListC2">creates a numeric vector filled with sequential values<br><i>parameters: init, final, number of elements</i></td>
+<td class="CEFuncListC3">+</td>
+<td class="CEFuncListC4">&nbsp;</td>
+</tr>
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_array.html#cef_nvecifs">nvecifs(i,f<i>,s</i>)</a></td>
+<td class="CEFuncListC2">creates a numeric vector filled with sequential values<br><i>parameters: init, final, step</i></td>
+<td class="CEFuncListC3">+</td>
+<td class="CEFuncListC4">&nbsp;</td>
+</tr>
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_array.html#cef_nvecins">nvecins(i,n<i>,s</i>)</a></td>
+<td class="CEFuncListC2">creates a numeric vector filled with sequential values<br><i>parameters: init, number of elements, step</i></td>
+<td class="CEFuncListC3">+</td>
+<td class="CEFuncListC4">&nbsp;</td>
+</tr>
+</table>
+
+<h3><a name="pdfunc_array_manipulation"></a>Array manipulation</h3>
+<table class="CEFuncList">
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_dsp.html#cef_decimate">decimate(x,<i>d</i>,<i>a</i>)</a></td>
+<td class="CEFuncListC2">decimates numeric sequence (1D array)</td>
+<td class="CEFuncListC3">+</td>
+<td class="CEFuncListC4">+</td>
+</tr>
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_array.html#cef_resize">resize(x,n)</a></td>
+<td class="CEFuncListC2">resizes 1D array</td>
+<td class="CEFuncListC3">+</td>
+<td class="CEFuncListC4">&nbsp;</td>
+</tr>
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_array.html#cef_resize2d">resize2d(x,r,c)</a></td>
+<td class="CEFuncListC2">resizes 2D array</td>
+<td class="CEFuncListC3">+</td>
+<td class="CEFuncListC4">&nbsp;</td>
+</tr>
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_array.html#cef_rever2c">rever2c(x)</a></td>
+<td class="CEFuncListC2">reverses the order of columns in 2D array</td>
+<td class="CEFuncListC3">+</td>
+<td class="CEFuncListC4">&nbsp;</td>
+</tr>
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_array.html#cef_rever2r">rever2r(x)</a></td>
+<td class="CEFuncListC2">reverses the order of rows in 2D array</td>
+<td class="CEFuncListC3">+</td>
+<td class="CEFuncListC4">&nbsp;</td>
+</tr>
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_array.html#cef_reverse">reverse(x)</a></td>
+<td class="CEFuncListC2">reverses the order of elements in an array</td>
+<td class="CEFuncListC3">+</td>
+<td class="CEFuncListC4">&nbsp;</td>
+</tr>
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_array.html#cef_rotate">rotate(x,n)</a></td>
+<td class="CEFuncListC2">rotates elements in an array</td>
+<td class="CEFuncListC3">+</td>
+<td class="CEFuncListC4">&nbsp;</td>
+</tr>
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_array.html#cef_rotate2c">rotate2c(x,n)</a></td>
+<td class="CEFuncListC2">rotates columns in 2D array</td>
+<td class="CEFuncListC3">+</td>
+<td class="CEFuncListC4">&nbsp;</td>
+</tr>
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_array.html#cef_rotate2r">rotate2r(x,n)</a></td>
+<td class="CEFuncListC2">rotates rows in 2D array</td>
+<td class="CEFuncListC3">+</td>
+<td class="CEFuncListC4">&nbsp;</td>
+</tr>
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_array.html#cef_search">search(x,k<i>,i</i>,<i>cs</i>)</a></td>
+<td class="CEFuncListC2">searches for the element in an array</td>
+<td class="CEFuncListC3">+</td>
+<td class="CEFuncListC4">&nbsp;</td>
+</tr>
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_array.html#cef_shift">shift(x,n)</a></td>
+<td class="CEFuncListC2">shifts elements in an array</td>
+<td class="CEFuncListC3">+</td>
+<td class="CEFuncListC4">&nbsp;</td>
+</tr>
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_array.html#cef_sort">sort(x,<i>cs</i>)</a></td>
+<td class="CEFuncListC2">sorts an array</td>
+<td class="CEFuncListC3">+</td>
+<td class="CEFuncListC4">&nbsp;</td>
+</tr>
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_array.html#cef_submtx">submtx(x,i,r,<i>j</i>,<i>c</i>)</a></td>
+<td class="CEFuncListC2">returns a subset of 2D array</td>
+<td class="CEFuncListC3">+</td>
+<td class="CEFuncListC4">&nbsp;</td>
+</tr>
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_array.html#cef_subvec">subvec(x,i,n)</a></td>
+<td class="CEFuncListC2">returns a subset of 1D array</td>
+<td class="CEFuncListC3">+</td>
+<td class="CEFuncListC4">&nbsp;</td>
+</tr>
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_array.html#cef_transp">transp(x)</a></td>
+<td class="CEFuncListC2">transposes 2D array</td>
+<td class="CEFuncListC3">+</td>
+<td class="CEFuncListC4">&nbsp;</td>
+</tr>
+</table>
+
+<h3><a name="pdfunc_array_conversion"></a>Array conversion</h3>
+<table class="CEFuncList">
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_array.html#cef_mtx2vec">mtx2vec(x)</a></td>
+<td class="CEFuncListC2">converts a matrix (2D array) to vector (1D array)</td>
+<td class="CEFuncListC3">+</td>
+<td class="CEFuncListC4">&nbsp;</td>
+</tr>
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_array.html#cef_vec2mtx">vec2mtx(x,r,c)</a></td>
+<td class="CEFuncListC2">converts a vector (1D array) to matrix (2D Array)</td>
+<td class="CEFuncListC3">+</td>
+<td class="CEFuncListC4">&nbsp;</td>
+</tr>
+</table>
+
+<h3><a name="pdfunc_array_size"></a>Array size</h3>
+<table class="CEFuncList">
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_array.html#cef_cols">cols(x)</a></td>
+<td class="CEFuncListC2">returns number of columns in an array</td>
+<td class="CEFuncListC3">+</td>
+<td class="CEFuncListC4">&nbsp;</td>
+</tr>
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_array.html#cef_rows">rows(x)</a></td>
+<td class="CEFuncListC2">returns number of rows in an array</td>
+<td class="CEFuncListC3">+</td>
+<td class="CEFuncListC4">&nbsp;</td>
+</tr>
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_array.html#cef_size">size(x)</a></td>
+<td class="CEFuncListC2">returns the total number of elements in an array</td>
+<td class="CEFuncListC3">+</td>
+<td class="CEFuncListC4">&nbsp;</td>
+</tr>
+</table>
+
+<h3><a name="pdfunc_array_idxrange"></a>IndexRange functions</h3>
+<table class="CEFuncList">
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_array.html#cef_ir">ir(<i>i1,i2</i>)</a></td>
+<td class="CEFuncListC2">builds an IndexRange value</td>
+<td class="CEFuncListC3">+</td>
+<td class="CEFuncListC4">&nbsp;</td>
+</tr>
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_array.html#cef_irb1">irb1(ir)</a></td>
+<td class="CEFuncListC2">returns an initial boundary of the specified IndexRange</td>
+<td class="CEFuncListC3">+</td>
+<td class="CEFuncListC4">&nbsp;</td>
+</tr>
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_array.html#cef_irb2">irb2(ir)</a></td>
+<td class="CEFuncListC2">returns a final boundary of the specified IndexRange</td>
+<td class="CEFuncListC3">+</td>
+<td class="CEFuncListC4">&nbsp;</td>
+</tr>
+<tr>
+<td class="CEFuncListC1"><a href="cefunc_array.html#cef_irr">irr(<i>i1,i2</i>)</a></td>
+<td class="CEFuncListC2">builds an IndexRange value</td>
+<td class="CEFuncListC3">+</td>
+<td class="CEFuncListC4">&nbsp;</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+</div>
+
+</body>
+</html>

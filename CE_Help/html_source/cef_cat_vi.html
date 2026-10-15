@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>VI Control functions overview</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+<script src="js/vih_frames.js" type="text/javascript"></script>
+<script src="js/vih_print.js" type="text/javascript"></script>
+</head>
+
+<body class="framesJS">
+
+<noscript>
+<p>JavaScript is disabled...</p>
+<hr size=1; noshade;>
+</noscript>
+
+
+<!-- ########################################## -->
+<div class="PageTitleJS" id="styleDivTitle">
+
+<h1><span class="PageTitleL">VI Control functions</span></h1>
+
+<p>The functions listed in this section are implemented as <a href="cef_main.html#pdfunc_quick_fvi">FuncVIs</a>. When you call any of these functions, CalcExpress calls LabVIEW VI Server to perform the task. All the functions assign an error code, which LabVIEW returns, to the <a href="ce_rt_error.html">rtErrorCode</a> variable.</p>
+<p>Click on a function name below for detailed information on the function.</p>
+
+<hr size=1 noshade>
+<table class="CEFuncList">
+<tr>
+<td class="CEFuncListC1c"><b>function</b></td>
+<td class="CEFuncListC2c"><b>quick info</b></td>
+</tr>
+</table>
+
+</div>
+
+
+<!-- ########################################## -->
+<div id="styleDivScrolling">
+
+<table class="CEFuncList">
+<tr>
+<td class="CEFuncListC1c"><a href="cefunc_victrl.html#cef_viAbort">viAbort(vi,<i>fp</i>)</a></td>
+<td class="CEFuncListC2c">aborts the execution of the specified Virtual Instrument.</td>
+</tr>
+<tr>
+<td class="CEFuncListC1c"><a href="cefunc_victrl.html#cef_viCtrlGet">viCtrlGet(vi,cn,vn...)</a></td>
+<td class="CEFuncListC2c">reads the values of FP Controls and Indicators of the specified Virtual Instrument.</td>
+</tr>
+<tr>
+<td class="CEFuncListC1c"><a href="cefunc_victrl.html#cef_viCtrlSet">viCtrlSet(vi,cn,x...)</a></td>
+<td class="CEFuncListC2c">writes values to FP Controls of the specified Virtual Instrument.</td>
+</tr>
+<tr>
+<td class="CEFuncListC1c"><a href="cefunc_victrl.html#cef_viOpenFP">viOpenFP(vi,<i>open</i>)</a></td>
+<td class="CEFuncListC2c">opens or closes a Front Panel window of the specified Virtual Instrument.</td>
+</tr>
+<tr>
+<td class="CEFuncListC1c"><a href="cefunc_victrl.html#cef_viRun">viRun(vi,<i>fp</i>,<i>cn</i>,<i>x</i>...)</a></td>
+<td class="CEFuncListC2c">starts the execution of the specified Virtual Instrument.</td>
+</tr>
+<tr>
+<td class="CEFuncListC1c"><a href="cefunc_victrl.html#cef_viState">viState(vi,<i>mod</i>)</a></td>
+<td class="CEFuncListC2c">returns a state of the specified Virtual Instrument.</td>
+</tr>
+</table>
+
+
+<p>&nbsp;</p>
+</div>
+
+</body>
+</html>

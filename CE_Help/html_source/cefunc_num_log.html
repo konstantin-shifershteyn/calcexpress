@@ -1,0 +1,350 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>Logarithmic and Exponential functions</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+</head>
+
+<body>
+
+<!-- ########################################## -->
+<a name="cef_exp"></a>
+<div class="FuncDscrTitle">
+<h1>exp</h1>
+<p>The function computes the exponential.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">exp(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the value of <b>e</b> raised to the <b>x</b> power.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+<tr>
+<td class="FuncDTTblCol"><i>CDB Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of CDB</i></td>
+<td class="FuncDTTblCol"><i>2D Array of CDB</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value that has the same data type as <b>x</b>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_ln"></a>
+<div class="FuncDscrTitle">
+<h1>ln</h1>
+<p>The function computes the natural logarithm.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">ln(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the natural logarithm of <b>x</b>. If <b>x</b> is 0, the function returns -Inf. If <b>x</b> is less than 0, the function returns NaN unless <b>x</b> has complex representation.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+<tr>
+<td class="FuncDTTblCol"><i>CDB Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of CDB</i></td>
+<td class="FuncDTTblCol"><i>2D Array of CDB</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value that has the same data type as <b>x</b>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_log"></a>
+<div class="FuncDscrTitle">
+<h1>log</h1>
+<p>The function computes the logarithm to the specified base.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">log(x,y)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the logarithm of <b>y</b> to the base <b>x</b>. If <b>y</b> is 0, the function returns -Inf. If <b>x</b> is less than or equal to 0, or <b>y</b> is less than 0, the function returns NaN unless at least one of <b>x</b> and <b>y</b> has complex representation.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars, arrays, and combination thereof. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> and <b>y</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+<tr>
+<td class="FuncDTTblCol"><i>CDB Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of CDB</i></td>
+<td class="FuncDTTblCol"><i>2D Array of CDB</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>Type of return value is determined by the <a href="cef_poly.html">polymorphism rules</a> for function with two arguments.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_log2"></a>
+<div class="FuncDscrTitle">
+<h1>log2</h1>
+<p>The function computes the logarithm to the base 2.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">log2(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the logarithm of <b>x</b> to the base 2. If <b>x</b> is 0, the function returns -Inf. If <b>x</b> is less than 0, the function returns NaN unless <b>x</b> has complex representation.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+<tr>
+<td class="FuncDTTblCol"><i>CDB Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of CDB</i></td>
+<td class="FuncDTTblCol"><i>2D Array of CDB</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value that has the same data type as <b>x</b>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_log10"></a>
+<div class="FuncDscrTitle">
+<h1>log10</h1>
+<p>The function computes the logarithm to the base 10.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">log10(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the logarithm of <b>x</b> to the base 10. If <b>x</b> is 0, the function returns -Inf. If <b>x</b> is less than 0, the function returns NaN unless <b>x</b> has complex representation.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+<tr>
+<td class="FuncDTTblCol"><i>CDB Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of CDB</i></td>
+<td class="FuncDTTblCol"><i>2D Array of CDB</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value that has the same data type as <b>x</b>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_pow"></a>
+<div class="FuncDscrTitle">
+<h1>pow</h1>
+<p>The function computes x raised to the y power.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">pow(x,y)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the <b>x</b> raised to the power of <b>y</b>. If <b>y</b> is zero, the function returns 1 for any value of <b>x</b>. If <b>x</b> is less than 0 and <b>y</b> is not integer, the function returns NaN. If <b>x</b> is 0 and <b>y</b> is negative, the function returns Inf unless <b>x</b> or <b>y</b> is complex.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars, arrays, and combinations thereof. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> and <b>y</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+<tr>
+<td class="FuncDTTblCol"><i>CDB Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of CDB</i></td>
+<td class="FuncDTTblCol"><i>2D Array of CDB</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>Type of return value is determined by the <a href="cef_poly.html">polymorphism rules</a> for function with two arguments.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_pow2"></a>
+<div class="FuncDscrTitle">
+<h1>pow2</h1>
+<p>The function computes 2 raised to the specified power.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">pow2(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns 2 raised to the <b>x</b> power.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+<tr>
+<td class="FuncDTTblCol"><i>CDB Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of CDB</i></td>
+<td class="FuncDTTblCol"><i>2D Array of CDB</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value that has the same data type as <b>x</b>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_pow10"></a>
+<div class="FuncDscrTitle">
+<h1>pow10</h1>
+<p>The function computes 10 raised to the specified power.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">pow10(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns 10 raised to the <b>x</b> power.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+<tr>
+<td class="FuncDTTblCol"><i>CDB Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of CDB</i></td>
+<td class="FuncDTTblCol"><i>2D Array of CDB</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value that has the same data type as <b>x</b>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+</body>
+</html>

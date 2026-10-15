@@ -1,0 +1,850 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>Variable declaration functions</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+</head>
+
+<body>
+
+
+<!-- ########################################## -->
+<a name="cef_a1cdb"></a>
+<div class="FuncDscrTitle">
+<h1>a1cdb</h1>
+<p>The function creates a variable of the <a href="dtypes.html#data_types_table">1D Array of CDB</a> data type if it does not exist.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">a1cdb(name ,<i>value</i> ,<i>vch</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function creates a variable of the <a href="dtypes.html#data_types_table">1D Array of CDB</a> data type with the specified <b>name</b> and assigns an initial <b>value</b> to it. If a variable with the given name already exists, the function does not affect it in any way, but returns a status code of -3.</p>
+<p>The optional parameter <b>vch</b> specifies a handle of the variable context in which the variable is to be created. If <b>vch</b> is omitted in the function call, the function works with the local variable context used by a CalcExpress or CSE VI executing the script (the current local context).</p>
+<p>The function returns zero if it successfully creates the variable. Otherwise, it returns the negated value of the <a href="errors.html#err_vm_engine">VarMan Engine error code</a> indicating an error reason. For example, it returns -10 if an invalid variable name is specified, -4 if an invalid context handle is specified, -3 if the variable already exists.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1">&nbsp;</td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>name</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies a variable name. In general, <b>name</b> has to comply with the VarMan name specifier syntax and can include a variable name or an alias, or both of them. See the <a href="varman_vref.html">Referring to variables</a> topic for more information.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>value</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">1D Array of CDB</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies an initial value to be assigned to the variable. <b>value</b> is ignored if the variable already exists.
+By default, <b>value</b> is an empty array.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>vch</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies a handle of the variable context where the variable should be created.
+There are two special values for <b>vch</b>:<br>
+<b>vch</b> equal to 0 denotes the current local context.<br>
+<b>vch</b> equal to -1 denotes the global context.<br>
+By default, <b>vch</b> is equal to 0.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>On success, the function returns zero. In case of an error, it returns a negative error code as described above.</p>
+<p>The return value has the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+</div>
+
+<h3>Examples</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+/* Attempts to create the variable called Array_1. On the success, it assigns an empty array to the variable. */<br>
+a1cdb(&quot;Array_1&quot;);
+</p>
+<p class="FuncDscrExample">
+/* Attempts to create the variable called Array_2. On the success, it assigns the initial value to the variable. */<br>
+a1cdb(&quot;Array_2&quot;, vectorn( complex(0,-1) ,10) );
+</p>
+<p class="FuncDscrExample">
+/* Attempts to create the variable called Array_3. On the success, it assigns value of Array_2 to the variable. */<br>
+name = &quot;Array_3&quot;;<br>
+a1cdb(name, Array_2);
+</p>
+<p class="FuncDscrExample">
+/* Attempts to create the variable called Array_5; the variable name is produced by <b>sform</b> function that is similar to <b>Format Into String</b> LabVIEW function. On the success, it assigns the value of Array_2 multiplied by 2 to the variable. */<br>
+name  = &quot;Array&quot;;<br>
+index = 5;<br>
+a1cdb(sform(&quot;%s_%d&quot;,name, index), 2*Array_2);
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_var.html">Variable management functions</a></p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_a1dbl"></a>
+<div class="FuncDscrTitle">
+<h1>a1dbl</h1>
+<p>The function creates a variable of the <a href="dtypes.html#data_types_table">1D Array of DBL</a> data type if it does not exist.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">a1dbl(name ,<i>value</i> ,<i>vch</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function creates a variable of the <a href="dtypes.html#data_types_table">1D Array of DBL</a> data type with the specified <b>name</b> and assigns an initial <b>value</b> to it. If a variable with the given name already exists, the function does not affect it in any way, but returns a status code of -3.</p>
+<p>The optional parameter <b>vch</b> specifies a handle of the variable context in which the variable is to be created. If <b>vch</b> is omitted in the function call, the function works with the local variable context used by a CalcExpress or CSE VI executing the script (the current local context).</p>
+<p>The function returns zero if it successfully creates the variable. Otherwise, it returns the negated value of the <a href="errors.html#err_vm_engine">VarMan Engine error code</a> indicating an error reason. For example, it returns -10 if an invalid variable name is specified, -4 if an invalid context handle is specified, -3 if the variable already exists.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1">&nbsp;</td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>name</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies a variable name. In general, <b>name</b> has to comply with the VarMan name specifier syntax and can include a variable name or an alias, or both of them. See the <a href="varman_vref.html">Referring to variables</a> topic for more information.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>value</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">1D Array of DBL</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies an initial value to be assigned to the variable. <b>value</b> is ignored if the variable already exists.
+By default, <b>value</b> is an empty array.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1">
+<b>vch</b>
+</td>
+<td class="FuncDscrTblCol2">
+<a href="dtypes.html#data_types_table">DBL Number</a>
+</td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies a handle of the variable context where the variable should be created.
+There are two special values for <b>vch</b>:<br>
+<b>vch</b> equal to 0 denotes the current local context.<br>
+<b>vch</b> equal to -1 denotes the global context.<br>
+By default, <b>vch</b> is equal to 0.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>On success, the function returns zero. In case of an error, it returns a negative error code as described above.</p>
+<p>The return value has the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+</div>
+
+<h3>Examples</h3>
+<div class="FuncDscrSection">
+
+<p class="FuncDscrExample">
+/* Attempts to create the variable called Array_1. On the success, it assigns an empty array to the variable. */<br>
+a1dbl(&quot;Array_1&quot;);<br>
+</p>
+<p class="FuncDscrExample">
+/* Attempts to create the variable called Array_2. On the success, it assigns the initial value to the variable. */<br>
+a1dbl(&quot;Array_2&quot;, vector(1,2,3) );<br>
+</p>
+<p class="FuncDscrExample">
+/* Attempts to create the variable called Array_3. On the success, it assigns value of Array_2 to the variable. */<br>
+name = &quot;Array_3&quot;;<br>
+a1dbl(name, Array_2);<br>
+</p>
+<p class="FuncDscrExample">
+/* Attempts to create the variable called Array_5; the variable name is produced by <b>sform</b> function that is similar to <b>Format Into String</b> LabVIEW function. On the success, it assigns the value of Array_2 multiplied by 2 to the variable. */<br>
+name  = &quot;Array&quot;;<br>
+index = 5;<br>
+a1dbl(sform(&quot;%s_%d&quot;,name, index), 2*Array_2);
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_var.html">Variable management functions</a></p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_a1str"></a>
+<div class="FuncDscrTitle">
+<h1>a1str</h1>
+<p>The function creates a variable of the <a href="dtypes.html#data_types_table">1D Array of Strings</a> data type if it does not exist.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">a1str(name ,<i>value</i> ,<i>vch</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function creates a variable of the <a href="dtypes.html#data_types_table">1D Array of Strings</a> data type with the specified <b>name</b> and assigns an initial <b>value</b> to it. If a variable with the given name already exists, the function does not affect it in any way, but returns a status code of -3.</p>
+<p>The optional parameter <b>vch</b> specifies a handle of the variable context in which the variable is to be created. If <b>vch</b> is omitted in the function call, the function works with the local variable context used by a CalcExpress or CSE VI executing the script (the current local context).</p>
+<p>The function returns zero if it successfully creates the variable. Otherwise, it returns the negated value of the <a href="errors.html#err_vm_engine">VarMan Engine error code</a> indicating an error reason. For example, it returns -10 if an invalid variable name is specified, -4 if an invalid context handle is specified, -3 if the variable already exists.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1">&nbsp;</td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>name</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies a variable name. In general, <b>name</b> has to comply with the VarMan name specifier syntax and can include a variable name or an alias, or both of them. See the <a href="varman_vref.html">Referring to variables</a> topic for more information.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>value</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">1D Array of Strings</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies an initial value to be assigned to the variable. <b>value</b> is ignored if the variable already exists.
+By default, <b>value</b> is an empty array.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>vch</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies a handle of the variable context where the variable should be created.
+There are two special values for <b>vch</b>:<br>
+<b>vch</b> equal to 0 denotes the current local context.<br>
+<b>vch</b> equal to -1 denotes the global context.<br>
+By default, <b>vch</b> is equal to 0.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>On success, the function returns zero. In case of an error, it returns a negative error code as described above.</p>
+<p>The return value has the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+</div>
+
+<h3>Examples</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+/* Attempts to create the variable called Array_1. On the success, it assigns an empty array to the variable. */<br>
+a1str(&quot;Array_1&quot;);
+</p>
+<p class="FuncDscrExample">
+/* Attempts to create the variable called Array_2. On the success, it assigns the initial value to the variable. */<br>
+a1str(&quot;Array_2&quot;, vector(&quot;ABC&quot;,&quot;DEF&quot;) );
+</p>
+<p class="FuncDscrExample">
+/* Attempts to create the variable called Array_3. On the success, it assigns value of Array_2 to the variable. */<br>
+name = &quot;Array_3&quot;;<br>
+a1str(name, Array_2);
+</p>
+<p class="FuncDscrExample">
+/* Attempts to create the variable called Array_5; the variable name is produced by <b>sform</b> function that is similar to <b>Format Into String</b> LabVIEW function. On the success, it assigns an empty array to the variable. */<br>
+name  = &quot;Array&quot;;<br>
+index = 5;<br>
+a1str(sform(&quot;%s_%d&quot;,name, index));
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_var.html">Variable management functions</a></p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+
+<!-- ########################################## -->
+<a name="cef_a2cdb"></a>
+<div class="FuncDscrTitle">
+<h1>a2cdb</h1>
+<p>The function creates a variable of the <a href="dtypes.html#data_types_table">2D Array of CDB</a> data type if it does not exist.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">a2cdb(name ,<i>value</i> ,<i>vch</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function creates a variable of the <a href="dtypes.html#data_types_table">2D Array of CDB</a> data type with the specified <b>name</b> and assigns an initial <b>value</b> to it. If a variable with the given name already exists, the function does not affect it in any way, but returns a status code of -3.</p>
+<p>The optional parameter <b>vch</b> specifies a handle of the variable context in which the variable is to be created. If <b>vch</b> is omitted in the function call, the function works with the local variable context used by a CalcExpress or CSE VI executing the script (the current local context).</p>
+<p>The function returns zero if it successfully creates the variable. Otherwise, it returns the negated value of the <a href="errors.html#err_vm_engine">VarMan Engine error code</a> indicating an error reason. For example, it returns -10 if an invalid variable name is specified, -4 if an invalid context handle is specified, -3 if the variable already exists.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1">&nbsp;</td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>name</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies a variable name. In general, <b>name</b> has to comply with the VarMan name specifier syntax and can include a variable name or an alias, or both of them. See the <a href="varman_vref.html">Referring to variables</a> topic for more information.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>value</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">2D Array of CDB</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies an initial value to be assigned to the variable. <b>value</b> is ignored if the variable already exists.
+By default, <b>value</b> is an empty array.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>vch</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies a handle of the variable context where the variable should be created.
+There are two special values for <b>vch</b>:<br>
+<b>vch</b> equal to 0 denotes the current local context.<br>
+<b>vch</b> equal to -1 denotes the global context.<br>
+By default, <b>vch</b> is equal to 0.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>On success, the function returns zero. In case of an error, it returns a negative error code as described above.</p>
+<p>The return value has the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+</div>
+
+<h3>Examples</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+/* Attempts to create the variable called Array_1. On the success, it assigns an empty array to the variable. */<br>
+a2cdb(&quot;Array_1&quot;);<br>
+</p>
+<p class="FuncDscrExample">
+/* Attempts to create the variable called Array_2. On the success, it assigns the initial value to the variable. */<br>
+a2cdb(&quot;Array_2&quot;, matrixn( complex(0,-1) ,10,2) );
+</p>
+<p class="FuncDscrExample">
+/* Attempts to create the variable called Array_3. On the success, it assigns value of Array_2 to the variable. */<br>
+name = &quot;Array_3&quot;;<br>
+a2cdb(name, Array_2);
+</p>
+<p class="FuncDscrExample">
+/* Attempts to create the variable called Array_5; the variable name is produced by <b>sform</b> function that is similar to <b>Format Into String</b> LabVIEW function. On the success, it assigns the value of Array_2 multiplied by 2 to the variable. */<br>
+name  = &quot;Array&quot;;<br>
+index = 5;<br>
+a2cdb(sform(&quot;%s_%d&quot;,name, index), 2*Array_2);
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_var.html">Variable management functions</a></p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_a2dbl"></a>
+<div class="FuncDscrTitle">
+<h1>a2dbl</h1>
+<p>The function creates a variable of the <a href="dtypes.html#data_types_table">2D Array of DBL</a> data type if it does not exist.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">a2dbl(name ,<i>value</i> ,<i>vch</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function creates a variable of the <a href="dtypes.html#data_types_table">2D Array of DBL</a> data type with the specified <b>name</b> and assigns an initial <b>value</b> to it. If a variable with the given name already exists, the function does not affect it in any way, but returns a status code of -3.</p>
+<p>The optional parameter <b>vch</b> specifies a handle of the variable context in which the variable is to be created. If <b>vch</b> is omitted in the function call, the function works with the local variable context used by a CalcExpress or CSE VI executing the script (the current local context).</p>
+<p>The function returns zero if it successfully creates the variable. Otherwise, it returns the negated value of the <a href="errors.html#err_vm_engine">VarMan Engine error code</a> indicating an error reason. For example, it returns -10 if an invalid variable name is specified, -4 if an invalid context handle is specified, -3 if the variable already exists.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1">&nbsp;</td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>name</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies a variable name. In general, <b>name</b> has to comply with the VarMan name specifier syntax and can include a variable name or an alias, or both of them. See the <a href="varman_vref.html">Referring to variables</a> topic for more information.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>value</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">2D Array of DBL</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies an initial value to be assigned to the variable. <b>value</b> is ignored if the variable already exists.
+By default, <b>value</b> is an empty array.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>vch</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies a handle of the variable context where the variable should be created.
+There are two special values for <b>vch</b>:<br>
+<b>vch</b> equal to 0 denotes the current local context.<br>
+<b>vch</b> equal to -1 denotes the global context.<br>
+By default, <b>vch</b> is equal to 0.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>On success, the function returns zero. In case of an error, it returns a negative error code as described above.</p>
+<p>The return value has the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+</div>
+
+<h3>Examples</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+/* Attempts to create the variable called Array_1. On the success, it assigns an empty array to the variable. */<br>
+a2dbl(&quot;Array_1&quot;);
+</p>
+<p class="FuncDscrExample">
+/* Attempts to create the variable called Array_2. On the success, it assigns the initial value to the variable. */<br>
+a2dbl(&quot;Array_2&quot;, matrix( vector(1,2,3), vector(-1,-2,-3) );
+</p>
+<p class="FuncDscrExample">
+/* Attempts to create the variable called Array_3. On the success, it assigns value of Array_2 to the variable. */<br>
+name = &quot;Array_3&quot;;<br>
+a2dbl(name, Array_2);
+</p>
+<p class="FuncDscrExample">
+/* Attempts to create the variable called Array_5; the variable name is produced by <b>sform</b> function that is similar to <b>Format Into String</b> LabVIEW function. On the success, it assigns the value of Array_2 multiplied by 2 to the variable. */<br>
+name  = &quot;Array&quot;;<br>
+index = 5;<br>
+a2dbl(sform(&quot;%s_%d&quot;,name, index), 2*Array_2);
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_var.html">Variable management functions</a></p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_a2str"></a>
+<div class="FuncDscrTitle">
+<h1>a2str</h1>
+<p>The function creates a variable of the <a href="dtypes.html#data_types_table">2D Array of Strings</a> data type if it does not exist.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">a2str(name ,<i>value</i> ,<i>vch</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function creates a variable of the <a href="dtypes.html#data_types_table">2D Array of Strings</a> data type with the specified <b>name</b> and assigns an initial <b>value</b> to it. If a variable with the given name already exists, the function does not affect it in any way, but returns a status code of -3.</p>
+<p>The optional parameter <b>vch</b> specifies a handle of the variable context in which the variable is to be created. If <b>vch</b> is omitted in the function call, the function works with the local variable context used by a CalcExpress or CSE VI executing the script (the current local context).</p>
+<p>The function returns zero if it successfully creates the variable. Otherwise, it returns the negated value of the <a href="errors.html#err_vm_engine">VarMan Engine error code</a> indicating an error reason. For example, it returns -10 if an invalid variable name is specified, -4 if an invalid context handle is specified, -3 if the variable already exists.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1">&nbsp;</td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>name</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies a variable name. In general, <b>name</b> has to comply with the VarMan name specifier syntax and can include a variable name or an alias, or both of them. See the <a href="varman_vref.html">Referring to variables</a> topic for more information.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>value</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">2D Array of Strings</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies an initial value to be assigned to the variable. <b>value</b> is ignored if the variable already exists.
+By default, <b>value</b> is an empty array.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>vch</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies a handle of the variable context where the variable should be created.
+There are two special values for <b>vch</b>:<br>
+<b>vch</b> equal to 0 denotes the current local context.<br>
+<b>vch</b> equal to -1 denotes the global context.<br>
+By default, <b>vch</b> is equal to 0.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>On success, the function returns zero. In case of an error, it returns a negative error code as described above.</p>
+<p>The return value has the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+</div>
+
+<h3>Examples</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+/* Attempts to create the variable called Array_1. On the success, it assigns an empty array to the variable. */<br>
+a2str(&quot;Array_1&quot;);
+</p>
+<p class="FuncDscrExample">
+/* Attempts to create the variable called Array_2. On the success, it assigns the initial value to the variable. */<br>
+a2str(&quot;Array_2&quot;, matrix(&quot;ABC&quot;,&quot;DEF&quot;) );
+</p>
+<p class="FuncDscrExample">
+/* Attempts to create the variable called Array_3. On the success, it assigns value of Array_2 to the variable. */<br>
+name = &quot;Array_3&quot;;<br>
+a2str(name, Array_2);
+</p>
+<p class="FuncDscrExample">
+/* Attempts to create the variable called Array_5; the variable name is produced by <b>sform</b> function that is similar to <b>Format Into String</b> LabVIEW function. On the success, it assigns an empty array to the variable. */<br>
+name  = &quot;Array&quot;;<br>
+index = 5;<br>
+a2str(sform(&quot;%s_%d&quot;,name, index));
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_var.html">Variable management functions</a></p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_cdb"></a>
+<div class="FuncDscrTitle">
+<h1>cdb</h1>
+<p>The function creates a variable of the <a href="dtypes.html#data_types_table">CDB Number</a> data type if it does not exist.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">cdb(name ,<i>value</i> ,<i>vch</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function creates a variable of the <a href="dtypes.html#data_types_table">CDB Number</a> data type with the specified <b>name</b> and assigns an initial <b>value</b> to it. If a variable with the given name already exists, the function does not affect it in any way, but returns a status code of -3.</p>
+<p>The optional parameter <b>vch</b> specifies a handle of the variable context in which the variable is to be created. If <b>vch</b> is omitted in the function call, the function works with the local variable context used by a CalcExpress or CSE VI executing the script (the current local context).</p>
+<p>The function returns zero if it successfully creates the variable. Otherwise, it returns the negated value of the <a href="errors.html#err_vm_engine">VarMan Engine error code</a> indicating an error reason. For example, it returns -10 if an invalid variable name is specified, -4 if an invalid context handle is specified, -3 if the variable already exists.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1">&nbsp;</td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>name</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies a variable name. In general, <b>name</b> has to comply with the VarMan name specifier syntax and can include a variable name or an alias, or both of them. See the <a href="varman_vref.html">Referring to variables</a> topic for more information.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>value</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">CDB Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies an initial value to be assigned to the variable. <b>value</b> is ignored if the variable already exists.
+By default, <b>value</b> is zero.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>vch</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies a handle of the variable context where the variable should be created.
+There are two special values for <b>vch</b>:<br>
+<b>vch</b> equal to 0 denotes the current local context.<br>
+<b>vch</b> equal to -1 denotes the global context.<br>
+By default, <b>vch</b> is equal to 0.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>On success, the function returns zero. In case of an error, it returns a negative error code as described above.</p>
+<p>The return value has the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+</div>
+
+<h3>Examples</h3>
+<div class="FuncDscrSection">
+
+<p class="FuncDscrExample">
+/* Attempts to create the variable called Var_1. On the success, it assigns a default value to the variable. */<br>
+cdb(&quot;Var_1&quot;);
+</p>
+<p class="FuncDscrExample">
+/* Attempts to create the variable called Var_2. On the success, it assigns the initial value to the variable. */<br>
+cdb(&quot;Var_2&quot;, complex(1) );
+</p>
+<p class="FuncDscrExample">
+/* Attempts to create the variable called Var_3. On the success, it assigns value of Var_2 to the variable. */<br>
+name = &quot;Var_3&quot;;<br>
+cdb(name, Var_2);
+</p>
+<p class="FuncDscrExample">
+/* Attempts to create the variable called Var_5; the variable name is produced by <b>sform</b> function that is similar to <b>Format Into String</b> LabVIEW function. On the success, it assigns the value of Var_2 multiplied by 2 to the variable */<br>
+name  = &quot;Var&quot;;<br>
+index = 5;<br>
+cdb(sform(&quot;%s_%d&quot;,name, index), 2*Var_2);
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_var.html">Variable management functions</a></p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_dbl"></a>
+<div class="FuncDscrTitle">
+<h1>dbl</h1>
+<p>The function creates a variable of the <a href="dtypes.html#data_types_table">DBL Number</a> data type if it does not exist.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">dbl(name ,<i>value</i> ,<i>vch</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function creates a variable of the <a href="dtypes.html#data_types_table">DBL Number</a> data type with the specified <b>name</b> and assigns an initial <b>value</b> to it. If a variable with the given name already exists, the function does not affect it in any way, but returns a status code of -3.</p>
+<p>The optional parameter <b>vch</b> specifies a handle of the variable context in which the variable is to be created. If <b>vch</b> is omitted in the function call, the function works with the local variable context used by a CalcExpress or CSE VI executing the script (the current local context).</p>
+<p>The function returns zero if it successfully creates the variable. Otherwise, it returns the negated value of the <a href="errors.html#err_vm_engine">VarMan Engine error code</a> indicating an error reason. For example, it returns -10 if an invalid variable name is specified, -4 if an invalid context handle is specified, -3 if the variable already exists.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1">&nbsp;</td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>name</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies a variable name. In general, <b>name</b> has to comply with the VarMan name specifier syntax and can include a variable name or an alias, or both of them. See the <a href="varman_vref.html">Referring to variables</a> topic for more information.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>value</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies an initial value to be assigned to the variable. <b>value</b> is ignored if the variable already exists.
+By default, <b>value</b> is zero.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>vch</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies a handle of the variable context where the variable should be created.
+There are two special values for <b>vch</b>:<br>
+<b>vch</b> equal to 0 denotes the current local context.<br>
+<b>vch</b> equal to -1 denotes the global context.<br>
+By default, <b>vch</b> is equal to 0.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>On success, the function returns zero. In case of an error, it returns a negative error code as described above.</p>
+<p>The return value has the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+</div>
+
+<h3>Examples</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+/* Attempts to create the variable called Var_1. On the success, it assigns zero to the variable. */<br>
+dbl(&quot;Var_1&quot;);
+</p>
+<p class="FuncDscrExample">
+/* Attempts to create the variable called Var_2. On the success, it assigns the initial value to the variable. */<br>
+dbl(&quot;Var_2&quot;,3);
+</p>
+<p class="FuncDscrExample">
+/* Attempts to create the variable called Var_3. On the success, it assigns value of Var_2 to the variable. */<br>
+name = &quot;Var_3&quot;;<br>
+dbl(name, Var_2);
+</p>
+<p class="FuncDscrExample">
+/* Attempts to create the variable called Var_5; the variable name is produced by <b>sform</b> function that is similar to <b>Format Into String</b> LabVIEW function. On the success, it assigns the value of Var_2 multiplied by 2 to the variable. */<br>
+name  = &quot;Var&quot;;<br>
+index = 5;<br>
+dbl(sform(&quot;%s_%d&quot;,name, index), 2*Var_2);
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_var.html">Variable management functions</a></p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_str"></a>
+<div class="FuncDscrTitle">
+<h1>str</h1>
+<p>The function creates a variable of the <a href="dtypes.html#data_types_table">String</a> data type if it does not exist.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">str(name ,<i>value</i> ,<i>vch</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function creates a variable of the <a href="dtypes.html#data_types_table">String</a> data type with the specified <b>name</b> and assigns an initial <b>value</b> to it. If a variable with the given name already exists, the function does not affect it in any way, but returns a status code of -3.</p>
+<p>The optional parameter <b>vch</b> specifies a handle of the variable context in which the variable is to be created. If <b>vch</b> is omitted in the function call, the function works with the local variable context used by a CalcExpress or CSE VI executing the script (the current local context).</p>
+<p>The function returns zero if it successfully creates the variable. Otherwise, it returns the negated value of the <a href="errors.html#err_vm_engine">VarMan Engine error code</a> indicating an error reason. For example, it returns -10 if an invalid variable name is specified, -4 if an invalid context handle is specified, -3 if the variable already exists.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1">&nbsp;</td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>name</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies a variable name. In general, <b>name</b> has to comply with the VarMan name specifier syntax and can include a variable name or an alias, or both of them. See the <a href="varman_vref.html">Referring to variables</a> topic for more information.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>value</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies an initial value to be assigned to the variable. <b>value</b> is ignored if the variable already exists.
+By default, <b>value</b> is an empty string.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>vch</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies a handle of the variable context where the variable should be created.
+There are two special values for <b>vch</b>:<br>
+<b>vch</b> equal to 0 denotes the current local context.<br>
+<b>vch</b> equal to -1 denotes the global context.<br>
+By default, <b>vch</b> is equal to 0.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>On success, the function returns zero. In case of an error, it returns a negative error code as described above.</p>
+<p>The return value has the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+</div>
+
+<h3>Examples</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+/* Attempts to create the variable called Var_1. On the success, it assigns an empty string to the variable. */<br>
+str(&quot;Var_1&quot;);
+</p>
+<p class="FuncDscrExample">
+/* Attempts to create the variable called Var_2. On the success, it assigns the initial value to the variable. */<br>
+str(&quot;Var_2&quot;, &quot;ABC&quot;);
+</p>
+<p class="FuncDscrExample">
+/* Attempts to create the variable called Var_3. On the success, it assigns value of Var_2 to the variable. */<br>
+name = &quot;Var_3&quot;;<br>
+str(name, Var_2);
+</p>
+<p class="FuncDscrExample">
+/* Attempts to create the variable called Var_5; the variable name is produced by <b>sform</b> function that is similar to <b>Format Into String</b> LabVIEW function. On the success, it assigns an empty string to the variable. */<br>
+name  = &quot;Var&quot;;<br>
+index = 5;<br>
+str(sform(&quot;%s_%d&quot;,name, index));
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_var.html">Variable management functions</a></p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+</body>
+</html>

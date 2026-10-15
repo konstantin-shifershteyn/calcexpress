@@ -1,0 +1,569 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>Number conversion and verifications functions</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+</head>
+
+<body>
+
+<!-- ########################################## -->
+<a name="cef_ceil"></a>
+<div class="FuncDscrTitle">
+<h1>ceil</h1>
+<p>The function computes the ceiling of a real number.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">ceil(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the smallest integer that is greater than or equal to <b>x</b>.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value with the same data type as <b>x</b>.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+ceil( 3.04);  // returns  4<br>
+ceil( 3.96);  // returns  4<br>
+ceil(-3.04);  // returns -3<br>
+ceil(-3.96);  // returns -3<br>
+</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_finite"></a>
+<a name="cef_isfinite"></a>
+<div class="FuncDscrTitle">
+<h1>_finite, isfinite</h1>
+<p>The functions test a real number to determine whether it is finite.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">
+_finite(x)<br>
+isfinite(x)
+</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The functions return 1 (TRUE) if <b>x</b> is finite. The functions return 0 (FALSE) if <b>x</b> is one of <b>NaN</b>, <b>+Inf</b>, or <b>-Inf</b>.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The functions can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The functions return a value with the same data type as <b>x</b>.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+x = ln(-1);  // x is NaN<br>
+_isnan(x);   // returns 1<br>
+_finite(x);  // returns 0
+</p>
+<p class="FuncDscrExample">
+x = ln(0);   // x is -Inf<br>
+_isnan(x);   // returns 0<br>
+_finite(x);  // returns 0
+</p>
+<p class="FuncDscrExample">
+x = 1;<br>
+_isnan(x);   // returns 0<br>
+_finite(x);  // returns 1<br>
+</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_floor"></a>
+<div class="FuncDscrTitle">
+<h1>floor</h1>
+<p>The function computes the floor of a real number.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">floor(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the largest integer that is less than or equal to <b>x</b>.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value with the same data type as <b>x</b>.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+floor( 3.04);  // returns  3<br>
+floor( 3.96);  // returns  3<br>
+floor(-3.04);  // returns -4<br>
+floor(-3.96);  // returns -4<br>
+</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_fract"></a>
+<div class="FuncDscrTitle">
+<h1>fract</h1>
+<p>The function computes the fractional part of a real number.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">fract(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the fractional part of <b>x</b>. The sign of result is the same as sign of <b>x</b>.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value with the same data type as <b>x</b>.</p>
+<p><b>Comment</b></p>
+<p><b>int(x) </b>+<b> fract(x)</b> is equal to <b>x</b>.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+fract( 3.04);  // returns  0.04<br>
+fract( 3.96);  // returns  0.96<br>
+fract(-3.04);  // returns -0.04<br>
+fract(-3.96);  // returns -0.96<br>
+</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_getexp"></a>
+<div class="FuncDscrTitle">
+<h1>getexp</h1>
+<p>The function computes a mantissa and an exponent of a real number, and returns the exponent.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">getexp(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function breaks down <b>x</b> into a mantissa (<b>m</b>) and an exponent (<b>n</b>), such that</p>
+<p>   <b>x </b>= <b>m </b>* pow2(<b>n</b>)</p>
+<p>where <b>n</b> is the integer, and the absolute value of <b>m</b> is greater than or equal to 0.5 and less than 1.0.</p>
+<p>The function returns the exponent (<b>n</b>).</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value with the same data type as <b>x</b>.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+getman(-3.6);  // returns -0.9<br>
+getexp(-3.6);  // returns 2<br>
+getman(0.3);   // returns 0.6<br>
+getexp(0.3);   // returns -1<br>
+</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_getman"></a>
+<div class="FuncDscrTitle">
+<h1>getman</h1>
+<p>The function computes a mantissa and an exponent of a real number, and returns the mantissa.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">getman(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function breaks down <b>x</b> into a mantissa (<b>m</b>) and an exponent (<b>n</b>), such that</p>
+<p><b>   x </b>= <b>m </b>* pow2(<b>n</b>)</p>
+<p>where <b>n</b> is integer, and the absolute value of <b>m</b> is greater than or equal to 0.5 and less than 1.0.</p>
+<p>The function returns the mantissa (<b>m</b>).</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value with the same data type as <b>x</b>.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+getman(-3.6);  // returns -0.9<br>
+getexp(-3.6);  // returns 2<br>
+getman(0.3);   // returns 0.6<br>
+getexp(0.3);   // returns -1<br>
+</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_infton"></a>
+<div class="FuncDscrTitle">
+<h1>_infton</h1>
+<p>The function coerces a real number to be finite.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">_infton(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>If <b>x</b> is equal to <b>+Inf</b>, the function returns the largest representable positive floating-point number (DBL). If <b>x</b> is equal to <b>-Inf</b>, the function returns the largest representable negative floating-point (DBL) number. The function returns <b>x</b> for other values of <b>x</b>, including <b>NaN</b>.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value with the same data type as <b>x</b>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_int"></a>
+<div class="FuncDscrTitle">
+<h1>int</h1>
+<p>The function computes the integer part of a real number.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">int(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the integer part of <b>x</b>. The sign of result is the same as sign of <b>x</b>.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value with the same data type as <b>x</b>.</p>
+<p><b>Comment</b></p>
+<p><b>int(x) </b>+<b> fract(x)</b> is equal to <b>x</b>.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+int( 3.04);  // returns  3<br>
+int( 3.96);  // returns  3<br>
+int(-3.04);  // returns -3<br>
+int(-3.96);  // returns -3<br>
+</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_isinf"></a>
+<div class="FuncDscrTitle">
+<h1>isinf</h1>
+<p>The functions test a real number to determine whether it is infinite.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">
+isinf(x)
+</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The functions return 1 (TRUE) if <b>x</b> is either <b>+Inf</b> or <b>-Inf</b>; otherwise, it return 0 (FALSE).</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The functions can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The functions return a value with the same data type as <b>x</b>.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+x = 1;<br>
+isinf(x);   // returns 0<br>
+</p>
+<p class="FuncDscrExample">
+x = ln(-1);  // x is NaN<br>
+isinf(x);   // returns 0<br>
+</p>
+<p class="FuncDscrExample">
+x = ln(0);   // x is -Inf<br>
+isinf(x);   // returns 1<br>
+</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_isnan"></a>
+<div class="FuncDscrTitle">
+<h1>isnan, _isnan</h1>
+<p>The functions test a real number for NaN (not a number).</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">
+isnan(x)<br>
+_isnan(x)
+</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The functions return 1 (TRUE) if <b>x</b> is <b>NaN</b>; otherwise they return 0 (FALSE).</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The functions can operate on scalars and arrays. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The functions return a value with the same data type as <b>x</b>.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+x = ln(-1);  // x is NaN<br>
+isnan(x);   // returns 1<br>
+isfinite(x);  // returns 0
+</p>
+<p class="FuncDscrExample">
+x = ln(0);   // x is -Inf<br>
+isnan(x);   // returns 0<br>
+isfinite(x);  // returns 0
+</p>
+<p class="FuncDscrExample">
+x = 1;<br>
+isnan(x);   // returns 0<br>
+isfinite(x);  // returns 1<br>
+</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_ldexp"></a>
+<div class="FuncDscrTitle">
+<h1>ldexp</h1>
+<p>The function computes a real number from the mantissa and exponent.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">ldexp(x,y)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns a value that is computed as</p>
+<p><b>x </b>* pow2( int(<b>y</b>) ).</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function can operate on scalars, arrays, and combinations thereof. The result is produced according to the <a href="cef_poly.html">polymorphism rules</a>. Formally, <b>x</b> and <b>y</b> can have the following data types:</p>
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol"><i>DBL Number</i></td>
+<td class="FuncDTTblCol"><i>1D Array of DBL</i></td>
+<td class="FuncDTTblCol"><i>2D Array of DBL</i></td>
+</tr>
+</table>
+<p><a href="dtypes.html#data_types">click here</a> for general information on data types.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The data type of the return value is determined by the <a href="cef_poly.html">polymorphism rules</a> for function with two arguments.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+x = ldexp(3,4);  // x is equal 48<br>
+</p>
+</div>
+
+<h3>Comment</h3>
+<div class="FuncDscrSection">
+<p>
+<span class="FixedFont">ldexp(getman(<b>x</b>),getexp(<b>x</b>))</span> is equal to <b>x</b>
+</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+</body>
+</html>

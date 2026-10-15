@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>Error codes</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+<style>
+table    { width:100%; border-style: solid; border-width: 1px; border-color: #000000; border-collapse: collapse; }
+td.Col1  { width:30pt;  padding:2pt 5pt 2pt 2pt; valign:top; border:1px solid black; white-space:nowrap; }
+td.Col2  { padding:2pt 2pt 2pt 5pt; valign:top; border:1px solid black; }
+</style>
+</head>
+
+<body>
+
+<!-- ########################################## -->
+<a name="error_codes"></a>
+<div class="PageTitle">
+<h1><span class="PageTitleL">Error codes</span></h1>
+</div>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<div>
+<p><a href="#err_ce_vi">CalcExpress and CSE VIs error codes</a></p>
+<p><a href="#err_vm_vi">VarMan VIs error codes</a></p>
+<p><a href="#err_vm_engine">VarMan Engine error codes</a></p>
+</div>
+
+<!-- ########################################## -->
+<p>&nbsp;</p><hr class="TopicSeparator">
+
+<a name="err_ce_vi"></a>
+<h2><img src="image/out_cluster1.png">  CalcExpress and CSE VI error codes</h2>
+
+<p>Top-level CalcExpress and CSE VIs return error information in a standard <b>error out</b> cluster. If an error occurs, the <b>status</b> member of the cluster is set to TRUE, the <b>code</b> member contains an error code, and the <b>source</b> member contains both the location where the error occurred and the error description. CalcExpress and CSE specific error codes are listed below. Note that <b>code</b> can indicate a LabVIEW memory manager error code if a memory error occurs. In addition, <b>code</b> can contain a user-defined code if you specify it in your FuncVI using <a href="hprj:Exp - Error handler.vi">Exp - Error handler.vi</a>.</p>
+
+<table>
+<tr><td class="Col1">7100</td><td class="Col2"><b>Invalid CSE RefNum.</b></td></tr>
+<tr><td class="Col1">7101</td><td class="Col2"><b>Invalid CalcExpress Instance reference.</b></td></tr>
+<tr><td class="Col1">7102</td><td class="Col2"><b>Syntax error.</b> An error was detected during script parsing.</td></tr>
+<tr><td class="Col1">7103</td><td class="Col2"><b>Runtime Error.</b> An error occurred during script execution.</td></tr>
+<tr><td class="Col1">7104</td><td class="Col2"><b>Execution Aborted.</b> An abort signal was received during script execution.</td></tr>
+<tr><td class="Col1">7105</td><td class="Col2"><b>Generic Error.</b> In the current version, this error can only occur if the evaluation session time has expired.</td></tr>
+<tr><td class="Col1">7106</td><td class="Col2"><b>FuncVI not found. </b>A called function is not embedded, and the respective FuncVI could not be located.</td></tr>
+<tr><td class="Col1">7107</td><td class="Col2"><b>Invalid FuncVI.</b> A called FuncVI is invalid or is in an invalid state.</td></tr>
+</table>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<p>&nbsp;</p><hr class="TopicSeparator">
+
+<a name="err_vm_vi"></a>
+<h2><img src="image/out_cluster1.png">  VarMan VI error codes</h2>
+
+<p>VarMan VIs return error information in a standard <b>error out</b> cluster. If an error occurs, the <b>status</b> member of the cluster is set to TRUE, the <b>code</b> member contains one of the codes listed below, and the <b>source</b> member contains both the location where the error occurred and the error description.</p>
+
+<table>
+<tr><td class="Col1">7000</td><td class="Col2"><b>Unknown VarMan error.</b></td></tr>
+<tr><td class="Col1">7001</td><td class="Col2"><b>Invalid variable type.</b> The actual type of the specified variable differs from either the expected or the explicitly specified type.</td></tr>
+<tr><td class="Col1">7002</td><td class="Col2"><b>Variable not found.</b> A variable with the specified name does not exist in the given Variable Context.</td></tr>
+<tr><td class="Col1">7003</td><td class="Col2"><b>Variable already exists.</b> The specified name is not unique. The target Variable Context already contains a variable with this name.</td></tr>
+<tr><td class="Col1">7004</td><td class="Col2"><b><Invalid context handle.</b> The specified Variable Context handle is invalid.</td></tr>
+<tr><td class="Col1">7005</td><td class="Col2"><b>Input error.</b> Typically, this error is never returned by top-level VarMan VIs.</td></tr>
+<tr><td class="Col1">7006</td><td class="Col2"><b>Invalid data format.</b> VarMan encountered a mismatch between the variable data type and the format of the data stored within it. This typically occurs due to the misuse of low-level VarMan VIs or an incorrect value format returned by a FuncVI</td></tr>
+<tr><td class="Col1">7007</td><td class="Col2"><b>No history attached. </b>The specified variable does not have a history attached.</td></tr>
+<tr><td class="Col1">7008</td><td class="Col2"><b>History already attached.</b> A history configuration cannot be created because the specified variable already has a history attached.</td></tr>
+<tr><td class="Col1">7009</td><td class="Col2"><b>Invalid history parameters.</b> The configuration parameters provided to create the variable history are invalid (e.g., the history length is less than or equal to zero).</td></tr>
+<tr><td class="Col1">7010</td><td class="Col2"><b>Wrong variable name.</b> The specified name string is invalid for variable creation.</td></tr>
+<tr><td class="Col1">7011</td><td class="Col2"><b>Wrong alias name.</b> The specified name string is invalid for creating or renaming an alias.</td></tr>
+<tr><td class="Col1">7012</td><td class="Col2"><b>Non-unique alias.</b> The alias name is already in use. Another alias already uses the specified name.</td></tr>
+<tr><td class="Col1">7013</td><td class="Col2"><b>Alias not found.</b> The specified alias could not be located.</td></tr>
+<tr><td class="Col1">7014</td><td class="Col2"><b>No alias associated.</b> The specified variable does not have an associated alias.</td></tr>
+<tr><td class="Col1">7015</td><td class="Col2"><b>Alias already associated.</b> The specified variable already has an associated alias.</td></tr>
+<tr><td class="Col1">7016</td><td class="Col2"><b>Wrong context name.</b> The specified name string is invalid for assignment to a Variable Context.</td></tr>
+<tr><td class="Col1">7017</td><td class="Col2"><b>Non-unique context name.</b> The context name is already in use. Another Variable Context is already assigned the specified name.</td></tr>
+<tr><td class="Col1">7018</td><td class="Col2"><b>Context name not found.</b> A Variable Context with the specified name was not found.</td></tr>
+<tr><td class="Col1">7019</td><td class="Col2"><b>Invalid parameter.</b> A generic error caused by invalid parameters passed to VarMan Engine. This code is typically never returned by top-level VarMan VIs.</td></tr>
+<tr><td class="Col1">7020</td><td class="Col2"><b>Generic error.</b> A miscellaneous error occurred. Potential causes include insufficient system resources, exceeding the maximum allowed number of open Variable Contexts, or an expired evaluation/demo session.</td></tr>
+<tr><td class="Col1">7021</td><td class="Col2"><b>Memory full.</b> Insufficient system memory to complete the requested operation.</td></tr>
+<tr><td class="Col1">7022</td><td class="Col2"><b>Unrecognized LabVIEW manager error.</b> The LabVIEW manager returned an error that could not be handled.</td></tr>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<p>&nbsp;</p><hr class="TopicSeparator">
+
+<a name="err_vm_engine"></a>
+<h2><img src="image/out_u16.png">  VarMan Engine error codes</h2>
+
+<p>To signal the completion status of a requested operation, the VarMan Engine returns a numeric error code. Many VarMan VIs feature a dedicated numeric indicator, typically named <b>err code</b>, to output this status directly. Note that VarMan VIs also provide a standard <b>error out</b> cluster, whose error codes differ from the VarMan Engine error codes; see the <a href="#err_vm_vi">VarMan VI error codes</a> topic for information on them.</p>
+
+<p>VarMan Engine returns the following error codes:</p>
+
+<table>
+<tr><td class="Col1">0</td><td class="Col2"><b>No error.</b> The operation completed successfully.</td></tr>
+<tr><td class="Col1">1</td><td class="Col2"><b>Invalid variable type.</b> The actual type of the specified variable differs from either the expected or the explicitly specified type.</td></tr>
+<tr><td class="Col1">2</td><td class="Col2"><b>Variable not found.</b> A variable with the specified name does not exist in the given Variable Context.</td></tr>
+<tr><td class="Col1">3</td><td class="Col2"><b>Variable already exists.</b> The specified name is not unique. The target Variable Context already contains a variable with this name.</td></tr>
+<tr><td class="Col1">4</td><td class="Col2"><b><Invalid context handle.</b> The specified Variable Context handle is invalid.</td></tr>
+<tr><td class="Col1">5</td><td class="Col2"><b>Input error.</b> Typically, this error is never returned by top-level VarMan VIs.</td></tr>
+<tr><td class="Col1">6</td><td class="Col2"><b>Invalid data format.</b> VarMan encountered a mismatch between the variable data type and the format of the data stored within it. This typically occurs due to the misuse of low-level VarMan VIs or an incorrect value format returned by a FuncVI</td></tr>
+<tr><td class="Col1">7</td><td class="Col2"><b>No history attached. </b>The specified variable does not have a history attached.</td></tr>
+<tr><td class="Col1">8</td><td class="Col2"><b>History already attached.</b> A history configuration cannot be created because the specified variable already has a history attached.</td></tr>
+<tr><td class="Col1">9</td><td class="Col2"><b>Invalid history parameters.</b> The configuration parameters provided to create the variable history are invalid (e.g., the history length is less than or equal to zero).</td></tr>
+<tr><td class="Col1">10</td><td class="Col2"><b>Wrong variable name.</b> The specified name string is invalid for variable creation.</td></tr>
+<tr><td class="Col1">11</td><td class="Col2"><b>Wrong alias name.</b> The specified name string is invalid for creating or renaming an alias.</td></tr>
+<tr><td class="Col1">12</td><td class="Col2"><b>Non-unique alias.</b> The alias name is already in use. Another alias already uses the specified name.</td></tr>
+<tr><td class="Col1">13</td><td class="Col2"><b>Alias not found.</b> The specified alias could not be located.</td></tr>
+<tr><td class="Col1">14</td><td class="Col2"><b>No alias associated.</b> The specified variable does not have an associated alias.</td></tr>
+<tr><td class="Col1">15</td><td class="Col2"><b>Alias already associated.</b> The specified variable already has an associated alias.</td></tr>
+<tr><td class="Col1">16</td><td class="Col2"><b>Wrong context name.</b> The specified name string is invalid for assignment to a Variable Context.</td></tr>
+<tr><td class="Col1">17</td><td class="Col2"><b>Non-unique context name.</b> The context name is already in use. Another Variable Context is already assigned the specified name.</td></tr>
+<tr><td class="Col1">18</td><td class="Col2"><b>Context name not found.</b> A Variable Context with the specified name was not found.</td></tr>
+<tr><td class="Col1">19</td><td class="Col2"><b>Invalid parameter.</b> A generic error caused by invalid parameters passed to VarMan Engine. This code is typically never returned by top-level VarMan VIs.</td></tr>
+<tr><td class="Col1">20</td><td class="Col2"><b>Generic error.</b> A miscellaneous error occurred. Potential causes include insufficient system resources, exceeding the maximum allowed number of open Variable Contexts, or an expired evaluation/demo session.</td></tr>
+<tr><td class="Col1">21</td><td class="Col2"><b>Memory full.</b> Insufficient system memory to complete the requested operation.</td></tr>
+<tr><td class="Col1">22</td><td class="Col2"><b>Unrecognized LabVIEW manager error.</b> The LabVIEW manager returned an error that could not be handled.</td></tr>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</body>
+</html> 

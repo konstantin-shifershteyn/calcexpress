@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>Time functions</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+</head>
+
+<body>
+
+<!-- ########################################## -->
+<a name="cef_getticks"></a>
+<div class="FuncDscrTitle">
+<h1>GetTicks</h1>
+<p>The function returns the current value of the Milliseconds Timer.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">GetTicks()</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the value of the Milliseconds Timer (the output of the <b>Tick Count (ms)</b> primitive) in the range of <b>0</b> to <b>2<sup>32</sup>-1</b>.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function has no parameters.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a 32-bit unsigned integer value of the Milliseconds Timer represented as the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+</div>
+
+<h3>Comments</h3>
+<div class="FuncDscrSection">
+<p>A Milliseconds Timer value is a 32-bit unsigned integer number. When it reaches <b>2<sup>32</sup>-1</b>, it wraps to <b>0</b> on the next increment. Use the <a href="cefunc_num_gen.html#cef_u32sub">u32sub</a> function to reliably compute the difference between two timer values.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_gettime"></a>
+<div class="FuncDscrTitle">
+<h1>GetTime</h1>
+<p>The function returns the current date/time in the LabVIEW format.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>, <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">GetTime()</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the current date and time in seconds, in the universal LabVIEW date/time format; i.e., the number of seconds elapsed since 12:00 AM, January 1, 1904, UTC.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p>The function has no parameters.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns the time stamp represented as the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_wait"></a>
+<div class="FuncDscrTitle">
+<h1>Wait</h1>
+<p>The function suspends the execution of a CalcExpress or CSE script for the specified time.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">Wait(<i>ms</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function calls the <b>Wait (ms)</b> primitive to wait the number of milliseconds specified by <b>ms</b>.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p><b>ms</b> is the optional parameter that specifies the number of milliseconds for which the function should wait. It must have the <a href="dtypes.html#data_types_table">DBL Number</a> data type. If <b>ms</b> is not integer, the function coerces it to the integer. By default, <b>ms</b> equals zero.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a 32-bit unsigned integer value of the Milliseconds Timer when the wait expires, represented as the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+</div>
+
+<h3>Comments</h3>
+<div class="FuncDscrSection">
+<p>A Milliseconds Timer value is a 32-bit unsigned integer number. When it reaches <b>2<sup>32</sup>-1</b>, it wraps to <b>0</b> on the next increment. Use the <a href="cefunc_num_gen.html#cef_u32sub">u32sub</a> function to reliably compute the difference between two timer values.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_waituntil"></a>
+<div class="FuncDscrTitle">
+<h1>WaitUntil</h1>
+<p>The function suspends the execution of a CalcExpress or CSE script until the millisecond timer becomes a multiple of the specified value.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">WaitUntil(<i>ms</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function calls the <b>Wait Until Next ms Multiple</b> primitive to wait.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<p><b>ms</b> is the optional parameter that specifies the millisecond multiple. It must have the <a href="dtypes.html#data_types_table">DBL Number</a> data type. If <b>ms</b> is not integer, the function coerces it to the integer. By default, <b>ms</b> equals zero.</p>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a 32-bit unsigned integer value of the Milliseconds Timer when the wait expires, represented as the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+</div>
+
+<h3>Comments</h3>
+<div class="FuncDscrSection">
+<p>A Milliseconds Timer value is a 32-bit unsigned integer number. When it reaches <b>2<sup>32</sup>-1</b>, it wraps to <b>0</b> on the next increment. Use the <a href="cefunc_num_gen.html#cef_u32sub">u32sub</a> function to reliably compute the difference between two timer values.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+/*
+   For details on array indexing, refer to
+  "Operators, subscript operator" topic in CalcExpress help
+*/
+
+/* create 1D arrays with the same value */
+y1= y2= y3= y4= y5= vector(10,11,12,13,14,15,16,17,18,19);
+
+/* write a cell */
+y1[5] = 0;
+
+/* write a value to a subset */
+y2[2:7] = 1;
+
+/* write values to a subset */
+y3[2:$>] = vector(-1,-2,-3,-4);
+
+/* reverse elements order in a subset and negate values */
+y4[2:7] = -y4[7:2];
+
+/* use index array to negate arbitrary elements */
+indexArray = vector(1,3,5,7,9);
+y5[indexArray] = -y5[indexArray];
+
+/* show values */
+probe (y1, "y1");
+probe (y2, "y2");
+probe (y3, "y3");
+probe (y4, "y4");
+probe (y5, "y5");
+

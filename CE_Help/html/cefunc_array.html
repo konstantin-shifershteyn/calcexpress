@@ -1,0 +1,2371 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>Array functions</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+</head>
+
+<body>
+
+<!-- ########################################## -->
+<a name="cef_quick_type_terms"></a>
+<a name="cef_glossary_array_dtypes"></a>
+<div class="FuncDscrTitle" style="background-color:#FFFFFF;">
+<h1>Terms used in description for Array functions</h1>
+</div>
+
+<div>
+<p>&nbsp;</p>
+<p><b>element</b> denotes the following predefined data types:</p>
+<p style="margin:0pt 0pt 10pt 15pt;"><i>DBL Number</i>, <i>CDB Number</i>, <i>String</i></p>
+
+<p><b>1D Array</b> denotes the following predefined data types:</p>
+<p style="margin:0pt 0pt 10pt 15pt;"><i>1D Array of DBL</i>, <i>1D Array of CDB</i>, <i>1D Array of Strings</i></p>
+
+<p><b>2D Array</b> denotes the following predefined data types:</p>
+<p style="margin:0pt 0pt 10pt 15pt;"><i>2D Array of DBL</i>, <i>2D Array of CDB</i>, <i>2D Array of Strings</i></p>
+
+<p><b>base type</b> is the data type of elements in an array or the data type of an integral value.
+It denotes the same predefined data types as the <b>element</b> term.</p>
+
+<p>&nbsp;</p>
+</div>
+
+<div>
+<p><a href="dtypes.html#data_types">Click here</a> for more information on data types.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_cols"></a>
+<div class="FuncDscrTitle">
+<h1>cols</h1>
+<p>The function returns the number of columns in an array.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">cols(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the number of columns in <b>x</b>.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td><td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x</b></td>
+<td class="FuncDscrTblCol2"><a href="#cef_glossary_array_dtypes">element</a><u><br>
+</u><a href="#cef_glossary_array_dtypes">1D Array</a><a href="#cef_glossary_array_dtypes"><br> 2D Array</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter.
+If <b>x</b> is an <i>element</i>, the function returns 1.
+if <b>x</b> is a <i>1D Array</i>, the function returns the size of the array.
+If <b>x</b> is a <i>2D Array</i>, the function returns the number of columns in the array.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns an integer value of the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="#cef_size">size</a>, <a href="#cef_rows">rows</a> </p>
+<p><a href="cef_cat_array.html">Array functions</a></p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_ir"></a>
+<a name="cef_irr"></a>
+<div class="FuncDscrTitle">
+<h1>ir, irr</h1>
+<p>The functions build Index Ranges.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">
+ir(<i>init</i> ,<i>final</i>)<br>
+irr(<i>init</i> ,<i>final</i>)
+</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The functions return an <a href="dtypes.html#data_types_idxrange">Index Range</a> that has the initial and final boundaries specified by the <b>init</b> and <b>final</b> parameters respectively. These functions work similar to the <a href="ce_syntax_op_array.html#ce_op_idxrange">IndexRange operator</a>.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td><td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>init</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies the initial boundary of the Index Range. The functions coerce it to the integer.<br>
+<b>ir</b> function has it equal to 0 by default.<br>
+<b>irr</b> function has it equal to <b>2<sup>31</sup>-1</b> by default.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>final</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies the final boundary of the Index Range. The functions coerce it to the integer.<br>
+<b>ir</b> function has it equal to <b>2<sup>31</sup>-1</b> by default.<br>
+<b>irr</b> function has it equal to 0 by default.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The functions return a value that has the <a href="dtypes.html#data_types_idxrange">IndexRange</a> data type.</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="#cef_irb1">irb1</a>, <a href="#cef_irb2">irb2</a></p>
+<p><a href="ce_syntax_op_array.html#ce_op_idxrange">IndexRange operator</a>, <a href="ce_syntax_op_array.html#ce_idxrange_symbols">IndexRange symbols</a>,  <a href="ce_syntax_op_array.html#ce_op_subscript">Subscript operator</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_irb1"></a>
+<a name="cef_irb2"></a>
+<div class="FuncDscrTitle">
+<h1>irb1, irb2</h1>
+<p>The functions return a boundary value of the specified Index Range.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">
+irb1(ir)<br>
+irb2(ir)
+</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p><b>irb1</b> function returns the initial boundary of the <a href="dtypes.html#data_types_idxrange">Index Range</a> specified by <b>ir</b>.</p>
+<p><b>irb2</b> function returns the final boundary of the <a href="dtypes.html#data_types_idxrange">Index Range</a> specified by <b>ir</b>.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td><td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>ir</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_idxrange">IndexRange</a></td>
+<td class="FuncDscrTblCol3">Required parameter that specifies an Index Range.</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The functions return the integer value of the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="#cef_ir">ir</a>, <a href="#cef_irr">irr</a></p>
+<p><a href="ce_syntax_op_array.html#ce_op_idxrange">IndexRange operator</a>, <a href="ce_syntax_op_array.html#ce_idxrange_symbols">IndexRange symbols</a>,  <a href="ce_syntax_op_array.html#ce_op_subscript">Subscript operator</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_matrix"></a>
+<div class="FuncDscrTitle">
+<h1>matrix</h1>
+<p>The function creates a 2D array from arbitrary parameters.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">matrix(x1 ,<i>x2</i>...,<i>xn</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function appends an arbitrary number of parameters in left-to-right order to create a 2D array and returns the resulting array.</p>
+<p>The function operates on an arbitrary number of arguments. All the actual parameters must have the same <a href="#cef_glossary_array_dtypes">base type</a>. If a parameter is not a 2D array, it is treated as if it were a 2D array with one row and the number of columns equal to the number of elements in that parameter.</p>
+<p>The number of rows in the resulting array is equal to total number of rows in all the parameters. The number of columns is equal to the maximum number of columns among all input parameters. If necessary, the function fills in undefined elements with a default value (zero for numbers, an empty string for strings).</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td><td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x1</b></td>
+<td class="FuncDscrTblCol2"><a href="#cef_glossary_array_dtypes">element</a><u><br>
+</u><a href="#cef_glossary_array_dtypes">1D Array</a><u><br>
+</u><a href="#cef_glossary_array_dtypes">2D Array</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter. The <i>base type</i> of <b>x1</b> defines <i>base type</i> of the resulting array.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x2</b>...<b>xn</b></td>
+<td class="FuncDscrTblCol2"><a href="#cef_glossary_array_dtypes">element</a><u><br>
+</u><a href="#cef_glossary_array_dtypes">1D Array</a><u><br>
+</u><a href="#cef_glossary_array_dtypes">2D Array</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameters. All the actual parameters in a function call must have the same <i>base type</i> as <b>x1</b>.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a 2D Array with the same <a href="#cef_glossary_array_dtypes">base type</a> as <b>x1</b>.</p>
+<p>Formally, the return value can have one of the following data types:</p>
+<p><a href="dtypes.html#data_types_table">2D Array of DBL</a>, <a href="dtypes.html#data_types_table">2D Array of CDB</a> or <a href="dtypes.html#data_types_table">2D Array of Strings</a>.</p>
+<p><b>&nbsp;</b></p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+ar1 = <a href="#cef_vector">vector</a>(1,2,3);<br>
+/* ar1 is <i>1D Array of DBL</i> = {1,2,3} */<br>
+mtx = <b>matrix</b>(-1, ar1);<br>
+/* mtx is <i>2D Array of DBL</i> containing:<br>
+ { {-1, 0, 0},<br>
+   { 1, 2, 3} }<br>
+*/<br>
+mtx = <b>matrix</b>(mtx, -2, <a href="#cef_vector">vector</a>(6,7,8,9));<br>
+/* now mtx contains:<br>
+ { {-1, 0, 0, 0},<br>
+   { 1, 2, 3, 0},<br>
+   {-2, 0, 0, 0},<br>
+   { 6, 7, 8, 9} }<br>
+*/<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(mtx, &quot;matrix&quot;);<br>
+<b>&nbsp;</b>
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_array.html">Array functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_matrixd"></a>
+<div class="FuncDscrTitle">
+<h1>matrixd</h1>
+<p>The function creates a diagonal matrix (2D array) with a given value on either the main diagonal or the anti-diagonal.
+</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">matrixd(val,rows ,<i>diag</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function creates a 2D array and assigns <b>val</b> to every element of the diagonal specified by the <b>diag</b> parameter. Both the number of rows and the number of columns in the resulting array are equal to the value of the <b>rows</b> parameter. The function returns the resulting array.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td><td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>val</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number<br> CDB Number<br> String</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies the data type of the array elements and the value of elements on the desired diagonal.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>rows</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies both the number of rows and number of columns in the resulting array. The function coerces it to the integer. If <b>rows</b> is less than or equal to zero, the function returns an empty array.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>diag</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies the desired diagonal. If <b>diag</b> is less than or equal to 0, it means the main diagonal (left-top to right-bottom corner); otherwise, the &quot;anti-diagonal&quot; (right-top to left-bottom corner).<br>
+By default, <b>diag</b> is equal to 0 (main diagonal).
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a 2D Array with the same <a href="#cef_glossary_array_dtypes">base type</a> as <b>val</b>.</p>
+<p>Formally, the return value can have one of the following data types:</p>
+<p><a href="dtypes.html#data_types_table">2D Array of DBL</a>, <a href="dtypes.html#data_types_table">2D Array of CDB</a> or <a href="dtypes.html#data_types_table">2D Array of Strings</a>.</p>
+<p><b>&nbsp;</b></p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+mtx1 = <b>matrixd</b>(1, 3);<br>
+/*<br>
+ mtx1 is <i>2D Array of DBL</i> containing:<br>
+ { { 1, 0, 0 },<br>
+   { 0, 1, 0 },<br>
+   { 0, 0, 1 } }<br>
+*/<br>
+mtx2 = <b>matrixd</b>(1, 3, 1);<br>
+/*<br>
+ mtx2 is <i>2D Array of DBL</i> containing:<br>
+ { { 0, 0, 1 },<br>
+   { 0, 1, 0 },<br>
+   { 1, 0, 0 } }<br>
+*/<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(mtx1, &quot;array 1&quot;);<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(mtx2, &quot;array 2&quot;);<br>
+<b>&nbsp;</b>
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_array.html">Array functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_matrixdv"></a>
+<div class="FuncDscrTitle">
+<h1>matrixdv</h1>
+<p>The function creates a diagonal matrix (2D array) with a given vector on either the main diagonal or the anti-diagonal.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">matrixdv(vec ,<i>diag</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function creates a 2D array and assigns <b>vec</b> to the diagonal specified by the <b>diag</b> parameter. Both the number of rows and number of columns in the resulting array are equal to the number of elements in <b>vec</b>. The function returns the resulting array.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td><td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>vec</b></td>
+<td class="FuncDscrTblCol2"><a href="#cef_glossary_array_dtypes">1D Array</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies the data type of the array elements and the values of the elements on the desired diagonal.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>diag</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies the desired diagonal. If <b>diag</b> is less than or equal to 0, it means the main diagonal (left-top to right-bottom corner); otherwise, the &quot;anti-diagonal&quot; (right-top to left-bottom corner).<br>
+By default, <b>diag</b> is equal to 0 (main diagonal).
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a 2D Array with the same <a href="#cef_glossary_array_dtypes">base type</a> as the <i>base type</i> of <b>vec</b>.</p>
+<p>Formally, the return value can have one of the following data types:</p>
+<p><a href="dtypes.html#data_types_table">2D Array of DBL</a>,  <a href="dtypes.html#data_types_table">2D Array of CDB</a>, or <a href="dtypes.html#data_types_table">2D Array of Strings</a>.</p>
+<p><b>&nbsp;</b></p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+vec  = <a href="#cef_vector">vector</a>(1,2,3);<br>
+/* vec is <i>1D Array of DBL</i> containing {1,2,3} */<br>
+mtx1 = <b>matrixdv</b>(vec);<br>
+/*<br>
+ mtx1 is <i>2D Array of DBL</i> containing:<br>
+ { { 1, 0, 0 },<br>
+   { 0, 2, 0 },<br>
+   { 0, 0, 3 } }<br>
+*/<br>
+mtx2 = <b>matrixdv</b>(vec, 1);<br>
+/*<br>
+ mtx2 is <i>2D Array of DBL</i> containing:<br>
+ { { 0, 0, 1 },<br>
+   { 0, 2, 0 },<br>
+   { 3, 0, 0 } }<br>
+*/<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(mtx1, &quot;array 1&quot;);<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(mtx2, &quot;array 2&quot;);<br>
+<b>&nbsp;</b>
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_array.html">Array functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_matrixn"></a>
+<div class="FuncDscrTitle">
+<h1>matrixn</h1>
+<p>The function creates a 2D array and fills it with the specified value.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">matrixn(val,rows ,<i>cols</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function creates a 2D array with the specified size and assigns the specified value to each element in the array. The function returns the resulting array.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td><td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>val</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number<br> CDB Number<br> String</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies both the data type and the value of elements in the resulting array.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>rows</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies the number of rows in the resulting array. The function coerces it to the integer. If <b>rows</b> is less than or equal to zero, the function returns an empty array.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>cols</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies the number of columns in the resulting array. The function coerces it to the integer. If <b>cols</b> is less than or equal to zero, the function returns an empty array.
+If <b>cols</b> is omitted in the function call, it assumes the same value as <b>rows</b>.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a 2D Array with the same <a href="#cef_glossary_array_dtypes">base type</a> as <b>val</b>.</p>
+<p>Formally, the return value can have one of the following data types:</p>
+<p><a href="dtypes.html#data_types_table">2D Array of DBL</a>, <a href="dtypes.html#data_types_table">2D Array of CDB</a> or <a href="dtypes.html#data_types_table">2D Array of Strings</a>.</p>
+<p><b>&nbsp;</b></p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+nar = <b>matrixn</b>(-1, 5, 10);<br>
+/* nar is <i>2D Array of DBL</i> that has 5 rows and 10 columns */<br>
+car = <b>matrixn</b>(<a href="cefunc_complex.html#cef_complex">complex</a>(1,-1), 8,8);<br>
+/* car is <i>2D Array of CDB</i> that has 8 rows and 8 columns */<br>
+sar = <b>matrixn</b>(&quot;U=&quot;, 10, 2);<br>
+/* sar is 2<i>D Array of Strings</i> that has 10 rows and 2 columns */<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(nar, &quot;array of dbl&quot;);<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(car, &quot;array of cdb&quot;);<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(sar, &quot;array of str&quot;);<br>
+<b>&nbsp;</b>
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_array.html">Array functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_matrixnv"></a>
+<div class="FuncDscrTitle">
+<h1>matrixnv</h1>
+<p>The function creates a 2D array in which every row contains the specified vector.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">matrixnv(vec,rows)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function creates a 2D array in which every row is equal to the 1D array specified by the <b>vec</b> parameter. The function returns the resulting array.</p>
+<p>The number of rows in the return array is specified by the <b>rows</b> parameter. The number of columns is equal to the number of elements in the input 1D array. If <b>rows</b> is less then or equal to zero or if <b>vec</b> is an empty array, the function returns an empty array.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td><td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>vec</b></td>
+<td class="FuncDscrTblCol2"><a href="#cef_glossary_array_dtypes">1D Array</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies both the data type and the values of elements in the resulting array. The function returns an empty array if <b>vec</b> contains no elements.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>rows</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies the number of rows in the resulting array. The function coerces it to the integer. If <b>rows</b> is less than or equal to zero, the function returns an empty array.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a 2D Array with the same <a href="#cef_glossary_array_dtypes">base type</a> as the <i>base type</i> of <b>vec</b>.</p>
+<p>Formally, the return value can have one of the following data types:</p>
+<p><a href="dtypes.html#data_types_table">2D Array of DBL</a>, <a href="dtypes.html#data_types_table">2D Array of CDB</a> or <a href="dtypes.html#data_types_table">2D Array of Strings</a>.</p>
+<p><b>&nbsp;</b></p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+a1d = <a href="#cef_vector">vector</a>(1,2,3,4);<br>
+mtx = <b>matrixnv</b>(a1d, 3);<br>
+/*<br>
+mtx is <i>2D Array of DBL</i> containing:<br>
+ { { 1, 2, 3, 4 },<br>
+   { 1, 2, 3, 4 },<br>
+   { 1, 2, 3, 4 } }<br>
+*/<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(mtx, &quot;matrix&quot;);<br>
+<b>&nbsp;</b>
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_array.html">Array functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_mtx2vec"></a>
+<div class="FuncDscrTitle">
+<h1>mtx2vec</h1>
+<p>The function converts a 2D array to a 1D array.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">mtx2vec(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function converts a 2D array (<b>x</b>) to a 1D array containing the elements of the first row of <b>x</b>, then the elements of the second row, and so on. The size of the output array is equal to the total number of elements in <b>x</b>. The function returns the resulting array.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td><td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x</b></td>
+<td class="FuncDscrTblCol2"><a href="#cef_glossary_array_dtypes">2D Array</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies an input 2D array.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a 1D Array with the same <a href="#cef_glossary_array_dtypes">base type</a> as <b>x</b>.</p>
+<p>Formally, the return value can have one of the following data types:</p>
+<p><a href="dtypes.html#data_types_table">1D Array of DBL</a>, <a href="dtypes.html#data_types_table">1D Array of CDB</a> or <a href="dtypes.html#data_types_table">1D Array of Strings</a>.</p>
+<p><b>&nbsp;</b></p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+a1 = <a href="#cef_vector">vector</a>(1,2,3,4);<br>
+/* a1 is <i>1D Array of DBL</i> : {1,2,3,4} */<br>
+a2 = <a href="#cef_matrix">matrix</a>(a1, a1+10, a1+20);<br>
+/* a2 is <i>2D Array of DBL</i> containing:<br>
+  { {  1,  2,  3,  4 },<br>
+    { 11, 12, 13, 14 },<br>
+    { 21, 22, 23, 24 } }<br>
+*/<br>
+a1c = <b>mtx2vec</b>(a2);<br>
+/* a1c is <i>1D Array of DBL</i> containing:<br>
+  { 1,2,3,4, 11,12,13,14, 21,22,23,24 }<br>
+*/<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>( a1c, &quot;a1c = mtx2vec(a2)&quot; );<br>
+<b>&nbsp;</b>
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_array.html">Array functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_nmtxifn"></a>
+<a name="cef_nmtxifs"></a>
+<a name="cef_nmtxins"></a>
+<div class="FuncDscrTitle">
+<h1>nmtxifn, nmtxifs, nmtxins</h1>
+<p>The family of functions that create numeric 2D arrays populated with the sequential values.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">
+nmtxifn(init,rFinal,rNum  <i>,cFinal ,cNum</i>)<br>
+nmtxifs(init,rFinal,rStep <i>,cFinal ,cStep</i>)<br>
+nmtxins(init,rNum,  rStep <i>,cNum   ,cStep</i>)
+</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The functions create a 2D array and fill it with sequential values according to the specified parameters. All these functions return the resulting array.</p>
+<p>Every function creates an array with <b>rNum</b> rows and <b>cNum</b> columns, then it sets each element of the array equal to the value calculated using the formula:</p>
+<p style="margin-left:15">element[<b>i</b>, <b>j</b>] = <b>init</b> + <b>i</b> * <b>rStep</b> + <b>j</b> * <b>cStep</b>  , where</p>
+<p style="margin-left:25">
+<b>i</b> is a row index in the range from 0 to <b>rNum</b>-1.<br>
+<b>j</b> is a column index in the range from 0 to <b>cNum</b>-1.<br>
+&nbsp;
+</p>
+<h3><u>Function specifics</u></h3>
+<p>The <b>nmtxifn</b> function does not have <b>rStep</b> and <b>cStep</b> parameters, it computes them with the formulas:</p>
+<p style="margin-left:15">
+<b>rStep</b> = (<b>rFinal</b> - <b>init</b>) / ( <b>rNum</b>-<b>1</b>)<br>
+<b>cStep</b> = (<b>cFinal</b> - <b>init</b>) / ( <b>cNum</b>-<b>1</b>)
+</p>
+<p>The <b>nmtxifs</b> function does not have <b>rNum</b> and <b>cNum</b> parameters, it computes them with the formulas:</p>
+<p style="margin-left:15">
+<b>rNum</b> = <b>1</b> + <b>floor</b>( (<b>rFinal</b> - <b>init</b>) / <b>rStep</b> )<br>
+<b>cNum</b> = <b>1</b> + <b>floor</b>( (<b>cFinal</b> - <b>init</b>) / <b>cStep</b> )<br>
+for details on <b>floor</b> function <a href="cefunc_num_conv.html#cef_floor">click here</a>.<br>
+&nbsp;
+</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td><td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>init</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies the value of the element located in the first row and the first column of the resulting array.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>rFinal</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies the value to which the last element in the first column should equal or approximate.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>cFinal</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies the value to which the last element in the first row should equal or approximate.<br>
+By default, <b>cFinal</b> is equal to <b>rFinal</b>.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>rNum</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies the number of rows in the resulting array. The functions coerce it to the integer. If <b>rNum</b> is less than or equal to 0, the resulting array is empty.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>cNum</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies the number of columns in the resulting array. The functions coerce it to the integer. If <b>cNum</b> is less than or equal to 0, the resulting array is empty.<br>
+By default, <b>cNum</b> is equal to <b>rNum</b>.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>rStep</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies incrementation value along rows.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>cStep</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies incrementation value along columns.<br>
+By default, <b>cStep</b>is equal to <b>rStep</b>.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>All functions return the resulting matrix with the <a href="dtypes.html#data_types_table">2D Array of DBL</a> data type.</p>
+<p><b>&nbsp;</b></p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+x1 = <b>nmtxifn</b>(1, 9,3, 10,4);<br>
+/* x1 is <i>2D Array of DBL</i> containing:<br>
+  { { 1,  4,  7, 10 },<br>
+    { 5,  8, 11, 14 },<br>
+    { 9, 12, 15, 18 } }<br>
+*/<br>
+x2 = <b>nmtxifs</b>(0, 9,3 , 6,2);<br>
+/* x2 is <i>2D Array of DBL</i> containing:<br>
+  { { 0,  2,  4,  6 },<br>
+    { 3,  5,  7,  9 },<br>
+    { 6,  8, 10, 12 },<br>
+    { 9, 11, 13, 15 } }<br>
+*/<br>
+x3 = <b>nmtxins</b>(0,4,5);<br>
+/* x3 is <i>2D Array of DBL</i> containing:<br>
+  { { 0,  5, 10, 15 },<br>
+    { 5, 10, 15, 20 },<br>
+    {10, 15, 20, 25 },<br>
+    {15, 20, 25, 30 } }<br>
+*/<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>( x1, &quot;x1&quot; );<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>( x2, &quot;x2&quot; );<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>( x3, &quot;x3&quot; );<br>
+<b>&nbsp;</b>
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_array.html">Array functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_nvecifn"></a>
+<a name="cef_nvecifs"></a>
+<a name="cef_nvecins"></a>
+<div class="FuncDscrTitle">
+<h1>nvecifn, nvecifs, nvecins</h1>
+<p>The family of functions that create numeric 1D arrays pupulated with the sequential values.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">
+nvecifn(init,final ,<i>num</i>)<br>
+nvecifs(init,final ,<i>step</i>)<br>
+nvecins(init,num   ,<i>step</i>)
+</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The functions create a 1D array and fill it with sequential values according to the specified parameters. All these functions return the resulting array.</p>
+<p>Every function creates an array that has <b>num</b> elements, then sets each element of the array equal to the value calculated using the formula:</p>
+<p style="margin-left:15">
+element[<b>i</b>] = <b>init</b> + <b>i</b> * <b>step</b> , where <b>i</b> is in the range 0 to <b>num</b>-1.<br>
+&nbsp;
+</p>
+<h3><u>Function specifics</u></h3>
+<p>The <b>nvecifn</b> function does not have <b>step</b> parameter, the function computes it with the formula:</p>
+<p style="margin-left:15"><b>step</b> = (<b>final</b> - <b>init</b>) / ( <b>num</b>-<b>1</b>)</p>
+<p>The <b>nvecifs</b> function does not have <b>num</b> parameter, the function computes it with the formula:</p>
+<p style="margin-left:15">
+<b>num</b> = <b>1</b> + <b>floor</b>( (<b>final</b> - <b>init</b>) / <b>step</b> )<br>
+for details on <b>floor</b> function <a href="cefunc_num_conv.html#cef_floor">click here</a>.<br>
+&nbsp;
+</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td><td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>init</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies the value of the first element in the resulting sequence.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>final</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies the value to which the last element in the sequence should equal or approximate.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>num</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Parameter specifies the number of elements in the resulting array. The functions coerce it to the integer. If <b>num</b> is less than or equal to 0, the resulting array is empty.
+<b>num</b> is optional for <b>nvecifn</b> function that assumes 100 as the default value of <b>num</b>.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>step</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies incrementation value in the resulting sequence.<br>
+<b>nvecifs</b> function assumes <b>num</b> equal to<br>   (<b>final</b>-<b>init</b>)/<b>100</b> by default.<br>
+<b>nvecins</b> function assumes <b>num</b> equal to 1 by default.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>All functions return the resulting sequence with the <a href="dtypes.html#data_types_table">1D Array of DBL</a> data type.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+x1 = <b>nvecifn</b>(-<a href="cefunc_num_gen.html#cef_pi">pi</a>(), <a href="cefunc_num_gen.html#cef_pi">pi</a>(), 1000);<br>
+<a href="cefunc_user.html#cef_XYGraph">XYGraph</a>(0, x1, <a href="cefunc_trig.html#cef_sin">sin</a>(x1));<br>
+x2 = <b>nvecifs</b>(10,0, -0.5);<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>( x2, &quot;x2&quot; );<br>
+x3 = <b>nvecins</b>(0, 30, 1);<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(<a href="cefunc_num_spec.html#cef_factr">factr</a>(x3), &quot;factorials&quot;);<br>
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_array.html">Array functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_resize"></a>
+<div class="FuncDscrTitle">
+<h1>resize</h1>
+<p>The function changes size of a 1D array.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">resize(x, size)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns a 1D array that contains <b>size</b> elements of <b>x</b> array. If <b>size</b> is greater than the size of <b>x</b>, the remaining elements in the returned array contain a default value (zero for numbers or an empty string for strings). If <b>size</b> is equal to the size of <b>x</b>, the function merely returns <b>x</b>.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td><td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x</b></td>
+<td class="FuncDscrTblCol2"><a href="#cef_glossary_array_dtypes">1D Array</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies an input 1D array.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>size</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies the number of elements in the returned array. The function coerces it to the integer. If <b>size</b> is less than zero, the function assumes it to zero. If <b>size</b> is greater than number of elements in <b>x</b>, extra elements in the resulting array contain a default value.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a 1D Array with the same <a href="#cef_glossary_array_dtypes">base type</a> as <b>x</b>.</p>
+<p>Formally, the return value can have one of the following data types:</p>
+<p><a href="dtypes.html#data_types_table">1D Array of DBL</a>, <a href="dtypes.html#data_types_table">1D Array of CDB</a> or <a href="dtypes.html#data_types_table">1D Array of Strings</a>.</p>
+<p><b>&nbsp;</b></p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+a1 = <a href="#cef_vector">vector</a>(1,2,3,4,5);<br>
+/* a1 is <i>1D Array of DBL</i> :<br>
+  {1,2,3,4,5}<br>
+*/<br>
+a1a = <b>resize</b>(a1, 4);<br>
+/* a1a is <i>1D Array of DBL </i>:  { 1,2,3,4 }<br>
+*/<br>
+a1b = <b>resize</b>(a1, 7);<br>
+/* a1b is <i>1D Array of DBL </i>:  { 1,2,3,4,5,0,0 }<br>
+*/<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>( a1a, &quot;a1a&quot; );<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>( a1b, &quot;a1b&quot; );<br>
+<b>&nbsp;</b>
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_array.html">Array functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_resize2d"></a>
+<div class="FuncDscrTitle">
+<h1>resize2d</h1>
+<p>The function changes the dimensions of a 2D array.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">resize2d(x,nr,nc)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns a 2D array that contains <b>nr</b> rows and <b>nc</b> columns of <b>x</b> array. If <b>nr</b> and-or <b>nc</b> exceeds a size of respective dimension of <b>x</b>, the remaining elements of the returned array contain a default value (zero for numbers or an empty string for strings). If both <b>nr</b> and <b>nc</b> are equal to sizes of respective dimension of <b>x</b>, the function merely returns <b>x</b>.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td><td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x</b></td>
+<td class="FuncDscrTblCol2"><a href="#cef_glossary_array_dtypes">2D Array</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies an input 2D array.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>nr</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies the number of rows in the returned array. The function coerces it to the integer. If <b>nr</b> is less than zero, the function assumes it to zero. If <b>nr</b> is greater than number of rows in <b>x</b>, elements of extra rows in the returned array contain a default value.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>nc</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies the number of columns in the returned array. The function coerces it to the integer. If <b>nc</b> is less than zero, the function assumes it to zero. If <b>nc</b> is greater than number of columns in <b>x</b>, elements of extra columns in the returned array contain a default value.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a 2D Array with the same <a href="#cef_glossary_array_dtypes">base type</a> as <b>x</b>.</p>
+<p>Formally, the return value can have one of the following data types:</p>
+<p><a href="dtypes.html#data_types_table">2D Array of DBL</a>, <a href="dtypes.html#data_types_table">2D Array of CDB</a> or <a href="dtypes.html#data_types_table">2D Array of Strings</a>.</p>
+<p><b>&nbsp;</b></p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+a2 = <a href="#cef_nmtxins">nmtxins</a>(1, 3,10, 4,1);<br>
+/* a2 is 2<i>D Array of DBL</i> :<br>
+   { {  1,  2,  3,  4},<br>
+       11, 12, 13, 14},<br>
+       21, 22, 23, 24} }<br>
+*/<br>
+a2a = <b>resize2d</b>(a2, 2, 3);<br>
+/* a2a is 2<i>D Array of DBL</i> :<br>
+   { {  1,  2,  3},<br>
+       11, 12, 13} }<br>
+*/<br>
+a2b = <b>resize2d</b>(a2, 4, 6);<br>
+/* a2b is 2<i>D Array of DBL</i> :<br>
+   { {  1,  2,  3,  4, 0, 0},<br>
+       11, 12, 13, 14, 0, 0},<br>
+       21, 22, 23, 24, 0, 0 }<br>
+        0,  0,  0,  0, 0, 0} }<br>
+*/<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>( a2a, &quot;a2a&quot; );<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>( a2b, &quot;a2b&quot; );<br>
+<b>&nbsp;</b>
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_array.html">Array functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_reverse"></a>
+<div class="FuncDscrTitle">
+<h1>reverse</h1>
+<p>The function reverses the order of elements in an array.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">reverse(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function reverses the order of elements in <b>x</b> and returns the resulting array.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td><td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x</b></td>
+<td class="FuncDscrTblCol2"><a href="#cef_glossary_array_dtypes">1D Array</a><a href="#cef_glossary_array_dtypes"><br> 2D Array</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies an input array.
+If <b>x</b> is a <i>2D array</i>, the function reverses both the order of rows and the order of columns in <b>x</b>.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns the resulting array of the same data type as <b>x</b>.</p>
+<p><b>&nbsp;</b></p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+a1 = <a href="#cef_vector">vector</a>(1,2,3,4);<br>
+/* a1 is <i>1D Array of DBL</i> : {1,2,3,4} */<br>
+a1r = <b>reverse</b>(a1);<br>
+/* a1r is <i>1D Array of DBL</i> : {4,3,2,1} */<br>
+a2 = <a href="#cef_matrix">matrix</a>(a1, a1+10, a1+20);<br>
+/* a2 is <i>2D Array of DBL</i> containing:<br>
+  { {  1,  2,  3,  4 },<br>
+    { 11, 12, 13, 14 },<br>
+    { 21, 22, 23, 24 } }<br>
+*/<br>
+a2r = <b>reverse</b>(a2);<br>
+/* a2r is <i>2D Array of DBL</i> containing:<br>
+  { { 24, 23, 22, 21 },<br>
+    { 14, 13, 12, 11 },<br>
+    {  4,  3,  2, 1 } }<br>
+*/<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>( a1r, &quot;reversed a1&quot; );<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>( a2r, &quot;reversed a2&quot; );<br>
+<b>&nbsp;</b>
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="#cef_rever2c">rever2c</a>, <a href="#cef_rever2r">rever2r</a>
+</p>
+<p><a href="cef_cat_array.html">Array functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_rever2c"></a>
+<div class="FuncDscrTitle">
+<h1>rever2c</h1>
+<p>The function reverses the order of columns in a 2D array.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">rever2c(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function reverses the order of columns in <b>x</b> and returns the resulting array.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td><td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x</b></td>
+<td class="FuncDscrTblCol2"><a href="#cef_glossary_array_dtypes">2D Array</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies an input 2D array.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns the resulting array of the same data type as <b>x</b>.</p>
+<p><b>&nbsp;</b></p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+a1 = <a href="#cef_vector">vector</a>(1,2,3,4);<br>
+/* a1 is <i>1D Array of DBL</i> : {1,2,3,4} */<br>
+a2 = <a href="#cef_matrix">matrix</a>(a1, a1+10, a1+20);<br>
+/* a2 is <i>2D Array of DBL</i> containing:<br>
+  { {  1,  2,  3,  4 },<br>
+    { 11, 12, 13, 14 },<br>
+    { 21, 22, 23, 24 } }<br>
+*/<br>
+a2r = <b>rever2c</b>(a2);<br>
+/* a2r is <i>2D Array of DBL</i> containing:<br>
+  { {  4,  3,  2,  1 },<br>
+    { 14, 13, 12, 11 },<br>
+    { 24, 23, 22, 21 } }<br>
+*/<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>( a2,  &quot;original array&quot; );<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>( a2r, &quot;reversed columns&quot; );<br>
+<b>&nbsp;</b>
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="#cef_rever2r">rever2r</a>, <a href="#cef_reverse">reverse</a>
+</p>
+<p><a href="cef_cat_array.html">Array functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_rever2r"></a>
+<div class="FuncDscrTitle">
+<h1>rever2r</h1>
+<p>The function reverses the order of rows in a 2D array.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">rever2r(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function reverses the order of rows in <b>x</b> and returns the resulting array.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td><td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x</b></td>
+<td class="FuncDscrTblCol2"><a href="#cef_glossary_array_dtypes">2D Array</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies an input 2D array.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns the resulting array of the same type as <b>x</b>.</p>
+<p><b>&nbsp;</b></p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+a1 = <a href="#cef_vector">vector</a>(1,2,3,4);<br>
+/* a1 is <i>1D Array of DBL</i> : {1,2,3,4} */<br>
+a2 = <a href="#cef_matrix">matrix</a>(a1, a1+10, a1+20);<br>
+/* a2 is <i>2D Array of DBL</i> containing:<br>
+  { {  1,  2,  3,  4 },<br>
+    { 11, 12, 13, 14 },<br>
+    { 21, 22, 23, 24 } }<br>
+*/<br>
+a2r = <b>rever2r</b>(a2);<br>
+/* a2r is <i>2D Array of DBL</i> containing:<br>
+  { { 21, 22, 23, 24 },<br>
+    { 11, 12, 13, 14 },<br>
+    {  1,  2,  3,  4 } }<br>
+*/<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>( a2,  &quot;original array&quot; );<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>( a2r, &quot;reversed rows&quot; );<br>
+<b>&nbsp;</b>
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="#cef_rever2c">rever2c</a>, <a href="#cef_reverse">reverse</a>
+</p>
+<p><a href="cef_cat_array.html">Array functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_rotate"></a>
+<div class="FuncDscrTitle">
+<h1>rotate</h1>
+<p>The function rotates the elements in an array.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">rotate(x,n)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function rotates elements of <b>x</b> the number of places and in the direction specified by the <b>n</b> parameter and returns the resulting array.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td><td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x</b></td>
+<td class="FuncDscrTblCol2"><a href="#cef_glossary_array_dtypes">1D Array</a><a href="#cef_glossary_array_dtypes"><br> 2D Array</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies an input array.
+If <b>x</b> is a <i>2D array</i>, the function treats it as if it were an <i>1D array</i> that is compounded from the rows of the original <i>2D array</i>.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>n</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies the number of places and the direction to rotate <b>x</b>. The function coerces it to the integer.
+if <b>n</b> &gt; 0 , elements of <b>x</b> are rotated <b>n</b> of places in the direction to the higher indexes.
+if <b>n</b> &lt; 0 , elements of <b>x</b> are rotated <b>n</b> of places in the direction to the lower indexes.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns the resulting array with the same data type as <b>x</b>.</p>
+<p><b>&nbsp;</b></p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+a1 = <a href="#cef_vector">vector</a>(1,2,3,4,5);<br>
+/* a1 is <i>1D Array of DBL</i> : {1,2,3,4,5} */<br>
+a1r = <b>rotate</b>(a1, -2);<br>
+/* a1r is <i>1D Array of DBL</i> : {3,4,5,1,2} */<br>
+a2 = <a href="#cef_matrix">matrix</a>(a1, a1+10, a1+20, a1+30);<br>
+/* a2 is <i>2D Array of DBL</i> containing:<br>
+  { {  1,  2,  3,  4,  5 },<br>
+    { 11, 12, 13, 14, 15 },<br>
+    { 21, 22, 23, 24, 25 },<br>
+    { 31, 32, 33, 34, 35 } }<br>
+*/<br>
+a2r = <b>rotate</b>(a2, 2);<br>
+/* a2r is <i>2D Array of DBL</i> containing:<br>
+  { { 34, 35,  1,  2,  3 },<br>
+    {  4,  5, 11, 12, 13 },<br>
+    { 14, 15, 21, 22, 23 },<br>
+    { 24, 25, 31, 32, 33 } }<br>
+*/<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>( a1r, &quot;rotated a1&quot; );<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>( a2r, &quot;rotated a2&quot; );<br>
+<b>&nbsp;</b>
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="#cef_rotate2c">rotate2c</a>, <a href="#cef_rotate2r">rotate2r</a>
+</p>
+<p><a href="cef_cat_array.html">Array functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_rotate2c"></a>
+<div class="FuncDscrTitle">
+<h1>rotate2c</h1>
+<p>The function rotates the columns in a 2D array.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">rotate2c(x,n)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function rotates the columns of <b>x</b> the number of places and in the direction specified by the <b>n</b> parameter and returns the resulting array.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td><td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x</b></td>
+<td class="FuncDscrTblCol2"><a href="#cef_glossary_array_dtypes">2D Array</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies an input 2D array.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>n</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies the number of places and the direction to rotate columns of <b>x</b>. The function coerces it to the integer.
+if <b>n</b> &gt; 0 , columns of <b>x</b> are rotated <b>n</b> of places in the direction to the higher indexes.
+if <b>n</b> &lt; 0 , columns of <b>x</b> are rotated <b>n</b> of places in the direction to the lower indexes.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns the resulting array with the same data type as <b>x</b>.</p>
+<p><b>&nbsp;</b></p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+a1 = <a href="#cef_vector">vector</a>(1,2,3,4,5);<br>
+/* a1 is <i>1D Array of DBL</i> : {1,2,3,4,5} */<br>
+a2 = <a href="#cef_matrix">matrix</a>(a1, a1+10, a1+20, a1+30);<br>
+/* a2 is <i>2D Array of DBL</i> containing:<br>
+  { {  1,  2,  3,  4,  5 },<br>
+    { 11, 12, 13, 14, 15 },<br>
+    { 21, 22, 23, 24, 25 },<br>
+    { 31, 32, 33, 34, 35 } }<br>
+*/<br>
+a2r = <b>rotate2c</b>(a2, 2);<br>
+/* a2r is <i>2D Array of DBL</i> containing:<br>
+  { {  4,  5,  1,  2,  3 },<br>
+    { 14, 15, 11, 12, 13 },<br>
+    { 24, 25, 21, 22, 23 },<br>
+    { 34, 35, 31, 32, 33 } }<br>
+*/<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>( a2r, &quot;rotated columns&quot; );<br>
+<b>&nbsp;</b>
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="#cef_rotate2r">rotate2r</a>, <a href="#cef_rotate">rotate</a>
+</p>
+<p><a href="cef_cat_array.html">Array functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_rotate2r"></a>
+<div class="FuncDscrTitle">
+<h1>rotate2r</h1>
+<p>The function rotates the rows in a 2D array.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">rotate2r(x,n)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function rotates the rows of <b>x</b> the number of places and in the direction specified by the <b>n</b> parameter and returns the resulting array.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td><td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x</b></td>
+<td class="FuncDscrTblCol2"><a href="#cef_glossary_array_dtypes">2D Array</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies an input 2D array.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>n</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies the number of places and the direction to rotate rows of <b>x</b>. The function coerces it to the integer.
+if <b>n</b> &gt; 0 , rows of <b>x</b> are rotated <b>n</b> of places in the direction to the higher indexes.
+if <b>n</b> &lt; 0 , rows of <b>x</b> are rotated <b>n</b> of places in the direction to the lower indexes.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns the resulting array with the same data type as <b>x</b>.</p>
+<p><b>&nbsp;</b></p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+a1 = <a href="#cef_vector">vector</a>(1,2,3,4,5);<br>
+/* a1 is <i>1D Array of DBL</i> : {1,2,3,4,5} */<br>
+a2 = <a href="#cef_matrix">matrix</a>(a1, a1+10, a1+20, a1+30);<br>
+/* a2 is <i>2D Array of DBL</i> containing:<br>
+  { {  1,  2,  3,  4,  5 },<br>
+    { 11, 12, 13, 14, 15 },<br>
+    { 21, 22, 23, 24, 25 },<br>
+    { 31, 32, 33, 34, 35 } }<br>
+*/<br>
+a2r = <b>rotate2r</b>(a2, 2);<br>
+/* a2r is <i>2D Array of DBL</i> containing:<br>
+  { { 21, 22, 23, 24, 25 },<br>
+    { 31, 32, 33, 34, 35 },<br>
+    {  1,  2,  3,  4,  5 },<br>
+    { 11, 12, 13, 14, 15 } }<br>
+*/<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>( a2r, &quot;rotated rows&quot; );<br>
+<b>&nbsp;</b>
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="#cef_rotate2c">rotate2c</a>, <a href="#cef_rotate">rotate</a>
+</p>
+<p><a href="cef_cat_array.html">Array functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_rows"></a>
+<div class="FuncDscrTitle">
+<h1>rows</h1>
+<p>The function returns the number of rows in an array.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">rows(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the number of rows in <b>x</b>.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td><td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x</b></td>
+<td class="FuncDscrTblCol2"><a href="#cef_glossary_array_dtypes">element</a><u><br>
+</u><a href="#cef_glossary_array_dtypes">1D Array</a><a href="#cef_glossary_array_dtypes"><br> 2D Array</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter.
+If <b>x</b> is an <i>element</i>, the function returns 1.
+if <b>x</b> is a <i>1D Array</i>, the function returns 1.
+If <b>x</b> is a <i>2D Array</i>, the function returns the number of rows in the array.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns an integer value of the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="#cef_size">size</a>, <a href="#cef_cols">cols</a> </p>
+<p><a href="cef_cat_array.html">Array functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_search"></a>
+<div class="FuncDscrTitle">
+<h1>search</h1>
+<p>The function searches for the specified value in an array.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">search(arr,key ,<i>idx</i> ,<i>cs</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function searches for <b>key</b> in <b>arr</b> starting at the position specified by <b>idx</b>. If the search is successful, the function returns the index of the found element. If the search fails, the function returns -1.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td><td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>arr</b></td>
+<td class="FuncDscrTblCol2"><a href="#cef_glossary_array_dtypes">1D Array</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies an input array.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>key</b></td>
+<td class="FuncDscrTblCol2"><a href="#cef_glossary_array_dtypes">element</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies the value to search. <b>key</b> must have the same type as the <a href="#cef_glossary_array_dtypes">base type</a> of <b>arr</b>.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>idx</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies a starting index for the search. The function coerces it to the integer. If <b>idx</b> is out of the range <b>0</b> to <b>size(arr)-1</b>, the function returns -1.<br>
+By default, <b>idx</b> is equal to 0.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>cs</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that affects the case-sensitivity of the search if <b>arr</b> is an array of strings. If <b>cs</b> coerced to an integer is equal to 0 (by default), the function searches for the exact <b>key</b>; otherwise, it performs case-insensitive comparison to find the <b>key</b>.<br>
+<b>cs</b> is ignored if <b>arr</b> is a numeric array.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns an integer value of the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_array.html">Array functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_shift"></a>
+<div class="FuncDscrTitle">
+<h1>shift</h1>
+<p>The function shifts the elements in an array.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">shift(x,n)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function shifts elements of <b>x</b> the number of places and in the direction specified by the <b>n</b> parameter and returns the resulting array. The elements with undefined values are set to a default value (zero for numbers, an empty string for strings).</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td><td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x</b></td>
+<td class="FuncDscrTblCol2"><a href="#cef_glossary_array_dtypes">1D Array</a><a href="#cef_glossary_array_dtypes"><br> 2D Array</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies an input array.
+If <b>x</b> is a <i>2D array</i>, the function treats it as if it were an <i>1D array</i> that is compounded from the rows of the original <i>2D array</i>.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>n</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies the number of places and the direction to shift <b>x</b>. The function coerces it to the integer.
+if <b>n</b> &gt; 0 , elements of <b>x</b> are shifted <b>n</b> of places in the direction to the higher indexes.
+if <b>n</b> &lt; 0 , elements of <b>x</b> are shifted <b>n</b> of places in the direction to the lower indexes.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns the resulting array with the same data type as <b>x</b>.</p>
+<p><b>&nbsp;</b></p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+a1 = <a href="#cef_vector">vector</a>(1,2,3,4,5);<br>
+/* a1 is <i>1D Array of DBL</i> : {1,2,3,4,5} */<br>
+a1r = <b>shift</b>(a1, -2);<br>
+/* a1r is <i>1D Array of DBL</i> : {3,4,5,0,0} */<br>
+a2 = <a href="#cef_matrix">matrix</a>(a1, a1+10, a1+20, a1+30);<br>
+/* a2 is <i>2D Array of DBL</i> containing:<br>
+  { {  1,  2,  3,  4,  5 },<br>
+    { 11, 12, 13, 14, 15 },<br>
+    { 21, 22, 23, 24, 25 },<br>
+    { 31, 32, 33, 34, 35 } }<br>
+*/<br>
+a2r = <b>shift</b>(a2, 2);<br>
+/* a2r is <i>2D Array of DBL</i> containing:<br>
+  { {  0,  0,  1,  2,  3 },<br>
+    {  4,  5, 11, 12, 13 },<br>
+    { 14, 15, 21, 22, 23 },<br>
+    { 24, 25, 31, 32, 33 } }<br>
+*/<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>( a1r, &quot;shifted a1&quot; );<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>( a2r, &quot;shifted a2&quot; );<br>
+<b>&nbsp;</b>
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="#cef_rotate">rotate</a> </p>
+<p><a href="cef_cat_array.html">Array functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_size"></a>
+<div class="FuncDscrTitle">
+<h1>size</h1>
+<p>The function returns the total number of elements in an array.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">size(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the total number of elements in <b>x</b>.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td><td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x</b></td>
+<td class="FuncDscrTblCol2"><a href="#cef_glossary_array_dtypes">element</a><u><br>
+</u><a href="#cef_glossary_array_dtypes">1D Array</a><a href="#cef_glossary_array_dtypes"><br> 2D Array</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter.
+If <b>x</b> is an <i>element</i>, the function returns 1.
+if <b>x</b> is a <i>1D Array</i>, the function returns the size of the array.
+If <b>x</b> is a <i>2D Array</i>, the function returns the number of rows in the array multilied by the number of columns.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns an integer value with the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="#cef_rows">rows</a>, <a href="#cef_cols">cols</a> </p>
+<p><a href="cef_cat_array.html">Array functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_sort"></a>
+<div class="FuncDscrTitle">
+<h1>sort</h1>
+<p>The function sorts an array.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">sort(x ,<i>cs</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function sorts <b>x</b> in increasing order and returns the resulting array.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td><td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">1D Array of DBL</a><a href="dtypes.html#data_types_table"><br> 1D Array of Strings</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies an input array.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>cs</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that affects the case-sensitivity of sorting an array of strings. If <b>cs</b> coerced to the integer is equal to 0 (by default), the sort is case-sensitive; otherwise, it is case-insensitive.<br>
+<b>cs</b> is ignored if <b>x</b> is a numeric array.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns the resulting array with the same data type as <b>x</b>.</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_array.html">Array functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_submtx"></a>
+<div class="FuncDscrTitle">
+<h1>submtx</h1>
+<p>The function returns a subset of a 2D array.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">submtx(x,rIdx,rows <i>,cIdx ,cols</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns a subset of <b>x</b> started at the position specified by the <b>rIdx</b> and <b>cIdx</b> parameters, and containing the number of rows and the number of columns specified by the <b>rows</b> and <b>cols</b> parameters respectively. If the requested subset does not completely belong to <b>x</b>, the function returns a subset containing available elements only.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td><td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x</b></td>
+<td class="FuncDscrTblCol2"><a href="#cef_glossary_array_dtypes">2D Array</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies an input 2D array.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>rIdx</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies the row index of the requested subset. The function coerces it to the integer. If <b>rIdx</b> is less than 0 or if it is greater than or equal to the number of rows in <b>x</b>, the function returns an empty array.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>rows</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies the number of rows in the requested subset. The function coerces it to the integer. If <b>rows</b> is less than or equal to zero, the function returns an empty array.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>cIdx</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies the column index of the requested subset. The function coerces it to the integer. If <b>cIdx</b> is less than 0 or if it is greater than or equal to the number of columns in <b>x</b>, the function returns an empty array.<br>
+By default, <b>cIdx</b> is equal to <b>rIdx</b>.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>cols</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies the number of columns in the requested subset. The function coerces it to the integer. If <b>cols</b> is less than or equal to zero, the function returns an empty array.<br>
+By default, <b>cols</b> is equal to <b>rows</b>.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a 2D Array with the same <a href="#cef_glossary_array_dtypes">base type</a> as <b>x</b>.</p>
+<p>Formally, the return value can have one of the following data types:</p>
+<p><a href="dtypes.html#data_types_table">2D Array of DBL</a>, <a href="dtypes.html#data_types_table">2D Array of CDB</a> or <a href="dtypes.html#data_types_table">2D Array of Strings</a>.</p>
+<p><b>&nbsp;</b></p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+a1 = <a href="#cef_vector">vector</a>(1,2,3,4,5);<br>
+/* a1 is <i>1D Array of DBL</i> : {1,2,3,4,5} */<br>
+a2 = <a href="#cef_matrix">matrix</a>(a1, a1+10, a1+20, a1+30);<br>
+/* a2 is <i>2D Array of DBL</i> containing:<br>
+  { {  1,  2,  3,  4,  5 },<br>
+    { 11, 12, 13, 14, 15 },<br>
+    { 21, 22, 23, 24, 25 },<br>
+    { 31, 32, 33, 34, 35 } }<br>
+*/<br>
+a2a = <b>submtx</b>(a2, 1,2, 0,3);<br>
+/* a2a is <i>2D Array of DBL</i> containing:<br>
+  { { 11, 12, 13 },<br>
+    { 21, 22, 23 } }<br>
+*/<br>
+a2b = <b>submtx</b>(a2, 0,3);<br>
+/* a2b is <i>2D Array of DBL</i> containing:<br>
+  { {  1,  2,  3 },<br>
+    { 11, 12, 13 },<br>
+    { 21, 22, 23 } }<br>
+*/<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>( a2a, &quot;a2a&quot; );<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>( a2b, &quot;a2b&quot; );<br>
+<b>&nbsp;</b>
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_array.html">Array functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_subvec"></a>
+<div class="FuncDscrTitle">
+<h1>subvec</h1>
+<p>The function returns a subset of a 1D array.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">subvec(x,idx,len)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns a subset of <b>x</b> started at the <b>idx</b> index and containing <b>len</b> elements. If the requested subset does not completely belong to <b>x</b>, the function returns a subset containing available elements only.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td><td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x</b></td>
+<td class="FuncDscrTblCol2"><a href="#cef_glossary_array_dtypes">1D Array</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies an input 1D array.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>idx</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies the start index of the requested subset. The function coerces it to the integer. If <b>idx</b> is less than 0 or if it is greater than or equal to the size of <b>x</b>, the function returns an empty array.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>len</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies the number of elements in the requested subset. The function coerces it to the integer. If <b>len</b> is less than or equal to zero, the function returns an empty array.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a 1D Array with the same <a href="#cef_glossary_array_dtypes">base type</a> as <b>x</b>.</p>
+<p>Formally, the return value can have one of the following data types:</p>
+<p><a href="dtypes.html#data_types_table">1D Array of DBL</a>, <a href="dtypes.html#data_types_table">1D Array of CDB</a> or <a href="dtypes.html#data_types_table">1D Array of Strings</a>.</p>
+<p><b>&nbsp;</b></p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+a1 = <a href="#cef_vector">vector</a>(0,1,2,3,4,5,6,7,8,9);<br>
+/* a1 is <i>1D Array of DBL</i> :<br>
+  {0,1,2,3,4,5,6,7,8,9}<br>
+*/<br>
+a1a = <b>subvec</b>(a1, 2,5);<br>
+/* a1a is <i>1D Array of DBL </i>:  { 2,3,4,5,6 }<br>
+*/<br>
+a1b = <b>subvec</b>(a1, 5, 1000);<br>
+/* a1b is <i>1D Array of DBL </i>:  { 5,6,7,8,9 }<br>
+*/<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>( a1a, &quot;a1a&quot; );<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>( a1b, &quot;a1b&quot; );<br>
+<b>&nbsp;</b>
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_array.html">Array functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_transp"></a>
+<div class="FuncDscrTitle">
+<h1>transp</h1>
+<p>The function transposes a 2D array.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">transp(x)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns an array in which the rows are equal to the respective columns in <b>x</b> and vice versa.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td><td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x</b></td>
+<td class="FuncDscrTblCol2"><a href="#cef_glossary_array_dtypes">2D Array</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies an input 2D array.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns the resulting array with the same data type as <b>x</b>.</p>
+<p><b>&nbsp;</b></p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+a1 = <a href="#cef_vector">vector</a>(1,2,3,4);<br>
+/* a1 is <i>1D Array of DBL</i> : {1,2,3,4} */<br>
+a2 = <a href="#cef_matrix">matrix</a>(a1, a1+10, a1+20);<br>
+/* a2 is <i>2D Array of DBL</i> containing:<br>
+  { {  1,  2,  3,  4 },<br>
+    { 11, 12, 13, 14 },<br>
+    { 21, 22, 23, 24 } }<br>
+*/<br>
+a2t = <b>transp</b>(a2);<br>
+/* a2t is <i>2D Array of DBL</i> containing:<br>
+  { { 1, 11, 21 },<br>
+    { 2, 12, 22 },<br>
+    { 3, 13, 23 },<br>
+    { 4, 14, 24 } }<br>
+*/<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>( a2t, &quot;transposed a2&quot; );<br>
+<b>&nbsp;</b>
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_array.html">Array functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_vec2mtx"></a>
+<div class="FuncDscrTitle">
+<h1>vec2mtx</h1>
+<p>The function converts a 1D array to a 2D array.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">vec2mtx(x, rows, cols)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function converts a 1D array (<b>x</b>) to a 2D array that has the number of rows and the number of columns specified by the <b>rows</b> and <b>cols</b> parameters respectively. Elements of the resulting array are defined as follow:</p>
+<p style="margin-left:15">
+<span style="white-space:nowrap;">result[<b>i</b>, <b>j</b>] = <b>x</b>[<b>k</b>], if <b>k</b> &lt; size(<b>x</b>), where <b>k</b> = <b>i*cols+j</b></span>; <span style="white-space: nowrap;">otherwise, result[<b>i</b>, <b>j</b>] = default value.</span>
+</p>
+<p>, where</p>
+<p><b>i</b> is a row index in the range 0 to <b>rows</b>-1</p>
+<p><b>j</b> is a column index in the range 0 to <b>cols</b>-1</p>
+<p>a default value is zero for numbers and an empty string for strings.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td><td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x</b></td>
+<td class="FuncDscrTblCol2"><a href="#cef_glossary_array_dtypes">1D Array</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies an input 1D array.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>rows</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies the number of rows in the resulting array. The function coerces it to the integer. If <b>rows</b> is less than or equal to zero, the function returns an empty array.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>cols</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies the number of columns in the resulting array. The function coerces it to the integer. If <b>cols</b> is less than or equal to zero, the function returns an empty array.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a 2D Array with the same <a href="#cef_glossary_array_dtypes">base type</a> as <b>x</b>.</p>
+<p>Formally, the return value can have one of the following data types:</p>
+<p><a href="dtypes.html#data_types_table">2D Array of DBL</a>, <a href="dtypes.html#data_types_table">2D Array of CDB</a> or <a href="dtypes.html#data_types_table">2D Array of Strings</a>.</p>
+<p><b>&nbsp;</b></p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+a1 = <a href="#cef_vector">vector</a>(1,2,3,4,5,6,7,8,9);<br>
+/* a1 is <i>1D Array of DBL</i> :<br>
+  {1,2,3,4,5,6,7,8,9}<br>
+*/<br>
+a2 = <b>vec2mtx</b>(a1, 2,5);<br>
+/* a2 is <i>1D Array of DBL</i> containing:<br>
+  { { 1,2,3,4,5 },<br>
+    { 6,7,8,9,0 } }<br>
+*/<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>( a2, &quot;a2 = vec2mtx(a1,..)&quot; );<br>
+<b>&nbsp;</b>
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_array.html">Array functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_vector"></a>
+<div class="FuncDscrTitle">
+<h1>vector</h1>
+<p>The function creates a 1D array by appending arbitrary number of parameters.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">vector(x1 ,<i>x2</i>...,<i>xn</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function appends an arbitrary number of parameters in left-to-right order to create a 1D array and returns the resulting array.</p>
+<p>The function operates on an arbitrary number of arguments. All the actual parameters must have the same <a href="#cef_glossary_array_dtypes">base type</a>. The size of the resulting array is equal to the total number of elements in all actual parameters.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td><td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x1</b></td>
+<td class="FuncDscrTblCol2"><a href="#cef_glossary_array_dtypes">element</a><u><br>
+</u><a href="#cef_glossary_array_dtypes">1D Array</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter. The <i>base type</i> of <b>x1</b> defines the <i>base type</i> of the resulting array.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>x2</b>...<b>xn</b></td>
+<td class="FuncDscrTblCol2"><a href="#cef_glossary_array_dtypes">element</a><u><br>
+</u><a href="#cef_glossary_array_dtypes">1D Array</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameters. All actual parameters in a function call must have the same <i>base type</i> as <b>x1</b>.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a 1D Array with the same <a href="#cef_glossary_array_dtypes">base type</a> as <b>x1</b>.</p>
+<p>Formally, the return value can have one of the following data types:</p>
+<p><a href="dtypes.html#data_types_table">1D Array of DBL</a>, <a href="dtypes.html#data_types_table">1D Array of CDB</a> or <a href="dtypes.html#data_types_table">1D Array of Strings</a>.</p>
+<p><b>&nbsp;</b></p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+nar = <b>vector</b>(1,2,3);<br>
+/* nar is <i>1D Array of DBL</i> = {1,2,3} */<br>
+nar = <b>vector</b>(0, nar, 4);<br>
+/* now nar is equal to {0,1,2,3,4} */<br>
+sar = <b>vector</b>(&quot;U=&quot;, <a href="cefunc_string.html#cef_ntosf">ntosf</a>(5.03,2), &quot;V&quot;);<br>
+/* sar is <i>1D Array of Strings</i> = {&quot;U=&quot;,&quot;5.03&quot;,&quot;V&quot;} */<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(nar, &quot;numeric array&quot;);<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(sar, &quot;string array&quot;);<br>
+<b>&nbsp;</b>
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_array.html">Array functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_vectorn"></a>
+<div class="FuncDscrTitle">
+<h1>vectorn</h1>
+<p>The function creates a 1D array and fills it with the specified value.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_ff">FastFunc</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">vectorn(val,size)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function creates a 1D array that has the specified size and assigns the specified value to each element in the array. The function returns the resulting array.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td><td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>val</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number<br> CDB Number<br> String</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies both the data type and value of elements in the resulting array.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>size</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Required parameter that specifies the size of the resulting array. The function coerces it to the integer. If <b>size</b> is less than or equal to zero, the function returns an empty array.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns 1D Array with the same <a href="#cef_glossary_array_dtypes">base type</a> as <b>val</b>.</p>
+<p>Formally, the return value can have one of the following data types:</p>
+<p><a href="dtypes.html#data_types_table">1D Array of DBL</a>, <a href="dtypes.html#data_types_table">1D Array of CDB</a> or <a href="dtypes.html#data_types_table">1D Array of Strings</a>.</p>
+<p><b>&nbsp;</b></p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+nar = <b>vectorn</b>(1,100);<br>
+/* nar is <i>1D Array of DBL</i> */<br>
+car = <b>vectorn</b>(<a href="cefunc_complex.html#cef_complex">complex</a>(0,-1), 100);<br>
+/* car is <i>1D Array of CDB</i> */<br>
+sar = <b>vectorn</b>(&quot;U=&quot;, 100);<br>
+/* sar is <i>1D Array of Strings</i> */<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(nar, &quot;array of dbl&quot;);<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(car, &quot;array of cdb&quot;);<br>
+<a href="cefunc_user.html#cef_Probe">probe</a>(sar, &quot;array of str&quot;);<br>
+<b>&nbsp;</b>
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_array.html">Array functions</a>.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+</body>
+</html>

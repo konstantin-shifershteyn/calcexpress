@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>Comparison Operators</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+<style>
+table.OpList { border:0; cellspacing:0; cellpadding:0; margin:-2pt 0pt 0pt 0pt; border-collapse:collapse; }
+td.ListColX  { valign:top; padding:0pt 5pt 0pt 0pt; }
+td.ListColY  { valign:top; padding:0pt 0pt 0pt 30pt; }
+</style>
+</head>
+
+<body>
+
+<!-- ########################################## -->
+<a name="ce_op_equal"></a>
+<div class="GenSectTitle">
+<h2><span class="PageTitleR">Equality and Inequality operators:  ==   !=</span></h2>
+</div>
+
+<p>The Equality (==) and Inequality (!=) operators compare their operands to test for equality (inequality) of operands. These operators <b><u>do not follow</u></b> the general <a href="ce_poly.html">polymorphism rules</a>. They compare operands as a whole and produce a numeric scalar regardless of the operand data types. The result is 1 (true) if the tested relationship is true, and 0 (false) otherwise.
+</p>
+
+<h3>Syntax:</h3>
+<p class="StatementSyntax">
+<table class="OpList">
+<tr>
+<td class="ListColX"><i>expression1</i> <b>==</b></td>
+<td class="ListColX"><i>expression2</i></td>
+<td class="ListColY">(Equality operator)</td>
+</tr>
+<tr>
+<td class="ListColX"><i>expression1</i> <b>!=</b></td>
+<td class="ListColX"><i>expression2</i></td>
+<td class="ListColY">(Inequality operator)</td>
+</tr>
+</table>
+</p>
+
+<h3>Operand data types</h3>
+<div class="FuncDscrSection">
+<p>The Equality and Inequality operators can compare operands of all predefined data types, as well as user-defined data types. The only requirement is that both operands must have the same data type.</p>
+<p><a href="dtypes.html">click here</a> to get general information on data types.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+x  = 5;<br>
+c1 = x == 10-7;            /* c1 equals 0 */<br>
+c2 = x != 10-7;            /* c2 equals 1 */<br>
+<br>
+v1 = vector(1,2,3);<br>
+v2 = vector(1,2);<br>
+c3 = v1 == v2;             /* c3 equals 0 */<br>
+c4 = v1 == vector(v2, 8);  /* c4 equals 0 */<br>
+c5 = v1 == vector(v2, 3);  /* c5 equals 1 */<br>
+</p>
+</div>
+
+<h3>Also see</h3>
+<p>
+<a href="ce_syntax_op.html">CalcExpress Operators</a><br>
+<a href="ce_syntax.html">CalcExpress Syntax</a><br>
+<a href="ce.html">CalcExpress Overview</a>
+</p>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="ce_op_relation"></a>
+<div class="GenSectTitle">
+<h2><span class="PageTitleR">Relational operators:  &gt;   &gt;=   &lt;   &lt;=</span></h2>
+</div>
+
+<p>The relational operators compare their first (left-hand) operand to their second (right-hand) operand to test the validity of the specified relationship. The result is 1 (true) if the tested relationship is true, and 0 (false) otherwise.</p>
+
+<h3>Syntax:</h3>
+<p class="StatementSyntax">
+<table class="OpList">
+<tr>
+<td class="ListColX"><i>expression1</i> <b>&gt;</b></td>
+<td class="ListColX"><i>expression2</i></td>
+<td class="ListColY">(Greater operator)</td>
+</tr>
+<tr>
+<td class="ListColX"><i>expression1</i> <b>&gt;=</b></td>
+<td class="ListColX"><i>expression2</i></td>
+<td class="ListColY">(Greater-Or-Equal operator)</td>
+</tr>
+<tr>
+<td class="ListColX"><i>expression1</i> <b>&lt;</b></td>
+<td class="ListColX"><i>expression2</i></td>
+<td class="ListColY">(Less operator)</td>
+</tr>
+<tr>
+<td class="ListColX"><i>expression1</i> <b>&lt;=</b></td>
+<td class="ListColX"><i>expression2</i></td>
+<td class="ListColY">(Less-Or-Equal operator)</td>
+</tr>
+</table>
+</p>
+
+<p>The operators can work on scalars, arrays, and combinations thereof. They produce values according to the <a href="ce_poly.html">polymorphism rules</a> for binary operators.</p>
+
+<h3>Operand data types</h3>
+<div class="FuncDscrSection">
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol">DBL Number</td>
+<td class="FuncDTTblCol">1D Array of DBL</td>
+<td class="FuncDTTblCol">2D Array of DBL</td>
+</tr>
+</table>
+<p><a href="dtypes.html">click here</a> to get general information on data types.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+x  = 5;<br>
+c1 = x &lt;= 10-7;         /* c1 equals 0 */<br>
+c2 = x &gt;  10-7;         /* c2 equals 1 */<br>
+<br>
+v1 = vector(1,2,3,4,5);<br>
+v2 = vector(3,2,1);<br>
+c3 = v1 &gt;  v2;          /* c3 is array {0,0,1} */<br>
+c4 = v1 &lt;= 3;           /* c4 is array {1,1,1,0,0} */<br>
+</p>
+</div>
+
+<h3>Also see</h3>
+<p>
+<a href="ce_syntax_op.html">CalcExpress Operators</a><br>
+<a href="ce_syntax.html">CalcExpress Syntax</a><br>
+<a href="ce.html">CalcExpress Overview</a>
+</p>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+</body>
+</html>

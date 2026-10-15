@@ -1,0 +1,1237 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>File functions</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+<script src="js/_lvhelpref.js" type="text/javascript"></script>
+</head>
+
+<body>
+
+<!-- ########################################## -->
+<a name="cef_glossary_BasePath"></a>
+<div class="FuncDscrTitle" style="background-color:#FFFFFF;">
+<h1>Relative paths</h1>
+</div>
+
+<div>
+<p>If you pass a relative file path to a CalcExpress file function, it uses the BasePath as the basis to transform the relative path to the absolute path required to perform a file operation. You can use <a href="#cef_fileBasePath">FileBasePath</a> function to define and evaluate the BasePath.</p>
+</div>
+
+<div>
+<p>See <a href="#cef_glossary_FilePath">File Paths</a> topic for more information.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_glossary_FilePath"></a>
+<div class="FuncDscrTitle" style="background-color:#FFFFFF;">
+<h1>File paths</h1>
+</div>
+
+<div>
+<p>CalcExpress file functions operate on string parameters specifying file paths.</p>
+<p>If you specify a file path as a string constant, you have to use double backslash characters (\\) as a separator of path components because the backslash starts an escape-sequence.</p>
+<p>In addition, you can use the forward slash characters (/) instead of the backslashes. File functions recognize it and implicitly perform conversion to produce the valid file path. In the following example, the same path is specified by two valid ways:</p>
+
+<p>path1 = &quot;c:/mydir/myfile.txt&quot;;</p>
+<p>path2 = &quot;c:\\mydir\\myfile.txt&quot;;</p>
+
+<h3>Use of relative paths</h3>
+
+<p>To use relative file paths with file functions, you should define the <a href="#cef_glossary_BasePath">BasePath</a> that is used as the basis to build absolute file paths. Use <a href="#cef_fileBasePath">FileBasePath</a> function for this purpose. The function stores the BasePath at a variable in the local variable context used by a CalcExpress or CSE VI executing the script. Therefore, you have to call this function from every script that uses relative paths with the file functions.</p>
+<p>If the BasePath is not defined, file functions use the LabVIEW Default Directory as the BasePath (you can define the Default Directory in the LabVIEW Options dialog).</p>
+
+<h3>Example</h3>
+<p class="FuncDscrExample">
+/* defines a base path */<br>
+FileBasePath(&quot;c:/mydir&quot;);<br>
+&nbsp;<br>
+data = &quot;&quot;; //string variable<br>
+&nbsp;<br>
+/* reads file c:\mydir\myfile.txt */<br>
+FileLoad(&quot;myfile.txt&quot;, data);<br>
+&nbsp;<br>
+/* reads file c:\mydir\data\datafile.dat */<br>
+FileLoad(&quot;data/datafile.dat&quot;, data);<br>
+&nbsp;<br>
+&nbsp;
+</p>
+
+
+<!-- ########################################## -->
+<a name="cef_fileBasePath"></a>
+<div class="FuncDscrTitle">
+<h1>FileBasePath</h1>
+<p>The function defines or returns the <a href="#cef_glossary_BasePath">BasePath</a> that is used by file functions to build absolute file paths.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">FileBasePath(<i>path</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>If the optional parameter <b>path</b> is specified in a function call, the function saves it to the <a href="#cef_glossary_BasePath">BasePath</a>.</p>
+<p>See the <a href="#cef_glossary_FilePath">File Paths</a> topic for more information on how to specify paths for file functions.</p>
+<p>The function returns the BasePath that always is absolute. If the BasePath is not defined, the function returns the LabVIEW Default Directory.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>path</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+optional parameter that specifies a path to be assigned to the BasePath.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns the <a href="#cef_glossary_FilePath">BasePath</a>.</p>
+<p>The return value has the <a href="dtypes.html#data_types_table">String</a> data type. </p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+/*1*/ FileBasePath(&quot;c:/myApp&quot;);<br>
+/*2*/ DataDir = FileBuildPath( FileBasePath(), &quot;data&quot; );<br>
+/*3*/ FileBasePath( FileGetAppPath() );
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_file.html">File functions</a>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_fileBuildPath"></a>
+<div class="FuncDscrTitle">
+<h1>FileBuildPath</h1>
+<p>The function builds a path from its arguments.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">FileBuildPath(p1 ,<i>p2 </i>... ,<i>pn</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns a path made from arbitrary number of the specified components.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>p1</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a> or<br>
+<a href="dtypes.html#data_types_table">1D Array of Strings</a></td>
+<td class="FuncDscrTblCol3">
+required parameter that specifies leading components of a target path. To build an absolute path, the first component of <b>p1</b> must be a drive name followed by a colon.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>p2...pn</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a> or<br>
+<a href="dtypes.html#data_types_table">1D Array of Strings</a></td>
+<td class="FuncDscrTblCol3">
+optional parameters that specify additional components of a target path.
+&nbsp;
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns an absolute path if <b>p1</b> parameter specifies an absolute path; otherwise the function returns a relative path.</p>
+<p>The return value has the <a href="dtypes.html#data_types_table">String</a> data type.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+FileBasePath(&quot;c:/myApp&quot;);<br>
+/* DataDir is &lt;c:\myApp\data&gt; */<br>
+DataDir = FileBuildPath( FileBasePath(), &quot;data&quot; );<br>
+pathArr = FilePathToArray(DataDir);<br>
+pathArr = vector(pathArr, &quot;myfile.txt&quot;);<br>
+/* filePath is &lt;c:\myApp\data\myfile.txt&gt; */<br>
+filePath = FileBuildPath(pathArr);
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_file.html">File functions</a>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_fileCopy"></a>
+<div class="FuncDscrTitle">
+<h1>FileCopy</h1>
+<p>The function copies the specified file or directory to a new location.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">FileCopy(srcPath,dstPath)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function copies the file or directory specified by the <b>srcPath</b> parameter to the location specified by the <b>dstPath</b> parameter. If <b>srcPath</b> is a directory path, the function recursively copies all its subdirectories.</p>
+<p>See the <a href="#cef_glossary_FilePath">File Paths</a> topic for more information on how to specify paths for file functions.</p>
+<p>The function assigns an error code returned by the used LabVIEW functions to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>srcPath</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+required parameter that specifies the source file or directory path. If <b>srcPath</b> is an empty string, the function opens a dialog box to select a source file.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>dstPath</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+required parameter that specifies the destination path. If <b>dstPath</b> is an empty string, the function opens a dialog box to specify a destination file.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>On success, the function returns the absolute path to the destination file or directory; otherwise, it returns an empty string.</p>
+<p>The return value has the <a href="dtypes.html#data_types_table">String</a> data type. </p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_file.html">File functions</a>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_fileDelete"></a>
+<div class="FuncDscrTitle">
+<h1>FileDelete</h1>
+<p>The function deletes the specified file or directory.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">FileDelete(path)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function deletes the file or directory specified by the <b>path</b> parameter.</p>
+<p>See the <a href="#cef_glossary_FilePath">File Paths</a> topic for more information on how to specify paths for file functions.</p>
+<p>The function assigns an error code returned by the used LabVIEW functions to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>path</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+required parameter that specifies a file or directory to delete. If <b>path</b> is an empty string, the function opens a dialog box to select a file to delete.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns the absolute path to the specified file or directory.</p>
+<p>The return value has the <a href="dtypes.html#data_types_table">String</a> data type.</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_file.html">File functions</a>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_fileDialog"></a>
+<div class="FuncDscrTitle">
+<h1>FileDialog</h1>
+<p>The function opens a dialog box to select the path to a file or directory.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">FileDialog(<i>path</i> ,<i>mode</i> ,<i>prompt</i> ,<i>pattern</i> ,<i>defName</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function opens a dialog box to select the path to a file or directory. The function returns the selected path unless the user chooses the Cancel option.</p>
+<p>See the <a href="#cef_glossary_FilePath">File Paths</a> topic for more information on how to specify paths for file functions.</p>
+<p>The function assigns an error code returned by the used LabVIEW functions to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>path</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+optional parameter that specifies a start directory path. If it is omitted in a function call,  the <a href="#cef_glossary_BasePath">BasePath</a> is used as the start path.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>mode</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+optional parameter that specifies kinds of files or directories that can be selected in the file dialog box. The following modes are possible:<br>
+0 :  only existing file<br>
+1 :  only non-existent file<br>
+2 :  existing or non-existent file<br>
+3 :  only existing directory<br>
+4 :  only non-existent directory<br>
+5 :  existing or non-existent directory<br>
+6 :  existing file (files in LLBs are allowed)<br>
+7 :  non-existent file (files in LLBs are allowed)<br>
+8 :  existing or non-existent file (files in LLBs are allowed)<br>
+By default, mode is equal to 2.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>prompt</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+optional parameter that specifies a message that appears as the dialog box title.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>pattern</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+optional parameter that restricts the files displayed in the dialog box. Only file names matching <b>pattern</b> are displayed. A pattern is like wildcards in Windows file names.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>defName</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+optional parameter that specifies an initial file or directory name that appears in the dialog box.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns the absolute path to the selected file or directory.</p>
+<p>The return value has the <a href="dtypes.html#data_types_table">String</a> data type.</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_file.html">File functions</a>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_fileGetAppPath"></a>
+<div class="FuncDscrTitle">
+<h1>FileGetAppPath</h1>
+<p>The function returns some typical paths that can be useful to perform file operations.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">FileGetAppPath(<i>obj</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p><b>obj</b> is an optional parameter that defines the absolute path to return, as follows:</p>
+<p>
+0 :   the file path to the top-level VI. The path includes both VI name and LLB name, if any.<br>
+1 :   either the directory path or the LLB path of the top-level VI.<br>
+2 :   the directory path of the top-level VI. It is the <b>default value</b>.<br>
+3 :   the directory path of the current application, LabVIEW or a built executable.<br>
+4 :   the Temporary directory path that is defined in the LabVIEW Options dialog, the Paths page.<br>
+5 :   the Default directory path that is defined in the LabVIEW Options dialog, the Paths page.<br>
+6 :   the VI library directory path for the current application instance.<br>
+7 :   the CalcExpress VIs directory path.<br>
+8 :   the CalcExpress Examples directory path.<br>
+9 :   the CalcExpress Project directory path.<br>
+</p>
+<p>(*) The top-level VI is the first VI in the call chain of the CalcExpress or CSE VI executing this function.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>obj</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+optional parameter that specifies a kind of path to return.
+By default, it is equal to 2.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns the absolute path.</p>
+<p>The return value has the <a href="dtypes.html#data_types_table">String</a> data type.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+/* Sets the BasePath to directory containing top-level VI */ <br>
+FileBasePath( FileGetAppPath() );
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_file.html">File functions</a>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_fileGetDir"></a>
+<div class="FuncDscrTitle">
+<h1>FileGetDir</h1>
+<p>The function searches for the longest existing directory path within the specified path.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">FileGetDir(path)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns the longest absolute path to an existing directory that can be found in the given <b>path</b>.</p>
+<p>See the <a href="#cef_glossary_FilePath">File Paths</a> topic for more information on how to specify paths for file functions.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>path</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+required parameter that specifies either a file path or a directory path.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns the absolute path to an existing directory found. If no a directory path is found, it returns an empty string.</p>
+<p>The return value has the <a href="dtypes.html#data_types_table">String</a> data type.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+/*<br>
+  FileGetAppPath returns full path of top-level VI.<br>
+  Let's suppose that it is:<br>
+  &lt;c:\myAppDir\AppLibrary.llb\Top.vi&gt;<br>
+*/<br>
+path = FileGetAppPath(0);<br>
+/*<br>
+  FileGetDir returns the directory path, that is<br>
+  &lt;c:\myAppDir&gt;<br>
+*/<br>
+path = FileGetDir(path);
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_file.html">File functions</a>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_fileListDir"></a>
+<div class="FuncDscrTitle">
+<h1>FileListDir</h1>
+<p>The function returns the names of files or subdirectories found in the specified directory.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">FileListDir(path ,<i>dir</i> ,<i>pattern</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>If the optional parameter <b>dir</b> is either zero (FALSE) or omitted in the function call, the function returns the names of files found in the <b>path</b> folder. Otherwise, it returns the names of subdirectories. Optionally, you can specify a <b>pattern</b> for names to match.</p>
+<p>See the <a href="#cef_glossary_FilePath">File Paths</a> topic for more information on how to specify paths for file functions.</p>
+<p>The function assigns an error code returned by the used LabVIEW functions to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>path</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+required parameter that specifies a directory path. If <b>path</b> is an empty string, the function opens a dialog box to select a directory.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>dir</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+optional parameter. If its value coerced to an integer is zero, the function returns file names; otherwise, it returns directory names.
+By default, <b>dir</b> is equal to 0.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>pattern</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+optional parameter that specifies a name pattern. Only names matching the <b>pattern</b> are returned. A pattern is like wildcards in Windows file names.
+By default, <b>pattern</b> is &quot;*&quot; (an asterisk character).
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The return value has the <a href="dtypes.html#data_types_table">1D Array of Strings</a> data type.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+/* It's example of CSE script */<br>
+FileBasePath(&quot;c:/myAppDir&quot;);<br>
+/*<br>
+  returns the list of file names in<br>
+  &lt;c:\myAppDir\data&gt;<br>
+*/<br>
+fileNames = FileListDir(&quot;data&quot;);<br>
+if (errno()) {<br>
+  /* handle an error */<br>
+  return -1;<br>
+}<br>
+/*<br>
+  returns the list of directory names in<br>
+  &lt;c:\myAppDir&gt;<br>
+*/<br>
+subdirNames = FileListDir( FileBasePath(), 1);
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_file.html">File functions</a>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_fileLoad"></a>
+<div class="FuncDscrTitle">
+<h1>FileLoad</h1>
+<p>The function reads the specified file.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">FileLoad(path,var)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function reads the entire contents of a file specified by the <b>path</b> parameter and writes the data to a string variable specified by the <b>var</b> parameter.</p>
+<p>See the <a href="#cef_glossary_FilePath">File Paths</a> topic for more information on how to specify paths for file functions.</p>
+<p>The function assigns an error code returned by the used LabVIEW functions to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>path</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+required parameter that specifies a source file to read. If <b>path</b> is an empty string, the function opens a dialog box to select a source file.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>var</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">Identifier</a><br><i>
+(variable name)</i></td>
+<td class="FuncDscrTblCol3">
+required parameter. It must be an identifier that denotes an existing variable of the <a href="dtypes.html#data_types_table">String</a> data type. The function wries a contents of the file to this variable. If the variable does not exist or its data type does not match, an error is produced.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>If no errors occured, the function returns an absolute path of the source file; otherwise, it returns an empty string.</p>
+<p>The return value has the <a href="dtypes.html#data_types_table">String</a> data type.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+/* It's example of CSE script */<br>
+FileBasePath(&quot;c:/myAppDir/data&quot;);<br>
+/* variable to store file contents */<br>
+str = &quot;&quot;;<br>
+/* reads file &lt;c:\myAppDir\data\file-1.txt&gt; */<br>
+fileName = FileLoad(&quot;file-1.txt&quot;, str);<br>
+if (errno()) {<br>
+  /* handle an error */<br>
+  MsgBox(&quot;Read file error&quot;);<br>
+  return -1;<br>
+}
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_file.html">File functions</a>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_fileLoadSS"></a>
+<div class="FuncDscrTitle">
+<h1>FileLoadSS</h1>
+<p>The function reads the specified spreadsheet file.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">FileLoadSS(path,var ,<i>trans</i> ,<i>fmt</i> ,<i>dlm</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function reads the entire contents of a text file specified by the <b>path</b> parameter. The function considers the file contents like a spreadsheet string and converts it to a 2D array (let's call it &quot;<i><b>dataset</b></i>&quot;) with a data type compatible with the data type of the <b>var</b> variable.</p>
+
+<p>The function allows the <b>var</b> variable to have any <a href="dtypes.html#data_types_predefined">predefined data type</a>.
+Depending on the variable data type, it takes the value as follow:
+<ul class="GenCE">
+<li class="GenCE">If the <b>var</b> variable is a 2D array, the entire <i><b>dataset</b></i> is written to it. Herewith, 2D array is transposed if <b>trans</b> parameter is TRUE (non-zero).</li>
+<li class="GenCE">If the <b>var</b> variable is an 1D array, either the first row (if <b>trans</b> is zero) or the first column (if <b>trans</b> is non-zero) of the <i><b>dataset</b></i> is written to it.</li>
+<li class="GenCE">If the <b>var</b> variable is not an array, a cell value in the first row and the first column of the <i><b>dataset</b></i> is written to it.</li>
+</ul>
+</p>
+
+<p>The function uses <A HREF="JavaScript:lvhSsToAr.Click()">Spreadsheet String To Array</a> LabVIEW function to convert data. Refer to the help for this function for more information.</p>
+
+<p>See the <a href="#cef_glossary_FilePath">File Paths</a> topic for more information on how to specify paths for file functions.</p>
+<p>The function assigns an error code returned by the used LabVIEW functions to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>path</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+required parameter that specifies a source file to read. If <b>path</b> is an empty string, the function opens a dialog box to select a source file.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>var</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">Identifier</a><br><i>
+(variable name)</i></td>
+<td class="FuncDscrTblCol3">
+required parameter. It must be an identifier that denotes an existing variable of any <a href="dtypes.html#data_types_predefined">predefined data type</a>. The function stores data to this variable. If the variable doesn't exist, an error is produced.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>trans</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+optional parameter. If its value coerced to an integer is non-zero, the function transposes <i><b>dataset</b></i> before writing to the variable.
+By default, it equals 0.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>fmt</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+optional parameter that specifies how to convert data from a string. The function uses the same format as <A HREF="JavaScript:lvhSsToAr.Click()">Spreadsheet String To Array</a><b>
+</b>LabVIEW function.
+By default, it is <b>&quot;%f&quot;</b> for numbers and <b>&quot;%s&quot;</b> for strings.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>dlm</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+optional parameter that specifies a delimiter used in a spreadsheet string. 
+By default, it is <b>&quot;\t&quot;</b> (TAB).
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>If no errors occured, the function returns an absolute path of the source file; otherwise it returns an empty string.</p>
+<p>The return value has the <a href="dtypes.html#data_types_table">String</a> data type. </p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+/* It's example of CSE script */<br>
+FileBasePath(&quot;c:/myAppDir/data&quot;);<br>
+/* <i>2D Array of DBL</i> variable to store file data */<br>
+a2dbl(&quot;data&quot;);<br>
+/* reads file &lt;c:\myAppDir\data\file.txt&gt; */<br>
+fileName = FileLoadSS(&quot;file.txt&quot;, data);<br>
+if (errno()) {<br>
+  /* handle an error */<br>
+  MsgBox(&quot;Read file error&quot;);<br>
+  return -1;<br>
+}
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_file.html">File functions</a>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_fileMove"></a>
+<div class="FuncDscrTitle">
+<h1>FileMove</h1>
+<p>The function moves the specified file or directory to a new location.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">FileMove(srcPath,dstPath)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function moves the file or directory specified by the <b>srcPath</b> parameter to the location specified by the <b>dstPath</b> parameter.</p>
+<p>See the <a href="#cef_glossary_FilePath">File Paths</a> topic for more information on how to specify paths for file functions.</p>
+<p>The function assigns an error code returned by the used LabVIEW functions to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>srcPath</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+required parameter that specifies the source file or directory path. If <b>srcPath</b> is an empty string, the function opens a dialog box to select a source file.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>dstPath</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+required parameter that specifies the destination path. If <b>dstPath</b> is an empty string, the function opens a dialog box to specify a destination file.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>On a success, the function returns an absolute path of the destination file or directory; otherwise, it returns an empty string.</p>
+<p>The return value has the <a href="dtypes.html#data_types_table">String</a> data type. </p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_file.html">File functions</a>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_fileNewDir"></a>
+<div class="FuncDscrTitle">
+<h1>FileNewDir</h1>
+<p>The function creates a new directory.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">FileNewDir(path)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function creates the directory specified by the <b>path</b> parameter. If the <b>path</b> points to an existing directory or file, the function does not change it.</p>
+<p>See the <a href="#cef_glossary_FilePath">File Paths</a> topic for more information on how to specify paths for file functions.</p>
+<p>The function assigns an error code returned by the used LabVIEW functions to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>path</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+required parameter that specifies a directory to create. If <b>path</b> is an empty string, the function opens a dialog box to select a directory.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>On a success, the function returns an absolute path of the specified directory; otherwise, it returns an empty string.</p>
+<p>The return value has the <a href="dtypes.html#data_types_table">String</a> data type.</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_file.html">File functions</a>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_filePathToArray"></a>
+<div class="FuncDscrTitle">
+<h1>FilePathToArray</h1>
+<p>The function converts the specified path to an array of the path components.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">FilePathToArray(path ,<i>abs</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns an array containing the components of the specified <b>path</b>. If the <b>path</b> is a relative path, the result depends on the optional <b>abs</b> parameter.</p>
+<p>If the <b>path</b> is a relative path and the <b>abs</b> parameter is non-zero, the function converts the <b>path</b> to an absolute path on the basis of the <a href="#cef_glossary_BasePath">BasePath</a>. Therefore, the resulting array will contain components of the absolute path. If the <b>abs</b> is zero or if it is omitted in a function call, the function will not convert a relative path to an absolute path.</p>
+<p>See the <a href="#cef_glossary_FilePath">File Paths</a> topic for more information on how to specify paths for file functions.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>path</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+required parameter that specifies a path.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>abs</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+optional parameter that specifies whether a relative path should be converted to an absolute path.
+By default, <b>abs</b> is equal to 0.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The return value has the <a href="dtypes.html#data_types_table">1D Array of Strings</a> data type.</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_file.html">File functions</a>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_fileSave"></a>
+<div class="FuncDscrTitle">
+<h1>FileSave</h1>
+<p>The function writes string data to the specified file.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">FileSave(path,mode,str)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function writes <b>str</b> to the file specified by the <b>path</b> parameter. Depending on the <b>mode</b> parameter, the function either writes <b>str</b> to a new file or appends <b>str</b> to the existing file.</p>
+<p>See the <a href="#cef_glossary_FilePath">File Paths</a> topic for more information on how to specify paths for file functions.</p>
+<p>The function assigns an error code returned by the used LabVIEW functions to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>path</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+required parameter that specifies the target file. If <b>path</b> is an empty string, the function opens a dialog box to select a file.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>mode</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+required parameter that specifies a mode to write file. The following modes are possible:<br>
+<b>0</b> = create a new file. If the file already exists, an error occurs.<br>
+<b>1</b> = create a new file. If the file already exists, replace it.<br>
+<b>2</b> = append data to an existing file. If the file doesn't exist, create a new file.<br>
+The function coerces <b>mode</b> to an integer. If <b>mode</b> differs from the specified values, it assumes to be zero.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>str</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+required parameter that specifies the data to be written to the file.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>If no errors occured, the function returns an absolute path of the target file; otherwise, it returns an empty string.</p>
+<p>The return value has the <a href="dtypes.html#data_types_table">String</a> data type. </p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_file.html">File functions</a>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_fileSaveSS"></a>
+<div class="FuncDscrTitle">
+<h1>FileSaveSS</h1>
+<p>The function writes arbitrary data to the specified spreadsheet file.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">FileSaveSS(path,mode,data ,<i>trans</i> ,<i>fmt</i> ,<i>dlm</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function converts <b>data</b> to a spreadsheet string and writes the string to the file specified by the <b>path</b> parameter. Depending on the <b>mode</b> parameter, the function either writes the string to a new file or appends it to the existing file.</p>
+
+<p>The function allows <b>data</b> to have an arbitrary data type. If <b>data</b> has a <a href="dtypes.html#data_types_predefined">predefined data type</a>, the function converts <b>data</b> to a spreadsheet string according to the format specified by the <b>fmt</b> parameter. If <b>fmt</b> is omitted, it assumes the default format: <b>&quot;%f&quot;</b> for numeric data or <b>&quot;%s&quot;</b> for string data. The function uses <A HREF="JavaScript:lvhArToSs.Click()">Array To Spreadsheet String</a> LabVIEW function to convert data to a string. Refer to the help for this function for more information.</p>
+
+<p>If <b>data</b> is not a 2D array, the function converts it to a 2D array before formatting to a spreadsheet string; herewith the 2D array is transposed if <b>trans</b> parameter is TRUE (non-zero).</p>
+<p>If <b>data</b> has a <a href="dtypes.html#data_types_user_defined">user-defined data type</a>, the function writes it without any conversion, in the Flattened-To-String format.</p>
+<p>See the <a href="#cef_glossary_FilePath">File Paths</a> topic for more information on how to specify paths for file functions.</p>
+<p>The function assigns an error code returned by the used LabVIEW functions to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>path</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+required parameter that specifies the target file. If <b>path</b> is an empty string, the function opens a dialog box to select a file.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>mode</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+required parameter that specifies a mode to write file. The following modes are possible:<br>
+<b>0</b> = create a new file. If the file already exists, an error occurs.<br>
+<b>1</b> = create a new file. If the file already exists, replace it.<br>
+<b>2</b> = append data to an existing file. If the file doesn't exist, create a new file.<br>
+The function coerces <b>mode</b> to an integer. If <b>mode</b> differs from the specified values, it assumes 0.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>data</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types">any type</a></td>
+<td class="FuncDscrTblCol3">
+required parameter that specifies the data to be written to the file.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>trans</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+optional parameter. If its value coerced to an integer is non-zero, the function transposes 2D data before converting to a string.
+By default, it equals 0.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>fmt</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+optional parameter that specifies how to convert data to a string. The function uses the same format as <A HREF="JavaScript:lvhArToSs.Click()">Array To Spreadsheet String</a> LabVIEW function.
+By default, it is <b>&quot;%f&quot;</b> for numbers and <b>&quot;%s&quot;</b> for strings.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>dlm</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+optional parameter that specifies a delimiter to use in a spreadsheet string. 
+By default, it is <b>&quot;\t&quot;</b> (TAB).
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>If no errors occured, the function returns an absolute path of the target file; otherwise it returns an empty string.</p>
+<p>The return value has the <a href="dtypes.html#data_types_table">String</a> data type. </p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_file.html">File functions</a>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_fileStripPath"></a>
+<div class="FuncDscrTitle">
+<h1>FileStripPath</h1>
+<p>The function returns either the last component or the leading components of the specified path.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">FileStripPath(path ,<i>dir</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>If the optional parameter <b>dir</b> is either zero (FALSE) or omitted in a function call, the function returns the last component of <b>path</b> (file or subdirectory name). Otherwise, the function returns <b>path</b> with the last component removed.</p>
+<p>See the <a href="#cef_glossary_FilePath">File Paths</a> topic for more information on how to specify paths for file functions. However you should keep in mind that this function does not convert relative paths to absolute paths.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>path</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+required parameter that specifies a path.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>dir</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+optional parameter. If its value coerced to an integer is zero, the function returns the last component of <b>path</b>; otherwise, it returns <b>path</b> without the last component.
+By default, <b>dir</b> is equal to 0.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The return value has the <a href="dtypes.html#data_types_table">String</a> data type. </p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_file.html">File functions</a>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_fileTest"></a>
+<div class="FuncDscrTitle">
+<h1>FileTest</h1>
+<p>The function tests the specified path for existing file or directory.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">FileTest(path)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>If the specified <b>path</b> is a valid path to an existing file, the function returns the file size. If the specified <b>path</b> is a valid path to an existing directory, the function returns -1. If path is an invalid path, return value is 0; herewith, the function assigns non-zero error code to the <a href="ce_rt_error.html">rtErrorCode</a> variable.</p>
+<p>See the <a href="#cef_glossary_FilePath">File Paths</a> topic for more information on how to specify paths for file functions.</p>
+<p>The function assigns an error code returned by the used LabVIEW functions to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>path</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+required parameter that specifies a path to be tested.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns an integer value with the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_file.html">File functions</a>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+</body>
+</html>

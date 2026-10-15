@@ -1,0 +1,779 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>Signal Generation functions</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+<script src="js/_lvhelpref.js" type="text/javascript"></script>
+</head>
+
+<body>
+
+<!-- ########################################## -->
+<a name="cef_gwnoise"></a>
+<div class="FuncDscrTitle">
+<h1>GWNoise</h1>
+<p>The function generates a Gaussian white noise pattern.</p>
+<p>The function is implemented as a <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>. To perform computation, it uses <b><a HREF="JavaScript:lvhGWNoise.Click()">Gaussian White Noise.vi</a></b> supplied with LabVIEW FDS and PDS. Refer to the help for this VI for more details.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">GWNoise(<i>Ns</i> ,<i>std</i> ,<i>seed</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns an array containing a Gaussian-distributed pseudorandom sequence.</p>
+<p>The function assigns an error code returned by the used LabVIEW VI to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>Ns</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies a number of samples to generate. It is coerced to an integer to perform the function.<br>
+By default, it equals 128.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>std</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the standard deviation of output sequence.<br>
+By default, it equals 1.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>seed</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter reseeds a noise generator if it is greater than 0.<br>
+By default, it equals -1.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns <a href="dtypes.html#data_types_table">1D Array of DBL</a> that contains a Gaussian noise pattern.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_pchirp"></a>
+<div class="FuncDscrTitle">
+<h1>PChirp</h1>
+<p>The function generates a chirp pattern.</p>
+<p>The function is implemented as a <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>. To perform computation, it uses <b><a HREF="JavaScript:lvhChirpPtrn.Click()">Chirp Pattern.vi</a></b> supplied with LabVIEW FDS and PDS. Refer to the help for this VI for more details.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">PChirp(<i>Ns</i> ,<i>A</i> ,<i>f1</i> ,<i>f2</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns an array containing a chirp pattern.</p>
+<p>The function assigns an error code returned by the used LabVIEW VI to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>Ns</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies a number of samples to generate. It is coerced to an integer to perform the function.<br>
+By default, it equals 128.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>A</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the amplitude of the chirp pattern.<br>
+By default, it equals 1.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>f1</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the beginning frequency, in cycles/sample units, of the chirp pattern.<br>
+By default, it equals 0.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>f2</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the ending frequency, in cycles/sample units, of the chirp pattern.<br>
+By default, it equals 0.5.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns <a href="dtypes.html#data_types_table">1D Array of DBL</a> that contains a chirp pattern.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_ppulse"></a>
+<div class="FuncDscrTitle">
+<h1>PPulse</h1>
+<p>The function generates a pulse pattern.</p>
+<p>The function is implemented as a <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>. To perform computation, it uses <b><a HREF="JavaScript:lvhPulsePtrn.Click()">Pulse Pattern.vi</a></b> supplied with LabVIEW FDS and PDS. Refer to the help for this VI for more details.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">PPulse(<i>Ns</i> ,<i>A</i> ,<i>delay</i> ,<i>width</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns an array containing a pulse pattern.</p>
+<p>The function assigns an error code returned by the used LabVIEW VI to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>Ns</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies a number of samples to generate. It is coerced to an integer to perform the function.<br>
+By default, it equals 128.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>A</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the amplitude of a pulse.<br>
+By default, it equals 1.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>delay</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the delay, in samples, of pulse. It is coerced to the integer to perform the function.<br>
+By default, it equals 0.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>width</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the width, in samples, of pulse. It is coerced to the integer to perform the function.<br>
+By default, it equals 1.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns <a href="dtypes.html#data_types_table">1D Array of DBL</a> that contains a pulse pattern.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_prnoise"></a>
+<div class="FuncDscrTitle">
+<h1>PRNoise</h1>
+<p>The function generates a periodic random noise.</p>
+<p>The function is implemented as a <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>. To perform computation, it uses <b><a HREF="JavaScript:lvhPRNoise.Click()">Periodic Random Noise.vi</a></b> supplied with LabVIEW FDS and PDS. Refer to the help for this VI for more details.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">PRNoise(<i>Ns</i> ,<i>SA</i> ,<i>seed</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns an array containing a periodic random noise sequence.</p>
+<p>The function assigns an error code returned by the used LabVIEW VI to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>Ns</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies a number of samples to generate. It is coerced to an integer to perform the function.<br>
+By default, it equals 128.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>SA</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the spectral amplitude of the periodic random noise.<br>
+By default, it equals 1.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>seed</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+optional parameter that reseeds a noise generator if it is greater than 0.<br>
+By default, it equals -1.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns <a href="dtypes.html#data_types_table">1D Array of DBL</a> that contains a periodic random noise sequence.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_psinc"></a>
+<div class="FuncDscrTitle">
+<h1>PSinc</h1>
+<p>The function generates a sinc pattern.</p>
+<p>The function is implemented as a <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>. To perform computation, it uses <b><a HREF="JavaScript:lvhSincPtrn.Click()">Sinc Pattern.vi</a></b> supplied with LabVIEW FDS and PDS. Refer to the help for this VI for more details.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">PSinc(<i>Ns</i> ,<i>A</i> ,<i>delay</i> ,<i>dt</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns an array containing a sinc pattern.</p>
+<p>The function assigns an error code returned by the used LabVIEW VI to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>Ns</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies a number of samples to generate. It is coerced to an integer to perform the function.<br>
+By default, it equals 128.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>A</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the amplitude of the sinc pattern.<br>
+By default, it equals 1.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>delay</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the shift of peak value within the sinc pattern.<br>
+By default, it equals 0.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>dt</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the sampling interval. The less this value, the wider the main lobe of the sinc pattern, and vice versa. The recommend value is within the range 0 to 1.<br>
+By default, it equals 0.1.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns <a href="dtypes.html#data_types_table">1D Array of DBL</a> that contains a sinc pattern.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_psine"></a>
+<div class="FuncDscrTitle">
+<h1>PSine</h1>
+<p>The function generates a sine pattern.</p>
+<p>The function is implemented as a <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>. To perform computation, it uses <b><a HREF="JavaScript:lvhSinePtrn.Click()">Sine Pattern.vi</a></b> supplied with LabVIEW FDS and PDS. Refer to the help for this VI for more details.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">PSine(<i>Ns</i> ,<i>A</i> ,<i>phase</i> ,<i>cycles</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns an array containing a sine pattern.</p>
+<p>The function assigns an error code returned by the used LabVIEW VI to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>Ns</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies a number of samples to generate. It is coerced to an integer to perform the function.<br>
+By default, it equals 128.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>A</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the amplitude of the sine pattern.<br>
+By default, it equals 1.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>phase</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the phase, in degrees, of the sine pattern.<br>
+By default, it equals 0.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>cycles</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the number of sine cycles within the sine pattern.<br>
+By default, it equals 1.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns <a href="dtypes.html#data_types_table">1D Array of DBL</a> that contains a sine pattern.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_sawtwave"></a>
+<div class="FuncDscrTitle">
+<h1>SawtWave</h1>
+<p>The function generates an array containing a sawtooth wave.</p>
+<p>The function is implemented as a <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>. To perform computation, it uses <b><a HREF="JavaScript:lvhSawtWave.Click()">Sawtooth Wave.vi</a></b> supplied with LabVIEW FDS and PDS. Refer to the help for this VI for more details.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">SawtWave(vn ,<i>Ns</i> ,<i>F</i> ,<i>A</i> ,<i>phase</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function generates an array containing a sawtooth wave and writes it to the <b>vn</b> variable. The function returns the phase, in degrees, of the next sample of the sawtooth wave.</p>
+<p>The function assigns an error code returned by the used LabVIEW VI to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>vn</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">Identifier</a><br>
+<i>(variable name)</i></td>
+<td class="FuncDscrTblCol3">
+Required parameter specifies the name of an existing variable with the <a href="dtypes.html#data_types_table">1D array of DBL</a> data type. The function writes the resulting array to this variable. If the variable does not exist or has another data type, an error occurs.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>Ns</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies a number of samples to generate. It is coerced to an integer to perform the function.<br>
+By default, it equals 128.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>F</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the frequency, in cycles/sample units, of the sawtooth wave.<br>
+By default, it equals 1/128 (7.8125E-3) cycles/sample.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>A</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the amplitude of the sawtooth wave.<br>
+By default, it equals 1.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>phase</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the initial phase, in degrees, of the sawtooth wave.<br>
+By default, it equals 0.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns <a href="dtypes.html#data_types_table">DBL Number</a> value that is the phase of the next sample of the sawtooth wave.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_sinewave"></a>
+<div class="FuncDscrTitle">
+<h1>SineWave</h1>
+<p>The function generates an array containing a sine wave.</p>
+<p>The function is implemented as a <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>. To perform computation, it uses <b><a HREF="JavaScript:lvhSineWave.Click()">Sine Wave.vi</a></b> supplied with LabVIEW FDS and PDS. Refer to the help for this VI for more details.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">SineWave(vn ,<i>Ns</i> ,<i>F</i> ,<i>A</i> ,<i>phase</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function generates an array containing a sine wave and writes it to the <b>vn</b> variable. The function returns the phase, in degrees, of the next sample of the sine wave.</p>
+<p>The function assigns an error code returned by the used LabVIEW VI to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>vn</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">Identifier</a><br>
+<i>(variable name)</i></td>
+<td class="FuncDscrTblCol3">
+Required parameter specifies the name of an existing variable with the <a href="dtypes.html#data_types_table">1D array of DBL</a> data type. The function writes the resulting array to this variable. If the variable does not exist or has another data type, an error occurs.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>Ns</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies a number of samples to generate. It is coerced to an integer to perform the function.<br>
+By default, it equals 128.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>F</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the frequency, in cycles/sample units, of the sine wave. <br>
+By default, it equals 1/128 (7.8125E-3) cycles/sample.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>A</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the amplitude of the sine wave.<br>
+By default, it equals 1.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>phase</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the initial phase, in degrees, of the sine wave.<br>
+By default, it equals 0.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns <a href="dtypes.html#data_types_table">DBL Number</a> value that is the phase of the next sample of the sine wave.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_squarewave"></a>
+<div class="FuncDscrTitle">
+<h1>SquareWave</h1>
+<p>The function generates an array containing a square wave.</p>
+<p>The function is implemented as a <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>. To perform computation, it uses <b><a HREF="JavaScript:lvhSquareWave.Click()">Square Wave.vi</a></b> supplied with LabVIEW FDS and PDS. Refer to the help for this VI for more details.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">SquareWave(vn ,<i>Ns</i> ,<i>F</i> ,<i>A</i> ,<i>phase</i> ,<i>DC</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function generates an array containing a square wave and writes it to the <b>vn</b> variable. The function returns the phase, in degrees, of the next sample of the square wave.</p>
+<p>The function assigns an error code returned by the used LabVIEW VI to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>vn</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">Identifier</a><br>
+<i>(variable name)</i></td>
+<td class="FuncDscrTblCol3">
+Required parameter specifies the name of an existing variable with the <a href="dtypes.html#data_types_table">1D array of DBL</a> data type. The function writes the resulting array to this variable. If the variable does not exist or has another data type, an error occurs.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>Ns</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies a number of samples to generate. It is coerced to an integer to perform the function.<br>
+By default, it equals 128.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>F</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the frequency, in cycles/sample units, of the square wave.<br>
+By default, it equals 1/128 (7.8125E-3) cycles/sample.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>A</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the amplitude of the square wave.<br>
+By default, it equals 1.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>phase</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the initial phase, in degrees, of the square wave.<br>
+By default, it equals 0.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>DC</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the duty cycle, in percents, of the square wave.<br>
+By default, it equals 50.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns <a href="dtypes.html#data_types_table">DBL Number</a> value that is the phase of the next sample of the square wave.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_triangwave"></a>
+<div class="FuncDscrTitle">
+<h1>TriangWave</h1>
+<p>The function generates an array containing a triangle wave.</p>
+<p>The function is implemented as a <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>. To perform computation, it uses <b><a HREF="JavaScript:lvhTriangWave.Click()">Triangle Wave.vi</a></b> supplied with LabVIEW FDS and PDS. Refer to the help for this VI for more details.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">TriangWave(vn ,<i>Ns</i> ,<i>F</i> ,<i>A</i> ,<i>phase</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function generates an array containing a triangle wave and writes it to the <b>vn</b> variable. The function returns the phase, in degrees, of the next sample of the triangle wave.</p>
+<p>The function assigns an error code returned by the used LabVIEW VI to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>vn</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">Identifier</a><br>
+<i>(variable name)</i></td>
+<td class="FuncDscrTblCol3">
+Required parameter specifies the name of an existing variable with the <a href="dtypes.html#data_types_table">1D array of DBL</a> data type. The function writes the resulting array to this variable. If the variable does not exist or has another data type, an error occurs.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>Ns</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies a number of samples to generate. It is coerced to an integer to perform the function.<br>
+By default, it equals 128.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>F</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the frequency, in cycles/sample units, of the triangle wave.<br>
+By default, it equals 1/128 (7.8125E-3) cycles/sample.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>A</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the amplitude of the triangle wave.<br>
+By default, it equals 1.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>phase</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the initial phase, in degrees, of the triangle wave.<br>
+By default, it equals 0.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns <a href="dtypes.html#data_types_table">DBL Number</a> value that is the phase of the next sample of the triangle wave.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cef_uwnoise"></a>
+<div class="FuncDscrTitle">
+<h1>UWNoise</h1>
+<p>The function generates a uniform white noise pattern.</p>
+<p>The function is implemented as a <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>. To perform computation, it uses <b><a HREF="JavaScript:lvhUWNoise.Click()">Uniform White Noise.vi</a></b> supplied with LabVIEW FDS and PDS. Refer to the help for this VI for more details.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">UWNoise(<i>Ns</i> ,<i>A</i> ,<i>seed</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns an array containing a uniformly distributed pseudorandom sequence.</p>
+<p>The function assigns an error code returned by the used LabVIEW VI to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td>
+<td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>Ns</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies a number of samples to generate. It is coerced to an integer to perform the function.<br>
+By default, it equals 128.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>A</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter specifies the amplitude of noise.<br>
+By default, it equals 1.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>seed</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+optional parameter that reseeds a noise generator if it is greater than 0.<br>
+By default, it equals -1.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns <a href="dtypes.html#data_types_table">1D Array of DBL</a> that contains the uniformly distributed, pseudorandom pattern.</p>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+</body>
+</html>

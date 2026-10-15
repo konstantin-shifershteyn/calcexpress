@@ -1,0 +1,497 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>Constants, variables, comments, etc.</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+<style>
+td.EscTblCol1  { width:80;  padding:0 5pt 0 0pt; valign:top; white-space:nowrap; }
+td.EscTblCol2  { width:50;  padding:0 5pt 0 5pt; valign:top; white-space:nowrap; }
+td.EscTblCol3  { width:50;  padding:0 5pt 0 5pt; valign:top; white-space:nowrap; }
+td.EscTblCol4  {            padding:0 0pt 0 5pt; valign:top;  }
+td.NCTblCol    {            padding:0 15pt 0 0pt; valign:top; white-space:nowrap; }
+</style>
+</head>
+
+<body>
+
+<!-- ########################################## -->
+<a name="ce_syntax_side_effect"></a>
+<div class="GenSectTitle">
+<h1><span class="PageTitleL">Side effect</span></h1>
+</div>
+
+<p>
+The &quot;<b>side effect</b>&quot; term is used to describe any changes that occur as a result of evaluating an expression. Creating, destroying and changing variable values are all examples of side effects if they are caused by the evaluation of an expression. All assignment operators have side effects. A function call can also have side effects, if a function changes a variable value, or creates or destroys a variable.
+</p>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="ce_syntax_comment"></a>
+<div class="GenSectTitle">
+<h1><span class="PageTitleL">Comments</span></h1>
+</div>
+
+<p>
+A comment is a piece of text in a script that is ignored during script processing. Use comments to document your scripts. There are two types of comments: single-line comments and multi-line comments.
+</p>
+<p>&nbsp;</p>
+
+<h3>single-line comments</h3>
+<p>
+A combination of two slashes <span style="white-space:nowrap;">( // )</span> starts a single-line comment. CalcExpress considers <span style="white-space:nowrap;">( // )</span> along with any characters follow it as a comment until it meet a new-line <span style="white-space:nowrap;">( '\n' )</span> character.
+</p>
+<h3>Example:</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+<span style="white-space:nowrap;">y = x + sin(x/2);  // this is a comment</span>
+</p>
+</div>
+<p>&nbsp;</p>
+
+<h3>multi-line comments</h3>
+<p>
+A combination of slash and asterisk <span style="white-space:nowrap;">( /* )</span> starts a multi-line comment; it is a <i>comment sign</i>. A combination of asterisk and slash <span style="white-space:nowrap;">( */ )</span> is a <i>comment terminator</i>. Multi-line comments can include any characters, including newlines <span style="white-space:nowrap;">( '\n' )</span>, as well as other nested comments. To find the end of a comment, CalcExpress looks for the <i>comment terminator</i> that corresponds to the <i>comment sign</i> starting the comment.
+</p>
+
+<h3>Example:</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+/* This is a comment */
+</p>
+<p class="FuncDscrExample">
+/*<br>
+  This is a comment that<br>
+  occupies more than one line<br>
+*/
+</p>
+<p class="FuncDscrExample">
+/*<br>
+  This is outer comment<br>
+     /* This is nested comment */<br>
+  This is outer comment again<br>
+*/
+</p>
+</div>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="ce_syntax_const_num"></a>
+<div class="GenSectTitle">
+<h1><span class="PageTitleL">Numeric Constants</span></h1>
+</div>
+
+<p>A Numeric constant can be represented in one of the following forms:</p>
+<ul class="GenCE">
+<li class="GenCE"><a href="#ce_syntax_const_float">floating point representation</a></li>
+<li class="GenCE"><a href="#ce_syntax_const_dec">integer decimal representation</a></li>
+<li class="GenCE"><a href="#ce_syntax_const_hex">integer hexadecimal representation</a></li>
+<li class="GenCE"><a href="#ce_syntax_const_octal">integer octal representation</a></li>
+<li class="GenCE"><a href="#ce_syntax_const_char">character constant</a></li>
+</ul>
+
+<p>A numeric constant, regardless of its representation, results in an operand of the <a href="dtypes.html#data_types_predefined">DBL Number</a> datatype. If a constant is represented in either integer or character form, it is initially treated as a signed 32-bit integer value, which is then converted to a <a href="dtypes.html#data_types_predefined">DBL Number</a>.</p>
+<p>
+Numeric constants are positive unless they are preceded by a minus sign <span style="white-space:nowrap;">( - )</span>, which is treated as a <a href="ce_syntax_op_algebraic.html#ce_op_neg">unary negation operator</a>.</p>
+<p>&nbsp;</p>
+
+
+<!----------------->
+<p><a name="ce_syntax_const_float"></a></p>
+<h2>Floating Point Constants</h2>
+
+<p>Format of a floating-point constant is as follows:</p>
+
+<p style="margin-left:15pt">[<i>digits</i>] [<b>. </b><i>digits</i>] [<i>exp</i> [<i>sign</i>] <i>digits</i>]</p>
+<p style="margin-left:15pt">, where</p>
+<p>
+<i>digits</i>    - one of  <b>0 </b>, <b>1 </b>, <b>2 </b>, <b>3 </b>, <b>4 </b>, <b>5 </b>, <b>6 </b>, <b>7 </b>, <b>8 </b>, <b>9</b><br>
+<b> .</b>          - decimal point, separates the integer and fractional parts.<br>
+<i>exp</i>       - exponent tag, can be one of <b>e</b>, <b>E</b>, <b>d</b>, <b>D</b><br>
+<i>sign</i>      - exponent sign, can be either minus <span style="white-space:nowrap;">( <b>-</b> )</span> or plus <span style="white-space:nowrap;">( <b>+</b> )</span>
+</p>
+<p>&nbsp;</p>
+
+<h3>Example:</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+3.14        /* it's equal to 3.14   */<br>
+2.525e-1    /* it's equal to 0.2525 */<br>
+.125E+3     /* it's equal to 125    */<br>
+5e3         /* it's equal to 5000   */
+</p>
+</div>
+<p>&nbsp;</p>
+
+
+<!----------------->
+<p><a name="ce_syntax_const_dec"></a></p>
+<h2>Decimal Constants</h2>
+
+<p>A decimal constant consists only of decimal digits. Note that, except for <b>0</b>, a decimal constant cannot start with a leading zero <span style="white-space:nowrap;">( 0 )</span>, because leading zeros indicate an octal constant.</p>
+
+<h3>Example:</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+0           /* it's decimal 0  */<br>
+25          /* it's decimal 25 */<br>
+025         /* IT'S OCTAL CONSTANT equals to decimal 21 */
+</p>
+</div>
+<p>&nbsp;</p>
+
+
+<!----------------->
+<p><a name="ce_syntax_const_hex"></a></p>
+<h2>Hexadecimal Constants</h2>
+
+<p>A hexadecimal constant starts with either a <b>0x</b> or <b>0X</b> prefix followed by one or more hexadecimal digits. A hexadecimal digit is one of the following:</p>
+<p style="margin-left:15pt">0 1 2 3 4 5 6 7 8 9  a b c d e f  A B C D E F</p>
+
+<h3>Example:</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+0x100       /* it's equal to decimal 256 */<br>
+0x00f       /* it's equal to decimal 15  */
+</p>
+</div>
+<p>&nbsp;</p>
+
+
+<!----------------->
+<p><a name="ce_syntax_const_octal"></a></p>
+<h2>Octal Constants</h2>
+
+<p>An octal constant starts with a leading zero <span style="white-space:nowrap;">( 0 )</span> that is followed by one or more octal digits. An octal digit is one of:</p>
+<p style="margin-left:15pt">0 1 2 3 4 5 6 7</p>
+
+<h3>Example:</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+025         /* it's equal to decimal 21 */<br>
+0177054     /* it's equal to 0xFE2C     */
+</p>
+</div>
+<p>&nbsp;</p>
+
+
+<!----------------->
+<p><a name="ce_syntax_const_char"></a></p>
+<h2>Character Constants</h2>
+
+<p>
+A character constant is formed by enclosing a few characters within single quotation marks <span style="white-space:nowrap;">( <b>' ' </b>)</span>.
+It may contain any characters except a new-line, single quote <span style="white-space:nowrap;">( ' )</span>, and backslash <span style="white-space:nowrap;">( \ )</span> characters.
+Use <a href="#ce_syntax_escape">escape sequences</a> to represent these characters as well as special characters in a character constant:
+</p>
+<ul class="GenCE">
+<li class="GenCE">use the <span style="white-space:nowrap;">( \' )</span> to represent a single quotation mark</li>
+<li class="GenCE">use the <span style="white-space:nowrap;">( \\ )</span> to represent a backslash</li>
+<li class="GenCE">use the <span style="white-space:nowrap;">( \n )</span> to represent a new-line character</li>
+</ul>
+<p>A character constant must contain one to four characters. When a character constant is formed, the last character is placed into the lowest byte of a 32-bit integer value. The last-but-one character goes into the second byte, and so on. Unused high bytes are set to zero.</p>
+
+<h3>Example:</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+'W'           /* it's equal to 0x57   */<br>
+'ms'          /* it's equal to 0x6D73 */<br>
+'EQ\r\n'      /* it's equal to 0x45510D0A */
+</p>
+</div>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+
+<!-- ########################################## -->
+<a name="ce_syntax_const_str"></a>
+<div class="GenSectTitle">
+<h1><span class="PageTitleL">String Constants</span></h1>
+</div>
+
+<p>A string constant results in an operand of the <a href="dtypes.html#data_types_predefined">String</a> data type. A string constant consists of zero or more characters enclosed in double quotation marks <span style="white-space:nowrap;">( <b>&quot; &quot;</b> )</span>. It may contain any characters except a newline <span style="white-space:nowrap;">( '\n' )</span>, double quote <span style="white-space:nowrap;">( <b>&quot;</b> )</span> and backslash <span style="white-space:nowrap;">( \ )</span>. Use <a href="#ce_syntax_escape">escape sequences</a> to represent these characters, as well as other special characters. For example:</p>
+
+<ul class="GenCE">
+<li class="GenCE">use the <span style="white-space:nowrap;">( \&quot; )</span> to represent a double quotation mark</li>
+<li class="GenCE">use the <span style="white-space:nowrap;">( \\ )</span> to represent a backslash</li>
+<li class="GenCE">use the <span style="white-space:nowrap;">( \n )</span> to represent a new-line character</li>
+</ul>
+<p>Adjacent string constants separated by spaces and new-lines, as well as comments, are concatenated into a single string. This makes it easier to specify long strings across multiple lines.</p>
+
+<h3>Example:</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+MsgBox(<br>
+  &quot;This is the first line&quot;         /* comment */<br>
+  &quot; of long string constant\n&quot;     // comment too<br>
+  &quot;This is the second line\n&quot;<br>
+  &quot;\&quot;This text is enclosed in double quotes\&quot;&quot;<br>
+);
+</p>
+<p>In this example, the MsgBox function opens a message box that contains the following text:</p>
+<p><i>
+This is the first line of long string constant<br>
+This is the second line<br>
+&quot;This text is enclosed in double quotes&quot;
+</i></p>
+</div>
+<p>&nbsp;</p>
+
+<p>A string constant can be continued on the next line if a backslash character immediately precedes the new-line character. In this case, both the backslash and the new-line are ignored, and the string constant continues with the first character of the next line.</p>
+
+<h3>Example:</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+MsgBox(<br>
+  &quot;This string constant \<br>
+  occupies two lines in a script&quot;<br>
+);
+</p>
+<p>In this example, the MsgBox function opens a message box that contains the following text:</p>
+<p><i>This string constant occupies two lines in a script</i></p>
+</div>
+<p>&nbsp;</p>
+
+<p>Both comments and character constants are ignored within string constants; they are part of the resulting string.</p>
+
+<h3>Example:</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+MsgBox(<br>
+  &quot;Both /*comment*/ and 'character constant' &quot;<br>
+  &quot;are not recognized within string constant&quot;<br>
+);
+</p>
+<p>In this example, the MsgBox function opens message box that contains the following text:</p>
+<p><i>Both /*comment*/ and 'character constant' are not recognized within string constant</i></p>
+</div>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="ce_syntax_escape"></a>
+<div class="GenSectTitle">
+<h1><span class="PageTitleL">Escape Sequences</span></h1>
+</div>
+
+<p>
+The escape sequences allow you to use sequence of characters to represent special characters. Escape sequences can be used in <a href="#ce_syntax_const_str">string constants</a> and <a href="#ce_syntax_const_char">character constants</a>.
+<br>CalcExpress supports the following escape sequences:</p>
+
+
+<table border=0 cellspacing=0 cellpadding=0 style='margin-left:3pt; border-collapse:collapse'>
+<tr>
+<td class="EscTblCol1"><b><u>Sequence</u></b></td>
+<td class="EscTblCol2"><b><u>Code</u></b></td>
+<td class="EscTblCol3"><b><u>ASCII</u></b></td>
+<td class="EscTblCol4"><b><u>Comments</u></b></td>
+</tr>
+<tr>
+<td class="EscTblCol1">\a</td>
+<td class="EscTblCol2">0x07</td>
+<td class="EscTblCol3">BEL</td>
+<td class="EscTblCol4">Alert</td>
+</tr>
+<tr>
+<td class="EscTblCol1">\b</td>
+<td class="EscTblCol2">0x08</td>
+<td class="EscTblCol3">BS</td>
+<td class="EscTblCol4">Backspace</td>
+</tr>
+<tr>
+<td class="EscTblCol1">\t</td>
+<td class="EscTblCol2">0x09</td>
+<td class="EscTblCol3">HT</td>
+<td class="EscTblCol4">Horizontal tab</td>
+</tr>
+<tr>
+<td class="EscTblCol1">\n</td>
+<td class="EscTblCol2">0x0A</td>
+<td class="EscTblCol3">LF</td>
+<td class="EscTblCol4">Newline</td>
+</tr>
+<tr>
+<td class="EscTblCol1">\v</td>
+<td class="EscTblCol2">0x0B</td>
+<td class="EscTblCol3">VT</td>
+<td class="EscTblCol4">Vertical tab</td>
+</tr>
+<tr>
+<td class="EscTblCol1">\f</td>
+<td class="EscTblCol2">0x0C</td>
+<td class="EscTblCol3">FF</td>
+<td class="EscTblCol4">Formfeed</td>
+</tr>
+<tr>
+<td class="EscTblCol1">\r</td>
+<td class="EscTblCol2">0x0D</td>
+<td class="EscTblCol3">CR</td>
+<td class="EscTblCol4">Carriage return</td>
+</tr>
+<tr>
+<td class="EscTblCol1">\s</td>
+<td class="EscTblCol2">0x20</td>
+<td class="EscTblCol3">SP</td>
+<td class="EscTblCol4">Space</td>
+</tr>
+<tr>
+<td class="EscTblCol1">\&quot;</td>
+<td class="EscTblCol2">0x22</td>
+<td class="EscTblCol3">&quot;</td>
+<td class="EscTblCol4">Double quote <span style="white-space:nowrap;">( &quot; )</span></td>
+</tr>
+<tr>
+<td class="EscTblCol1">\'</td>
+<td class="EscTblCol2">0x27</td>
+<td class="EscTblCol3">'</td>
+<td class="EscTblCol4">Single quote <span style="white-space:nowrap;">( ' )</span></td>
+</tr>
+<tr>
+<td class="EscTblCol1">\?</td>
+<td class="EscTblCol2">0x3F</td>
+<td class="EscTblCol3">?</td>
+<td class="EscTblCol4">Question mark <span style="white-space:nowrap;">( ? )</span></td>
+</tr>
+<tr>
+<td class="EscTblCol1">\\</td>
+<td class="EscTblCol2">0x5C</td>
+<td class="EscTblCol3">\</td>
+<td class="EscTblCol4">Backslash <span style="white-space:nowrap;">( \ )</span></td>
+</tr>
+<tr>
+<td class="EscTblCol1">\OOO</td>
+<td class="EscTblCol2">&nbsp;</td>
+<td class="EscTblCol3">&nbsp;</td>
+<td class="EscTblCol4">ASCII character in octal notation (1, 2, or 3 octal digits)</td>
+</tr>
+<tr>
+<td class="EscTblCol1">\xHH</td>
+<td class="EscTblCol2">&nbsp;</td>
+<td class="EscTblCol3">&nbsp;</td>
+<td class="EscTblCol4">ASCII character in hexadecimal notation (1 or 2 hex digits)</td>
+</tr>
+</table>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="ce_syntax_namedconst"></a>
+<div class="GenSectTitle">
+<h1><span class="PageTitleL">Named Constants</span></h1>
+</div>
+<p>
+Named Constants define a set of identifiers for predefined values. They can be used to improve script readability. Like other constants, they are evaluated during the parsing phase.
+</p>
+<p>
+Named Constants are case-sensitive and must be written exactly as defined in the table below. They can be used anywhere regular numeric constants are allowed. If a Named Constant appears within a <a href="#ce_syntax_const_str">string constant</a> or a <a href="#ce_syntax_const_char">character constant</a>, it is treated as regular text within that constant. Furthermore, Named Constants are ignored (bypassed) in situations where the identifier is interpreted as the function name in a <a href="ce_functions.html#ce_func_syntax">function call</a>.
+</p>
+<p>
+While their names do not conflict with function names or label names, they share the same namespace as variable names. Within this shared namespace, Named Constants have higher evaluation priority because they are evaluated during the parsing phase rather than at runtime execution.
+</p>
+
+<table>
+<tr>
+<td class="NCTblCol"><b><u>Name</u></b></td>
+<td class="NCTblCol"><b><u>Value</u></b></td>
+<td class="NCTblCol"><b><u>Comments</u></b></td>
+</tr>
+<tr><td class="NCTblCol">NAN</td>             <td class="NCTblCol">NaN</td>                             <td class="NCTblCol">/* Not A Number */</td></tr>
+<tr><td class="NCTblCol">INF</td>             <td class="NCTblCol">Inf</td>                             <td class="NCTblCol">/* Infinity */</td></tr>
+<tr><td class="NCTblCol">TRUE</td>            <td class="NCTblCol">1</td>                               <td class="NCTblCol">/* True (1) */</td></tr>
+<tr><td class="NCTblCol">FALSE</td>           <td class="NCTblCol">0</td>                               <td class="NCTblCol">/* False (0) */</td></tr>
+<tr><td class="NCTblCol">INT_MAX</td>         <td class="NCTblCol">2147483647</td>                      <td class="NCTblCol">/* Max I32 value */</td></tr>
+<tr><td class="NCTblCol">INT_MIN</td>         <td class="NCTblCol">-2147483648</td>                     <td class="NCTblCol">/* Min I32 value */</td></tr>
+<tr><td class="NCTblCol">UINT_MAX</td>        <td class="NCTblCol">4294967295</td>                      <td class="NCTblCol">/* Max U32 value */</td></tr>
+<tr><td class="NCTblCol">DBL_EPSILON</td>     <td class="NCTblCol">2.2204460492503131E-016</td>         <td class="NCTblCol">/* Machine Epsilon */</td></tr>
+<tr><td class="NCTblCol">DBL_MAX</td>         <td class="NCTblCol">1.7976931348623157E+308</td>         <td class="NCTblCol">/* Max DBL value */</td></tr>
+<tr><td class="NCTblCol">DBL_MIN</td>         <td class="NCTblCol">2.2250738585072014E-308</td>         <td class="NCTblCol">/* Min DBL value */</td></tr>
+<tr><td class="NCTblCol">M_E</td>             <td class="NCTblCol">2.7182818284590451</td>              <td class="NCTblCol">/* the value of e */</td></tr>
+<tr><td class="NCTblCol">M_1_E</td>           <td class="NCTblCol">0.36787944117144233</td>             <td class="NCTblCol">/* 1/e */</td></tr>
+<tr><td class="NCTblCol">M_LOG2E</td>         <td class="NCTblCol">1.4426950408889634</td>              <td class="NCTblCol">/* log2(e) */</td></tr>
+<tr><td class="NCTblCol">M_LOG10E</td>        <td class="NCTblCol">0.43429448190325182</td>             <td class="NCTblCol">/* log10(e) */</td></tr>
+<tr><td class="NCTblCol">M_LN2</td>           <td class="NCTblCol">0.69314718055994529</td>             <td class="NCTblCol">/* ln(2) */</td></tr>
+<tr><td class="NCTblCol">M_LN10</td>          <td class="NCTblCol">2.3025850929940459</td>              <td class="NCTblCol">/* ln(10) */</td></tr>
+<tr><td class="NCTblCol">M_LN_PI</td>         <td class="NCTblCol">1.1447298858494002</td>              <td class="NCTblCol">/* ln(pi) */</td></tr>
+<tr><td class="NCTblCol">M_PI</td>            <td class="NCTblCol">3.1415926535897931</td>              <td class="NCTblCol">/* the value of pi */</td></tr>
+<tr><td class="NCTblCol">M_PI_2</td>          <td class="NCTblCol">1.5707963267948966</td>              <td class="NCTblCol">/* pi/2 */</td></tr>
+<tr><td class="NCTblCol">M_PI_4</td>          <td class="NCTblCol">0.78539816339744828</td>             <td class="NCTblCol">/* pi/4 */</td></tr>
+<tr><td class="NCTblCol">M_1_PI</td>          <td class="NCTblCol">0.31830988618379069</td>             <td class="NCTblCol">/* 1/pi */</td></tr>
+<tr><td class="NCTblCol">M_2_PI</td>          <td class="NCTblCol">0.63661977236758138</td>             <td class="NCTblCol">/* 2/pi */</td></tr>
+<tr><td class="NCTblCol">M_2_SQRTPI</td>      <td class="NCTblCol">1.1283791670955126</td>              <td class="NCTblCol">/* 2/sqrt(pi) */</td></tr>
+<tr><td class="NCTblCol">M_2PI</td>           <td class="NCTblCol">6.2831853071795862</td>              <td class="NCTblCol">/* 2*pi */</td></tr>
+<tr><td class="NCTblCol">M_SQRT2</td>         <td class="NCTblCol">1.4142135623730951</td>              <td class="NCTblCol">/* sqrt(2) */</td></tr>
+</table>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="ce_syntax_ident"></a>
+<div class="GenSectTitle">
+<h1><span class="PageTitleL">Identifiers</span></h1>
+</div>
+
+<p>Identifiers are names given to variables, functions, and labels. An identifier can consist of <b>alphabetic</b> characters, <b>digits</b> and <b>underscore</b> characters <span style="white-space:nowrap;">( _ )</span>, but the first character must not be a digit.</p>
+<p>Identifiers are case-sensitive or not, depending on their scope of use. Variable names and label names are case-sensitive. Function names are not always case-sensitive, that depends on the implementation of a function being called (<a href="ce_functions.html#ce_func_syntax">see details</a>).</p>
+<p>Identifiers are unique within their scope of use. This means that each variable, function and label has a unique name among other variables, functions and labels respectively. However, the same name can be given to a variable and a function, and a label.</p>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="ce_syntax_var"></a>
+<div class="GenSectTitle">
+<h1><span class="PageTitleL">Variables in scripts</span></h1>
+</div>
+
+<p>Variables are referred to by their names (which are <a href="#ce_syntax_ident">identifiers</a>).</p>
+
+<p>CalcExpress and CSE utilize VarMan to operate on variables. See <a href="varman.html">VarMan Overview</a> topic to learn about general principles of variable management.</p>
+
+<p>To use variables in a script, you have to pass the valid handle of a variable context to a CalcExpress or CSE VI which processes the script. Using this handle, CalcExpress or CSE can operate on the variables in the given context.
+Variables can be created before starting a script using the VarMan VIs. This is useful for passing input parameters to the script, or sharing the results of calculations with other parts of the application. As well, variables can be created during a script execution.</p>
+
+<p>There are following ways to create variables in a script:</p>
+<ul class="GenCE">
+<li class="GenCE">You can explicitly declare the name and data type of a variable you want to create. To do this, use <a href="cef_cat_var.html">variable declaration functions</a>. This method is similar to how variables are declared in traditional programming languages, except that variables are created at runtime.</li>
+<li class="GenCE">
+You can implicitly create a variable using the <a href="ce_syntax_op_assignment.html#ce_op_assign">Assignment operator</a>. In this case, you specify only a variable name, and the variable data type will be the same as the data type of the value being assigned. This feature is optional and can be disabled if desired.</li>
+<li class="GenCE">You can develop and use your own functions (FuncVI) to create and manage variables of custom data types.</li>
+</ul>
+<p>&nbsp;</p>
+
+<h3>Advanced information:</h3>
+<ul class="GenCE">
+<li class="GenCE"><a href="cef_cat_var.html">Variable Management functions</a></li>
+</ul>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</body>
+</html>

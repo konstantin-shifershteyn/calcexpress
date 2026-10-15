@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>Polymorphism for Numeric functions</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+</head>
+
+<body>
+
+
+<!-- ########################################## -->
+<div class="PageTitle">
+<h1><span class="PageTitleL">Polymorphism for Numeric functions</span></h1>
+</div>
+
+
+<!-- ########################################## -->
+<div>
+<p>CalcExpress has polymorphism capabilities similar to LabVIEW. This topic describes general polymorphism rules that CalcExpress numeric functions comply with.</p>
+<p>CalcExpress numeric functions operate on numeric data. Some functions can handle both real (DBL) and complex (CDB) numbers, while others only work with real numbers. A description of each function has a list of data types it can operate. See <a href="dtypes.html#data_types">Data Types</a> topic for more information on supported data types.</p>
+
+<h3>Also see</h3>
+<a href="ce_poly.html">Polymorphism for Operators</a>
+</div>
+
+
+<!-- ########## -->
+<p>&nbsp;</p><hr class="TopicSeparator">
+
+<a name="cef_poly_1"></a>
+<div>
+<h2>Polymorphism for Numeric Functions with one argument</h2>
+<p>CalcExpress numeric functions operate on scalars, 1D arrays, and 2D arrays. If it is not noted in a function description, the function returns a value with the same data type as the input parameter. If an input parameter is an array, CalcExpress performs a function on each element of the array to produce a result that has the same dimensions and size as the input.
+</p>
+</div>
+
+
+<!-- ########## -->
+<p>&nbsp;</p><hr class="TopicSeparator">
+
+<a name="cef_poly_2"></a>
+<div>
+<h2>Polymorphism for Numeric Functions with two arguments</h2>
+<p>CalcExpress numeric functions with two arguments can operate on scalars, 1D arrays, 2D arrays and any combinations thereof. The data type of the return value depends on the combination of actual parameter data types.</p>
+
+<p>If a function can operate on arguments of different representations (DBL and CDB), it will produce a result that has the widest representation of the actual parameters. That is, if you pass both DBL and CDB parameters to a function, it will return a value in CDB representation. In this scenario, the function converts DBL values to CDB values before computing.</p>
+
+<p>Possible combinations of function arguments and ways of calculating results are described below.</p>
+
+<h3>Both parameters are Scalars</h3>
+<p>CalcExpress performs a function on arguments and returns a scalar value.</p>
+
+<h3>Scalar and an Array of any dimensionality</h3>
+<p>CalcExpress performs a function for the scalar and each element of the input array. A return value is an array with the same dimensionality and size as the input array.</p>
+
+<h3>Two Arrays of the same dimensionality</h3>
+<p>CalcExpress performs a function on the respective elements of input arrays. A result is an array with the same dimensionality as the input arrays, and its size is equal to the size of the smallest input array. If input 2D arrays have different number of rows, the result has number of rows that equals the smallest number of rows in input arrays. If input 2D arrays have different number of columns, the result has number of columns that equals the smallest number of columns in input arrays.</p>
+
+<h3>Combination of 1D Array and 2D Array</h3>
+<p>CalcExpress performs a function on elements of input 1D Array and the respective elements of each row of input 2D Array. A result is 2D Array. It has the same number of rows as the input 2D Array. Number of columns is equal to the minimum value among number of columns in input 2D Array and size of input 1D Array.</p>
+
+</div>
+
+
+<!-- ########## -->
+<p>&nbsp;</p><hr class="TopicSeparator">
+<div>
+<h3>Also see</h3>
+<a href="ce_poly.html">Polymorphism for Operators</a>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,529 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>CSE Script syntax</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+<style>
+table.StTbl   { margin-left:0pt;border-collapse:collapse; }
+td.StTblCol1  { width:120pt; padding:3pt 5pt 0pt 5pt; valign:top; white-space:nowrap; }
+td.StTblCol2  { width:120pt; padding:3pt 5pt 0pt 5pt; valign:top; white-space:nowrap; }
+</style>
+</head>
+
+<body>
+
+<!-- ########################################## -->
+<a name="cse_syntax"></a>
+<div class="GenSectTitle">
+<h1><span class="PageTitleL">CSE Script syntax</span></h1>
+</div>
+
+<p><a href="cse.html">CSE</a> processes scripts with a syntax that can look like that of the C programming language. A script consists of statements that perform calculations and control the flow of script execution. Statements are executed sequentially, one after another, unless control flow statements alter this order.</p>
+
+<p>In order to document a script, use comments that have the same syntax as <a href="ce_syntax_misc.html#ce_syntax_comment">CalcExpress Comments</a>.</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<h2>Statements</h2>
+<table class="StTbl">
+<tr>
+<td class="StTblCol1"><a href="#cse_if"><b>if</b> statement</a></td>
+<td class="StTblCol2"><a href="#cse_break"><b>break</b> statement</a></td>
+</tr>
+<tr>
+<td class="StTblCol1"><a href="#cse_for"><b>for</b> statement</a></td>
+<td class="StTblCol2"><a href="#cse_continue"><b>continue</b> statement</a></td>
+</tr>
+<tr>
+<td class="StTblCol1"><a href="#cse_while"><b>while</b> statement</a></td>
+<td class="StTblCol2"><a href="#cse_goto"><b>goto</b> statement and <b>labels</b></a></td>
+</tr>
+<tr>
+<td class="StTblCol1"><a href="#cse_dowhile"><b>dowhile</b> statement</a></td>
+<td class="StTblCol2"><a href="#cse_return"><b>return</b> statement</a></td>
+</tr>
+<tr><td></td><td></td></tr>
+<tr>
+<td class="StTblCol1"><a href="#cse_exp_st">Expression statement</a></td>
+<td class="StTblCol2"></td>
+</tr>
+<tr>
+<td class="StTblCol1"><a href="#cse_comp_st">Compound statement</a></td>
+<td class="StTblCol2"></td>
+</tr>
+<tr>
+<td class="StTblCol1"><a href="#cse_null_st">Null statement</a></td>
+<td class="StTblCol2"></td>
+</tr>
+</table>
+<p>&nbsp;</p>
+
+
+<h3>Statements Overview</h3>
+
+<p>CSE statements consist of keywords, expressions, and other statements.</p>
+<ul style="margin:0pt 0pt 0pt 0pt; padding:0pt 0pt 0pt 15pt;">
+<li>A keyword identifies the type of statement and is an integral part of it.</li>
+<li>An expression is a combination of operands, operators, and function calls that can be recognized and processed by the expression evaluator (CalcExpress). An expression has to comply with the <a href="ce_syntax.html">CalcExpress expression syntax</a>.</li>
+<li>Some statements require other statement(s) to complete them. A statement that forms a component of another statement is called the <i>body</i> of the enclosing statement.</li>
+</ul>
+
+<p>All statements, except for the <a href="#cse_comp_st">compound statement</a>, must end with a semicolon <span style="white-space:nowrap;">( <b>;</b> )</span>. The <i>compound statement</i> is delimited by braces <span style="white-space:nowrap;">( <b>{ }</b> )</span>. It groups multiple statements (including other <i>compound statements</i>) and represents them as a single statement. The <i>compound statement</i> is typically used as a statement's <i>body</i>.</p>
+
+<p>A statement that contains only an expression is the <a href="#cse_exp_st">expression statement</a>. Depending on the parsing parameters, sequences of expression statements can be grouped together or treated individually to be passed to CalcExpress for evaluation.</p>
+
+<p>Any statement can begin with a label that identifies it. A label consists of a label name and a colon <span style="white-space:nowrap;">( <b>:</b> )</span> following it. Only the <a href="#cse_goto">goto</a> statement recognizes labels.</p>
+<p>&nbsp;</p>
+
+<h3>Also see</h3>
+<p>
+<a href="directives.html">Parsing Directives</a>
+<br>&nbsp;<br>
+<a href="cse.html">CSE Overview</a><br>
+<a href="mnu_cse.html">CSE VIs</a>
+</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cse_if"></a>
+<div class="GenSectTitle">
+<h2>CSE Script syntax:  'if'  statement</h2>
+</div>
+
+<p>The <b>if</b> statement controls conditional execution. It allows executing certain parts of a script depending on the value of a conditional expression. There are two syntax forms for the <b>if</b> statement.</p>
+
+<h3>Syntax</h3>
+<p class="StatementSyntax">
+<b>if (</b> <i>expression</i> <b>)</b> <i>statement1</i><br>
+<b>if (</b> <i>expression</i> <b>)</b> <i>statement1</i><b> else</b>  <i>statement2</i>
+</p>
+
+<p>In both forms, <i>expression</i> is evaluated first. The <i>expression</i> can be any valid <a href="ce_syntax.html">CalcExpress expression</a> that evaluates to a numeric scalar. The <i>expression</i> is false if its value, when coerced to an integer (int32) by applying <a href="ce_conversions.html">Saturating Conversion</a>, is equal to zero; otherwise, it is true.</p>
+
+<p>The <i>statement1</i> is executed if <i>expression</i> is true. If <i>expression</i> is false, <i>statement1</i> is ignored and, if the second form is used, <i>statement2</i> is executed. With both forms, control then passes to the statement following the <b>if</b> statement, unless an executed statement contains <a href="#cse_break">break</a>, <a href="#cse_continue">continue</a>, <a href="#cse_goto">goto</a>, or <a href="#cse_return">return</a>.</p>
+<p class="StatementExample">if (x &lt; 1)<br>
+   y = 0;       /* y = 0 if x less than 1 */<br>
+else<br>
+   y = x-1;     /* otherwise y = x-1 */
+</p>
+
+<p>Both <i>statement1</i> and <i>statement2</i> are any valid statements. It is especially useful to use a <a href="#cse_comp_st">compound statement</a> that groups multiple statements into a single statement. </p>
+<p class="StatementExample">
+if (x &lt; 1) {<br>
+   x += 1; y = 0;     /* statements are executed if x&lt;1 */<br>
+}<br>
+else {<br>
+   x -= 1; y = x;     /* statements are executed if x&gt;=1 */<br>
+}
+</p>
+
+<p>When an <b>else</b> is encountered in nested <b>if</b> statements, it is associated with the closest <b>if</b> that does not have a corresponding <b>else</b>. If this rule needs to be changed, use braces <span style="white-space:nowrap;">( <b>{ }</b> )</span> to group statements into a <a href="#cse_comp_st">compound statement</a> to clarify your intention.</p>
+<p class="StatementExample">
+if (x &gt; 0) {       /* line 1 */<br>
+   if (x &gt; y)      /* line 2 */<br>
+      x = y;<br>
+   else            /* corresponds to the <b>if</b> in line 2 */<br>
+      y = x;<br>
+}<br>
+if (z &gt; x) {       /* line 7 */<br>
+   if (z &gt; y)      /* line 8 */<br>
+      z = y;<br>
+}<br>
+else               /* corresponds to the <b>if</b> in line 7 */<br>
+   z = x;
+</p>
+<p>&nbsp;</p>
+
+<p><a href="#cse_syntax">Script Syntax overview</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cse_for"></a>
+<div class="GenSectTitle">
+<h2>CSE Script syntax:  'for'  statement</h2>
+</div>
+
+<p>The <b>for</b> statement repeats the execution of a block of script until a conditional expression becomes false. Furthermore, optional expressions within the <b>for</b> statement allow initializing and modifying values during execution. The <b>for</b> statement is useful if there is a need to repeat a block of code a specified number of times.</p>
+
+<h3>Syntax</h3>
+<p class="StatementSyntax">
+<b>for (</b> <i>init-exp</i><b> ; </b><i>cond-exp</i><b> ; </b><i>loop-exp</i> <b>)</b> <i>statement</i>
+
+<p>The <i>init-exp</i> is an optional initialization expression. If present, it is evaluated once when the <b>for</b> statement begins. The <i>init-exp</i> can be any valid <a href="ce_syntax.html">CalcExpress expression</a>.</p>
+
+<p>The <i>cond-exp</i> is an optional conditional expression. If present, it is evaluated before each iteration. If the <i>cond-exp</i> is false, control passes to a statement following the <b>for</b> statement. If the <i>cond-exp</i> is true, the <i>statement</i> (<i>loop-body</i>) is executed. Then, the <i>loop-exp</i>, if any, is evaluated. The next iteration then begins with the evaluation of the <i>cond-exp</i>.</p>
+
+<p>The <i>cond-exp</i> is any valid <a href="ce_syntax.html">CalcExpress expression</a> that evaluates to a numeric scalar. The <i>cond-exp</i> is false if its value, when coerced to an integer (int32) by applying <a href="ce_conversions.html">Saturating Conversion</a>, is equal to zero; otherwise, it is true.</p>
+
+<p>If the <i>cond-exp</i> is omitted, it is assumed to be true. In this case, an infinite loop is created that can only be terminated with <a href="#cse_break">break</a>, <a href="#cse_goto">goto</a>, or <a href="#cse_return">return</a> statements.</p>
+
+<p>The <i>loop-exp</i> is an optional loop expression. If present, it is evaluated at the end of each iteration, after <i>statement</i> has been executed. The <i>loop-exp</i> can be any valid <a href="ce_syntax.html">CalcExpress expression</a>.</p>
+
+<p>The <i>statement</i>, also called <i>loop-body</i>, is any valid statement. To execute more than one statement within <i>loop-body</i>, use a <a href="#cse_comp_st">compound statement</a> that groups multiple statements into a single statement.</p>
+
+<p>The execution order of the <b>for</b> statement can be changed with <a href="#cse_break">break</a>, <a href="#cse_continue">continue</a>, <a href="#cse_goto">goto</a>, or <a href="#cse_return">return</a>. These statements determine subsequent behavior if they are encountered during execution. The <a href="#cse_break">break</a> statement immediately terminates the <b>for</b> loop, and the <i>loop-exp</i> is not evaluated. The <a href="#cse_continue">continue</a> statement terminates the current iteration of the loop (i.e., it skips the rest of the <i>loop-body</i>), evaluates the <i>loop-exp</i>, and transitions to the next iteration.</p>
+
+
+
+<h3>Example</h3>
+<p class="StatementExample">
+/*
+Compute both factorial of X and sum of numbers from 0 to X for all positive X<br>
+*/<br>
+for( i=1, sum=0, fact=1; i &lt;= X; i++ ) {<br>
+   fact *= i;<br>
+   sum  += i;<br>
+}<br>
+</p>
+<p>&nbsp;</p>
+
+<p><a href="#cse_syntax">Script Syntax overview</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cse_while"></a>
+<div class="GenSectTitle">
+<h2>CSE Script syntax:  'while'  statement</h2>
+</div>
+
+<p>The <b>while</b> statement repeats the execution of a block of script until a conditional expression becomes false.</p>
+
+<h3>Syntax</h3>
+<p class="StatementSyntax">
+<b>while (</b> <i>expression</i> <b>)</b> <i>statement</i>
+</p>
+
+<p>The <i>expression</i> is any valid <a href="ce_syntax.html">CalcExpress expression</a> that evaluates to a numeric scalar. The <i>expression</i> is false if its value, when coerced to an integer (int32) by applying <a href="ce_conversions.html">Saturating Conversion</a>, is equal to zero; otherwise, it is true.</p>
+
+<p>The <i>statement</i>, also called <i>loop-body</i>, is any valid statement. To execute more than one statement within <i>loop-body</i>, use a <a href="#cse_comp_st">compound statement</a> that groups multiple statements into a single statement.</p>
+
+<p>
+The <b>while</b> statement executes as follows:<br>
+1.   The <i>expression</i> is evaluated.<br>
+2.   If the <i>expression</i> is false, control passes to the statement following the <b>while</b> statement.<br>
+3.   If the <i>expression</i> is true, the <i>statement</i> (<i>loop-body</i>) is executed. The execution is then repeated at step 1.
+</p>
+
+<p>Note that the <i>statement</i> is never executed if <i>expression</i> is initially false.</p>
+
+<p>The execution order of the <b>while</b> statement can be changed with <a href="#cse_break">break</a>, <a href="#cse_continue">continue</a>, <a href="#cse_goto">goto</a>, or <a href="#cse_return">return</a>. These statements determine subsequent behavior if they are encountered during execution. The <a href="#cse_continue">continue</a> statement skips the rest of the <i>loop-body</i> and starts the next iteration by evaluating the conditional <i>expression</i> (step 1).</p>
+
+<h3>Example</h3>
+<p class="StatementExample">
+cnt = 0;<br>
+/*<br>
+while x is greater than 1, multiply it by random number in range 0 to 1<br>
+*/<br>
+while ( x &gt;= 1) {<br>
+   x *= random();<br>
+   cnt++;<br>
+}<br>
+</p>
+<p>&nbsp;</p>
+
+<p><a href="#cse_syntax">Script Syntax overview</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cse_dowhile"></a>
+<div class="GenSectTitle">
+<h2>CSE Script syntax:  'dowhile'  statement</h2>
+</div>
+
+<p>The <b>dowhile</b> statement executes a block of script and repeats its execution until a conditional expression becomes false.</p>
+
+<h3>Syntax</h3>
+<p class="StatementSyntax">
+<b>dowhile (</b> <i>expression</i> <b>)</b> <i>statement</i>
+</p>
+
+<p>The <i>expression</i> is any valid <a href="ce_syntax.html">CalcExpress expression</a> that evaluates to a numeric scalar. The <i>expression</i> is false if its value, when coerced to an integer (int32) by applying <a href="ce_conversions.html">Saturating Conversion</a>, is equal to zero; otherwise, it is true.</p>
+
+<p>The <i>statement</i>, also called <i>loop-body</i>, is any valid statement. To execute more than one statement within <i>loop-body</i>, use a <a href="#cse_comp_st">compound statement</a> that groups multiple statements into a single statement.</p>
+
+<p>
+The <b>dowhile</b> statement executes as follows:<br>
+1. The <i>statement</i> (<i>loop-body</i>) is executed.<br>
+2. Next, the <i>expression</i> is evaluated.<br>
+3. If the <i>expression</i> is true, the process is repeated, beginning with step 1. If the <i>expression</i> is false, the <b>dowhile</b> statement terminates, and control passes to the statement following the <b>dowhile</b> statement.
+</p>
+
+<p>Note that <i>expression</i> is evaluated after the <i>statement</i> is executed. Therefore, the <i>statement</i> is always executed at least once.</p>
+
+<p>The execution order of the <b>dowhile</b> statement can be changed with <a href="#cse_break">break</a>, <a href="#cse_continue">continue</a>, <a href="#cse_goto">goto</a>, or <a href="#cse_return">return</a>. These statements determine subsequent behavior if they are encountered during execution. The <a href="#cse_continue">continue</a> statement skips the rest of the <i>loop-body</i> and starts the next iteration by evaluating the conditional <i>expression</i> (step 2).</p>
+
+<h3>Example</h3>
+<p class="StatementExample">
+/*<br>
+repeats until rms(x) becomes less than a threshold<br>
+*/<br>
+dowhile ( rms(x) &gt;= threshold) {<br>
+   params = GetNewParams();<br>
+   x = GetData(params);<br>
+}<br>
+</p>
+<p>&nbsp;</p>
+
+<p><a href="#cse_syntax">Script Syntax overview</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cse_break"></a>
+<div class="GenSectTitle">
+<h2>CSE Script syntax:  'break'  statement</h2>
+</div>
+
+<p>The <b>break</b> statement terminates the execution of the nearest enclosing <a href="#cse_for">for</a>, <a href="#cse_while">while</a>, or <a href="#cse_dowhile">dowhile</a> statement in the body of which it is encountered. Control passes to the statement that follows the terminated statement.</p>
+
+<h3>Syntax</h3>
+<p class="StatementSyntax">
+<b>break ;</b>
+</p>
+
+<p>Within nested statements, the <b>break</b> statement terminates only the statement that immediately encloses it. To terminate deeply nested loops, it is convenient to use the <a href="#cse_goto">goto</a> statement.</p>
+
+<p>If the <b>break</b> statement terminates the <a href="#cse_for">for</a> loop, the loop expression (<i>loop-exp</i>) of the <a href="#cse_for">for</a> statement is not evaluated.</p>
+
+<p>To better understand the behavior of the <b>break</b> statement, let's consider the following examples.</p>
+<table border=0 cellspacing=0 cellpadding=0 style='border-collapse:collapse'>
+<tr>
+<td width=189 valign=top style='width:5.0cm;padding:0cm 5.4pt 0cm 5.4pt'>
+while(...) {<br>
+   . . .<br>
+   break;<br>
+   . . .<br>
+   goto out;<br>
+   . . .<br>
+}<br>
+out: ;
+</td>
+<td width=217 valign=top style='width:163.05pt;padding:0cm 5.4pt 0cm 5.4pt'>
+for(...) {<br>
+   . . .<br>
+   break;<br>
+   . . .<br>
+   goto out;<br>
+   . . .<br>
+}<br>
+out: ;
+</td>
+</tr>
+</table>
+
+<p>In these examples, both the <b>break</b> statement and the <b>goto out</b> statement cause the same effect.</p>
+<p>&nbsp;</p>
+
+<p><a href="#cse_syntax">Script Syntax overview</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cse_continue"></a>
+<div class="GenSectTitle">
+<h2>CSE Script syntax:  'continue'  statement</h2>
+</div>
+
+<p>The <b>continue</b> statement terminates the current iteration and begins the next iteration of the nearest enclosing  <a href="#cse_for">for</a>, <a href="#cse_while">while</a>, or <a href="#cse_dowhile">dowhile</a> statement in the body of which it is encountered. If the <b>continue</b> statement is executed, the rest of the enclosing statement body is bypassed.</p>
+
+<h3>Syntax</h3>
+<p class="StatementSyntax">
+<b>continue ;</b>
+</p>
+
+<p>For the <a href="#cse_for">for</a>, <a href="#cse_while">while</a>, and <a href="#cse_dowhile">dowhile</a> statements, the next iteration starts with evaluating a conditional expression and determining whether to execute a statement body. If the <b>continue</b> statement is executed inside a <a href="#cse_for">for</a> loop, the loop expression (<i>loop-exp</i>) of the <a href="#cse_for">for</a> statement is evaluated before the next iteration starts.</p>
+
+<p>To better understand the behavior of the <b>continue</b> statement, let's consider the following examples.</p>
+<table border=0 cellspacing=0 cellpadding=0 style='border-collapse:collapse'>
+<tr>
+<td width=189 valign=top style='width:5.0cm;padding:0cm 5.4pt 0cm 5.4pt'>
+while(...) {<br>
+   . . .<br>
+   continue;<br>
+   . . .<br>
+   goto contin;<br>
+   . . .<br>
+contin: ;<br>
+}
+</td>
+<td width=217 valign=top style='width:163.05pt;padding:0cm 5.4pt 0cm 5.4pt'>
+for(...) {<br>
+   . . .<br>
+   continue;<br>
+   . . .<br>
+   goto contin;<br>
+   . . .<br>
+contin: ;<br>
+}
+</td>
+</tr>
+</table>
+<p>In these examples, both the <b>continue</b> statement and the <b>goto contin</b> statement cause the same effect.</p>
+<p>&nbsp;</p>
+
+<p><a href="#cse_syntax">Script Syntax overview</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cse_return"></a>
+<div class="GenSectTitle">
+<h2>CSE Script syntax:  'return'  statement</h2>
+</div>
+
+<p>The <b>return</b> statement immediately ends the execution of a script. Optionally, it can return the value of its expression if one is specified. The return value is available as an output of the <a href="vi_CSE_-_Execute_Parsed_Script.html">CSE - Execute Parsed Script.vi</a>.</p>
+
+<h3>Syntax</h3>
+<p class="StatementSyntax">
+<b>return</b><i> expression </i><b>;</b>
+</p>
+
+<p>The optional <i>expression</i> specifies the value to be returned.
+The <i>expression</i> can be any valid <a href="ce_syntax.html">CalcExpress expression</a> that evaluates to a value of the <a href="dtypes.html#data_types_predefined">DBL Number</a> data type. If the <i>expression</i> is omitted, the return value is zero.</p>
+
+<p>If a script finishes without executing the <b>return</b> statement, such as when the end of the script is reached, the return value is zero.</p>
+
+<p><a href="#cse_syntax">Script Syntax overview</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cse_goto"></a>
+<div class="GenSectTitle">
+<h2>CSE Script syntax:  'goto' statement and labels</h2>
+</div>
+
+<p>The <b>goto</b> statement transfers control to a statement marked with the given label. The label must reside in the processed script.</p>
+
+<h3>Syntax</h3>
+<p class="StatementSyntax">
+<b>goto</b><i> identifier </i><b>;</b>
+</p>
+
+<p>The <i>identifier</i> is the name of the label to transfer control to.</p>
+<p>&nbsp;</p>
+
+<h2><u>Labels</u></h2>
+<p>A label can be placed before any statement. A label is an <a href="ce_syntax_misc.html#ce_syntax_ident">identifier</a> followed by the colon <span style="white-space:nowrap;">( <b>:</b> )</span>. </p>
+
+<h3>Syntax</h3>
+<p class="StatementSyntax">
+<i>identifier </i><b>:</b><i> statement</i>
+</p>
+
+<p>The <i>identifier</i> is a label name. Every label must have a unique name; it is impossible to redeclare a label.</p>
+
+<p>Labels are only recognized by the <b>goto</b> statement; they do not have any influence on the execution of labeled statements.</p>
+
+<p>A label requires a statement that follows it. Use the <a href="#cse_null_st">null statement</a> if it is necessary to place a label without regard to any statement, such as at the end of a script or at the end of a <a href="#cse_comp_st">compound statement</a>.</p>
+
+<p><a href="#cse_syntax">Script Syntax overview</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cse_null_st"></a>
+<div class="GenSectTitle">
+<h2>CSE Script syntax:  null statement</h2>
+</div>
+
+<p>The <i>null statement</i> is a statement containing only a semicolon <span style="white-space:nowrap;">( <b>;</b> )</span>. It can appear wherever a statement is expected. Nothing is done when the <i>null statement</i> is executed. The purpose of the <i>null statement</i> is to fulfill syntax requirements in situations where a statement is required but no action needs to be taken.</p>
+
+<h3>Syntax</h3>
+<p class="StatementSyntax">
+<b>;</b>
+</p>
+
+<p>It is useful to use the <i>null statement</i> when it is necessary to place a label at the end of <a href="#cse_comp_st">compound statement</a> or at the end of a script.</p>
+<p>You can also use the <i>null statement</i> to declare an empty body for the <a href="#cse_if">if</a><b>, </b><a href="#cse_for">for</a>, <a href="#cse_while">while</a>, and <a href="#cse_dowhile">dowhile</a> statements.</p>
+
+<p><a href="#cse_syntax">Script Syntax overview</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cse_exp_st"></a>
+<div class="GenSectTitle">
+<h2>CSE Script syntax:  expression statement</h2>
+</div>
+
+<p>The <i>expression statement</i> contains a <a href="ce_syntax.html">CalcExpress expression</a> that needs to be evaluated. It must end with a semicolon <span style="white-space:nowrap;">( <b>;</b> )</span>, which serves as the statement terminator.</p>
+
+<h3>Syntax</h3>
+<p class="StatementSyntax">
+<i>expression </i><b>;</b>
+</p>
+
+<p>The <i>expression</i> can be any valid CalcExpress expression. There are no restrictions on the data type of an <i>expression</i>.</p>
+
+<p>Expression statements do not affect the order of statement execution. After an expression statement has been executed, control passes to the next statement in the script.</p>
+
+<h3>Example</h3>
+<p class="StatementExample">
+w = rad(45), t = 0.7, f = 10;            /*it's one statement*/<br>
+x = nvecifn(0, pi(2), 1000);<br>
+y = exp(-t*x) * sin(f*x+w);<br>
+XYGraph(0, x, y,&quot;Damping oscillation&quot;);  /*function shows a graph*/<br>
+</p>
+<p>&nbsp;</p>
+
+<p><a href="#cse_syntax">Script Syntax overview</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="cse_comp_st"></a>
+<div class="GenSectTitle">
+<h2>CSE Script syntax:  compound statement</h2>
+</div>
+
+<p>The <i>compound statement</i> (also called a block) groups multiple statements into a single statement. It is typically used to execute multiple statements in the body of another statement, such as the <a href="#cse_if">if</a><b>, </b><a href="#cse_for">for</a>, <a href="#cse_while">while</a>, and <a href="#cse_dowhile">dowhile</a> statements.</p>
+
+<h3>Syntax</h3>
+<p class="StatementSyntax">
+<b>{</b><i> list-of-statements </i><b>}</b>
+</p>
+
+<p>The <i>list-of-statements</i> is a set of any valid statements (including the <i>compound statements</i>).</p>
+<p>&nbsp;</p>
+
+<h3>Example</h3>
+<p class="StatementExample">
+/*<br>
+If cmd equals &quot;erf&quot; all statements inside the compound statement are executed in the order.<br>
+*/<br>
+if (cmd == &quot;erf&quot;) {<br>
+   x0 = 0, dx = 0.1;<br>
+   x  = nvecifs(x0, 5, dx);<br>
+   y  = erf(x);<br>
+   WFGraph(0, y, x0, dx, &quot;y = erf(x)&quot;);<br>
+}
+</p>
+<p>&nbsp;</p>
+
+<p><a href="#cse_syntax">Script Syntax overview</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+</body>
+</html>

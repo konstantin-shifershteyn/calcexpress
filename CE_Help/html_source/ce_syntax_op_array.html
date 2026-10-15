@@ -1,0 +1,864 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>Array Indexation</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+<style>
+table.IdxMoreList  { border:0; cellspacing:0; cellpadding:0; margin:-2pt 0pt 0pt 0pt; border-collapse:collapse; }
+td.IdxMoreListCol  { valign:top; padding:0pt 20pt 0pt 0pt; }
+ul.DscrSect { margin:0pt 0pt 0pt 0pt; padding:0pt 0pt 0pt 0pt; }
+li.DscrSect { margin:0pt 0pt 0pt 0pt; padding:0pt 0pt 3pt 0pt; list-style-position:inside; }
+table.TmplTable   { border:0; cellspacing:0; cellpadding:0; margin:0pt 0pt 0pt -5pt; border-collapse:collapse; }
+td.TmplTableCol1  { width:120; valign:top; padding:10pt 5pt 1pt 5pt;  white-space:nowrap; }
+td.TmplTableCol2  { width:210; valign:top; padding:10pt 5pt 1pt 5pt;  white-space:nowrap; }
+td.TmplTableCol3  { width:210; valign:top; padding:10pt 5pt 1pt 5pt;  white-space:nowrap; }
+td.TmplTableColX  { width:420; valign:top; padding:10pt 5pt 1pt 5pt;  white-space:nowrap; }
+</style>
+</head>
+
+<body>
+
+<!-- ########################################## -->
+<a name="ce_op_idxrange"></a>
+<div class="GenSectTitle">
+<h2><span class="PageTitleR">IndexRange operator:  :</span></h2>
+</div>
+
+<p>The IndexRange operator uses its operands to build an Index Range. A result of evaluation is an operand with the <a href="dtypes.html#data_types_idxrange">IndexRange data type</a>. It can be used in any context where the IndexRange data type is allowed; e.g. <a href="#ce_op_subscript">Subscript operator</a>, <a href="ce_syntax_op_assignment.html#ce_op_assign">Assignment operator</a>, and IndexRange operator itself.</p>
+
+<h3>Syntax:</h3>
+<p class="StatementSyntax">
+<i>expression1</i> <b>:</b> <i>expression2</i>
+</p>
+
+<h3>Operand data types</h3>
+<div class="FuncDscrSection">
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol">DBL Number</td>
+<td class="FuncDTTblCol"><a href="dtypes.html#data_types_idxrange">IndexRange</a></td>
+</tr>
+</table>
+</div>
+
+<p>If both operands are scalar, the IndexRange operator assigns a value of its left-hand operand (<i>expression1</i>) to initial boundary of the resulting range, and a value of its right-hand operand (<i>expression2</i>) to final boundary of the resulting range.</p>
+<p>If the left-hand operand (<i>expression1</i>) has IndexRange data type, its initial boundary is assigned to initial boundary of the result range.</p>
+<p>If the right-hand operand (<i>expression2</i>) has IndexRange data type, its final boundary is assigned to final boundary of the result range.</p>
+<p><a href="#ce_idxrange_symbols">IndexRange Symbols</a> can be used as operands in order to define initial and final boundaries of an index range.</p>
+<p>DBL numbers are coerced to 32-bit integers to perform the operator.</p>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+1:9    /* index range from 1 up to 9 */<br>
+10:0   /* decremental index range from 10 to 0 */<br>
+7:7    /* index range consist of only single index 7 */<br>
+5:$&gt;   /* index range from 5 up to a top index */<br>
+$&lt;:10  /* decremental index range from a top index to 10 */<br>
+</p>
+</div>
+
+<h3>Related topics</h3>
+<p>
+<a href="dtypes.html#data_types_idxrange">IndexRange data type</a><br>
+<a href="#ce_idxrange_symbols">IndexRange Symbols</a><br>
+<a href="#ce_op_subscript">Subscript Operator</a>
+</p>
+
+<h3>Also see</h3>
+<p>
+<a href="ce_syntax_op.html">CalcExpress Operators</a><br>
+<a href="ce_syntax.html">CalcExpress Syntax</a><br>
+<a href="ce.html">CalcExpress Overview</a>
+</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="ce_idxrange_symbols"></a>
+<div class="GenSectTitle">
+<h2><span class="PageTitleR">IndexRange Symbols:  $&gt;  $&lt;</span></h2>
+</div>
+
+<p>IndexRange Symbols produce an operand of the <a href="dtypes.html#data_types_idxrange">IndexRange data type</a> that specifies entire range of array indexes. You may use these symbols in any context where operands of the IndexRange data type are allowed; e.g. <a href="#ce_op_subscript">Subscript operator</a> and <a href="#ce_op_idxrange">IndexRange Operator</a>.</p>
+<p>The <b>$&gt;</b> symbol specifies an incremental index range from zero up to the maximum possible value of an array index (<b>2<sup>31</sup>-1</b>) with the step of 1. The <b>$&gt;</b> symbol produces the same value as the 0<b>:</b>0x7FFFFFFF expression.</p>
+<p>The <b>$&lt;</b> symbol specifies a decremental index range from the maximum possible value of an array index (<b>2<sup>31</sup>-1</b>) to zero with the step of -1. The <b>$&lt;</b> symbol produces the same value as the 0x7FFFFFFFF<b>:</b>0 expression.</p>
+<p>You can safely use the IndexRange Symbols in the Subscript operator. CalcExpress adjusts the boundaries of an index range to the array size (dimension size for 2D arrays). That is, if a boundary value is greater than the top index (array size - 1), it is forced to the top index value.</p>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+vec = vector(1,3,5,7); /* vec is 1D array {1,3,5,7} */<br>
+v1  = vec[$&lt;];         /* v1 equals {7,5,3,1} */<br>
+v1[$&gt;] = 0;            /* v1 equals {0,0,0,0} */<br>
+         /* Note: it can't be written as v1=0 */<br>
+<br>
+v1[2:$&gt;] = vec;        /* v1 equals {0,0,1,3} */<br>
+v1[$&lt;:1] = vec;        /* v1 equals {0,5,3,1} */<br>
+v1 = v1[$&lt;];           /* this reverses v1 */<br>
+<br>
+/* mtx is 2D array (5 rows, 3 columns) with zero elements */<br>
+mtx = matrixn(0,5,3);<br>
+<br>
+mtx[$&gt;,0] = 2;      /* zero column is {2,2,2,2,2} */<br>
+mtx[2,$&gt;] = vec;    /* 2nd row is {1,3,5} */<br>
+mtx = mtx[$&gt;,$&lt;];   /* this reverses order of columns */<br>
+</p>
+</div>
+
+<h3>Related topics</h3>
+<p>
+<a href="dtypes.html#data_types_idxrange">IndexRange data type</a><br>
+<a href="#ce_op_idxrange">IndexRange Operator</a><br>
+<a href="#ce_op_subscript">Subscript Operator</a>
+</p>
+
+<h3>Also see</h3>
+<p>
+<a href="ce_syntax_op.html">CalcExpress Operators</a><br>
+<a href="ce_syntax.html">CalcExpress Syntax</a><br>
+<a href="ce.html">CalcExpress Overview</a>
+</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="ce_op_subscript"></a>
+<div class="GenSectTitle">
+<h2><span class="PageTitleR">Subscript operator:  [  ]</span></h2>
+</div>
+
+<p>The Subscript operator is used to access array elements. It allows accessing a single element as well as any subset of array elements.</p>
+
+<h3>Syntax:</h3>
+<p class="StatementSyntax">
+<i>array-exp</i><b> </b><b>[ </b><i>index-exp </i><b>]</b>
+<br>
+<i>array-exp</i><b> </b><b>[ </b><i>index-exp1 separator</i><b> </b><i>index-exp2 </i><b>]</b>
+</p>
+
+<p>The first syntax form is used to access elements in both <a href="#ce_op_subscript_1d">1D arrays</a> and <a href="#ce_op_subscript_2d">2D arrays</a>. The second form is only used to access elements in 2D arrays.</p>
+<p><b><i>array-exp</i></b> is an expression that has one of the <a href="dtypes.html#data_types_predefined">array data types</a>. If <i>array-exp</i> is a variable name, the variable is called the indexed-variable. Only indexed-variables are allowed as left-hand operands in the assignment operators. In other cases, the <i>array-exp</i> can be any valid expression of an array data type.</p>
+<p><b><i>index-exp</i></b> is an expression that specifies an index, an array of indexes (<a href="#ce_op_subscript_idxarr">Index Array</a>), or a range of indexes (<a href="#ce_op_subscript_idxrange">Index Range</a>) to access element(s) in an array. If the second form of the Subscript operator is used, the first index expression (<i>index-exp1</i>) specifies row(s) of 2D array, and the second (<i>index-exp2</i>) specifies column(s). Formally, an index expression can have one of the following data types:</p>
+
+<div class="FuncDscrSection">
+<table class="FuncDTTbl">
+<tr>
+<td class="FuncDTTblCol">DBL Number</td>
+<td class="FuncDTTblCol">1D Array of DBL</td>
+<td class="FuncDTTblCol">IndexRange</td>
+</tr>
+</table>
+</div>
+
+<p>Indexes are considered as 32-bit integer values; CalcExpress converts DBL numbers to integer indexes to perform the Subscript operator. The lowest index, which refers to the first element of an array (a dimension for 2D arrays), is zero (0). The index of the last element of an array is equal to the array size - 1 (similar for dimensions). Reading a value of an array element beyond the array bounds results in a default value (depending on the data type of the array elements, it can be zero, complex zero, or an empty string). An attempt to assign a value to an out-of-bounds element does not cause any changes (it is ignored).</p>
+<p><b><i>separator</i></b> is a punctuator that separates the first index expression from the second if the second syntax form of the Subscript operator is used (2D arrays). You can use either a comma or the <b>@</b> character as the <i>separator</i>. The difference is a result of indexing when both index-expressions are an Index Range or an Index Array. For more information see <a href="#ce_op_subscript_2d">Subscript Operator for 2D Arrays</a> topic.</p>
+
+<h3>For more information see</h3>
+<div class="FuncDscrSection">
+<p>
+<table class="IdxMoreList">
+<tr>
+<td class="IdxMoreListCol"><a href="#ce_op_subscript_1d">Subscript Operator for 1D Arrays</a></td>
+<td class="IdxMoreListCol"><a href="#ce_op_subscript_1d_templ">Templates to subscript 1D Arrays</a></td>
+</tr>
+<tr>
+<td class="IdxMoreListCol"><a href="#ce_op_subscript_2d">Subscript Operator for 2D Arrays</a></td>
+<td class="IdxMoreListCol"><a href="#ce_op_subscript_2d_templ">Templates to subscript 2D Arrays</a></td>
+</tr>
+<tr>
+<td class="IdxMoreListCol"><a href="#ce_op_subscript_idxrange">Subscript with Index Ranges</a></td>
+<td class="IdxMoreListCol"></td>
+</tr>
+<tr>
+<td class="IdxMoreListCol"><a href="#ce_op_subscript_idxarr">Subscript with Index Arrays</a></td>
+<td class="IdxMoreListCol"></td>
+</tr>
+</table>
+</p>
+</div>
+
+<h3>Related topics</h3>
+<p>
+<a href="#ce_op_idxrange">IndexRange Operator</a><br>
+<a href="#ce_idxrange_symbols">IndexRange Symbols</a>
+</p>
+
+<h3>Also see</h3>
+<p>
+<a href="ce_syntax_op.html">CalcExpress Operators</a><br>
+<a href="ce_syntax.html">CalcExpress Syntax</a><br>
+<a href="ce.html">CalcExpress Overview</a>
+</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="ce_op_subscript_1d"></a>
+<div class="GenSectTitle">
+<h2><span class="PageTitleR">Subscript operator:  1D Arrays</span></h2>
+</div>
+
+<p>This topic describes the particularities of using the Subscript operator to access elements in 1D arrays. For general information, refer to the <a href="#ce_op_subscript">Subscript operator</a> topic. In addition, see <a href="#ce_op_subscript_1d_templ">Templates to subscript 1D Arrays</a>.</p>
+
+<h3>Terms used in this topic</h3>
+<ul class="DscrSect">
+<li class="DscrSect">The &quot;index&quot; term is often used instead of &quot;index expression&quot; but you should keep in mind that you can use any valid expression within brackets [] to specify an index.</li>
+<li class="DscrSect">The &quot;<i>accessible subset</i>&quot; term is used to designate a set of array elements that you get access to when performing the Subscript operator.</li>
+<li class="DscrSect">The &quot;<i>scalar-value</i>&quot; term is used here to designate both numeric scalars and strings. Formally, it designates the following <a href="dtypes.html#data_types_predefined">predefined data types</a>: DBL Number, CDB Number, and String. </li>
+</ul>
+
+<h3>Syntax:</h3>
+<p class="StatementSyntax">
+<i>array-exp</i> <b>[</b> <i>index-exp</i> <b>]</b>
+</p>
+
+<p>An index expression (<i>index-exp</i>) can produce scalar index, <a href="#ce_op_subscript_idxarr">Index Array</a>, or <a href="#ce_op_subscript_idxrange">Index Range</a>. The data type of an index affects the dimensionality of <i>accessible subset</i> in an array.</p>
+
+<ul class="DscrSect">
+<li class="DscrSect">If an index is a scalar, an <i>accessible subset</i> is <i>scalar-value</i>. It is equal to an element of an array located in the position specified by the index.</li>
+<li class="DscrSect">If an index is an <a href="#ce_op_subscript_idxrange">Index Range</a>, an <i>accessible subset</i> is 1D array that consists of sequential elements of an original array. The Index Range specifies starting index and size of the <i>accessible subset</i>. Note that Index Ranges are always coersed to array size, so size of an <i>accessible subset</i> can differ from specified.</li>
+<li class="DscrSect">If an index is an <a href="#ce_op_subscript_idxarr">Index Array</a>, an <i>accessible subset</i> is 1D array. Size of the <i>accessible subset</i> is the same as size of the Index Array. Each element of the <i>accessible subset</i> is equal to an element of an original array located in the position specified by the respective element of Index Array. Note that <i>accessible subset</i> can consist of arbitrary (non-sequential) elements of an array.</li>
+</ul>
+
+<h3>Evaluations</h3>
+<p>A result of evaluation has the same value and type as <i>accessible subset</i>. If an index is out of range, the corresponding element of a result has a default value (zero for numbers or empty for strings).</p>
+
+<h3>Assignments</h3>
+<p>If an <i>accessible subset</i> is a <i>scalar-value</i>, it is only possible to assign a <i>scalar-value</i> to it. Input value must have the same type as elements of an original array. If an index refers to an element beyond bounds of an original array, an assignment is not performed.</p>
+<p>If an <i>accessible subset</i> is 1D array, you can assign either a <i>scalar-value</i> or 1D array to it. Input value (or its elements) must have the same data type as elements of an original array.</p>
+<ul class="DscrSect">
+<li class="DscrSect">If you assign a <i>scalar-value</i>, each element of <i>accessible subset</i> takes its value.</li>
+<li class="DscrSect">If you assign a 1D array, each element of <i>accessible subset</i> takes a value of respective element of the input array. If size of <i>accessible subset</i> and size of input array are different, the number of assignments equals the smallest of them.</li>
+</ul>
+<p>If an index refers to an element beyond bounds of an original array, an assignment is not performed; herewith, the respective element of an input value, if it is an array, is skipped.</p>
+
+<h3>Evaluation Examples</h3>
+<p><img src="image/array_1d [n].png"></p>
+
+<h3>Assignment Examples</h3>
+<p><img src="image/array_1d [n] = val.png"></p>
+<p>&nbsp;</p>
+
+<h3>Related topics</h3>
+<p>
+<a href="#ce_op_subscript_1d_templ">Templates to subscript 1D Arrays</a><br>
+<a href="#ce_op_subscript">Subscript Operator</a><br>
+<a href="#ce_op_idxrange">IndexRange Operator</a><br>
+<a href="#ce_idxrange_symbols">IndexRange Symbols</a>
+</p>
+
+<h3>Also see</h3>
+<p>
+<a href="ce_syntax_op.html">CalcExpress Operators</a><br>
+<a href="ce_syntax.html">CalcExpress Syntax</a><br>
+<a href="ce.html">CalcExpress Overview</a>
+</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="ce_op_subscript_2d"></a>
+<div class="GenSectTitle">
+<h2><span class="PageTitleR">Subscript operator:  2D Arrays</span></h2>
+</div>
+
+<p>This topic describes the particularities of using the Subscript operator to access elements in 2D arrays. For general information, refer to the <a href="#ce_op_subscript">Subscript operator</a> topic. In addition, see <a href="#ce_op_subscript_2d_templ">Templates to subscript 2D Arrays</a>.</p>
+
+<h3>Terms used in this topic</h3>
+<ul class="DscrSect">
+<li class="DscrSect">The &quot;index&quot; term is often used instead of &quot;index expression&quot; but you should keep in mind that you can use any valid expression within brackets [] to specify an index.</li>
+<li class="DscrSect">The &quot;<i>accessible subset</i>&quot; term is used to designate a set of array elements that you get access to when performing the Subscript operator.</li>
+<li class="DscrSect">The &quot;<i>scalar-value</i>&quot; term is used here to designate both numeric scalars and strings. Formally, it designates the following <a href="dtypes.html#data_types_predefined">predefined data types</a>: DBL Number, CDB Number, and String. </li>
+</ul>
+
+<p>Typically, to subscript a 2D array, you specify two index expressions in Subscript operator. The first index specifies row(s), and the second specifies column(s). You can omit the second index to access whole row(s).</p>
+
+<h3>Syntax:</h3>
+<p class="StatementSyntax">
+<i>array-exp</i><b> </b><b>[</b> <i>index-exp1</i><b>  ,  </b><i>index-exp2</i> <b>]</b><br>
+<i>array-exp</i><b> </b><b>[</b> <i>index-exp1</i><b>  @  </b><i>index-exp2</i> <b>]</b><br>
+<i>array-exp</i><b> </b><b>[</b> <i>index-exp</i> <b>]</b>
+</p>
+
+<p>Typically a comma is used to separate indexes in the Subscript operator. However, you can use the @ character for this purpose. The use of the @ character has the same effect as use of the comma except if both indexes are non-scalar.</p>
+
+<p>An index expression can produce scalar index, <a href="#ce_op_subscript_idxarr">Index Array</a>, or <a href="#ce_op_subscript_idxrange">Index Range</a>. Combination of index data types affects the dimensionality of <i>accessible subset</i> in an array.</p>
+
+<ul class="DscrSect">
+<li class="DscrSect">If both indexes are scalars, you have access to a single element in an array.</li>
+<li class="DscrSect">If only one index is a scalar, you have access to 1D subset of an array. It can be a row, a column, or a subset of either of them.</li>
+<li class="DscrSect">If both indexes are an Index Array and/or an Index Range, the dimensionality of <i>accessible subset</i> depends on the used syntax form. It is 2D subset if the first form is used (comma is an index separator), and it is 1D subset if the second form is used (@ is an index separator).</li>
+</ul>
+
+<p>Further description is in order of index type combinations. It includes the following items:</p>
+<ul class="DscrSect">
+<li class="DscrSect"><a href="#ce_op_subscript_2d_s-s">Both indexes are scalar</a></li>
+<li class="DscrSect"><a href="#ce_op_subscript_2d_s-a">One index is non-scalar</a></li>
+<li class="DscrSect"><a href="#ce_op_subscript_2d_a-a">Both indexes are non-scalar</a></li>
+<li class="DscrSect"><a href="#ce_op_subscript_2d_1idx">One index is used</a></li>
+</ul>
+<p>&nbsp;</p>
+
+<!----------------->
+<a name="ce_op_subscript_2d_s-s"></a>
+<hr align=left width="50%" style="border:1pt solid black;">
+<h2>Both indexes are scalar</h2>
+<p>If both indexes are scalar, you have access to a single element of an array.</p>
+
+<h3>Evaluations</h3>
+<p>A result of evaluation is an element of array that is located in row specified by the first index and in the column specified by the second index. If any index is out of range (depends on size of corresponding dimension), a result of evaluation is default (zero for numbers or empty for strings).</p>
+
+<h3>Assignments</h3>
+<p>You can only assign a <i>scalar-value</i> to an array element. Input value must have the same data type as elements of an original array. Nothing happens if any of specified indexes is out of range.</p>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+x = M[2,3];<br>
+M[0,5] = 100;
+</p>
+</div>
+<p>&nbsp;</p>
+
+<!----------------->
+<a name="ce_op_subscript_2d_s-a"></a>
+<hr align=left width="50%" style="border:1pt solid black;">
+<h2>One index is non-scalar</h2>
+<p>If one index is scalar and the other is either an <a href="#ce_op_subscript_idxarr">Index Array</a> or an <a href="#ce_op_subscript_idxrange">Index Range</a>, you have access to 1D subset of an original 2D array. An index, which is scalar, specifies either a row or a column of an original array in dependence on its position. Another index specifies a set of indexes to access elements of other dimension.</p>
+<p>To access array elements, indexes are considered as a set of <i>index-pairs</i> (row,column) that specifies an <i>accessible subset</i> of array elements. If the first index is scalar, the row is constant, and the column takes sequential values specified by the second index. If the second index is scalar, the column is constant. Number of <i>index-pairs</i> is the same as size a non-scalar index either has (Index Array) or specifies (Index Range). Size of <i>accessible subset</i> equals the number of <i>index-pairs</i>.</p>
+
+<h3>General Notes</h3>
+<ul class="DscrSect">
+<li class="DscrSect">Index Ranges are always coerced to a dimension size, so size of an <i>accessible subset</i> can differ from the specified.</li>
+<li class="DscrSect">If an index expression is an Index Array, elements of the Index Array are used to form <i>index-pairs</i>. Therefore, an <i>accessible subset</i> can refer to an arbitrary (non-sequential) subset of elements in an original array.</li>
+</ul>
+
+<h3>Evaluations</h3>
+<p>A result of evaluation is 1D array that is equal to an <i>accessible subset</i>. If an <i>index-pair</i> refers to an element beyond bounds of an original array, the respective element of a result array has a default value (zero for numbers or empty for strings).</p>
+
+<h3>Assignments</h3>
+<p>An <i>accessible subset</i> is similar to 1D array; you can assign a 1D array to it as well as assign a <i>scalar-value</i>. Elements of an input value must have the same data type as elements of an original array.</p>
+<ul class="DscrSect">
+<li class="DscrSect">If you assign a <i>scalar-value</i>, each element of <i>accessible subset</i> takes its value.</li>
+<li class="DscrSect">If you assign a 1D array, each element of <i>accessible subset</i> takes a value of the respective element of the input array. If size of <i>accessible subset</i> and size of input array are different, the number of assignments equals the smallest of them.</li>
+<li class="DscrSect">If an <i>index-pair</i> refers to an element beyond bounds of an original array, an assignment is not performed; herewith, the respective element of an input value, if it is an array, is skipped.</li>
+</ul>
+
+<h3>Evaluation Examples</h3>
+<p><img src="image/array_2d [n,ar].png"></p>
+
+<h3>Assignment Examples</h3>
+<p><img src="image/array_2d [n,ar] = val.png"></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<!----------------->
+<a name="ce_op_subscript_2d_a-a"></a>
+<hr align=left width="50%" style="border:1pt solid black;">
+<h2>Both indexes are non-scalar</h2>
+<p>If both indexes are an <a href="#ce_op_subscript_idxarr">Index Array</a> and/or an <a href="#ce_op_subscript_idxrange">Index Range</a>, the dimensionality of <i>accessible subset</i> depends on the used syntax form. There are two forms that are similar except used index separator. </p>
+
+<p><b>array[index1 </b><b>,</b><b> index2]</b></p>
+
+<p>The comma separator is used to specify a 2D <i>accessible subset</i> of an original 2D array. The first index specifies row indexes; the second specifies column indexes. Number of rows of an <i>accessible subset</i> is equal to the size the first index either has (for Index Array) or specifies (for Index Range). Number of columns of an <i>accessible subset</i> is equal to the size the second index either has (Index Array) or specifies (Index Range).</p>
+
+<p><b>array[index1 @</b><b> index2]</b></p>
+
+<p>The @ separator is used to specify a 1D <i>accessible subset</i> of an original 2D array. Indexes are considered as a set of <i>index-pairs</i> (row,column) that consist of respective elements of indexes; herewith, elements of the first index specify rows in the <i>index-pairs</i>, and elements of the second index specify columns. Number of <i>index-pairs</i> equals the smallest size the indexes have (for Index Arrays) or specify (for Index Ranges). Size of <i>accessible subset</i> equals the number of <i>index-pairs</i>.</p>
+
+<h3>General Notes</h3>
+<ul class="DscrSect">
+<li class="DscrSect">Index Ranges are always coerced to a dimension size, so size of an <i>accessible subset</i> can differ from the specified.</li>
+<li class="DscrSect">If an index expression is an Index Array, elements of the Index Array are used to form <i>index-pairs</i>. Therefore, an <i>accessible subset</i> can refer to an arbitrary (non-sequential) subset of elements of an original array.</li>
+</ul>
+
+<h3>Evaluations</h3>
+<p>A result of evaluation is equal to an <i>accessible subset</i>. It is 2D array, if the first syntax form is used (comma is separator), and it is 1D array, if the second form is used (@ is separator). If an element of an index is out of range, the respective element of a result array has a default value (zero for numbers or empty for strings).</p>
+
+<h3>Assignments</h3>
+<p>For the first syntax form, an <i>accessible subset</i> has two dimensions (2D), so you can assign a <i>scalar-value</i>, 1D array, or 2D array to it. For the second syntax form, an <i>accessible subset</i> has one dimension (1D), so you can only assign either a <i>scalar-value</i> or 1D array to it. Elements of an input value must have the same data type as elements of an original array.</p>
+<ul class="DscrSect">
+<li class="DscrSect">If you assign a <i>scalar-value</i>, each element of <i>accessible subset</i> takes its value.</li>
+<li class="DscrSect">If you assign a 1D array, each element of <i>accessible subset</i> takes a value of the respective element of an input array. If size of <i>accessible subset</i> and size of the input array are different, the number of assignments equals the smallest of them. If an <i>accessible subset</i> is 2D, input array is assigned to rows; after an assignment is completed, all rows of an <i>accessible subset</i> have the same value.</li>
+<li class="DscrSect">If you assign a 2D array (only for the first syntax form), elements of an input array are assigned to the respective elements of an <i>accessible subset</i>. Number of assignments depends on the smallest numbers of rows and columns in an <i>accessible subset</i> and in input array.</li>
+<li class="DscrSect">If an element of an index is out of range, an assignment is not performed; herewith, the respective element of an input value, if it is an array, is skipped.</li>
+</ul>
+
+<h3>Evaluation Examples</h3>
+<p><img src="image/array_2d [ar,ar].png"></p>
+
+<h3>Assignment Examples</h3>
+<p><img src="image/array_2d [ar,ar] = val.png"></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<!----------------->
+<a name="ce_op_subscript_2d_1idx"></a>
+<hr align=left width="50%" style="border:1pt solid black;">
+<h2>One index is used</h2>
+<p>You can omit the second index in the Subscript operator to access entire row(s) in a 2D array:</p>
+
+<p><b>array[index]</b></p>
+
+<p>This form is similar to the expression: array[index,$&gt;]. It assumes that the second index is an Index Range that specifies all columns, and it means access to the entire row(s) specified by the index. For more information, see <a href="#ce_idxrange_symbols">IndexRange Symbols</a> topic.</p>
+<p>If the index is scalar, an <i>accessible subset</i> is 1D array, and it submits rules described in <a href="#ce_op_subscript_2d_s-a">One index is non-scalar</a> item in this section. If the index is non-scalar, an <i>accessible subset</i> is 2D array, and it submits rules described in <a href="#ce_op_subscript_2d_a-a">Both indexes are non-scalar</a> item in this section.</p>
+
+<h3>Evaluation Examples</h3>
+<p><img src="image/array_2d [row].png"></p>
+
+<h3>Assignment Examples</h3>
+<p><img src="image/array_2d [row] = val.png"></p>
+<p>&nbsp;</p>
+
+<h3>Related topics</h3>
+<p>
+<a href="#ce_op_subscript_2d_templ">Templates to subscript 2D Arrays</a><br>
+<a href="#ce_op_subscript">Subscript Operator</a><br>
+<a href="#ce_op_idxrange">IndexRange Operator</a><br>
+<a href="#ce_idxrange_symbols">IndexRange Symbols</a>
+</p>
+
+<h3>Also see</h3>
+<p>
+<a href="ce_syntax_op.html">CalcExpress Operators</a><br>
+<a href="ce_syntax.html">CalcExpress Syntax</a><br>
+<a href="ce.html">CalcExpress Overview</a>
+</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="ce_op_subscript_idxrange"></a>
+<div class="GenSectTitle">
+<h2><span class="PageTitleR">Subscript operator: using Index Ranges</span></h2>
+</div>
+
+<p><a href="#ce_op_subscript">Subscript operator</a> allows specifying a range of indexes (Index Range) to access sequential elements in an array. If an Index Range is used as an index in Subscript operator, CalcExpress sequentially uses indexes of the specified range to access elements of an array.</p>
+
+<p>If an Index Range is used as an index in a Subscript operator, CalcExpress coerces boundaries of an index range to the valid values. If a boundary is less than 0 it is coerced to zero. If a boundary is greater than or equal to the array size, it is coerced to the array size - 1. Boundaries are inclusive, so an Index Range always specifies at least one element of an array unless it is empty.</p>
+<p>An Index Range has an <a href="dtypes.html#data_types_idxrange">IndexRange data type</a> and is produced by <a href="#ce_op_idxrange">IndexRange Operator</a>, <a href="#ce_idxrange_symbols">IndexRange Symbols</a>, and IndexRange Functions.</p>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+V = vector(&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;d&quot;,&quot;e&quot;,&quot;f&quot;); /* V is 1D Array of Strings */<br>
+<br>
+tmp = V[0:2];          /* tmp is 1D Array of Strings {a , b , c} */<br>
+V[0:2] = &quot;-&quot;;                /* V now is {- , - , - , d , e , f} */<br>
+V[3:$&gt;]= vector(&quot;X&quot;,&quot;Y&quot;,&quot;Z&quot;);/* V now is {- , - , - , X , Y , Z} */<br>
+V[$&gt;] = tmp;                 /* V now is {a , b , c , X , Y , Z} */<br>
+V = V[$&lt;];  /* this reverses V, V now is {Z , Y , X , c , b , a} */<br>
+</p>
+</div>
+<p>&nbsp;</p>
+
+<h3>Related topics</h3>
+<p>
+<a href="#ce_op_subscript">Subscript Operator</a><br>
+<a href="#ce_op_idxrange">IndexRange Operator</a><br>
+<a href="#ce_idxrange_symbols">IndexRange Symbols</a>
+</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="ce_op_subscript_idxarr"></a>
+<div class="GenSectTitle">
+<h2><span class="PageTitleR">Subscript operator: using Index Arrays</span></h2>
+</div>
+
+<p><a href="#ce_op_subscript">Subscript operator</a> allows using array of indexes (Index Array) to access elements in an array. This feature makes it possible to access arbitrary elements in an array in the order of their interest.</p>
+
+<p>If an Index Array is used as an index in the Subscript operator, CalcExpress sequentially uses elements of the Index Array as indexes to access elements in an original array. If an index is out of the range valid for the original array, it is ignored.</p>
+<p>Formally, an Index Array must have the 1D Array of DBL data type; however its elements are coerced to 32-bit integers to perform the operation.</p>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+V = vector(&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;d&quot;,&quot;e&quot;,&quot;f&quot;); /* V is 1D Array of Strings */<br>
+<br>
+ia = vector(0,2,4);          /* Index Array: {0,2,4) */<br>
+out = V[ia];                 /* out is 1D Array of Strings {a,c,e} */<br>
+V[ia] = &quot;=&quot;;                 /* V now is {= , b , = , d , = , f} */<br>
+V[ia] = vector(&quot;X&quot;,&quot;Y&quot;,&quot;Z&quot;); /* V now is {X , b , Y , d , Z , f} */<br>
+<br>
+ia = vector(ia, ia+1);       /* Index Array: {0,2,4,1,3,5} */<br>
+V  = V[ia];                  /* V now is {X , Y , Z , b , d , f} */<br>
+<br>
+ia = vector(3,4,5,99);       /* Index Array: {3,4,5,99} */<br>
+out = V[ia];                 /* out now is {b,d,f, &lt;empty string&gt; */<br>
+V[ia] = &quot;*&quot;;                 /* V now is {X , Y , Z , * , * , * } */<br>
+</p>
+</div>
+<p>&nbsp;</p>
+
+<hr align=left width="50%" style="border:1pt solid black;">
+<h2>Explanation of using Index Array</h2>
+
+<p>a few use-cases of subscript operator with index arrays are explained below</p>
+<p>&nbsp;</p>
+
+<h3>Extracting elements of 1D Array</h3>
+
+<p><i>CalcExpress expression</i></p>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+V = X[IdxArr] /* X is 1D array; IdxArr is Index Array */<br>
+</p>
+</div>
+<p><i>Pseudo Code</i></p>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+if (V does't exist) create V;<br>
+resize V to size(IdxArr)<br>
+for (i=0; i&lt;size(IdxArr); i++) {<br>
+  idx = IdxArr[i];<br>
+  if ((idx &gt;= 0) &amp;&amp; (idx &lt; size(X))<br>
+    V[i] = X[idx];<br>
+  else<br>
+    V[i] = default; /* 0 for numbers, empty for strings */<br>
+}<br>
+</p>
+</div>
+
+<h3>Assigning a scalar-value to elements of 1D Array</h3>
+
+<p><i>CalcExpress expression</i></p>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+X[IdxArr] = n /* X is 1D array; IdxArr is Index Array */<br>
+</p>
+</div>
+<p><i>Pseudo Code</i></p>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+for (i=0; i&lt;size(IdxArr); i++) {<br>
+  idx = IdxArr[i];<br>
+  if ((idx &gt;= 0) &amp;&amp; (idx &lt; size(X))<br>
+    X[idx] = n;<br>
+}<br>
+</p>
+</div>
+
+<h3>Assigning values to elements of 1D Array</h3>
+
+<p><i>CalcExpress expression</i></p>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+X[IdxArr] = V /* X and V are 1D arrays; IdxArr is Index Array */<br>
+</p>
+</div>
+<p><i>Pseudo Code</i></p>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+size = min( size(IdxArr), size(V));<br>
+for (i=0; i&lt;size; i++) {<br>
+  idx = IdxArr[i];<br>
+  if ((idx &gt;= 0) &amp;&amp; (idx &lt; size(X))<br>
+    X[idx] = V[i];<br>
+}<br>
+</p>
+</div>
+<p>&nbsp;</p>
+
+<h3>Related topics</h3>
+<p>
+<a href="#ce_op_subscript">Subscript Operator</a><br>
+</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="ce_op_subscript_1d_templ"></a>
+<div class="GenSectTitle">
+<h2><span class="PageTitleR">Templates to subscript 1D Arrays</span></h2>
+</div>
+
+<table class="TmplTable">
+<tr>
+<td class="TmplTableCol1"><b>single element</b></td>
+<td class="TmplTableCol2"><b>Expression</b></td>
+</tr>
+<tr>
+<td class="TmplTableCol1"><img src="image/exmpl_1d-scalar.png"></td>
+<td class="TmplTableCol2">array[idx]</td>
+</tr>
+</table>
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+<p>&nbsp;</p>
+</div>
+
+<table class="TmplTable">
+<tr>
+<td class="TmplTableCol1"><b>1D subset</b></td>
+<td class="TmplTableCol2"><b>Expression</b><br><i>access in direct order</i></td>
+<td class="TmplTableCol3"><b>Expression</b><br><i>access in reverse order</i></td>
+</tr>
+<tr>
+<td class="TmplTableCol1"><img src="image/exmpl_1d-entire.png"></td>
+<td class="TmplTableCol2">array<br>array[$&gt;]</td>
+<td class="TmplTableCol3">array[$&lt;]</td>
+</tr>
+<tr>
+<td class="TmplTableCol1"><img src="image/exmpl_1d-mid.png"></td>
+<td class="TmplTableCol2">array[idx1:idx2]</td>
+<td class="TmplTableCol3">array[idx2:idx1]</td>
+</tr>
+<tr>
+<td class="TmplTableCol1"><img src="image/exmpl_1d-end.png"></td>
+<td class="TmplTableCol2">array[idx:$&gt;]</td>
+<td class="TmplTableCol3">array[$&lt;:idx]</td>
+</tr>
+<tr>
+<td class="TmplTableCol1"><img src="image/exmpl_1d-beg.png"></td>
+<td class="TmplTableCol2">array[0:idx]</td>
+<td class="TmplTableCol3">array[idx:0]</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<h3>Related topics</h3>
+<p>
+<a href="#ce_op_subscript_2d_templ">Templates to subscript 2D Arrays</a><br>
+<a href="#ce_op_subscript">Subscript Operator</a><br>
+<a href="#ce_op_idxrange">IndexRange Operator</a><br>
+<a href="#ce_idxrange_symbols">IndexRange Symbols</a>
+</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<!-- ########################################## -->
+<a name="ce_op_subscript_2d_templ"></a>
+<div class="GenSectTitle">
+<h2><span class="PageTitleR">Templates to subscript 2D Arrays</span></h2>
+</div>
+
+<p>&nbsp;</p>
+<p>Links for quick access:  <a href="#ce_op_subscript_2d_templ_r">rows</a> ; <a href="#ce_op_subscript_2d_templ_c">columns</a> ; <a href="#ce_op_subscript_2d_templ_d">diagonals</a> ; <a href="#ce_op_subscript_2d_templ_a">sub-arrays</a></p>
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+<p>&nbsp;</p>
+</div>
+
+
+<table class="TmplTable">
+<tr>
+<td class="TmplTableCol1"><b>single element</b></td>
+<td class="TmplTableCol2"><b>Expression</b></td>
+<td class="TmplTableCol3"></td>
+</tr>
+<tr>
+<td class="TmplTableCol1"><img src="image/exmpl_2d-scalar.png"></td>
+<td class="TmplTableCol2">array[row , column]</td>
+<td class="TmplTableCol3"></td>
+</tr>
+</table>
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+<p>&nbsp;</p>
+</div>
+
+<p><a name="ce_op_subscript_2d_templ_r"></a></p>
+
+<table class="TmplTable">
+<tr>
+<td class="TmplTableCol1"><b>1D subset</b></td>
+<td class="TmplTableCol2"><b>Expression</b><br><i>access in direct order</i></td>
+<td class="TmplTableCol3"><b>Expression</b><br><i>access in reverse order</i></td>
+</tr>
+<tr>
+<td class="TmplTableCol1"><img src="image/exmpl_row.png"></td>
+<td class="TmplTableCol2">array[row , $&gt;] <br>  array[row]</td>
+<td class="TmplTableCol3">array[row , $&lt;]</td>
+</tr>
+<tr>
+<td class="TmplTableCol1"><img src="image/exmpl_row-end.png"></td>
+<td class="TmplTableCol2">array[row , C:$&gt;]</td>
+<td class="TmplTableCol3">array[row , $&lt;:C]</td>
+</tr>
+<tr>
+<td class="TmplTableCol1"><img src="image/exmpl_row-beg.png"></td>
+<td class="TmplTableCol2">array[row , 0:C]</td>
+<td class="TmplTableCol3">array[row , C:0]</td>
+</tr>
+<tr>
+<td class="TmplTableCol1"><img src="image/exmpl_row-mid.png"></td>
+<td class="TmplTableCol2">array[row , C1:C2]</td>
+<td class="TmplTableCol3">array[row , C2:C1]</td>
+</tr>
+</table>
+
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+<p>&nbsp;</p>
+</div>
+
+<p><a name="ce_op_subscript_2d_templ_c"></a></p>
+
+<table class="TmplTable">
+<tr>
+<td class="TmplTableCol1"><b>1D subset</b></td>
+<td class="TmplTableCol2"><b>Expression</b><br><i>access in direct order</i></td>
+<td class="TmplTableCol3"><b>Expression</b><br><i>access in reverse order</i></td>
+</tr>
+<tr>
+<td class="TmplTableCol1"><img src="image/exmpl_col.png"></td>
+<td class="TmplTableCol2">array[$&gt; , column]</td>
+<td class="TmplTableCol3">array[$&lt; , column]</td>
+</tr>
+<tr>
+<td class="TmplTableCol1"><img src="image/exmpl_col-end.png"></td>
+<td class="TmplTableCol2">array[R:$&gt; , column]</td>
+<td class="TmplTableCol3">array[$&lt;:R , column]</td>
+</tr>
+<tr>
+<td class="TmplTableCol1"><img src="image/exmpl_col-beg.png"></td>
+<td class="TmplTableCol2">array[0:R , column]</td>
+<td class="TmplTableCol3">array[R:0 , column]</td>
+</tr>
+<tr>
+<td class="TmplTableCol1"><img src="image/exmpl_col-mid.png"></td>
+<td class="TmplTableCol2">array[R1:R2 , column]</td>
+<td class="TmplTableCol3">array[R2:R1 , column]
+</td>
+</tr>
+</table>
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+<p>&nbsp;</p>
+</div>
+
+<p><a name="ce_op_subscript_2d_templ_d"></a></p>
+
+<table class="TmplTable">
+<tr>
+<td class="TmplTableCol1"><b>1D subset</b></td>
+<td class="TmplTableCol2"><b>Expression</b><br><i>access in direct order</i></td>
+<td class="TmplTableCol3"><b>Expression</b><br><i>access in reverse order</i></td>
+</tr>
+<tr>
+<td class="TmplTableCol1"><img src="image/exmpl_diag.png"></td>
+<td class="TmplTableCol2">array[$&gt; @ $&gt;]</td>
+<td class="TmplTableCol3">array[$&lt; @ $&lt;]</td>
+</tr>
+<tr>
+<td class="TmplTableCol1"><img src="image/exmpl_diag_other.png"></td>
+<td class="TmplTableCol2">array[$&gt; @ $&lt;]</td>
+<td class="TmplTableCol3">array[$&lt; @ $&gt;]</td>
+</tr>
+<tr>
+<td class="TmplTableCol1"><img src="image/exmpl_diag-end.png"></td>
+<td class="TmplTableCol2">array[N:$&gt; @ N:$&gt;]</td>
+<td class="TmplTableCol3">array[$&lt;:N @ $&lt;:N]</td>
+</tr>
+<tr>
+<td class="TmplTableCol1"><img src="image/exmpl_diag-beg.png"></td>
+<td class="TmplTableCol2">array[0:N @ 0:N]</td>
+<td class="TmplTableCol3">array[N:0 @ N:0]</td>
+</tr>
+<tr>
+<td class="TmplTableCol1"><img src="image/exmpl_diag-mid.png"></td>
+<td class="TmplTableCol2">array[N1:N2 @ N1:N2]</td>
+<td class="TmplTableCol3">array[N2:N1 @ N2:N1]</td>
+</tr>
+<tr>
+<td class="TmplTableCol1"><img src="image/exmpl_diag_main-N.png"></td>
+<td class="TmplTableCol2">array[N:$&gt; @ $&gt;]</td>
+<td class="TmplTableCol3">array[N:$&gt; @ $&gt;][$&lt;]</td>
+</tr>
+<tr>
+<td class="TmplTableCol1"><img src="image/exmpl_diag_main+N.png"></td>
+<td class="TmplTableCol2">array[$&gt; @ N:$&gt;]</td>
+<td class="TmplTableCol3">array[$&gt; @ N:$&gt;][$&lt;]
+</td>
+</tr>
+<tr>
+<td class="TmplTableCol1"><img src="image/exmpl_diag_any.png"></td>
+<td class="TmplTableCol2">array[R1:R2 @ C1:C2]</td>
+<td class="TmplTableCol3">array[R2:R1 @ C2:C1]</td>
+</tr>
+</table>
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+<p>&nbsp;</p>
+</div>
+
+<p><a name="ce_op_subscript_2d_templ_a"></a></p>
+
+<table class="TmplTable">
+<tr>
+<td class="TmplTableCol1"><b>2D subset</b></td>
+<td class="TmplTableColX"><b>Expression</b></td>
+</tr>
+<tr>
+<td class="TmplTableCol1"><img src="image/exmpl_2d-entire.png"></td>
+<td class="TmplTableColX">array<br>array[$&gt;]<br>array[$&gt; , $&gt;]</td>
+</tr>
+<tr>
+<td class="TmplTableCol1"><img src="image/exmpl_subarray.png"></td>
+<td class="TmplTableColX">array[FirstRow:LastRow , FirstColumn:LastColumn]</td>
+</tr>
+<tr>
+<td class="TmplTableCol1"><img src="image/exmpl_rows.png"></td>
+<td class="TmplTableColX">array[FirstRow : LastRow , $&gt;]<br>array[FirstRow : LastRow]</td>
+</tr>
+<tr>
+<td class="TmplTableCol1"><img src="image/exmpl_rows-end.png"></td>
+<td class="TmplTableColX">array[FirstRow : LastRow , FirstColumn : $&gt;]</td>
+</tr>
+<tr>
+<td class="TmplTableCol1"><img src="image/exmpl_rows-beg.png"></td>
+<td class="TmplTableColX">array[FirstRow : LastRow , 0 : LastColumn]</td>
+</tr>
+<tr>
+<td class="TmplTableCol1"><img src="image/exmpl_cols.png"></td>
+<td class="TmplTableColX">array[$&gt; , FirstColumn : LastColumn]</td>
+</tr>
+<tr>
+<td class="TmplTableCol1"><img src="image/exmpl_cols-end.png"></td>
+<td class="TmplTableColX">array[FirstRow : $&gt; , FirstColumn : LastColumn]</td>
+</tr>
+<tr>
+<td class="TmplTableCol1"><img src="image/exmpl_cols-beg.png"></td>
+<td class="TmplTableColX">array[0 : LastRow , FirstColumn : LastColumn]</td>
+</tr>
+</table>
+<p>&nbsp;</p>
+
+<h3>Related topics</h3>
+<p>
+<a href="#ce_op_subscript_1d_templ">Templates to subscript 1D Arrays</a><br>
+<a href="#ce_op_subscript">Subscript Operator</a><br>
+<a href="#ce_op_idxrange">IndexRange Operator</a><br>
+<a href="#ce_idxrange_symbols">IndexRange Symbols</a>
+</p>
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</body>
+</html>

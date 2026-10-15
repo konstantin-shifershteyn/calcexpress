@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{D9896FEE-B1A5-45BB-9277-8732B0214A7F}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>cedll</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>NotSet</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)_Release\32bit\</OutDir>
+    <IntDir>$(SolutionDir)_Intermediate\32bit\$(ProjectName)\</IntDir>
+    <TargetName>celveng32</TargetName>
+    <PreBuildEventUseInBuild>true</PreBuildEventUseInBuild>
+    <ExtensionsToDeleteOnClean>*.asm;$(ExtensionsToDeleteOnClean)</ExtensionsToDeleteOnClean>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)_Release\64bit\</OutDir>
+    <IntDir>$(SolutionDir)_Intermediate\64bit\$(ProjectName)\</IntDir>
+    <TargetName>celveng64</TargetName>
+    <PreBuildEventUseInBuild>true</PreBuildEventUseInBuild>
+    <ExtensionsToDeleteOnClean>*.asm;$(ExtensionsToDeleteOnClean)</ExtensionsToDeleteOnClean>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;CEDLL_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;CEDLL_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;CEDLL_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(CINTOOLSDIR32);$(SolutionDir)Include;$(SolutionDir)Include\CalcExpress;$(SolutionDir)Include\CSE;$(SolutionDir)Include\VarMan;$(SolutionDir)Include\RsrcManager</AdditionalIncludeDirectories>
+      <StructMemberAlignment>1Byte</StructMemberAlignment>
+      <PreprocessKeepComments>
+      </PreprocessKeepComments>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <OmitFramePointers>true</OmitFramePointers>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(CINTOOLSDIR32);$(SolutionDir)_Lib\32bit</AdditionalLibraryDirectories>
+      <AdditionalDependencies>labviewv.lib;ceMemLib.lib;ceCdbLib.lib;cekernel.lib;cse.lib;RsrcManager.lib;varman.lib;misc.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <ModuleDefinitionFile>celveng.def</ModuleDefinitionFile>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>msvcrt.lib</IgnoreSpecificDefaultLibraries>
+      <GenerateMapFile>true</GenerateMapFile>
+      <MapExports>true</MapExports>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+    <ResourceCompile />
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>$(SolutionDir)Include</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <PreBuildEvent>
+      <Command>start cmd /c "$(ProjectDir)xxx-Resources\incCeBuildNo.bat"</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;CEDLL_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(CINTOOLSDIR64);$(SolutionDir)Include;$(SolutionDir)Include\CalcExpress;$(SolutionDir)Include\CSE;$(SolutionDir)Include\VarMan;$(SolutionDir)Include\RsrcManager</AdditionalIncludeDirectories>
+      <StructMemberAlignment>
+      </StructMemberAlignment>
+      <PreprocessKeepComments>
+      </PreprocessKeepComments>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(CINTOOLSDIR64);$(SolutionDir)_Lib\64bit</AdditionalLibraryDirectories>
+      <AdditionalDependencies>labviewv.lib;ceMemLib64.lib;ceCdbLib64.lib;cekernel64.lib;cse64.lib;RsrcManager64.lib;varman64.lib;misc64.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <ModuleDefinitionFile>celveng.def</ModuleDefinitionFile>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>msvcrt.lib</IgnoreSpecificDefaultLibraries>
+      <GenerateMapFile>true</GenerateMapFile>
+      <MapExports>true</MapExports>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+    <ResourceCompile />
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>$(SolutionDir)Include</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <PreBuildEvent>
+      <Command>start cmd /c "$(ProjectDir)xxx-Resources\incCeBuildNo.bat"</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\include\debug\TraceToFile.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\include\lvsup\CIN_Is_Reentrant.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="_core\celveng.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="celveng.def" />
+    <None Include="xxx-Resources\celveng.rc2" />
+    <None Include="xxx-Resources\icons\ce_case.ico" />
+    <None Include="xxx-Resources\icons\ce_paper.ico" />
+    <None Include="xxx-Resources\icons\ce_plus.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\CalcExpress\CalcExpress.h" />
+    <ClInclude Include="..\include\CalcExpress\ceAccessContext.h" />
+    <ClInclude Include="..\include\CalcExpress\ceError.h" />
+    <ClInclude Include="..\include\CalcExpress\ceExpResult.h" />
+    <ClInclude Include="..\include\CalcExpress\ceKernel.h" />
+    <ClInclude Include="..\include\CalcExpress\Expression.h" />
+    <ClInclude Include="..\include\CalcExpress\FastFuncList.h" />
+    <ClInclude Include="..\include\CalcExpress\FuncIdxOp.h" />
+    <ClInclude Include="..\include\CalcExpress\iDataTypes.h" />
+    <ClInclude Include="..\include\CalcExpress\Identifier_Routines.h" />
+    <ClInclude Include="..\include\CalcExpress\Index_Routines.h" />
+    <ClInclude Include="..\include\CalcExpress\lviDataConversion.h" />
+    <ClInclude Include="..\include\CalcExpress\MathConst.h" />
+    <ClInclude Include="..\include\CalcExpress\Operands.h" />
+    <ClInclude Include="..\include\CalcExpress\Operand_Routines.h" />
+    <ClInclude Include="..\include\CalcExpress\Operators.h" />
+    <ClInclude Include="..\include\CalcExpress\rtErrorCode.h" />
+    <ClInclude Include="..\include\celib\cdb.h" />
+    <ClInclude Include="..\include\celib\ceMemLib.h" />
+    <ClInclude Include="..\include\celib\FlattenData.h" />
+    <ClInclude Include="..\include\celib\ceTime.h" />
+    <ClInclude Include="..\include\CE_DataTypes.h" />
+    <ClInclude Include="..\include\CE_ErrorCodes.h" />
+    <ClInclude Include="..\include\CE_ProductInfo.h" />
+    <ClInclude Include="..\include\CSE\CSE Modifiers.h" />
+    <ClInclude Include="..\include\CSE\CSE Parser.h" />
+    <ClInclude Include="..\include\CSE\CSE.h" />
+    <ClInclude Include="..\include\CSE\CSE_AccessContext.h" />
+    <ClInclude Include="..\include\lvsup\lvsup.h" />
+    <ClInclude Include="..\include\RsrcManager\RsrcManager.h" />
+    <ClInclude Include="..\include\VarMan\VarInfo_Routines.h" />
+    <ClInclude Include="..\include\VarMan\VarMan.h" />
+    <ClInclude Include="..\include\VarMan\VarMan_CIN.h" />
+    <ClInclude Include="..\include\VarMan\VarMan_Errors.h" />
+    <ClInclude Include="..\include\VarMan\VHistory.h" />
+    <ClInclude Include="..\include\VarMan\VMEngine.h" />
+    <ClInclude Include="..\include\VarMan\VMEngine_Constants.h" />
+    <ClInclude Include="..\include\VarMan\VMEngine_Routines.h" />
+    <ClInclude Include="xxx-Resources\resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="xxx-Resources\celveng.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,30 @@
+/*
+  the script solves square equations defined by
+  a*(x*x) + b*x + c = 0
+*/
+
+/* specify equation's coefficients here */
+a = 1.5;  b = -13;  c = 8;
+
+/* parameters */
+p = b/a;   q = c/a;
+
+/* solves equation */
+if ((D = q - (p/2)**2) > 0) {
+  msg = "has no solutions";
+}
+else {
+  x1 = (-b + sqrt(b*b - 4*a*c))/(2*a);
+  if (D == 0) {
+     msg = sform("has one solution: %f", x1);
+  }
+  else {
+     x2 = (-b - sqrt(b*b - 4*a*c))/(2*a);
+     msg = sform("has two solutions: %f and %f", x1, x2);
+  }
+}
+MsgBox(
+  "The Square Equation a*(x*x) + b*x + c = 0\n",
+  msg,
+  sform("\n , when\n a = %f\n b = %f\n c = %f" ,a,b,c)
+);

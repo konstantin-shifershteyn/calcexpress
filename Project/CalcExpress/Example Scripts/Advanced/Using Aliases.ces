@@ -1,0 +1,23 @@
+/* Using alias is convenient if you need to access a variable in other context than one used to execute the current script */
+
+x1 = 1000; // create x1 and set it to 1000
+
+/* associate an alias with x1 */
+err = Alias("x1", "x1_Alias");
+if (err) {
+  /* error handling (optional) */
+  lvErrorMessage("Alias() function", 7000-err); return;
+}
+
+/* create x2 and associate an alias with it */
+err = dbl("x2=x2_Alias");
+if (err) {
+  lvErrorMessage("dbl() function", 7000-err); return;
+}
+
+/* referring to variables by the aliases. It has the same effect as x2 = 10 + x1; (see help for idn function) */
+idn("=x2_Alias") = 10 + idn("=x1_Alias"); 
+
+/* display variable values with the referring by the aliases */
+probe( idn("=x1_Alias"), "Variable x1");
+probe( idn("=x2_Alias"), "Variable x2");

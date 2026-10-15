@@ -1,0 +1,387 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+<TITLE>Notifier functions</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="css/cetk.css">
+</head>
+
+<body>
+
+<!-- ########################################## -->
+<a name="cef_notifCancel"></a>
+<div class="FuncDscrTitle">
+<h1>NotifCancel</h1>
+<p>The function erases any message in a notifier with the specified name.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">NotifCancel(name)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function erases any message in the notifier specified by the <b>name</b> parameter. The function works with LabVIEW notifiers that handle string data.</p>
+<p>The function assigns an error code returned by the used LabVIEW functions to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td><td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>name</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">Required parameter that specifies the name of the notifier.</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns a cancelled notification or an empty string if there is no active notification available.</p>
+<p>The return value has the <a href="dtypes.html#data_types_table">String</a> data type.</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_sync.html">Synchronization functions</a>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_notifCreate"></a>
+<div class="FuncDscrTitle">
+<h1>NotifCreate</h1>
+<p>The function creates a notifier with the specified name.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">NotifCreate(name)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function creates a new notifier with the specified <b>name</b> unless a notifier with the same name already exists. The function works with LabVIEW notifiers that handle string data.</p>
+<p>The function assigns an error code returned by the used LabVIEW functions to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td><td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>name</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">Required parameter that specifies the name of the notifier.</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns 1 (TRUE) if a new notifier is created; otherwise, it returns 0 (FALSE).</p>
+<p>The return value has the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+/* It's example of CSE script */<br>
+notifName = &quot;Notifier&quot;;<br>
+if (NotifCreate(notifName)) {<br>
+  MsgBox(&quot;New notifier is created&quot;);<br>
+}<br>
+else {<br>
+  if (errno())<br>
+     lvErrorMessage(&quot;Create Notifier Error&quot;);<br>
+  else<br>
+     MsgBox(&quot;Notifier already exists&quot;);<br>
+}
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_sync.html">Synchronization functions</a>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_notifDestroy"></a>
+<div class="FuncDscrTitle">
+<h1>NotifDestroy</h1>
+<p>The function destroys a notifier with the specified name.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">NotifDestroy(name)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function destroys a notifier with the name specified by the <b>name</b> parameter. The function works with LabVIEW notifiers that handle string data.</p>
+<p>The function assigns an error code returned by the used LabVIEW functions to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td><td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>name</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">Required parameter that specifies the name of the notifier.</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns the last notification sent to the destroyed notifier or an empty string.</p>
+<p>The return value has the <a href="dtypes.html#data_types_table">String</a> data type.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+/* It's example of CSE script */<br>
+notifName = &quot;Notifier&quot;;<br>
+msg = NotifDestroy(notifName);<br>
+if (errno())<br>
+   lvErrorMessage(&quot;Destroy Notifier Error&quot;);<br>
+else<br>
+   MsgBox(&quot;Notifier is destroyed.\n&quot;<br>
+          &quot;The last notification:\n&quot;, msg);
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_sync.html">Synchronization functions</a>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_notifSend"></a>
+<div class="FuncDscrTitle">
+<h1>NotifSend</h1>
+<p>The function sends a notification to the specified notifier.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">NotifSend(name ,<i>msg</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function sends notification to the notifier specified by the <b>name</b> parameter. The <b>msg</b> parameter specifies a string message to be sent to the notifier. All functions and VIs waiting on this notifier finish waiting and return the sent message. The function works with LabVIEW notifiers that handle string data.</p>
+<p>The function assigns an error code returned by the used LabVIEW functions to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td><td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>name</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">Required parameter that specifies the name of the notifier.</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>msg</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that defines a message to send to the notifier.
+By default, <b>msg</b> is an empty string.
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns an error code that has the same value as the <a href="ce_rt_error.html">rtErrorCode</a> variable. If no error occured, the function returns zero.</p>
+<p>The return value has the <a href="dtypes.html#data_types_table">DBL Number</a> data type.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+/* It's example of CSE script */<br>
+notifName = &quot;Notifier&quot;;<br>
+if (NotifSend(notifName, &quot;STOP&quot;)) {<br>
+   /* on an error */<br>
+   lvErrorMessage(&quot;Send Notification Error&quot;);<br>
+}
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_sync.html">Synchronization functions</a>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_notifTest"></a>
+<div class="FuncDscrTitle">
+<h1>NotifTest</h1>
+<p>The function tests if a notifier with the given name exists.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">NotifTest(name)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function returns 1 (TRUE) if a notifier with the specified <b>name</b> exists. Otherwise, it returns 0 (FALSE). The function works with LabVIEW notifiers that handle string data.</p>
+<p>The function does not change the value of the <a href="ce_rt_error.html">rtErrorCode</a> variable.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td><td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>name</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">Required parameter that specifies the name of the notifier.</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>The function returns 1 (TRUE) if a notifier with the given <b>name</b> is found, or 0 (FALSE) otherwise.</p>
+<p>The return value has the <a href="dtypes.html#data_types_table">DBL Number</a> data type. </p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+/* It's example of CSE script */<br>
+notifName = &quot;Notifier&quot;;<br>
+if (NotifTest(notifName))<br>
+   MsgBox(&quot;Notifier exists&quot;);<br>
+else<br>
+   MsgBox(&quot;Notifier doesn't exist&quot;);
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_sync.html">Synchronization functions</a>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+<!-- ########################################## -->
+<a name="cef_notifWait"></a>
+<div class="FuncDscrTitle">
+<h1>NotifWait</h1>
+<p>The function waits for a notification sent to the specified notifier.</p>
+<p>Implementation: <a href="cef_main.html#pdfunc_quick_fvi">FuncVI</a>.</p>
+</div>
+
+<h3>Syntax</h3>
+<p class="FuncDscrSyntax">NotifWait(name ,<i>tmo </i>,<i>ignore</i>)</p>
+
+<h3>Description</h3>
+<div class="FuncDscrSection">
+<p>The function waits for a notification sent to the notifier specified by the <b>name</b> parameter. The function works with LabVIEW notifiers that handle string data.</p>
+<p>The function waits until either notification is sent to the specified notifier or the specified timeout expires. If the function finishes by timeout, it assigns the error code 56 to the <a href="ce_rt_error.html">rtErrorCode</a> variable. Otherwise, the function returns a notification it has received.</p>
+<p>If <b>ignore</b> (previous) parameter is zero (FALSE) and a notification was sent to the notifier since the last call of the function, the function immediately returns the old notification.</p>
+<p>The function assigns an error code returned by the used LabVIEW functions to the <a href="ce_rt_error.html">rtErrorCode</a> variable. You can evaluate it using the <a href="cefunc_error.html#cef_errno">errno</a> function. If this function completes successfully, the error code is zero.</p>
+</div>
+
+<h3>Parameters</h3>
+<div class="FuncDscrSection">
+<table class="FuncDscrTbl">
+<tr>
+<td class="FuncDscrTblCol1"></td>
+<td class="FuncDscrTblCol2"><b><u>data type</u></b></td><td class="FuncDscrTblCol3"><b><u>description</u></b></td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>name</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">String</a></td>
+<td class="FuncDscrTblCol3">Required parameter that specifies the name of the notifier.</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>tmo</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+Optional parameter that specifies the timeout value in milliseconds. To specify infinite timeout, set <b>tmo</b> to -1. 
+By default, <b>tmo</b> equals 1000 milliseconds.
+</td>
+</tr>
+<tr>
+<td class="FuncDscrTblCol1"><b>ignore</b></td>
+<td class="FuncDscrTblCol2"><a href="dtypes.html#data_types_table">DBL Number</a></td>
+<td class="FuncDscrTblCol3">
+optional parameter. If its value coerced to an integer is not zero, the function ignores notifications sent before this function is called. 
+By default, <b>ignore</b> is 1 (TRUE).
+</td>
+</tr>
+</table>
+</div>
+
+<h3>Return value</h3>
+<div class="FuncDscrSection">
+<p>On success, the function returns the last notification sent to the notifier <b>name</b>.</p>
+<p>The return value has the <a href="dtypes.html#data_types_table">String</a> data type.</p>
+</div>
+
+<h3>Example</h3>
+<div class="FuncDscrSection">
+<p class="FuncDscrExample">
+/* It's example of CSE script */<br>
+notifName = &quot;Notifier&quot;;<br>
+msg = NotifWait(notifName, 0);<br>
+while(errno() == 56) {<br>
+  msg = NotifWait(notifName, 1000, 0);<br>
+}<br>
+if (errno() == 0)<br>
+  MsgBox(&quot;Notification is received:\n&quot;, msg);<br>
+else<br>
+  lvErrorMessage(&quot;Wait Notification Error&quot;);
+</p>
+</div>
+
+<h3>Also see</h3>
+<div class="FuncDscrSection">
+<p><a href="cef_cat_sync.html">Synchronization functions</a>.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div>
+
+
+</body>
+</html>

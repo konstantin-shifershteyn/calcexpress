@@ -1,0 +1,67 @@
+viName = "ISP Exmpl - Echo Generator.vi";
+viPath = FileBuildPath(FileGetAppPath(9),"CSE_ISP.llb",viName);
+a1dbl("data"); notif = "";
+
+/* Run a signal generator VI */
+if (viState(viName) != 2) {
+   viRun(viPath, 1);
+   if (lvErrorMessage("viRun function"))
+      return -1;  // if error
+}
+else
+   viOpenFP(viName); /*open VI's FP if it's running*/
+  
+/* obtain a notifier name */
+viCtrlGet(viName, "Notifier", notif);
+if (lvErrorMessage("viCtrlGet function (notifier name)"))
+  return -1;  // if error
+
+/* cancel any existing notification */
+NotifCancel(notif);
+
+/* Set the VI's control values and start generation */
+viCtrlSet(viName,
+          "samples",        256,
+          "cycles",         10,
+     //     "amplitude",      1,
+     //     "decay",          35,
+     //     "echo delay",     135,
+     //     "echo amplitude", 0.3,
+          "generate",       1);
+if (lvErrorMessage("viCtrlSet function"))
+  return -2;  // if error
+
+/* wait notification on data are ready */
+NotifWait(notif, 5000, 0);
+if (lvErrorMessage("NotifWait function"))
+   return -3;  // if error
+
+/* obtain and display data */
+viCtrlGet(viName, "Signal", data);
+wfGraph(0, data, 0,1, "data");
+
+/* compute echogram */
+h = FHIT(data);
+res = ln( sqrt(h*h+data*data) );
+wfGraph(1, res, 0,1, "echogram");
+
+/* --- computation of echo delay --- */
+
+/* compute derivative */
+ic = res[0];              //initial condition
+fc = res[size(res)-1];    //final condition
+res = abs( derivate(res,1,ic,fc) );
+
+/* clear unreliable portions */
+uri = 20;          //unreliable interval
+res[0:uri] = 0;
+res[size(res)-uri : $>] = 0;
+wfGraph(2, res, 0,1, "normilized echogram");
+
+/* search for a peak */
+res = (res >= max(res) * 0.99);
+dly = search(res, 1);
+MsgBox("Echo delay = ", dly, " samples");
+
+/* terminate signal generator VI */
+//viAbort(viPath, 1);

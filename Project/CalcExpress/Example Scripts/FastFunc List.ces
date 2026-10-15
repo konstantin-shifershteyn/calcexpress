@@ -1,0 +1,15 @@
+
+fflist = _fflist();
+
+probe(fflist,  "List of FastFunc functions");
+
+ffarray = ss2str(fflist);
+probe(ffarray, "Raw array of FastFunc functions");
+
+ffarray = srefine(ffarray); // remove spaces
+
+probe( ffarray[2:$>, 1:$>],
+       "2D Array: function names and number of arguments");
+
+probe( ffarray[2:$> @ 1],
+       "1D Array: Function names only");

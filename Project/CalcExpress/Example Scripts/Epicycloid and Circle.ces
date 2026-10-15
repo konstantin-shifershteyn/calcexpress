@@ -1,0 +1,25 @@
+XYGraph();   // opens & clears XY Graph
+WFGraph();   // opens & clears Waveform Graph
+
+/* Initializing coefficients */
+a=1; b=6; k=2.5;
+
+/* step of iteration is one degree */
+di = rad(1);  // Converts degrees to radians
+
+/* 'i' is sequence from 0 to 2*pi with di step */
+i = nvecifs(0, pi(2), di);
+
+/* Calculate X,Y arrays to draw epicycloid */
+X = (a+b)*cos(i) - k*a*cos((a+b)*i/a);
+Y = (a+b)*sin(i) - k*a*sin((a+b)*i/a);
+
+/* Draw Waveform Graphs of X(i) & Y(i) */
+WFGraph(0, X, 0, di , "X(i)");
+WFGraph(1, Y, 0, di , "Y(i)");
+
+/* Draws an epicycloid on XY Graph */
+XYGraph(0, X, Y, "Epicycloid" );
+
+/* Draws a circle */
+XYGraph(1, b*sin(i), b*cos(i), "Circle");

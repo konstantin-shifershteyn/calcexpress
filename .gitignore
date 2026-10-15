@@ -1,0 +1,42 @@
+# Ignore files/folders starting with a dash
+**/-*
+# Ignore files/folders ending with a dash
+**/*-
+
+# === Project specific ===
+/BinRsrc/.vs/
+/BinRsrc/_Intermediate/
+/BinRsrc/_Lib/
+/BinRsrc/_Release/
+/BinRsrc/ipch/
+
+
+# === LabVIEW ===
+*.aliases
+*.lvlps
+
+# === MSVC 2022 ===
+.vs/
+Debug/
+Release/
+x64/
+x86/
+*.user
+*.filters
+*.suo
+*.db
+*.opendb
+*.sdf
+*.ipch
+*.log
+*.tlog
+*.obj
+*.pdb
+*.ilk
+*.exe
+*.aps
+**/xxx-Resources/RCa[0-9]*
+**/xxx-Resources/RCb[0-9]*
+
+# === CHM ===
+*.chw
