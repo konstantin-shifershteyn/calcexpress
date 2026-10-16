@@ -6,14 +6,14 @@ This folder contains VIs and configuration files to build CalcExpress distributi
 ## Preamble
 
 1. A **standard** distribution package must comply with these requirements:
-	1.1. It is a `.vip` package.
-	1.2. It is built for (and contains all VIs saved in) **LabVIEW 2014**.
-	1.3. All Pre-/Post- Build/Install/Uninstall VIs used by the **VIPM Package Builder** must be saved in LabVIEW 2014.
+1.1. It is a `.vip` package.
+1.2. It is built for (and contains all VIs saved in) **LabVIEW 2014**.
+1.3. All Pre-/Post- Build/Install/Uninstall VIs used by the **VIPM Package Builder** must be saved in LabVIEW 2014.
 
 2. LabVIEW versions for the VIs:
-	2.1. All source CalcExpress VIs in this repository are saved in **LabVIEW 2021**.
-	2.2. In this folder (`/__Build/`), VIs that operate on the source VIs (building or editing) are saved in **LabVIEW 2021**.
-	2.3. All VIs that either are targeted to or operate on LabVIEW 2014 are saved in **LabVIEW 2014**. These include the Pre-/Post- Build/Install/Uninstall VIs in this folder (`/__Build/`) and the helper VIs in the `/__Deploy/` folder.
+2.1. All source CalcExpress VIs in this repository are saved in **LabVIEW 2021**.
+2.2. In this folder (`/__Build/`), VIs that operate on the source VIs (building or editing) are saved in **LabVIEW 2021**.
+2.3. All VIs that either are targeted to or operate on LabVIEW 2014 are saved in **LabVIEW 2014**. These include the Pre-/Post- Build/Install/Uninstall VIs in this folder (`/__Build/`) and the helper VIs in the `/__Deploy/` folder.
 
 *(Note: Unless explicitly stated otherwise, LabVIEW 2021 or later can be used to open and run VIs from this repository. Any VI that contains `LV2014` in its name MUST be saved and run in LabVIEW 2014.)*
 
