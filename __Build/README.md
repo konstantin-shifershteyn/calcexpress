@@ -26,7 +26,7 @@ This folder contains VIs and configuration files to build CalcExpress distributi
 
 2. Run `/__Build/Build CalcExpress Deployment.vi` to build the deployment version of the toolkit VIs. This VI creates two deployments in the `/__Deploy/` folder: an intermediate deployment for the current active LabVIEW version, and a target deployment for **LabVIEW 2014** (`/__Deploy/LV 14.0/` folder), which serves as the source to build the final distribution package.
  
-3. Optional but Recommended) In **LabVIEW 2014**, open and run `/__Deploy/Update CLFN in LV2014 Deploy.vi`. This VI updates the `Call Library Function Nodes` (CLFN) inside VIs within the `/__Deploy/LV 14.0/` folder to ensure they are properly linked using the correct relative paths to the core 32-bit and 64-bit DLLs. *(Note: If this step is skipped, LabVIEW will still automatically relink the CLFNs on target computers after installation, but it will trigger extra search prompts.)*
+3. (Optional but Recommended) In **LabVIEW 2014**, open and run `/__Deploy/Update CLFN in LV2014 Deploy.vi`. This VI updates the `Call Library Function Nodes` (CLFN) inside VIs within the `/__Deploy/LV 14.0/` folder to ensure they are properly linked using the correct relative paths to the core 32-bit and 64-bit DLLs. *(Note: If this step is skipped, LabVIEW will still automatically relink the CLFNs on target computers after installation, but it will trigger extra search prompts.)*
 
 4. Open the `/__Build/CalcExpress (LV2014).vipb` file in the **VIPM Package Builder** and build the package.
 
