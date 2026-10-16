@@ -1,9 +1,0 @@
-# ignore everything in this folder
-/*
-
-# exclusion for permanent files
-!.gitignore
-!README.md
-
-# exclusion for the specific package files
-# !calcexpress-4.0.0.142.vip
