@@ -58,4 +58,3 @@ At the moment, sponsorship payments can be accepted exclusively via direct inter
 * `/__Build/` folder contains VIs and configuration files to build CalcExpress distribution packages for installation on end-user computers.
 * `/__Deploy/` folder is the target for generating LabVIEW code that is used for building distribution packages. See the [/__Deploy/README.md](/__Deploy/README.md) file for details.
 * `/__Packaged/` folder is the target for distribution packages you build. See the [/__Packaged/README.md](/__Packaged/README.md) file for details.
-* `/__Releases/` folder contains the official releases of the CalcExpress Toolkit to be installed using **JKI VI Package Manager (VIPM)**.
