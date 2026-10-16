@@ -1,6 +1,7 @@
 # Auto detect text files and perform LF normalization
 * text=auto
 
+*.vip binary
 *.vipb binary
 
 *.dll binary
@@ -12,6 +13,7 @@
 
 *.hgprj text
 *.cse text
+*.kwd text
 
 *.vi binary
 *.vit binary
