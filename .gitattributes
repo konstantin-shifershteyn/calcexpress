@@ -1,22 +1,44 @@
 # Auto detect text files and perform LF normalization
 * text=auto
 
-*.vip binary
-*.vipb binary
-
 *.dll binary
+*.wav binary
 
+# MS Help
 *.chm binary
 *.hhp text
 *.hhc text
 *.hhk text
+*.stp text
 
-*.hgprj text
-*.cse text
-*.kwd text
-
+# LabVIEW files
 *.vi binary
 *.vit binary
 *.ctl binary
 *.mnu binary
 *.llb binary
+*.rtm binary
+*.bin3 binary
+
+# VIPM files
+*.vip binary
+*.vipb binary
+
+# OGPB files
+*.ogpb text
+*.ogpb2 text
+
+# CE Toolkit support
+*.hgprj text
+*.cse text
+*.kwd text
+
+# --------------------------
+# Force GitHub to recognize all LabVIEW VIs and controls as programming language code
+*.vi linguist-language=LabVIEW
+*.vit linguist-language=LabVIEW
+*.ctl linguist-language=LabVIEW
+
+# Exclude all HTML help source files from the repository language statistics
+*.html linguist-documentation
+*.htm linguist-documentation

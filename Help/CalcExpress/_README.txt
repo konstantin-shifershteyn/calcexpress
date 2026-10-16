@@ -36,9 +36,9 @@ CalcExpress Toolkit is distributed 100% free of charge to maximize adoption
 and accessibility across the global LabVIEW community. However, maintaining 
 high-performance engineering tools requires considerable effort over decades. 
 
-If CalcExpress saves your engineering team valuable development hours or is 
-actively deployed on your production lines, please consider supporting the 
-author's ongoing work.
+If CalcExpress saves your engineering team valuable hours or is actively used
+in your development or production, please consider supporting the author's
+efforts and ongoing work.
 
 Support and sponsorship details can be found on the official project page:
 https://github.com/konstantin-shifershteyn/calcexpress

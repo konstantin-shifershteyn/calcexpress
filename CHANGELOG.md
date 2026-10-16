@@ -101,7 +101,7 @@ All historical support arrangements, email troubleshooting channels, and direct 
 
 # VERSION 3.0.0
 
-* CalcExpress Toolkit can be used with both 32-bit and 64-bit LabVIEW.
+* CalcExpress Toolkit can be used with both **32-bit** and **64-bit** LabVIEW.
 * Core DLL code has been revamped to add new features, improve performance, and fix known issues.
 * Revamped CalcExpress documentation is provided in the Compiled HTML Help format (.CHM file).
 * Scripts syntax is extended.
