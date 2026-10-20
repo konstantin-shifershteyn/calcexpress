@@ -44,7 +44,7 @@ At the moment, sponsorship payments can be accepted exclusively via direct inter
 ## Repository Structure
 
 ### Source files to build CalcExpress components
-* `/BitRsrc/` — Original MSVC2022 C source code for the CalcExpress Engine DLLs.
+* `/BinRsrc/` — Original MSVC2022 C source code for the CalcExpress Engine DLLs.
 * `/CE_Help/` — Source files and assets used to build the CalcExpress HTML Help (`.chm`).
 
 ### Source files targeted to their respective LabVIEW directory locations
