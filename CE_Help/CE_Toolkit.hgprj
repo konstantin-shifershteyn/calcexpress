@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<VIHelpeksProject Version="3.0.4">
+<VIHelpeksProject Version="3.1.0">
 
   <ProjectFiles>
     <Item Name="Static Files" Type="Group">
@@ -1527,9 +1527,10 @@
 
   <ProductInfo>
     <Property Name="ProductName">CalcExpress Toolkit</Property>
-    <Property Name="Version">3.1</Property>
+    <Property Name="Version">4.0</Property>
     <Property Name="Author">Konstantin Shifershteyn</Property>
     <Property Name="Copyright">Copyright (c) 2000-2026, Konstantin Shifershteyn</Property>
+    <Property Name="Website">https://github.com/konstantin-shifershteyn/calcexpress</Property>
   </ProductInfo>
 
   <MasterRule>
