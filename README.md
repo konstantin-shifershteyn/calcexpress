@@ -14,6 +14,19 @@ To open, modify, or rebuild the various components of this toolkit, the followin
 * **Documentation Compiler:** Microsoft HTML Help Workshop is used to compile the final documentation CHM file.
 * **Help Generation Tool:** VI Helpeks 3.0.4 is used to generate documentation HTML files for LabVIEW VIs.
 
+## No Dependencies & EU CRA Compliance
+To simplify compliance tracking and risk assessments for commercial systems covered by the **EU Cyber Resilience Act (CRA)**, the dependency footprint of this toolkit is detailed below:
+
+* **Zero Third-Party Dependencies:** Neither the LabVIEW VIs nor the engine DLLs utilize, bundle, or rely on any third-party open-source libraries, external packages, or commercial software components.
+* **Self-Contained C Engine:** The C engine is compiled using the static runtime library option (`/MT`). The standard C Runtime (CRT) is fully embedded directly inside the compiled DLLs. This completely eliminates external dependencies on Microsoft Visual C++ Redistributable packages as well as any third-party libraries.
+* **Managed Memory & Isolated OS Footprint:** 
+  * *Memory Management:* The C engine relies strictly on native **LabVIEW Memory Manager API functions** to allocate and resize data structures safely within LabVIEW's memory space.
+  * *System API Interactivity:* From the Windows system APIs, the C engine calls only **basic operational and thread synchronization functions**. The C engine **does not invoke** APIs for networking, registry access, file system I/O, external process execution, or memory management.
+* **Native LabVIEW Code & Script Extensibility:** All graphical source code consists exclusively of native LabVIEW primitives and standard functions.
+  * *Execution Boundary:* The toolkit supports calling external LabVIEW VIs (`FuncVIs`) to extend script functionality. These calls are executed entirely within the native host LabVIEW environment via wrapper VIs, completely outside the C engine DLL boundary.
+  * *Toolkit & User Functions:* The toolkit includes a set of predefined, visible `FuncVIs` (including standard file I/O and VI control utilities). Users can also implement custom `FuncVIs` with arbitrary capabilities (e.g., networking). The security vetting and use of these predefined and custom extensions are the responsibility of the end-user.
+* **Audit-Ready:** Because the full C source code and LabVIEW blocks are completely visible, the toolkit is 100% auditable for corporate Software Bill of Materials (SBOM) generation, supply-chain validation, and static code analysis.
+
 ## Version 4.0 Milestone Release
 Version 4.0 represents a significant evolutionary upgrade for the CalcExpress ecosystem. The complete, detailed list of new features is disclosed directly inside the accompanying help documentation and the [CHANGELOG.md](CHANGELOG.md) file.
 
