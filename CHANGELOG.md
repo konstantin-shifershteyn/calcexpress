@@ -4,13 +4,10 @@
 
 ### Bug Fix release
 
-#### Scripts and expressions:
 * Bug Fix: Resolved an issue where the array subscript operator returned incorrect results when an index was defined as an array.
-
-#### Example Scripts:
 * Bug Fix: Resolved an issue where example scripts for the CSE ISP utility referenced an incorrect target VI path.
  
-
+---
 
 ## VERSION 4.0.0
 
