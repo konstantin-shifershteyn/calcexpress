@@ -1,6 +1,6 @@
 /* Build VI path */
 viName = "ISP Exmpl - Controls Container.vi";
-viPath = FileBuildPath(FileGetAppPath(9),"CSE_ISP.llb",viName);
+viPath = FileBuildPath(FileGetAppPath(9),"_CSE_ISP.llb",viName);
 //probe(viPath);
 
 /* Start VI */

@@ -22,7 +22,7 @@
 
 #define	PRODUCT_FULL_NAME	"CalcExpress Toolkit" 
 #define	PRODUCT_NAME		"CalcExpress"	// brief product name
-#define PRODUCT_VERSION		"4.0.0"			// version
+#define PRODUCT_VERSION		"4.0.1"			// version
 #define	PRODUCT_RELEASE		""				// release/fix (e.g., beta or r1, or f1)
 
 #define	COPYRIGHT			"Copyright (c) 2000-2026, Konstantin Shifershteyn"

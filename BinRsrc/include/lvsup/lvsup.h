@@ -8,18 +8,24 @@
 #ifndef	__LVSUP_H__
 #define	__LVSUP_H__
 
-//#include <limits.h>
+#include <limits.h>
 //#include <emmintrin.h>
 
 #pragma warning (error	: 4013) /* 'function' undefined; assuming extern returning int */
 #pragma warning (error	: 4020) /* 'function' : too many actual parameters */
 
-#pragma warning (error: 4244) /* conversion between different sized ints */
-#pragma warning (error: 4761) /* integral size mismatch in argument: conversion supplied */
+#pragma warning (error	: 4244) /* conversion between different sized ints */
+#pragma warning (error	: 4761) /* integral size mismatch in argument: conversion supplied */
+
 
 // >>> #CE_3.1.0-r6 2026-09-25
-#define	_DblToI32(xdbl)			((xdbl) < INT_MIN ? INT_MIN : (xdbl) > INT_MAX  ? INT_MAX  : (int32)(xdbl))
-#define	_DblToU32(xdbl)			((xdbl) < 0.0     ? 0UL     : (xdbl) > UINT_MAX ? UINT_MAX : (uInt32)(xdbl))
+//#define	_DblToI32(xdbl)			((xdbl) < INT_MIN ? INT_MIN : (xdbl) > INT_MAX  ? INT_MAX  : (int32)(xdbl))
+//#define	_DblToU32(xdbl)			((xdbl) < 0.0     ? 0UL     : (xdbl) > UINT_MAX ? UINT_MAX : (uInt32)(xdbl))
+// >>> #CE_4.0.1 2026-11-07
+// using inline functions instead of macros fixes side-effect issues when using pointers with ++/--
+__forceinline int32		_DblToI32(float64 xdbl)	{ return ((xdbl) < INT_MIN ? INT_MIN : (xdbl) > INT_MAX  ? INT_MAX  : (int32)(xdbl));  }
+__forceinline uInt32	_DblToU32(float64 xdbl) { return ((xdbl) < 0.0     ? 0UL     : (xdbl) > UINT_MAX ? UINT_MAX : (uInt32)(xdbl)); }
+// <<< #CE_4.0.1 2026-11-07
 #define	_DblToI32Bits(xdbl)		((int32)(int64)(xdbl))
 #define	_DblToU32Bits(xdbl)		((uInt32)(int64)(xdbl))
 // <<< #CE_3.1.0-r6 2026-09-25

@@ -1,5 +1,5 @@
 viName = "ISP Exmpl - Echo Generator.vi";
-viPath = FileBuildPath(FileGetAppPath(9),"CSE_ISP.llb",viName);
+viPath = FileBuildPath(FileGetAppPath(9),"_CSE_ISP.llb",viName);
 a1dbl("data"); notif = "";
 
 /* Run a signal generator VI */

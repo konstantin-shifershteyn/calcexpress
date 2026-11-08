@@ -133,11 +133,11 @@ out:
 	ip->OpdNum -= idxNum;
 
 	if (idxs.idx1.alloc) {
-		//DbgPrintf("Indexation: Discard 'idxs.idx1'\n");
+		//DbgPrintf(__FUNCTION__"(): Discard 'idxs.idx1'\n");
 		_dispose_index_array(&(idxs.idx1));		// >>> #CE_3.0.4 2026-07-05
 	}
 	if (idxs.idx2.alloc) {
-		//DbgPrintf("Indexation: Discard 'idxs.idx2'\n");
+		//DbgPrintf(__FUNCTION__"(): Discard 'idxs.idx2'\n");
 		_dispose_index_array(&(idxs.idx2));		// >>> #CE_3.0.4 2026-07-05
 	}
 

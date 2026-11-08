@@ -73,11 +73,6 @@ MgErr	_prepare_index(_Operand *arg, _idx_info *idx)
 					idx->nDims	= 1;
 					idx->size1	= *ipnt++;
 					idx->size2	= 1;
-// >>> #CE_3.0 2024-12-14
-//#if defined(_M_X64)
-//					ipnt++;	// skip padding bytes
-//#endif
-// <<< #CE_3.0 2024-12-14
 					idx->scalar	= 0;
 					break;
 
@@ -104,7 +99,7 @@ MgErr	_prepare_index(_Operand *arg, _idx_info *idx)
 	fpnt = (float64*)ipnt;
 	ipnt = idx->values;
 	while(size--) {
-		*ipnt++ = _DblToI32(*fpnt++);		//*ipnt++ = (int32)*fpnt++;
+		*ipnt++ = _DblToI32(*fpnt++);
 	}
 	return noErr;
 }

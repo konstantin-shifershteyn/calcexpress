@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2018" Created_Date="2026-10-12 08:35:53" Modified_Date="2026-10-16 12:23:50" Creator="kostya" Comments="" ID="cac03fef1b262a9eb6e9e6b89fc659c6">
+<VI_Package_Builder_Settings Version="2018" Created_Date="2026-10-12 08:35:53" Modified_Date="2026-11-08 14:09:16" Creator="kostya" Comments="" ID="6fcfc6e2b2a354ee7269ece24b95a6a2">
   <Library_General_Settings>
     <Package_File_Name>calcexpress</Package_File_Name>
-    <Library_Version>4.0.0.143</Library_Version>
+    <Library_Version>4.0.1.145</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..\__Deploy\LV 14.0</Library_Source_Folder>
     <Library_Output_Folder>..\__Packaged</Library_Output_Folder>
@@ -55,6 +55,10 @@ The complete CalcExpress help manual can be accessed at any time via the &lt;b&g
       <Packager>Konstantin Shifershteyn</Packager>
       <URL>https://github.com/konstantin-shifershteyn/calcexpress</URL>
       <Release_Notes>
+&lt;b&gt;VERSION 4.0.1&lt;/b&gt;
+* Bug Fix: Resolved an issue where the array subscript operator returned incorrect results when an index was defined as an array.
+* Bug Fix: Resolved an issue where example scripts for the CSE ISP utility referenced an incorrect target VI path.
+
 &lt;b&gt;VERSION 4.0.0&lt;/b&gt;
 CalcExpress has transitioned to a fully Open-Source project under the MIT License. All LabVIEW VIs, C engine code, and core assets are now publicly accessible.
 
