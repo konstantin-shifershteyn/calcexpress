@@ -13,6 +13,7 @@ To open, modify, or rebuild the various components of this toolkit, the followin
 * **C Code Compiler:** MS Visual Studio 2022 is used to compile the engine DLLs from the C source code.
 * **Documentation Compiler:** Microsoft HTML Help Workshop is used to compile the final documentation CHM file.
 * **Help Generation Tool:** VI Helpeks 3.0.4 is used to generate documentation HTML files for LabVIEW VIs.
+* **Distribution Package Compatibility:** Pre-built VIPM distribution packages contain VIs saved for **LabVIEW 2014** (32-bit and 64-bit) as the minimum supported version, while repository source files are maintained in LabVIEW 2021.
 
 ## No Dependencies & EU CRA Compliance
 To simplify compliance tracking and risk assessments for commercial systems covered by the **EU Cyber Resilience Act (CRA)**, the dependency footprint of this toolkit is detailed below:
