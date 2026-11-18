@@ -177,9 +177,9 @@ out:	return err;
 // =========================================
 //	vec2mtx(vector, rows, cols)
 // =========================================
-MgErr	_vec2mtx_arr(	_gen_operand	*opdArr,
-			int32		qty,
-			_gen_operand	*out )
+MgErr _vec2mtx_arr(	_gen_operand	*opdArr,
+					int32			qty,
+					_gen_operand	*out )
 {
 	_gen_operand	*arg;
 	int32		elSize, rows, cols, size;
@@ -218,9 +218,9 @@ out:	return err;
 // ===================================================
 //	submtx(matrix, idx1, len1, idx2, len2)
 // ===================================================
-MgErr	_submtx_arr(	_gen_operand	*opdArr,
-			int32		qty,
-			_gen_operand	*out )
+MgErr	_submtx_arr(_gen_operand	*opdArr,
+					int32			qty,
+					_gen_operand	*out )
 {
 	_gen_operand	*arg;
 	int32		idx1, idx2, len1, len2;
@@ -269,16 +269,16 @@ MgErr	_submtx_arr(	_gen_operand	*opdArr,
 	// *** test conditions
 	// -------------------
 	if ((idx1 < 0) || (idx1 >= opdArr->size1))
-		len1 = 0;
+			len1 = 0;
 	else	len1 = __min(opdArr->size1 - idx1, len1);
 	if ((len1 < 0) || (len1 > opdArr->size1))
-		len1 = 0;
+			len1 = 0;
 	// ---
 	if ((idx2 < 0) || (idx2 >= opdArr->size2))
-		len2 = 0;
+			len2 = 0;
 	else	len2 = __min(opdArr->size2 - idx2, len2);
 	if ((len2 < 0) || (len2 > opdArr->size2))
-		len2 = 0;
+			len2 = 0;
 
 	// *** Prepare out array
 	// ---------------------
@@ -288,6 +288,10 @@ MgErr	_submtx_arr(	_gen_operand	*opdArr,
 	// *** Copy data
 	// -------------
 	dst = out->array;
+// >>> #CE_4.0.2 2026-11-17
+	len1 = out->size1;
+	len2 = out->size2;
+// <<< #CE_4.0.2 2026-11-17
 	for ( i=0; i < len1; i++, idx1++) {
 		src = (char*)opdArr->array + (idx1 * opdArr->size2 + idx2) * elSize;
 		_MoveBlock(src, dst, len2 * elSize);

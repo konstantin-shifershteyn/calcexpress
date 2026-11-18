@@ -7,20 +7,21 @@
 
 
 // =========================================
-// Создает пустой вектор
+// Creates an 1D Array of the given size
 // =========================================
-MgErr	__create_empty_vector(	int32		valType,
-				int32		size,
+MgErr	__create_empty_vector(
+				int32			valType,
+				int32			size,
 				_gen_operand	*out,
-				Bool32		FillIt )
+				Bool32			FillIt )
 {
-	int32		elSize;
-	char		*pnt;
-	MgErr		err = noErr;
-	void	*stub;
-static	LStr	nulStr		= {0, 0};
-static	void	*zeroStr	= &nulStr;
-static	float64	zeroNum[2]	= {0, 0};
+		int32		elSize;
+		char		*pnt;
+		MgErr		err = noErr;
+		void		*stub;
+static	LStr		nulStr		= {0, 0};
+static	void		*zeroStr	= &nulStr;
+static	float64		zeroNum[2]	= {0, 0};
 
 	//---------
 
@@ -53,26 +54,31 @@ out:	return err;
 }
 
 // =========================================
-// Создает пустую матрицу NxM
+// Creates a 2D Array of the given size
 // =========================================
-MgErr	__create_empty_matrix(	int32		valType,
-				int32		rows,
-				int32		cols,
+MgErr	__create_empty_matrix(
+				int32			valType,
+				int32			rows,
+				int32			cols,
 				_gen_operand	*out,
-				Bool32		FillIt )
+				Bool32			FillIt )
 {
-	int32		i, elSize;
-	char		*pnt;
-	MgErr		err = noErr;
-	void	*stub;
-static	LStr	nulStr		= {0, 0};
-static	void	*zeroStr	= &nulStr;
-static	float64	zeroNum[2]	= {0, 0};
+		int32		i, elSize;
+		char		*pnt;
+		MgErr		err = noErr;
+		void		*stub;
+static	LStr		nulStr		= {0, 0};
+static	void		*zeroStr	= &nulStr;
+static	float64		zeroNum[2]	= {0, 0};
 
 	//---------
 
 	if (rows < 0)	rows = 0;
 	if (cols < 0)	cols = 0;
+// >>> #CE_4.0.2 2026-11-17
+	if ((rows <= 0) || (cols <= 0))
+		rows = cols = 0;
+// <<< #CE_4.0.2 2026-11-17
 
 	switch(valType) {
 		case OPTYPE_DBL :	elSize = sizeof(float64);	stub = &zeroNum;

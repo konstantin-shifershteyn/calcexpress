@@ -6,24 +6,25 @@
  * ********************************************************************* */
 
 
-// ===========================================
-//	Èíäåêñèğóåò 1D ìàññèâû
-// ===========================================
+ // ==============================================================
+ // The function reads values of indexed elements within 1D Arrays
+ // ==============================================================
 MgErr	_index_1d_arr(	_gen_operand	*opd,
 						_indexes_info	*idxs,
 						Bool32			onlyDblScalar	// >>> #CE_3.0 2025-04-22
 						)
 {
-	typedef void (*_idx1dfunc)();		// òèï: óêàçàòåëü íà ôóíêöèş èíäåêñèğîâàíèÿ
+	typedef void (*_idx1dfunc)();	// this typedef defines a generic pointer to a datatype-specific indexing function
 
 	int32			i, idx, size, elSize;
-	_idx_info		*iip;			// óêàçàòåëü íà ñòğóêòóğû îïèñàíèÿ èíäåêñîâ
-	int32			*idxArr;		// óêàçàòåëü íà ìàññèâ èíäåêñîâ
-	void			*rsArr;			// óêàçàòåëü íà ìàññèâ ğåçóëüòàòà
-	_gen_operand	res;			// ñòğóêòóğà ğåçóëüòàòà
+	_idx_info		*iip;			// a pointer to an index descriptor
+	int32			*idxArr;		// a pointer to an index array
+	void			*rsArr;			// a pointer to the resulting data array
+	_gen_operand	res;			// result structure
 	_idx_HowToProc	ProcInf;
-	_idx1dfunc		_getfunc;		// óêàçàòåëü íà ôóíêöèş èíäåêñèğîâàíèÿ
+	_idx1dfunc		_getfunc;		// a pointer to the datatype-specific indexing function
 	MgErr			err = noErr;
+	//-----------
 
 	if (opd->nDims != 1) {
 		opd->erMsg = "Internal Error: incorrect call of the function (not 1D array) in "__FUNCTION__"()";
@@ -32,22 +33,22 @@ MgErr	_index_1d_arr(	_gen_operand	*opd,
 
 	iip	= &(idxs->idx1);
 
-	// ïàğàìåòğû äëÿ èíèöèàëèçàöèè
-	// ---------------------------
+	// settings to initialize the result
+	// ---------------------------------
 	ProcInf.compound	= FALSE;
 	ProcInf.idxAmount	= 1;
 //	ProcInf.allocArray	= TRUE;
 	ProcInf.allocArray	= ! onlyDblScalar;	// >>> #CE_3.0 2025-04-22
 
-	// ***** ïîäãîòîâèòü ñòğóêòóğó ğåçóëüòàòà
-	// ======================================
+	// ***** prepare the result structure
+	// ==================================
 	if (err = _index_a1_init_res(opd, iip, &res, &ProcInf))
 		goto out;
 	if (res.erMsg)
 		goto out;
 
-	// Çàâèñèìîñòè îò òèïà äàííûõ
-	// ==========================
+	// dependencies on the array's element datatype
+	// ============================================
 	switch (_operand_get_BaseType(opd->ResType)) {
 		case OPTYPE_DBL :	elSize   = sizeof(float64);
 							_getfunc = get_element_of_A1DBL;
@@ -64,14 +65,15 @@ MgErr	_index_1d_arr(	_gen_operand	*opd,
 	}
 
 	// ==================================
-	// =====  Âûïîëíèòü èíäåêñàöèş  =====
+	// =====   Perform Indexation   =====
 	// ==================================
 	idxArr	= iip->values;
 	rsArr	= res.array;	// is NULL if output buffer was not allocated
 
 	switch(res.nDims)
 	{
-	case 0:	// *** Ğåçóëüòàò - ñêàëÿğ
+	case 0:
+		// *** Result is a scalar
 		// ======================
 		if (res.ResType == OPTYPE_DBL) {
 			_getfunc(opd, *idxArr, &(opd->scalar));
@@ -84,8 +86,10 @@ MgErr	_index_1d_arr(	_gen_operand	*opd,
 		_getfunc(opd, *idxArr, rsArr);
 		break;
 		// ---------------------
-	case 1:	// *** Ğåçóëüòàò - 1D Array
-		//=========================
+
+	case 1:
+		// *** Result is an 1D Array
+		// =========================
 		if (!rsArr)	break;	// >>> #CE_3.0 2025-04-22
 		size = res.size1;
 		idx  = *idxArr;
@@ -104,7 +108,7 @@ MgErr	_index_1d_arr(	_gen_operand	*opd,
 		res.erMsg = "Internal Error: subscript dimensions are out of range in "__FUNCTION__"()";
 		break;
 	}
-	// *** ĞÅÇÓËÜÒÀÒ
+	// *** DONE
 out:
 	if (opd->alloc)
 		err = DSDisposePtr(opd->array);

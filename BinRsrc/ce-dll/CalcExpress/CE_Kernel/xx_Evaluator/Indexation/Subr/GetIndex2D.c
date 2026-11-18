@@ -6,28 +6,28 @@
  * ********************************************************************* */
 
 
-// =========================================================
-//		Индексирует 2D массивы
-// =========================================================
+// ==============================================================
+// The function reads values of indexed elements within 2D Arrays
+// ==============================================================
 MgErr	_index_2d_arr(	_gen_operand	*opd,
 						_indexes_info	*idxs,
 						Bool32			onlyDblScalar	// >>> #CE_3.0 2025-04-22
 						)
 {
-	// тип: указатель на функцию индексирования
+	// this typedef defines a generic pointer to a datatype-specific indexing function
 	typedef void (*_idx2dfunc)();
-	// Структура описывает индекс со значением -1
+	// this structure contains a stub index: nDims == 1 --> index range for entire dimension size
 //	static	_idx_info	idxStub = {-1, 0, 0x7FFFFFFF, 0, &idxStub.scalar, FALSE, NULL };
 	static	_idx_info	idxStub = {-1, 0, 0x7FFFFFFF, 0, &idxStub.scalar, FALSE, 0, NULL };		// >>> #CE_3.0.4 2026-07-04
 
-	_idx_info		*iip1,	*iip2;		// указатели на структуры описания индексов
-	int32			*i1Arr, *i2Arr;		// указатели на массивы индексов
-	_gen_operand	res;				// структура результата
-	void			*rsArr;				// указатель на массив результата
+	_idx_info		*iip1,	*iip2;		// pointers to index descriptors
+	int32			*i1Arr, *i2Arr;		// pointers to index arrays
+	_gen_operand	res;				// result structure
+	void			*rsArr;				// a pointer to the resulting data array
 	int32			i,j, size;
 	int32			idx1, idx2, elSize;
 	_idx_HowToProc	ProcInf;
-	_idx2dfunc		_getfunc;			// указатель на функцию индексирования
+	_idx2dfunc		_getfunc;			// a pointer to the datatype-specific indexing function
 	MgErr			err = noErr;
 	//--------------
 
@@ -40,22 +40,22 @@ MgErr	_index_2d_arr(	_gen_operand	*opd,
 	if (idxs->qty < 2)	iip2 = &(idxStub);
 	else				iip2 = &(idxs->idx2);
 
-	// параметры для инициализации результата
-	// --------------------------------------
+	// settings to initialize the result
+	// ---------------------------------
 	ProcInf.compound	= idxs->compound;
 	ProcInf.idxAmount	= idxs->qty;
 //	ProcInf.allocArray	= TRUE;
 	ProcInf.allocArray	= ! onlyDblScalar;	// >>> #CE_3.0 2025-04-22
 
-	// ***** подготовить структуру результата
-	// ======================================
+	// ***** prepare the result structure
+	// ==================================
 	if (err = _index_a2_init_res(opd, iip1, iip2, &res, &ProcInf))
 		goto out;
 	if (res.erMsg)
 		goto out;
 
-	// Зависимости от типа данных
-	// ==========================
+	// dependencies on the array's element datatype
+	// ============================================
 	switch (_operand_get_BaseType(opd->ResType)) {
 		case OPTYPE_DBL :	elSize = sizeof(float64);
 							_getfunc = get_element_of_A2DBL;
@@ -69,7 +69,7 @@ MgErr	_index_2d_arr(	_gen_operand	*opd,
 	}
 
 	// ==================================
-	// =====  Выполнить индексацию  =====
+	// =====   Perform Indexation   =====
 	// ==================================
 	i1Arr	= iip1->values;
 	i2Arr	= iip2->values;
@@ -77,7 +77,8 @@ MgErr	_index_2d_arr(	_gen_operand	*opd,
 
 	switch(res.nDims)
 	{
-	case 0:	// *** Результат - скаляр
+	case 0:
+		// *** Result is a scalar
 		// ======================
 		if (res.ResType == OPTYPE_DBL) {
 			_getfunc(opd, *i1Arr, *i2Arr, &(opd->scalar));
@@ -90,8 +91,10 @@ MgErr	_index_2d_arr(	_gen_operand	*opd,
 		_getfunc(opd, *i1Arr, *i2Arr, rsArr);
 		break;
 		// ---------------------
-	case 1:	// *** Результат - 1D Array
-		//=========================
+
+	case 1:
+		// *** Result is an 1D Array
+		// =========================
 		if (!rsArr)	break;	// >>> #CE_3.0 2025-04-22
 		size = res.size1;	// * res.size2;
 		idx1 = *i1Arr;
@@ -112,7 +115,9 @@ MgErr	_index_2d_arr(	_gen_operand	*opd,
 		}
 		break;
 		// ---------------------
-	case 2:	// *** Результат - 2D Array
+
+	case 2:
+		// *** Result is a 2D Array
 		// ========================
 		if (!rsArr)	break;	// >>> #CE_3.0 2025-04-22
 		idx1 = *i1Arr;
@@ -135,7 +140,7 @@ MgErr	_index_2d_arr(	_gen_operand	*opd,
 		}
 		break;
 	}
-	// *** РЕЗУЛЬТАТ
+	// *** DONE
 out:
 	if (opd->alloc)
 		err = DSDisposePtr(opd->array);

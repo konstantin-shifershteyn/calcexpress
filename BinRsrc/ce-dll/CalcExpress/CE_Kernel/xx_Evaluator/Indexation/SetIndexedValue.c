@@ -94,7 +94,7 @@ if (!idxs) {	*err_f=LVTRUE; err=CE_InternalError(ip, "idxs == NULL",NULL,NULL);	
 		errmsg = "Incompatible operand data types in assignment";
 		goto out;
 	}
-	// совместимость размерностей проверяется в функциях _set_idxEl_xd_arr()
+	// compatibility of the arrays dimensionality is checked in the _set_idxEl_xd_arr() functions
 
 	switch (in_elType) {
 		case OPTYPE_DBL :
@@ -120,7 +120,7 @@ if (!idxs) {	*err_f=LVTRUE; err=CE_InternalError(ip, "idxs == NULL",NULL,NULL);	
 			err = _save_strings(&aSop, &arr->str);
 			break;
 		default:
-			errmsg = "Unsupported datatype of indexed object";
+			errmsg = "Unsupported datatype of the indexed object";
 			break;
 	}
 out:

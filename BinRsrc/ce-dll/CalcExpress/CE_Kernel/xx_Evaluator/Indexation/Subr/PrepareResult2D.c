@@ -10,7 +10,7 @@
 #define	__PrepareResult2D_C__
 
 // ==========================================================================
-// 	Подготавливает результат индексации 2D Array (DBL, CDB, STR)
+// Prepares the result of 2D Array indexation (DBL, CDB, STR)
 // ==========================================================================
 MgErr _index_a2_init_res(
 				_gen_operand	*arr,
@@ -35,18 +35,18 @@ MgErr _index_a2_init_res(
 	res->erMsg   = NULL;
 
 	// ===============================================
-	// *****  Определить параметры 1-го индекса  *****
+	// *****  Review the 1-st index in Subscript *****
 	// ===============================================
 	switch (iip1->nDims) {
 
-	case -1 :	// Диапазон индексов
+	case -1 :	// ### Index Range
 		nDims1 = 1;
 		if (arr->size1 <= 0) {
 			size1  = 0;
 			break;
 		}
-		iri1 = iip1->size1;	// первый индекс диапазона
-		iri2 = iip1->size2;	// второй индекс диапазона
+		iri1 = iip1->size1;	// 1-st index in the Index Range
+		iri2 = iip1->size2;	// 2-nd index in the Index Range
 
 		if (iri1 < 0) iri1 = 0;
 		if (iri2 < 0) iri2 = 0;
@@ -56,17 +56,25 @@ MgErr _index_a2_init_res(
 		iip1->scalar = iri1;
 
 		size1	= iri2 - iri1;
-		if (size1 >= 0)		{		ihtp->i1type= idxIncremental;	}
-		else {	size1 = abs(size1);	ihtp->i1type= idxDecremental;	}
+		if (size1 >= 0)		{
+			ihtp->i1type = idxIncremental;
+		}
+		else {
+			size1 = abs(size1);
+			ihtp->i1type = idxDecremental;
+		}
 		size1 += 1;
 		break;
 
-	case 0 :	// Индекс - скаляр
+	case 0 :	// ### Scalar Index
 		ihtp->i1type = idxScalar;
 		nDims1 = 0;
-		size1  = 1;
+//		size1  = 1;
+// >>> #CE_4.0.2 2026-11-17
+		size1  = ((iip1->scalar >= 0) && (iip1->scalar < arr->size1)) ? 1 : 0;
+// <<< #CE_4.0.2 2026-11-17
 		break;
-	case 1 :	// Индекс - массив
+	case 1 :	// ### Index Array
 		ihtp->i1type = idxArray;
 		nDims1 = 1;
 		size1  = iip1->size1;
@@ -77,18 +85,18 @@ MgErr _index_a2_init_res(
 	}
 
 	// ===============================================
-	// *****  Определить параметры 2-го индекса  *****
+	// *****  Review the 2-nd index in Subscript *****
 	// ===============================================
 	switch (iip2->nDims) {
 
-	case -1 :	// Диапазон индексов
+	case -1 :	// ### Index Range
 		nDims2 = 1;
 		if (arr->size2 <= 0) {
 			size2  = 0;
 			break;
 		}
-		iri1 = iip2->size1;	// первый индекс диапазона
-		iri2 = iip2->size2;	// второй индекс диапазона
+		iri1 = iip2->size1;	// 1-st index in the Index Range
+		iri2 = iip2->size2;	// 2-nd index in the Index Range
 
 		if (iri1 < 0) iri1 = 0;
 		if (iri2 < 0) iri2 = 0;
@@ -98,17 +106,25 @@ MgErr _index_a2_init_res(
 		iip2->scalar = iri1;
 
 		size2	= iri2 - iri1;
-		if (size2 >= 0) {		ihtp->i2type= idxIncremental;	}
-		else {	size2 = abs(size2);	ihtp->i2type= idxDecremental;	}
+		if (size2 >= 0) {
+			ihtp->i2type = idxIncremental;
+		}
+		else {
+			size2 = abs(size2);
+			ihtp->i2type = idxDecremental;
+		}
 		size2 += 1;
 		break;
 
-	case 0 :	// Индекс - скаляр
+	case 0 :	// ### Scalar Index
 		ihtp->i2type = idxScalar;
 		nDims2 = 0;
-		size2  = 1;
+//		size2  = 1;
+// >>> #CE_4.0.2 2026-11-17
+		size2 = ((iip2->scalar >= 0) && (iip2->scalar < arr->size2)) ? 1 : 0;
+// <<< #CE_4.0.2 2026-11-17
 		break;
-	case 1:		// Индекс - массив
+	case 1:		// ### Index Array
 		ihtp->i2type = idxArray;
 		nDims2 = 1;
 		size2  = iip2->size1;
@@ -119,25 +135,35 @@ MgErr _index_a2_init_res(
 	}
 
 	// =============================================
-	// *****  Определить параметры результата  *****
+	// *****  Determine the result properties  *****
 	// =============================================
 	switch(nDims1 + nDims2) {
-		case 0 :	// Both indexes are scalars
+		case 0:	// Both indexes are scalars
 				res->nDims = 0;
 				res->size1 = res->size2 = 1;
 				break;
 
-		case 1 :	// One of indexes is scalar
+		case 1:	// One of indexes is scalar
 				res->nDims = 1;
 				res->size1 = nDims1 > nDims2 ? size1 : size2;
 				res->size2 = 1;
+// >>> #CE_4.0.2 2026-11-17
+				if ((size1 <= 0) || (size2 <= 0)) {
+					res->size1 = res->size2 = 0;
+				}
+// <<< #CE_4.0.2 2026-11-17
 				break;
 
-		case 2 :	// Both indexes are 1D Array, idxIncremental, or idxDecremental
+		case 2:	// Both indexes are either of 1D Array, idxIncremental, or idxDecremental
 				if (ihtp->compound || (ihtp->idxAmount < 2)) {
 					res->nDims = 2;
 					res->size1 = size1;
 					res->size2 = size2;
+// >>> #CE_4.0.2 2026-11-17
+					if ((size1 <= 0) || (size2 <= 0)) {
+						res->size1 = res->size2 = 0;
+					}
+// <<< #CE_4.0.2 2026-11-17
 				}
 				else {
 					res->nDims = 1;
@@ -153,7 +179,7 @@ MgErr _index_a2_init_res(
 	res->ResType = _operand_get_TargetType(arr->ResType, res->nDims);
 
 	// ===========================================
-	// *****  Выделить память под результат  *****
+	// *****  Allocate memory for the result *****
 	// ===========================================
 	if (ihtp->allocArray) {
 		switch(res->ResType) {

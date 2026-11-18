@@ -55,6 +55,10 @@ void	_matrX_init_result(	_dbl_operand	*out,
 	out->nDims	= 2;
 	out->size1	= rows;
 	out->size2	= cols;
+// >>> #CE_4.0.2 2026-11-17
+	if ((rows <= 0) || (cols <= 0))
+		out->size1 = out->size2 = 0;
+// <<< #CE_4.0.2 2026-11-17
 }
 
 // ========================================================================
@@ -90,6 +94,10 @@ MgErr	_nmtxins_arr(	_dbl_operand	*opdArr,
 
 	// *** fill the array
 	// ------------------
+// >>> #CE_4.0.2 2026-11-17
+	rows = out->size1;
+	cols = out->size2;
+// <<< #CE_4.0.2 2026-11-17
 	p=out->array;
 	for (i=0; i < rows; i++) {
 		val = init + step1 * i;
@@ -143,6 +151,10 @@ MgErr	_nmtxifn_arr(	_dbl_operand	*opdArr,
 
 	// *** fill the array
 	// ------------------
+// >>> #CE_4.0.2 2026-11-17
+	rows = out->size1;
+	cols = out->size2;
+// <<< #CE_4.0.2 2026-11-17
 	p=out->array;
 	for (i=0; i < rows; i++) {
 		val = init + step1 * i;
@@ -182,11 +194,11 @@ MgErr	_nmtxifs_arr(	_dbl_operand	*opdArr,
 	// *** test conditions
 	// -------------------
 	if (step1 != 0)	rows = 1 + _DblToI32(floor((final1 - init)/step1));
-	else		rows = 0;
+	else			rows = 0;
 	if (rows <= 0)	rows = 0;
 //------
 	if (step2 != 0)	cols = 1 + _DblToI32(floor((final2 - init)/step2));
-	else		cols = 0;
+	else			cols = 0;
 	if (cols <= 0)	cols = 0;
 
 	// *** prepare result
@@ -196,6 +208,10 @@ MgErr	_nmtxifs_arr(	_dbl_operand	*opdArr,
 
 	// *** fill the array
 	// ------------------
+// >>> #CE_4.0.2 2026-11-17
+	rows = out->size1;
+	cols = out->size2;
+// <<< #CE_4.0.2 2026-11-17
 	p=out->array;
 	for (i=0; i < rows; i++) {
 		val = init + step1 * i;
